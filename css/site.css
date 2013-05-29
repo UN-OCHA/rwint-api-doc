@@ -1,0 +1,21 @@
+h1 {
+  font-size: 32px;
+  color: black; }
+
+h2 {
+  font-size: 28px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 22px; }
+
+h4 {
+  font-size: 18px; }
+
+h5 {
+  font-size: 16px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
