@@ -54,7 +54,6 @@ Returns
 		"count": 1,
 		"list": [{
 			"id": "573658",
-			"url": "http://reliefweb.int/node/573658",
 			"score": 1,
 			"fields": {
 				"title": "EU Chief Observer expresses serious concerns about levels of violence affecting the campaign during a visit to Peshawar"
@@ -191,8 +190,7 @@ There are 2 ways to pass parameters to a method.
 ```
 curl -XGET 'http://api.rwdev.org/v0/report/list' -d '{
 	"query": {
-		"fields": ["title",
-		"body"],
+		"fields": ["title", "body"],
 		"value": "humanitarian"
 	}
 }'
@@ -434,7 +432,7 @@ curl -XGET 'http://api.rwdev.org/v0/report/list' -d
 	"offset": 0,
 	"limit": 3,
 	"fields": {
-		"include": ["title", "primary_country"],
+		"include": ["url", "title", "primary_country"],
 		"exclude": ["primary_country.shortname"]
 	},
 	"query": {
@@ -468,9 +466,9 @@ Returns
 		"count": 3,
 		"list": [{
 			"id": "572174",
-			"url": "http://reliefweb.int/node/572174",
 			"score": 4.3886194,
 			"fields": {
+				"url": "http://reliefweb.int/node/572174",
 				"title": "Syria Humanitarian Needs Overview, 26 April 2013",
 				"primary_country": {
 					"id": "226",
@@ -481,9 +479,9 @@ Returns
 		},
 		{
 			"id": "572806",
-			"url": "http://reliefweb.int/node/572806",
 			"score": 4.2634196,
 			"fields": {
+				"url": "http://reliefweb.int/node/572806",
 				"title": "Regional Analysis Syria - 30 April 2013",
 				"primary_country": {
 					"id": "226",
@@ -494,9 +492,9 @@ Returns
 		},
 		{
 			"id": "573651",
-			"url": "http://reliefweb.int/node/573651",
 			"score": 1.6755415,
 			"fields": {
+				"url": "http://reliefweb.int/node/573651",
 				"title": "UNHCR provides tents for hundreds of flood victims in Libya",
 				"primary_country": {
 					"id": "140",
@@ -916,7 +914,7 @@ This "method" accepts only 1 parameter:
 <a name="examples"></a>
 ## Examples
 
-**Latest 10 headlines**
+**Latest 5 headlines**
 
 ```
 curl -XGET 'http://api.rwdev.org/v0/report/list' -d
@@ -926,7 +924,7 @@ curl -XGET 'http://api.rwdev.org/v0/report/list' -d
 '{
 	"limit": 5,
 	"fields": {
-		"include": ["primary_country.name", "title"]
+		"include": ["url", "primary_country.name", "title"]
 	},
 	"filter": {
 		"field": "headline"
@@ -938,7 +936,7 @@ curl -XGET 'http://api.rwdev.org/v0/report/list' -d
 or
 
 ```
-http://api.rwdev.org/v0/report/list?limit=5&fields[include][0]=primary_country.name&fields[include][1]=title&filter[field]=headline&sort[0]=date.created:desc
+http://api.rwdev.org/v0/report/list?limit=5&fields[include][0]=url&fields[include][1]=primary_country.name&fields[include][2]=title&filter[field]=headline&sort[0]=date.created:desc
 ```
 
 Returns:
@@ -954,9 +952,9 @@ Returns:
 		"count": 5,
 		"list": [{
 			"id": "573782",
-			"url": "http://reliefweb.int/node/573782",
 			"score": 1,
 			"fields": {
+				"url": "http://reliefweb.int/node/573782",
 				"title": "Syria Crisis Bi-Weekly Humanitarian Situation Report - Syria, Jordan, Lebanon, Iraq and Turkey, 18 April - 02 May 2013",
 				"primary_country": {
 					"name": "Syrian Arab Republic"
@@ -965,9 +963,9 @@ Returns:
 		},
 		{
 			"id": "573768",
-			"url": "http://reliefweb.int/node/573768",
 			"score": 1,
 			"fields": {
+				"url": "http://reliefweb.int/node/573768",
 				"title": "Middle East, North Africa, Afghanistan and Pakistan: Humanitarian Snapshot (as of 30 April 2013) [EN\/AR]",
 				"primary_country": {
 					"name": "Syrian Arab Republic"
@@ -976,9 +974,9 @@ Returns:
 		},
 		{
 			"id": "573763",
-			"url": "http://reliefweb.int/node/573763",
 			"score": 1,
 			"fields": {
+				"url": "http://reliefweb.int/node/573763",
 				"title": "UN warns nearly 13,000 families displaced near Afghan border, many more could follow",
 				"primary_country": {
 					"name": "Pakistan"
@@ -987,9 +985,9 @@ Returns:
 		},
 		{
 			"id": "573736",
-			"url": "http://reliefweb.int/node/573736",
 			"score": 1,
 			"fields": {
+				"url": "http://reliefweb.int/node/573736",
 				"title": "DR Congo: UN food relief agency warns of \u2018Triangle of Death\u2019",
 				"primary_country": {
 					"name": "Democratic Republic of the Congo"
@@ -998,9 +996,9 @@ Returns:
 		},
 		{
 			"id": "573717",
-			"url": "http://reliefweb.int/node/573717",
 			"score": 1,
 			"fields": {
+				"url": "http://reliefweb.int/node/573717",
 				"title": "Niger : Bulletin humanitaire num\u00e9ro 17, 2 mai 2013",
 				"primary_country": {
 					"name": "Niger"
@@ -1021,7 +1019,7 @@ curl -XGET 'http://api.rwdev.org/v0/report/list' -d
 '{
 	"limit": 1,
 	"fields": {
-		"include": ["title", "file.preview"]
+		"include": ["url", "title", "file.preview"]
 	},
 	"query": {
 		"value": "primary_country:Syria format:map"
@@ -1036,7 +1034,7 @@ curl -XGET 'http://api.rwdev.org/v0/report/list' -d
 or
 
 ```
-http://api.rwdev.org/v0/report/list?limit=1&fields[include][0]=title&fields[include][1]=file.preview&query[value]=primary_country:Syria format:map&filter[field]=file.preview&sort[0]=date.created:desc
+http://api.rwdev.org/v0/report/list?limit=1&fields[include][0]=url&fields[include][1]=title&fields[include][2]=file.preview&query[value]=primary_country:Syria format:map&filter[field]=file.preview&sort[0]=date.created:desc
 ```
 
 Returns:
@@ -1052,9 +1050,9 @@ Returns:
 		"count": 1,
 		"list": [{
 			"id": "573773",
-			"url": "http://reliefweb.int/node/573773",
 			"score": 2.1177814,
 			"fields": {
+				"url": "http://reliefweb.int/node/573773",
 				"title": "Regional Humanitarian Funding Update (as of 30 April 2013)",
 				"file": [{
 					"preview": "http:\/\/reliefweb.int\/sites\/reliefweb.int\/files\/resources-pdf-previews\/147308-Regional%20Humanitarian%20Funding%20Update%2030%20Apr%202013..png"
