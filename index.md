@@ -1,7 +1,6 @@
 ---
 layout: "index"
 ---
-
 <a name="top"></a>
 # ReliefWeb API - Documentation
 
@@ -55,6 +54,7 @@ Returns
 		"count": 1,
 		"list": [{
 			"id": "573658",
+			"url": "http://reliefweb.int/node/573658",
 			"score": 1,
 			"fields": {
 				"title": "EU Chief Observer expresses serious concerns about levels of violence affecting the campaign during a visit to Peshawar"
@@ -190,10 +190,11 @@ There are 2 ways to pass parameters to a method.
 
 ```
 curl -XGET 'http://api.rwdev.org/v0/report/list' -d '{
-  "query": {
-    "fields": ["title", "body"],
-    "value": "humanitarian"
-  }
+	"query": {
+		"fields": ["title",
+		"body"],
+		"value": "humanitarian"
+	}
 }'
 ```
 
@@ -249,10 +250,15 @@ Returns:
 	"data": {
 		"type": "country",
 		"info": {
+			"default_field": "name",
 			"fields": {
 				"id": {
 					"type": "number",
 					"sortable": true
+				},
+				"url": {
+					"type": "string",
+					"not_searchable": true
 				},
 				"name": {
 					"type": "string",
@@ -276,7 +282,8 @@ Returns:
 					"type": "boolean"
 				},
 				"description": {
-					"type": "string"
+					"type": "string",
+					"format": "markdown"
 				}
 			}
 		}
@@ -346,10 +353,10 @@ Searching in the `primary_country` field means searching in the `primary_country
 
 ```json
 {
-  "query": {
-    "fields": ["primary_country"],
-    "value": "DR Congo"
-  }
+	"query": {
+		"fields": ["primary_country"],
+		"value": "DR Congo"
+	}
 }
 ```
 
@@ -357,12 +364,12 @@ Setting the `primary_contry` field as field to include in the results will give:
 
 ```json
 {
-  "primary_country" : {
-    "id" : 75,
-    "name" : "Democratic Republic of the Congo",
-    "shortname" : "DR Congo",
-    "iso3" : "cod"
-  }
+	"primary_country": {
+		"id": 75,
+		"name": "Democratic Republic of the Congo",
+		"shortname": "DR Congo",
+		"iso3": "cod"
+	}
 }
 ```
 
@@ -376,10 +383,10 @@ It allows for shorter and more comprehensive search queries or filters.
 
 ```json
 {
-  "query": {
-    "fields": ["country"],
-    "value": "DR Congo"
-  }
+	"query": {
+		"fields": ["country"],
+		"value": "DR Congo"
+	}
 }
 ```
 
@@ -387,10 +394,10 @@ Is equivalent to:
 
 ```json
 {
-  "query": {
-    "fields": ["country.name", "country.shortname", "country.iso3"],
-    "value": "DR Congo"
-  }
+	"query": {
+		"fields": ["country.name", "country.shortname", "country.iso3"],
+		"value": "DR Congo"
+	}
 }
 ```
 
@@ -461,6 +468,7 @@ Returns
 		"count": 3,
 		"list": [{
 			"id": "572174",
+			"url": "http://reliefweb.int/node/572174",
 			"score": 4.3886194,
 			"fields": {
 				"title": "Syria Humanitarian Needs Overview, 26 April 2013",
@@ -473,6 +481,7 @@ Returns
 		},
 		{
 			"id": "572806",
+			"url": "http://reliefweb.int/node/572806",
 			"score": 4.2634196,
 			"fields": {
 				"title": "Regional Analysis Syria - 30 April 2013",
@@ -485,6 +494,7 @@ Returns
 		},
 		{
 			"id": "573651",
+			"url": "http://reliefweb.int/node/573651",
 			"score": 1.6755415,
 			"fields": {
 				"title": "UNHCR provides tents for hundreds of flood victims in Libya",
@@ -510,14 +520,14 @@ Adding a **container** field to the `include` property results in all the sub-fi
 
 ```json
 {
-  "limit": 1,
-  "fields": {
-    "include": ["title", "country"]
-  },
-  "query": {
-    "fields": ["title", "body"],
-    "value": "humanitarian"
-  }
+	"limit": 1,
+	"fields": {
+		"include": ["title", "country"]
+	},
+	"query": {
+		"fields": ["title", "body"],
+		"value": "humanitarian"
+	}
 }
 ```
 
@@ -525,21 +535,19 @@ This query returns the above **fields**:
 
 ```json
 {
-  "fields": {
-    "title": "Transitions and Durable Solutions for Displaced Persons: 21 Reasons for Optimism",
-    "country": [
-      {
-        "id": "13",
-        "name": "Afghanistan",
-        "iso3": "afg"
-      },
-      {
-        "id": "182",
-        "name": "Pakistan",
-        "iso3": "pak"
-      }
-    ]
-  }
+	"fields": {
+		"title": "Transitions and Durable Solutions for Displaced Persons: 21 Reasons for Optimism",
+		"country": [{
+			"id": "13",
+			"name": "Afghanistan",
+			"iso3": "afg"
+		},
+		{
+			"id": "182",
+			"name": "Pakistan",
+			"iso3": "pak"
+		}]
+	}
 }
 ```
 
@@ -549,14 +557,14 @@ The same query with **country.name** instead of **country** in `include`:
 
 ```json
 {
-  "limit": 1,
-  "fields": {
-    "include": ["title", "country.name"]
-  },
-  "query": {
-    "fields": ["title", "body"],
-    "value": "humanitarian"
-  }
+	"limit": 1,
+	"fields": {
+		"include": ["title", "country.name"]
+	},
+	"query": {
+		"fields": ["title", "body"],
+		"value": "humanitarian"
+	}
 }
 ```
 
@@ -564,17 +572,15 @@ This query returns the above **fields**:
 
 ```json
 {
-  "fields": {
-    "title": "Transitions and Durable Solutions for Displaced Persons: 21 Reasons for Optimism",
-    "country": [
-      {
-        "name": "Afghanistan"
-      },
-      {
-        "name": "Pakistan"
-      }
-    ]
-  }
+	"fields": {
+		"title": "Transitions and Durable Solutions for Displaced Persons: 21 Reasons for Optimism",
+		"country": [{
+			"name": "Afghanistan"
+		},
+		{
+			"name": "Pakistan"
+		}]
+	}
 }
 ```
 
@@ -582,15 +588,15 @@ Alternatively, it's possible to specify fields or sub-fields to exclude by addin
 
 ```json
 {
-  "limit": 1,
-  "fields": {
-    "include": ["title", "country"],
-    "exclude": ["country.iso3"]
-  },
-  "query": {
-    "fields": ["title", "body"],
-    "value": "humanitarian"
-  }
+	"limit": 1,
+	"fields": {
+		"include": ["title", "country"],
+		"exclude": ["country.iso3"]
+	},
+	"query": {
+		"fields": ["title", "body"],
+		"value": "humanitarian"
+	}
 }
 ```
 
@@ -598,19 +604,17 @@ This query returns the above **fields**:
 
 ```json
 {
-  "fields": {
-    "title": "Transitions and Durable Solutions for Displaced Persons: 21 Reasons for Optimism",
-    "country": [
-      {
-        "id": "13",
-        "name": "Afghanistan"
-      },
-      {
-        "id": "182",
-        "name": "Pakistan"
-      }
-    ]
-  }
+	"fields": {
+		"title": "Transitions and Durable Solutions for Displaced Persons: 21 Reasons for Optimism",
+		"country": [{
+			"id": "13",
+			"name": "Afghanistan"
+		},
+		{
+			"id": "182",
+			"name": "Pakistan"
+		}]
+	}
 }
 ```
 
@@ -633,10 +637,10 @@ The field names in the `fields` property can have a suffix in the form `^N` wher
 
 ```json
 {
-  "query": {
-    "fields": ["title^5", "body"],
-    "value": "humanitarian"
-  }
+	"query": {
+		"fields": ["title^5", "body"],
+		"value": "humanitarian"
+	}
 }
 ```
 
@@ -712,11 +716,11 @@ A simple filter/condition can be of 3 types:
   Used to filter documents for which the specified field exists (has a value). The `field` property must be the field to check and the `value` property must not be defined. The `operator` property is ignored but the `negate` property can be set to true in order to find documents without the specified field.
 
   ```json
-    {
-      "filter" : {
-        "field" : "headline"
-      }
-    }
+	{
+		"filter": {
+			"field": "headline"
+		}
+	}
   ```
 
   - **range**
@@ -728,15 +732,15 @@ A simple filter/condition can be of 3 types:
     - If both `from` and `to` are defined then it will filter by values **between** the `from` and `to` values.
 
   ```json
-    {
-      "filter" : {
-        "field" : "date.created",
-        "value" : {
-          "from" : 13697412340000,
-          "to" : 13697486790000,
-        }
-      }
-    }
+	{
+		"filter": {
+			"field": "date.created",
+			"value": {
+				"from": 13697412340000,
+				"to": 13697486790000,
+			}
+		}
+	}
   ```
 
   > **Dates** are expressed in milliseconds since Epoch.
@@ -746,13 +750,13 @@ A simple filter/condition can be of 3 types:
   Used to filter by a value. This is the classic filter. The `value` property can however be either a single value or an array of values. In the latter case, he `operator` property is ignored, otherwise it defined the logical relationship between the values. In any case, the `negate` property can be set to true in order to find documents that don't contain the value.
 
   ```json
-    {
-      "filter" : {
-        "field" : "country",
-        "value" : ["France", "Spain"],
-        "operator" : "AND"
-      }
-    }
+	{
+		"filter": {
+			"field": "country",
+			"value": ["France", "Spain"],
+			"operator": "AND"
+		}
+	}
   ```
 
   This filter wll match documents where the country field contains both "France" and "Spain".
@@ -765,21 +769,19 @@ Each condition can be either a simple filter as described above or another *cond
 
 ```json
 {
-  "filter" : {
-    "operator" : "AND",
-    "conditions" : [
-      {
-        "field" : "title",
-        "value" : "humanitarian"
-      },
-      {
-        "field" : "date.created",
-        "value" : {
-          "from" : 13697412340000
-        }
-      }
-    ]
-  }
+	"filter": {
+		"operator": "AND",
+		"conditions": [{
+			"field": "title",
+			"value": "humanitarian"
+		},
+		{
+			"field": "date.created",
+			"value": {
+				"from": 13697412340000
+			}
+		}]
+	}
 }
 ```
 
@@ -789,28 +791,24 @@ Conditional filter can also be nested as illustrated below:
 
 ```json
 {
-  "filter" : {
-    "operator" : "AND",
-    "conditions" : [
-      {
-        "field" : "title",
-        "value" : "humanitarian"
-      },
-      {
-        "operator" : "OR",
-        "conditions" : [
-          {
-            "field" : "country",
-            "value" : "DR Congo"
-          },
-          {
-            "field" : "source",
-            "value" : "OCHA"
-          }
-        ]
-      }
-    ]
-  }
+	"filter": {
+		"operator": "AND",
+		"conditions": [{
+			"field": "title",
+			"value": "humanitarian"
+		},
+		{
+			"operator": "OR",
+			"conditions": [{
+				"field": "country",
+				"value": "DR Congo"
+			},
+			{
+				"field": "source",
+				"value": "OCHA"
+			}]
+		}]
+	}
 }
 ```
 
@@ -822,7 +820,7 @@ The sort parameters accepts an array of **sortable** field names with the sort d
 
 ```json
 {
-  "sort" : ["date:desc", "title:asc"]
+	"sort": ["date:desc", "title:asc"]
 }
 ```
 
@@ -856,6 +854,7 @@ Returns:
 		"id": 573658,
 		"item": {
 			"id": "573658",
+			"url": "http://reliefweb.int/node/573658",
 			"status": true,
 			"date": {
 				"created": 1367592399000,
@@ -912,6 +911,7 @@ This "method" accepts only 1 parameter:
 | ---------- | ----------- | ------ |
 | **fields** | Indicates wich fields to `include` or `exclude` in the item data. See [method list - fields](#method-list-fields) for more details. | array of field names to `include` or `exclude` |
 
+[&uarr; top](#top)
 
 <a name="examples"></a>
 ## Examples
@@ -924,14 +924,14 @@ curl -XGET 'http://api.rwdev.org/v0/report/list' -d
 
 ```json
 '{
-  "limit" : 5,
-  "fields" : {
-    "include" : ["primary_country.name", "title"]
-  },
-  "filter" : {
-    "field" : "headline"
-  },
-  "sort" : ["date.created:desc"]
+	"limit": 5,
+	"fields": {
+		"include": ["primary_country.name", "title"]
+	},
+	"filter": {
+		"field": "headline"
+	},
+	"sort": ["date.created:desc"]
 }'
 ```
 
@@ -954,6 +954,7 @@ Returns:
 		"count": 5,
 		"list": [{
 			"id": "573782",
+			"url": "http://reliefweb.int/node/573782",
 			"score": 1,
 			"fields": {
 				"title": "Syria Crisis Bi-Weekly Humanitarian Situation Report - Syria, Jordan, Lebanon, Iraq and Turkey, 18 April - 02 May 2013",
@@ -964,6 +965,7 @@ Returns:
 		},
 		{
 			"id": "573768",
+			"url": "http://reliefweb.int/node/573768",
 			"score": 1,
 			"fields": {
 				"title": "Middle East, North Africa, Afghanistan and Pakistan: Humanitarian Snapshot (as of 30 April 2013) [EN\/AR]",
@@ -974,6 +976,7 @@ Returns:
 		},
 		{
 			"id": "573763",
+			"url": "http://reliefweb.int/node/573763",
 			"score": 1,
 			"fields": {
 				"title": "UN warns nearly 13,000 families displaced near Afghan border, many more could follow",
@@ -984,6 +987,7 @@ Returns:
 		},
 		{
 			"id": "573736",
+			"url": "http://reliefweb.int/node/573736",
 			"score": 1,
 			"fields": {
 				"title": "DR Congo: UN food relief agency warns of \u2018Triangle of Death\u2019",
@@ -994,6 +998,7 @@ Returns:
 		},
 		{
 			"id": "573717",
+			"url": "http://reliefweb.int/node/573717",
 			"score": 1,
 			"fields": {
 				"title": "Niger : Bulletin humanitaire num\u00e9ro 17, 2 mai 2013",
@@ -1014,17 +1019,17 @@ curl -XGET 'http://api.rwdev.org/v0/report/list' -d
 
 ```json
 '{
-  "limit" : 1,
-  "fields" : {
-    "include" : ["title", "file.preview"]
-  },
-  "query" : {
-    "value" : "primary_country:Syria format:map"
-  },
-  "filter" : {
-    "field" : "file.preview"
-  },
-  "sort" : ["date.created:desc"]
+	"limit": 1,
+	"fields": {
+		"include": ["title", "file.preview"]
+	},
+	"query": {
+		"value": "primary_country:Syria format:map"
+	},
+	"filter": {
+		"field": "file.preview"
+	},
+	"sort": ["date.created:desc"]
 }'
 ```
 
@@ -1047,6 +1052,7 @@ Returns:
 		"count": 1,
 		"list": [{
 			"id": "573773",
+			"url": "http://reliefweb.int/node/573773",
 			"score": 2.1177814,
 			"fields": {
 				"title": "Regional Humanitarian Funding Update (as of 30 April 2013)",
@@ -1060,3 +1066,5 @@ Returns:
 ```
 
 > **Images** or **file previews** (some pdf only) can be pretty large.
+
+[&uarr; top](#top)
