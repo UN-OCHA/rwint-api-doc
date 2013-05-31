@@ -82,7 +82,7 @@ Returns:
 }
 ```
 
-The status code are as follows:
+The status codes are as follows:
 
 | code    | type    | description |
 | ------- | ------- | ----------- |
