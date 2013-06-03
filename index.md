@@ -37,7 +37,7 @@ In case of error, in addition to the appropriate status code, a message is set i
 Example of a successful call:
 
 ```
-http://api.rwdev.org/v0/report/list?limit=1
+http://api.rwlabs.org/v0/report/list?limit=1
 ```
 
 Returns
@@ -46,7 +46,7 @@ Returns
 
 {
 	"version": 0,
-	"satus": 200,
+	"status": 200,
 	"data": {
 		"type": "report",
 		"time": 1,
@@ -66,7 +66,7 @@ Returns
 Example of an error due to a bad syntax:
 
 ```
-http://api.rwdev.org/v0/report/list?limit=1&fields=country
+http://api.rwlabs.org/v0/report/list?limit=1&fields=country
 ```
 
 Returns:
@@ -107,7 +107,7 @@ The current available version is a beta version labeled **`v0`**.
 Calling the API with just the version number allows to discover the available API endpoints:
 
 ```
-curl -XGET 'http://api.rwdev.org/v0'
+curl -XGET 'http://api.rwlabs.org/v0'
 ```
 
 ```json
@@ -118,29 +118,29 @@ curl -XGET 'http://api.rwdev.org/v0'
 		"title": "ReliefWeb API",
 		"endpoints": {
 			"report": {
-				"info": "http:\/\/api.rwdev.org\/v0\/report\/info",
-				"list": "http:\/\/api.rwdev.org\/v0\/report\/list",
-				"item": "http:\/\/api.rwdev.org\/v0\/report\/[ID]"
+				"info": "http:\/\/api.rwlabs.org\/v0\/report\/info",
+				"list": "http:\/\/api.rwlabs.org\/v0\/report\/list",
+				"item": "http:\/\/api.rwlabs.org\/v0\/report\/[ID]"
 			},
 			"job": {
-				"info": "http:\/\/api.rwdev.org\/v0\/job\/info",
-				"list": "http:\/\/api.rwdev.org\/v0\/job\/list",
-				"item": "http:\/\/api.rwdev.org\/v0\/job\/[ID]"
+				"info": "http:\/\/api.rwlabs.org\/v0\/job\/info",
+				"list": "http:\/\/api.rwlabs.org\/v0\/job\/list",
+				"item": "http:\/\/api.rwlabs.org\/v0\/job\/[ID]"
 			},
 			"training": {
-				"info": "http:\/\/api.rwdev.org\/v0\/training\/info",
-				"list": "http:\/\/api.rwdev.org\/v0\/training\/list",
-				"item": "http:\/\/api.rwdev.org\/v0\/training\/[ID]"
+				"info": "http:\/\/api.rwlabs.org\/v0\/training\/info",
+				"list": "http:\/\/api.rwlabs.org\/v0\/training\/list",
+				"item": "http:\/\/api.rwlabs.org\/v0\/training\/[ID]"
 			},
 			"country": {
-				"info": "http:\/\/api.rwdev.org\/v0\/country\/info",
-				"list": "http:\/\/api.rwdev.org\/v0\/country\/list",
-				"item": "http:\/\/api.rwdev.org\/v0\/country\/[ID]"
+				"info": "http:\/\/api.rwlabs.org\/v0\/country\/info",
+				"list": "http:\/\/api.rwlabs.org\/v0\/country\/list",
+				"item": "http:\/\/api.rwlabs.org\/v0\/country\/[ID]"
 			},
 			"disaster": {
-				"info": "http:\/\/api.rwdev.org\/v0\/disaster\/info",
-				"list": "http:\/\/api.rwdev.org\/v0\/disaster\/list",
-				"item": "http:\/\/api.rwdev.org\/v0\/disaster\/[ID]"
+				"info": "http:\/\/api.rwlabs.org\/v0\/disaster\/info",
+				"list": "http:\/\/api.rwlabs.org\/v0\/disaster\/list",
+				"item": "http:\/\/api.rwlabs.org\/v0\/disaster\/[ID]"
 			}
 		}
 	}
@@ -188,7 +188,7 @@ There are 2 ways to pass parameters to a method.
 - As json object in the request body:
 
 ```
-curl -XGET 'http://api.rwdev.org/v0/report/list' -d '{
+curl -XGET 'http://api.rwlabs.org/v0/report/list' -d '{
 	"query": {
 		"fields": ["title", "body"],
 		"value": "humanitarian"
@@ -199,7 +199,7 @@ curl -XGET 'http://api.rwdev.org/v0/report/list' -d '{
 - As standard GET paramaters:
 
 ```
-http://api.rwdev.org/v0/report/list?query[value]=humanitarian&query[fields][0]=title&query[fields][1]=body
+http://api.rwlabs.org/v0/report/list?query[value]=humanitarian&query[fields][0]=title&query[fields][1]=body
 ```
 
 > **Only the HTTP method GET is allowed.**
@@ -236,7 +236,7 @@ This method returns information about the entity, mainly fields definition.
 Example:
 
 ```
-curl -XGET 'http://api.rwdev.org/v0/country/info'
+curl -XGET 'http://api.rwlabs.org/v0/country/info'
 ```
 
 Returns:
@@ -244,7 +244,7 @@ Returns:
 ```json
 {
 	"version": 0,
-	"satus": 200,
+	"status": 200,
 	"data": {
 		"type": "country",
 		"info": {
@@ -424,7 +424,7 @@ It accepts the following paramaters:
 Example:
 
 ```
-curl -XGET 'http://api.rwdev.org/v0/report/list' -d
+curl -XGET 'http://api.rwlabs.org/v0/report/list' -d
 ```
 
 ```json
@@ -458,7 +458,7 @@ Returns
 ```json
 {
 	"version": 0,
-	"satus": 200,
+	"status": 200,
 	"data": {
 		"type": "report",
 		"time": 83,
@@ -838,7 +838,7 @@ By default, without any parameter, it returns all the available (existing) field
 Example:
 
 ```
-curl -XGET 'http://api.rwdev.org/v0/report/573658'
+curl -XGET 'http://api.rwlabs.org/v0/report/573658'
 ```
 
 Returns:
@@ -846,7 +846,7 @@ Returns:
 ```json
 {
 	"version": 0,
-	"satus": 200,
+	"status": 200,
 	"data": {
 		"type": "report",
 		"id": 573658,
@@ -917,7 +917,7 @@ This "method" accepts only 1 parameter:
 **Latest 5 headlines**
 
 ```
-curl -XGET 'http://api.rwdev.org/v0/report/list' -d
+curl -XGET 'http://api.rwlabs.org/v0/report/list' -d
 ```
 
 ```json
@@ -936,7 +936,7 @@ curl -XGET 'http://api.rwdev.org/v0/report/list' -d
 or
 
 ```
-http://api.rwdev.org/v0/report/list?limit=5&fields[include][0]=url&fields[include][1]=primary_country.name&fields[include][2]=title&filter[field]=headline&sort[0]=date.created:desc
+http://api.rwlabs.org/v0/report/list?limit=5&fields[include][0]=url&fields[include][1]=primary_country.name&fields[include][2]=title&filter[field]=headline&sort[0]=date.created:desc
 ```
 
 Returns:
@@ -944,7 +944,7 @@ Returns:
 ```json
 {
 	"version": 0,
-	"satus": 200,
+	"status": 200,
 	"data": {
 		"type": "report",
 		"time": 2,
@@ -1012,7 +1012,7 @@ Returns:
 **Latest Map for Syria**
 
 ```
-curl -XGET 'http://api.rwdev.org/v0/report/list' -d
+curl -XGET 'http://api.rwlabs.org/v0/report/list' -d
 ```
 
 ```json
@@ -1034,7 +1034,7 @@ curl -XGET 'http://api.rwdev.org/v0/report/list' -d
 or
 
 ```
-http://api.rwdev.org/v0/report/list?limit=1&fields[include][0]=url&fields[include][1]=title&fields[include][2]=file.preview&query[value]=primary_country:Syria format:map&filter[field]=file.preview&sort[0]=date.created:desc
+http://api.rwlabs.org/v0/report/list?limit=1&fields[include][0]=url&fields[include][1]=title&fields[include][2]=file.preview&query[value]=primary_country:Syria format:map&filter[field]=file.preview&sort[0]=date.created:desc
 ```
 
 Returns:
@@ -1042,7 +1042,7 @@ Returns:
 ```json
 {
 	"version": 0,
-	"satus": 200,
+	"status": 200,
 	"data": {
 		"type": "report",
 		"time": 2,
