@@ -1,6 +1,7 @@
 .highlight { background-color: #ffffcc }
 .c { color: #999988; font-style: italic } /* Comment */
-.err { color: #a61717; background-color: #e3d2d2 } /* Error */
+/* not showing errors for docs - so we can highlight curl calls as json */
+/* .err { color: #a61717; background-color: #e3d2d2 } /1* Error *1/ */
 .k { color: #000000; font-weight: bold } /* Keyword */
 .o { color: #000000; font-weight: bold } /* Operator */
 .cm { color: #999988; font-style: italic } /* Comment.Multiline */
