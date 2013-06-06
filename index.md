@@ -38,12 +38,20 @@ Any call to the API returns a `JSON` object.
 
 Calls follow the pattern:
 
-http://[[APIURL]](#api-url)/[[VERSION]](#version)/[[ENTITY]](#entities)/[[METHOD|ITEMID]](#methods) plus [PARAMETERS](#parameters).
+http://APIURL/VERSION/[ENTITY/[METHOD|ITEMID[?PARAMETERS]]].
+
+| reference          | description | values |
+| ------------------ | ----------- | ------ |
+| **APIURL**         | Main url. [More information.](#api-url)  | `api.rwlabs.org` |
+| **VERSION**        | API Version number. [More information.](#version) | `v0`|
+| **ENTITY**         | Type of entity that is being queried. [More information.](#entities) | `report`, `job`, `training`, `disaster` or `country`. |
+| **METHOD** or **ITEMID**| Type of request, or specific id of item being queried. [More information.](#methods) | `info`, `list` or numeric id. |
+| **PARAMETERS**     | HTTP GET query string, or a JSON object, with further details of the query. [More information.](#parameters) | `?limit=1`, `{"limit": 1}` (for example). |
 
 A successful call returns a JSON object of three parts:
 
-* the `version` (see '[Version](#version)'),
-* an HTTP `status` code of 200 (see '[Status codes](#status-codes)')
+* the `version` (see [Version](#version)),
+* an HTTP `status` code of 200 (see [Status codes](#status-codes))
 * a `data` object.
 
 An unsuccessful call returns:
@@ -89,7 +97,7 @@ Returns
 <a name="parameters"></a>
 ## Parameters
 
-There are 2 ways to pass parameters to a method:
+There are two ways to pass parameters to a method:
 
 - as json object in the request body:
 
@@ -235,7 +243,7 @@ Returns:
 <a name="methods"></a>
 ## Methods
 
-Methods are the way to get the data for an entity type.
+Methods are the way to get the data for an entity type or for specific content.
 
 They follow the same pattern:
 
@@ -314,6 +322,8 @@ Returns:
 }
 ```
 
+> The `default_field` shows what will be returned in a `list` query if no fields are specified. See [list fields](#method-list-fields).
+
 The result is a list of properties for each field.
 
 | field property     | description | values |
@@ -359,8 +369,7 @@ For example, the definition for the `date` field in reports is as follows:
 }
 ```
 
-Searching in the `primary_country` field means searching in the `primary_country.common` which as described below is equivalent to searching in `primary_country.name`, `primary_country.shortname` and `primary_country.iso3` at the same time.
-
+Searching in the `date` field is the same as searching the `date.created` field.
 
 <a name="common-fields"></a>
 ##### Common fields
@@ -406,7 +415,7 @@ Is equivalent to:
 <a name="method-list"></a>
 ### List
 
-This method can be used to get a list of entity items.
+This method can be used to get a list of entity items. This is the method for searching for content or generating filtered lists.
 
 It accepts the following parameters, (`fields`, `query`, `filter` and `sort` are explained in more detail below):
 
@@ -504,11 +513,13 @@ Returns
 <a name="method-list-fields"></a>
 #### Fields
 
-The `field` parameter is an object with 2 properties: `include` and `exclude`. Each property accepts an array of field or sub-field names.
+The `fields` parameter is an object with 2 properties: `include` and `exclude`. Each property accepts an array of field names.
 
-For field names, refer to  the entity description as returned by the **info** method.
+> This `fields` parameter is not to be confused with `fields` as parameters for a `query`. These influence which fields are returned, not which are searched in.
 
-Adding a **container** field that defaults to `common` to the `include` property returns all the sub-fields:
+For field names, refer to the entity description as returned by the **info** method. If no `fields` parameter is specified, the default is returned. See [info](#method-info).
+
+Adding a [container](#container-fields) field that defaults to [common](#common-fields) to the `include` property returns all the sub-fields:
 
 ```json
 {
@@ -622,6 +633,8 @@ It's an object with 3 properties:
 | **value**    | corresponds to the query itself. It is ***mandatory***. | query string | "situation report Kenya"
 | **fields**   | Specifies fields to perform the search query on. Defaults to the `default_field` as mentioned in the entity information (see [entity information](#method-info) for available fields).   | array of fields names | ["title", "country"]
 | **operator** | Sets up the logical connector between the terms of the query, by default **spaces** are interprated as ` OR `. | `AND` or `OR` | `AND` &rarr; "humanitarian AND report" |
+
+> This `fields` parameter for `query` is not to be confused with the higher level `fields` parameter. These indicate which fields are searched in, not which are returned.
 
 ##### Boost
 
@@ -898,11 +911,11 @@ Returns:
 
 > The **body** field above is formatted according to the [Markdown](http://daringfireball.net/projects/markdown/) syntax and can be converted to html by using a markdown library.
 
-This "method" accepts only 1 parameter:
+This "method" accepts only one parameter:
 
 | parameter  | description | values |
 | ---------- | ----------- | ------ |
-| **fields** | Indicates wich fields to `include` or `exclude` in the item data. See [method list - fields](#method-list-fields) for more details. | array of field names to `include` or `exclude` |
+| **fields** | Indicates which fields to `include` or `exclude` in the item data. See [method list - fields](#method-list-fields) for more details. | array of field names to `include` or `exclude` |
 
 For example:
 
@@ -1102,7 +1115,9 @@ Returns:
 
 > **Images** or **file previews** (some pdf only) can be pretty large.
 
-Example of an error due to a bad syntax:
+> `format: map` is the filter to use for map reports. To inspect *most* of the other possible values, see the filters on the corresponding Reliefweb page (i.e. [Updates](http://reliefweb.int/updates) for reports, [Jobs](http://reliefweb.int/jobs), [Training](http://reliefweb.int/training), [Countries](http://reliefweb.int/country/wld), or on individual [disaster](http://reliefweb.int/disasters)) pages. We are working on a way to make these more explicit.
+
+**Example of an error due to a bad syntax:**
 
 ```
 http://api.rwlabs.org/v0/report/list?limit=1&fields=country
