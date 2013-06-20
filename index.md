@@ -30,6 +30,7 @@ The API allows to fetch content from [ReliefWeb](http://reliefweb.int) like the 
   - [count](#method-count)
   - [item ID](#method-item-id)
 - [**Examples**](#examples)
+- [**Notes**](#notes)
 
 
 <a name="general-information"></a>
@@ -105,7 +106,7 @@ While this remains a Reliefweb Labs project, the url for API calls is:
 http://api.rwlabs.org
 ```
 
-Remember that this is likely to change when the API leaves beta.
+The URL is likely to change when the API leaves beta.
 
 [&uarr; top](#top)
 
@@ -1012,7 +1013,7 @@ Returns:
 <a name="examples"></a>
 ## Examples
 
-**Latest 5 headlines**
+**1. Latest 5 headlines**
 
 URL, primary country name and title of latest 5 headlines, sorted by date.
 
@@ -1105,7 +1106,7 @@ Returns:
 }
 ```
 
-**Latest Map for Syria**
+**2. Latest Map for Syria**
 
 ```json
 curl -XGET 'http://api.rwlabs.org/v0/report/list' -d '{
@@ -1114,7 +1115,7 @@ curl -XGET 'http://api.rwlabs.org/v0/report/list' -d '{
 		"include": ["url", "title", "file.preview"]
 	},
 	"query": {
-		"value": "primary_country:Syria format:map"
+		"value": "primary_country:Syria AND format:map"
 	},
 	"filter": {
 		"field": "file.preview"
@@ -1155,11 +1156,26 @@ Returns:
 }
 ```
 
-> **Images** or **file previews** (some pdf only) can be pretty large.
+In the above example, the returned documents are Map updates (see [ReliefWeb - Maps and Infographics](http://reliefweb.int/maps)).
 
-> `format: map` is the filter to use for map reports. To inspect *most* of the other possible values, see the filters on the corresponding Reliefweb page (i.e. [Updates](http://reliefweb.int/updates) for reports, [Jobs](http://reliefweb.int/jobs), [Training](http://reliefweb.int/training), [Countries](http://reliefweb.int/country/wld), or on individual [disaster](http://reliefweb.int/disasters)) pages. We are working on a way to make these more explicit.
+Filtering for maps can be done in 2 ways:
 
-**Example of an error due to a bad syntax:**
+- In the query string
+
+  As in the example, maps can be obtain by specifying `format:map` in the **query value** (note the `AND` between the terms).
+
+- In a filter
+
+  ```json
+    {
+      "filter": {
+        "field": "format",
+        "value": "map"
+      }
+    }
+  ```
+
+**3. Example of an error due to a bad syntax:**
 
 ```
 http://api.rwlabs.org/v0/report/list?limit=1&fields=country
@@ -1177,5 +1193,39 @@ Returns:
 	}
 }
 ```
+
+[&uarr; top](#top)
+
+<a name="notes"></a>
+## Notes:
+
+- **ReliefWeb taxonomy terms**
+
+  For possible filter values or query terms, please refer to the filters on the corresponding Reliefweb pages:
+
+  - [Updates](http://reliefweb.int/updates) for *reports*
+  - [Jobs](http://reliefweb.int/jobs)
+  - [Training](http://reliefweb.int/training)
+  - [Disasters](http://reliefweb.int/disasters)
+
+  > A list of all the available terms should soon be available with a more convenient ways to explore the different values.
+
+- **Images**
+
+  ```json
+    {
+      "file": [{
+        "preview": "http:\/\/reliefweb.int\/sites\/reliefweb.int\/files\/resources-pdf-previews\/147308-Regional%20Humanitarian%20Funding%20Update%2030%20Apr%202013..png"
+      }]
+    }
+  ```
+
+  **Images** or **file previews** (some pdf only) like above, can be pretty large and it may be a good to cache and resize them on the application side.
+
+- **Markdown**
+
+  Some fields use the `markdown` (see [Markdown](http://daringfireball.net/projects/markdown/)) format and should be transformed into HTML using a library like [PHP - Markdown](http://michelf.ca/projects/php-markdown/).
+
+  Those fields can contain internal link to [ReliefWeb - Updates](http://reliefweb.int/updates) in the form `[some title](/node/123456)`. Those link should be converted to absolute links before transforming the field into HTML.
 
 [&uarr; top](#top)
