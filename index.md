@@ -13,9 +13,10 @@ The API allows to fetch content from [ReliefWeb](http://reliefweb.int) like the 
 ## Table of contents
 
 - [**General information**](#general-information)
-- [**Parameters**](#parameters)
-- [**API URL**](#api-url)
-- [**Version**](#version)
+  - [API URL](#api-url)
+  - [Version](#version)
+  - [Parameters](#parameters)
+  - [Status codes](#status-codes)
 - [**Entities**](#entities)
 - [**Methods**](#methods)
   - [info](#method-info)
@@ -26,8 +27,8 @@ The API allows to fetch content from [ReliefWeb](http://reliefweb.int) like the 
       - [list query](#method-list-query)
       - [list filter](#method-list-filter)
       - [list sort](#method-list-sort)
+  - [count](#method-count)
   - [item ID](#method-item-id)
-- [**Status codes**](#status-codes)
 - [**Examples**](#examples)
 
 
@@ -38,7 +39,9 @@ Any call to the API returns a `JSON` object.
 
 Calls follow the pattern:
 
-http://APIURL/VERSION/[ENTITY/[METHOD|ITEMID[?PARAMETERS]]].
+```
+http://APIURL/VERSION/[ENTITY/[METHOD|ITEMID[?PARAMETERS]]]
+```
 
 | reference          | description | values |
 | ------------------ | ----------- | ------ |
@@ -93,35 +96,8 @@ Returns
 
 [&uarr; top](#top)
 
-
-<a name="parameters"></a>
-## Parameters
-
-There are two ways to pass parameters to a method:
-
-- as json object in the request body:
-
-```json
-curl -XGET 'http://api.rwlabs.org/v0/report/list' -d '{
-	"query": {
-		"fields": ["title", "body"],
-		"value": "humanitarian"
-	}
-}'
-```
-
-- as standard GET parameters:
-
-```
-http://api.rwlabs.org/v0/report/list?query[value]=humanitarian&query[fields][0]=title&query[fields][1]=body
-```
-
-> **Only the HTTP method GET is allowed.**
-
-[&uarr; top](#top)
-
 <a name="api-url"></a>
-## API URL
+### API URL
 
 While this remains a Reliefweb Labs project, the url for API calls is:
 
@@ -134,7 +110,7 @@ Remember that this is likely to change when the API leaves beta.
 [&uarr; top](#top)
 
 <a name="version"></a>
-## Version
+### Version
 
 The current available version is a beta version labeled **`v0`**.
 
@@ -185,6 +161,50 @@ Returns:
 
 [&uarr; top](#top)
 
+<a name="parameters"></a>
+### Parameters
+
+There are two ways to pass parameters to a method:
+
+- as a json object in the request body:
+
+```json
+curl -XGET 'http://api.rwlabs.org/v0/report/list' -d '{
+	"query": {
+		"fields": ["title", "body"],
+		"value": "humanitarian"
+	}
+}'
+```
+
+- as standard GET parameters:
+
+```
+http://api.rwlabs.org/v0/report/list?query[value]=humanitarian&query[fields][0]=title&query[fields][1]=body
+```
+
+> **Only the HTTP method GET is allowed.**
+
+[&uarr; top](#top)
+
+<a name="status-codes"></a>
+###Status codes
+
+The API uses the following subset of [HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes):
+
+| code    | type    | description |
+| ------- | ------- | ----------- |
+| **200** | success | ***Successful API call.*** The data is in the `data` property of the JSON object. |
+| **400** | error   | ***Syntax error.*** The passed parameters couldn't be parsed due to a syntax error, for example: wrong usage of a parameter, invalid operator etc. |
+| **404** | error   | ***API endpoint not found.*** Call to a method or an endpoint that doesn't exist like using the ID of a document that has been removed. |
+| **405** | error   | ***HTTP method not allowed.*** For example trying to call an endpoint using the method `PUT` while only `GET` is supported. |
+| **410** | error   | ***Deprecated API version.*** Call to a version of the API that has been deprecated. |
+| **500** | error   | ***Internal server error.*** Problem in the API itself. |
+| **503** | error   | ***The service is currently unavailable.*** A possible cause is maintenance. |
+
+> In case of error, the message defined in the `error` property of the JSON object *should* give enough information to resolve the problem.
+
+[&uarr; top](#top)
 
 <a name="entities"></a>
 ## Entities
@@ -251,11 +271,12 @@ They follow the same pattern:
 http://[APIURL]/[VERSION]/[ENTITY]/[METHOD|ITEMID]
 ```
 
-Currently 3 methods are defined.
+Currently 4 methods are defined.
 
 1. `info`
 2. `list`
-3. `[itemid]`
+3. `count`
+4. `[itemid]`
 
 The last one is not a method per se, but follows a similar pattern and allows to get the data for a particular entity item.
 
@@ -340,7 +361,7 @@ The result is a list of properties for each field.
 
 > **Exact** fields can be used to match an exact term or phrase. Searching for ***Sudan*** in `country.name.exact` will match documents tagged with ***Sudan*** but not documents tagged with ***South Sudan***.
 
-> Some fields in **markdown** format can contain relative links to [ReliefWeb](http://reliefweb.int) reports like `[Some title](/node/123456)`. These links need consideration, and should be replaced with absolute links before transforming the text into html.
+> Some fields in **markdown** format can contain relative links to [ReliefWeb - Updates](http://reliefweb.int/updates) like `[Some title](/node/123456)`. These links need consideration, and should be replaced with absolute links before transforming the text into html.
 
 <a name="container-fields"></a>
 ##### Container fields.
@@ -425,8 +446,8 @@ It accepts the following parameters, (`fields`, `query`, `filter` and `sort` are
 | **offset** | Indicates the offset from which to return the items. It can be used to create a pager. The default is `0`. | >= `0` |
 | **fields** | Indicates which fields to `include` or `exclude` for each item. The default field returned depends on the entity type. See [below](#method-list-fields) for more details. | array of field names to `include` or `exclude` |
 | **query**  | Classic search query which accepts an extended syntax. The default is no query. See [below](#method-list-query) for more details. | object |
-| **filter** | Allows filtering of the results, it can be a simple filter or a logical combination of filters. See [below](#method-list-filter) for more details. | object |
-| **sort**   | Allows sorting of the results. See [below](#method-list-sort) for more details. | array of field name and sort direction |
+| **filter** | Allows filtering of the results, it can be a simple filter or a logical combination of filters. The default is no filter. See [below](#method-list-filter) for more details. | object |
+| **sort**   | Allows sorting of the results. By default the results are ordered by score (relevance). See [below](#method-list-sort) for more details. | array of field name and sort direction |
 
 Example:
 
@@ -704,13 +725,13 @@ The filter parameter is of 2 kinds. It can be a simple filter (field, value) or 
 
 The following properties are available:
 
-| property   | description | values |
-| ---------- | ----------- | ------ |
-| operator   | this property is always available. It corresponds to the logical connector between the filter values or the filter conditions. Default is `AND`. | `AND` or `OR` |
-| negate     | This property is always available. It is used to negate the filter, for finding documents not containing the filter value. | `true` or not present |
-| field      | This property is mandatory if the filter is a simple filter, but **can not** be defined at the same time as `conditions`. | field name |
-| value      | This property is mandatory for `range` and `value` type filters only. Otherwise it **must not** be defined. See the description of the filter types below for more details. | single value, array or object |
-| conditions | This property is used to combine filters with a logical connector (the `operator` property). It **can not** be defined as the same time as `field` and `value` | array of filters |
+| property       | description | values |
+| -------------- | ----------- | ------ |
+| **operator**   | this property is always available. It corresponds to the logical connector between the filter values or the filter conditions. Default is `AND`. | `AND` or `OR` |
+| **negate**     | This property is always available. It is used to negate the filter, for finding documents not containing the filter value. | `true` or not present |
+| **field**      | This property is mandatory if the filter is a simple filter, but **can not** be defined at the same time as `conditions`. | field name |
+| **value**      | This property is mandatory for `range` and `value` type filters only. Otherwise it **must not** be defined. See the description of the filter types below for more details. | single value, array or object |
+| **conditions** | This property is used to combine filters with a logical connector (the `operator` property). It **can not** be defined as the same time as `field` and `value` | array of filters |
 
 ##### Simple filter
 
@@ -834,6 +855,45 @@ In the above example, the results will be sorted by date (most recent documents 
 
 [&uarr; top](#top)
 
+<a name="method-count"></a>
+### Count
+
+This method can be used to get the number of entity items for a given set of query/filters or the total number of entity items if none.
+
+It accepts the following parameters (see the `list` method for more details):
+
+| parameter  | description | values |
+| ---------- | ----------- | ------ |
+| **query**  | Classic search query which accepts an extended syntax. The default is no query. See [method list - query](#method-list-query) for more details. | object |
+| **filter** | Allows filtering of the results, it can be a simple filter or a logical combination of filters. The default is no filter. See [method list - filter](#method-list-filter) for more details. | object |
+
+> The number of items is the `count` property of the `data` property of the returned json object.
+
+For example:
+
+```json
+curl -XGET 'http://api.rwlabs.org/v0/report/count' -d '{
+  "query": {
+    "value" : "country:Japan"
+  }
+}'
+```
+
+returns
+
+```json
+{
+	"version": 0,
+	"status": 200,
+	"data": {
+		"type": "report",
+		"count": 2414
+	}
+}
+```
+
+[&uarr; top](#top)
+
 <a name="method-item-id"></a>
 ### Item ID
 
@@ -946,24 +1006,6 @@ Returns:
   }
 }
 ```
-
-[&uarr; top](#top)
-
-<a name="status-codes"></a>
-
-The API uses the following subset of [HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes):
-
-| code    | type    | description |
-| ------- | ------- | ----------- |
-| **200** | success | ***Successful API call.*** The data is in the `data` property of the JSON object. |
-| **400** | error   | ***Syntax error.*** The passed parameters couldn't be parsed due to a syntax error, for example: wrong usage of a parameter, invalid operator etc. |
-| **404** | error   | ***API endpoint not found.*** Call to a method or an endpoint that doesn't exist like using the ID of a document that has been removed. |
-| **405** | error   | ***HTTP method not allowed.*** For example trying to call an endpoint using the method `PUT` while only `GET` is supported. |
-| **410** | error   | ***Deprecated API version.*** Call to a version of the API that has been deprecated. |
-| **500** | error   | ***Internal server error.*** Problem in the API itself. |
-| **503** | error   | ***The service is currently unavailable.*** A possible cause is maintenance. |
-
-> In case of error, the message defined in the `error` property of the JSON object *should* give enough information to resolve the problem.
 
 [&uarr; top](#top)
 
