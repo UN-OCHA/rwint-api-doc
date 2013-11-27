@@ -654,7 +654,7 @@ It's an object with 3 properties:
 | ------------ | ----------- | ------ | ------- |
 | **value**    | corresponds to the query itself. It is ***mandatory***. | query string | "situation report Kenya"
 | **fields**   | Specifies fields to perform the search query on. Defaults to the `default_field` as mentioned in the entity information (see [entity information](#method-info) for available fields).   | array of fields names | ["title", "country"]
-| **operator** | Sets up the logical connector between the terms of the query, by default **spaces** are interprated as ` OR `. | `AND` or `OR` | `AND` &rarr; "humanitarian AND report" |
+| **operator** | Sets up the logical connector between the terms of the query, by default **spaces** are interpreted as ` OR `. | `AND` or `OR` | `AND` &rarr; "humanitarian AND report" |
 
 > This `fields` parameter for `query` is not to be confused with the higher level `fields` parameter. These indicate which fields are searched in, not which are returned.
 
