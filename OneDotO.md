@@ -1,3 +1,8 @@
+---
+title: Reliefweb API - Technical Guide
+layout: default.html
+---
+
 ## Landing Page
  The Landing page should be approached as an orientation and marketing page that helps give context to the API.  The desire here is to help quickly educate potential users of the API about it’s background and what it provides as well as show them that there are mechanisms that will allow for the easy learning and use of the API.  The page should also allow more experienced or advanced users to quickly dive into the “deeper” technical documentation and reference material, both to assist in actual development as well as build confidence in the API’s support and maturity. 
  
