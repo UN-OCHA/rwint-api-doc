@@ -248,7 +248,7 @@ table {
 }
 .swagger-ui-wrap pre {
   font-family: "Anonymous Pro", "Menlo", "Consolas", "Bitstream Vera Sans Mono", "Courier New", monospace;
-  background-color: #fcf6db;
+  background-color: #dedede;
   border: 1px solid #e5e0c6;
   padding: 10px;
 }
