@@ -7,7 +7,7 @@ This first 1.0 release of the API has been designed to allow for easy self disco
 ###How to get started with development
 
 - [Accessing the API](#access)
-- - [The API endpoint](#api-url)
+    - [The API endpoint](#api-url)
 - [How the API is setup](#setup)
 - [API Reference](#reference)
 
