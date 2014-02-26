@@ -8,11 +8,24 @@ This first 1.0 release of the API has been designed to allow for easy self disco
 
 - [Accessing the API](#access)
     - [The API endpoint](#api-url)
-- [How the API is setup](#setup)
+- [Call Structure](#setup)
 - [API Reference](#reference)
 
 <a name="access"></a>
 #### Accessing the API
+
+
+<a name="api-url"></a>
+### API URL
+
+While this remains a Reliefweb Labs project, the url for API calls is:
+
+```
+http://api.rwlabs.org
+```
+
+<a name="setup"></a>
+### API Structure
 Any call to the API returns a `JSON` object.
 
 Calls follow the pattern:
@@ -74,14 +87,6 @@ Returns
 
 [&uarr; top](#top)
 
-<a name="api-url"></a>
-### API URL
-
-While this remains a Reliefweb Labs project, the url for API calls is:
-
-```
-http://api.rwlabs.org
-```
-
-<a name="setup"></a>
 <a name="reference"></a>
+### API Reference
+[Visit the API  Reference](/api_reference.md)
