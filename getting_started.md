@@ -25,7 +25,7 @@ http://api.rwlabs.org
 ```
 
 <a name="setup"></a>
-### API Structure
+### Call Structure
 Any call to the API returns a `JSON` object.
 
 Calls follow the pattern:
