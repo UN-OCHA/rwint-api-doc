@@ -16,7 +16,7 @@ This first 1.0 release of the API has been designed to allow for easy self disco
 
 
 <a name="api-url"></a>
-### API URL
+### API End Point URL
 
 While this remains a Reliefweb Labs project, the url for API calls is:
 
