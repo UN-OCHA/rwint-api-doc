@@ -13,10 +13,12 @@ This first 1.0 release of the API has been designed to allow for easy self disco
 
 <a name="access"></a>
 #### Accessing the API
+Connecting to the API is very easy!  Currently there are no API keys or other restrictions on using the API.  Just point your browser or code to the API endpoint and get going!  
 
+The API has been designed to be as self describing and exploration friendly as possible.  Each resource attempts to link to both it's child and parent elements, allowing you to explore the data available by simply traversing the API starting from its endpoint. 
 
 <a name="api-url"></a>
-### API End Point URL
+### API Endpoint Location
 
 While this remains a Reliefweb Labs project, the url for API calls is:
 
