@@ -19,9 +19,9 @@ Maximum of two paragraphs, can include links to other pages with more detail.
 - How “far back” the data goes
 - Any important facts about what is included or excluded from the dataset currently. (I.E. we were unable to include data about efforts in Australia due to unforseen factor X)
 - The expected “usage” of the API
--- Terms of service – Anything not allowed such as reselling the data
--- Rate limit for api requests --- How many api calls per day are we expecting
--- The expected uptime for the API
+- - Terms of service – Anything not allowed such as reselling the data
+- - Rate limit for api requests --- How many api calls per day are we expecting
+- - The expected uptime for the API
 - Privacy expectations for people using the API
 - Any fees / costs associated for access to the API  (We assume none, but good to get this on the record as policy.)
 
@@ -29,8 +29,8 @@ Maximum of two paragraphs, can include links to other pages with more detail.
 - [Getting Started with the Reliefweb API](/getting_started.md)
 - [Advanced Usage of the Reliefweb API](/advanced_api_usage.md)
 - [Technical Resources](/technical_resources.md)
--- [API Issue Queue](https://github.com/reliefweb/apidoc/issues)
--- [Relief Web API GitHub Repo](https://github.com/reliefweb/apidoc)
+- - [API Issue Queue](https://github.com/reliefweb/apidoc/issues)
+- - [Relief Web API GitHub Repo](https://github.com/reliefweb/apidoc)
 
 
 
