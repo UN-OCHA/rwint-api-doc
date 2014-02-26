@@ -29,8 +29,8 @@ Maximum of two paragraphs, can include links to other pages with more detail.
 - [Getting Started with the Reliefweb API](/getting_started.md)
 - [Advanced Usage of the Reliefweb API](/advanced_api_usage.md)
 - [Technical Resources](/technical_resources.md)
--- API Issue Queue
--- Relief Web API GitHub Repo
+-- [API Issue Queue](https://github.com/reliefweb/apidoc/issues)
+-- [Relief Web API GitHub Repo](https://github.com/reliefweb/apidoc)
 
 
 
