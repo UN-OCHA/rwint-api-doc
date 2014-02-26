@@ -11,8 +11,8 @@ This first 1.0 release of the API has been designed to allow for easy self disco
 - [How the API is setup](#setup)
 - [API Reference](#reference)
 
-#### Accessing the API
 <a name="access"></a>
+#### Accessing the API
 Any call to the API returns a `JSON` object.
 
 Calls follow the pattern:
