@@ -1,6 +1,7 @@
 ---
-title: Reliefweb API - Technical Guide
+title: "Reliefweb API - Technical Guide"
 layout: default.html
+published: true
 ---
 
 ## Landing Page
@@ -23,3 +24,13 @@ Maximum of two paragraphs, can include links to other pages with more detail.
 -- The expected uptime for the API
 - Privacy expectations for people using the API
 - Any fees / costs associated for access to the API  (We assume none, but good to get this on the record as policy.)
+
+## Developer Information
+- [Getting Started with the Reliefweb API](/getting_started.md)
+- [Advanced Usage of the Reliefweb API](/advanced_api_usage.md)
+- [Technical Resources](/technical_resources.md)
+-- API Issue Queue
+-- Relief Web API GitHub Repo
+
+
+
