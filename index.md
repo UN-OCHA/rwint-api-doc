@@ -6,7 +6,14 @@ title: Reliefweb API - Documentation
 <a name="top"></a>
 # ReliefWeb API - Documentation
 
-This is the documentation for the ReliefWeb API.
+This is the documentation for the ReliefWeb API v0.
+
+<div class="deprecation-notice">
+Important:<br>
+This version of the api has been deprecated.<br>
+For documentation on the current version, please visit:
+<a href="http://reliefweb.int/help/api">reliefweb.int/help/api</a>.
+</div>
 
 The API allows to fetch content from [ReliefWeb](http://reliefweb.int) like the latest headlines, job offers or disasters.
 
