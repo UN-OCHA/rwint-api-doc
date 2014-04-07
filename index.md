@@ -10,8 +10,8 @@ This is the documentation for the ReliefWeb API v0.
 
 <div class="deprecation-notice">
 Important:<br>
-This version of the api has been deprecated.<br>
-For documentation on the current version, please visit:
+This documentation is for Version 0 of the api.<br>
+For documentation on the latest version, please visit:
 <a href="http://reliefweb.int/help/api">reliefweb.int/help/api</a>.
 </div>
 
