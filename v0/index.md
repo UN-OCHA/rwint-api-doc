@@ -12,7 +12,7 @@ This is the documentation for the ReliefWeb API v0.
 Important:<br>
 This documentation is for Version 0 of the api.<br>
 For documentation on the latest version, please visit:
-<a href="http://reliefweb.int/help/api">reliefweb.int/help/api</a>.
+<a href="../index.html">../index.html</a>.
 </div>
 
 The API allows to fetch content from [ReliefWeb](http://reliefweb.int) like the latest headlines, job offers or disasters.
