@@ -647,8 +647,6 @@
 
           <p><em>(array)</em> Facets are used on the ReliefWeb site to show a set of contents split by categories, status and/or date, with the count included. Facets are commonly used on e-commerce sites to break down product categories in an intuitive way. These allow for broad-ranging queries, which would otherwise involve many individual requests. These are shown on the site to allow a quick way to drill down into the results.</p>
 
-          <div class="clearfix"></div>
-
           <p>Facets are made up of seven parts: <code>field</code>, <code>name</code>, <code>limit</code>, <code>sort</code>, <code>filter</code>, <code>interval</code> and <code>scope</code>.</p>
 
           <ul>
@@ -1189,7 +1187,9 @@
 
           <h3 id="fields">Fields </h3>
 
-          <p><em>(array)</em> Arrays of fields to <code>include</code> or <code>exclude</code> in the result. To be used in conjunction with the profile parameter to personalize the fields returned and streamline requests.</p>
+          <p><em>(array)</em> Arrays of fields to return in the result. To be used in conjunction with the profile parameter to personalize the fields returned and streamline requests.</p>
+
+          <p>Fields are made up of two parts: <code>include</code> and <code>exclude</code>.</p>
 
           <ul>
             <li><code>include</code>: <em>(array)</em>: Fields to include.</li>
