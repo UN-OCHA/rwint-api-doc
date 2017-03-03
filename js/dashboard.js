@@ -46,8 +46,8 @@ $(document).ready(function() {
     if (!($( parentElement ).find(' .result ').length)) {
       $( parentElement ).append('<div class="result"></div>');
     }
-    if (url.indexOf('http://api.reliefweb.int/v1') !== 0) {
-        $( parentElement ).find(' .result ').html('<strong>Error:</strong> The call must be made to <code>http://api.reliefweb.int/v1</code>').show();
+    if (url.indexOf('https://api.reliefweb.int/v1') !== 0) {
+        $( parentElement ).find(' .result ').html('<strong>Error:</strong> The call must be made to <code>https://api.reliefweb.int/v1</code>').show();
         return;
     }
     $.ajax({
