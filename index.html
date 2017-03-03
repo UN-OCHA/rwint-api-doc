@@ -104,7 +104,7 @@
           <p>The API is read-only. It is called using an HTTP <a href="https://en.wikipedia.org/wiki/Uniform_resource_locator">URL</a>. The query is handled differently for GET and POST requests, the scheme, host and path are the same for both:</p>
 
           <dl>
-            <dt>Scheme:</dt> <dd>"http://"</dd>
+            <dt>Scheme:</dt> <dd>"https://"</dd>
             <dt>Host:</dt> <dd>"api.reliefweb.int"</dd>
             <dt>Path:</dt> <dd>"/v1/" &lt;content type&gt; [ "/" &lt;content id&gt; ] "?appname=" &lt;your-app-name&gt; </dd>
             <dt>Parameters:</dt>
@@ -112,13 +112,13 @@
               <p>Parameters can be passed in the query of a GET request:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&limit=2</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&limit=2</code></pre></div>
               </div>
 
               <p>or as a body to a POST request:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -138,7 +138,7 @@
 
           <p>Post requests can be made with a tool like <a href="https://curl.haxx.se/"><code>curl</code></a>:</p>
 
-          <pre><code>curl -POST 'http://api.reliefweb.int/v1/reports' -d '{"limit": 2}'</code></pre>
+          <pre><code>curl -POST 'https://api.reliefweb.int/v1/reports' -d '{"limit": 2}'</code></pre>
 
           <p>When dealing with JSON format for the post requests, a misplaced comma can be difficult to spot. Validators like <a href="http://jsonlint.com">JSONlint</a> can save a lot of time.</p>
 
@@ -147,7 +147,7 @@
 
           <p>All examples in this documentation can be edited in place and tested against the API using the 'Try it out' button.</p>
 
-          <p>The API is documented in line with the <a href="https://openapis.org/specification">OpenAPI Specification</a> (also known as Swagger). You can explore this here: <a href="http://api.reliefweb.int/v1/swagger/api" rel="nofollow">http://api.reliefweb.int/v1/swagger/api</a></p>
+          <p>The API is documented in line with the <a href="https://openapis.org/specification">OpenAPI Specification</a> (also known as Swagger). You can explore this here: <a href="https://api.reliefweb.int/v1/swagger/api" rel="nofollow">https://api.reliefweb.int/v1/swagger/api</a></p>
 
           <h2 id="content-types">Types of content </h2>
 
@@ -183,12 +183,12 @@
                   <p>GET:</p>
 
                   <div class="apiCall">
-                    <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                    <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                   </div>
 
                   <p>POST:</p>
                   <div class="apiCall">
-                    <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                    <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                     <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -216,7 +216,7 @@
                   <p>GET:</p>
 
                   <div class="apiCall">
-                    <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports/1082221?appname=apidoc&fields[include][]=source.name</code></pre></div>
+                    <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports/1082221?appname=apidoc&fields[include][]=source.name</code></pre></div>
                   </div>
 
                   <p><strong>Note: </strong>As the parameters are much easier to handle, item requests are only possible with GET requests.</p>
@@ -264,12 +264,12 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=earthquake</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=earthquake</code></pre></div>
               </div>
 
               <p>POST:</p>
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -289,12 +289,12 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=earthquake&query[fields][]=source&fields[include][]=source.name</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=earthquake&query[fields][]=source&fields[include][]=source.name</code></pre></div>
               </div>
 
               <p>POST:</p>
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -319,12 +319,12 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&query[fields][]=title&amp;query[value]=hot cold&amp;query[operator]=AND&amp;preset=latest</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&query[fields][]=title&amp;query[value]=hot cold&amp;query[operator]=AND&amp;preset=latest</code></pre></div>
               </div>
 
               <p>POST:</p>
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -347,12 +347,12 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&query[fields][]=title&amp;query[value]=hot cold&amp;query[operator]=OR&amp;preset=latest</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&query[fields][]=title&amp;query[value]=hot cold&amp;query[operator]=OR&amp;preset=latest</code></pre></div>
               </div>
 
               <p>POST:</p>
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -396,12 +396,12 @@
 
               <p>GET:</p>
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=headline</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=headline</code></pre></div>
               </div>
 
               <p>POST:</p>
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -421,13 +421,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=country&amp;filter[value]=France</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=country&amp;filter[value]=France</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -448,13 +448,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=country&filter[value][]=Spain&filter[value][]=France&filter[operator]=OR</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=country&filter[value][]=Spain&filter[value][]=France&filter[operator]=OR</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -476,13 +476,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=AND&amp;filter[conditions][0][field]=country&amp;filter[conditions][0][value][]=Spain&amp;filter[conditions][0][value][]=France&amp;filter[conditions][0][operator]=OR&amp;filter[conditions][1][field]=country&amp;filter[conditions][1][value]=Italy&amp;filter[conditions][1][negate]=true</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=AND&amp;filter[conditions][0][field]=country&amp;filter[conditions][0][value][]=Spain&amp;filter[conditions][0][value][]=France&amp;filter[conditions][0][operator]=OR&amp;filter[conditions][1][field]=country&amp;filter[conditions][1][value]=Italy&amp;filter[conditions][1][negate]=true</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -514,13 +514,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=date.created&amp;filter[value][from]=2004-06-01T00:00:00%2B00:00&amp;filter[value][to]=2004-06-30T23:59:59%2B00:00</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=date.created&amp;filter[value][from]=2004-06-01T00:00:00%2B00:00&amp;filter[value][to]=2004-06-30T23:59:59%2B00:00</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -547,13 +547,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=AND&amp;filter[conditions][0][field]=headline&amp;filter[conditions][1][field]=country&amp;filter[conditions][1][value]=France</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=AND&amp;filter[conditions][0][field]=headline&amp;filter[conditions][1][field]=country&amp;filter[conditions][1][value]=France</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -582,13 +582,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=OR&filter[conditions][0][operator]=AND&filter[conditions][0][conditions][0][field]=primary_country&filter[conditions][0][conditions][0][value]=Afghanistan&filter[conditions][0][conditions][1][operator]=OR&filter[conditions][0][conditions][1][field]=format&filter[conditions][0][conditions][1][value][]=Map&filter[conditions][0][conditions][1][value][]=Infographic&filter[conditions][1][field]=headline&fields[include][]=format.name&fields[include][]=primary_country.name&fields[include][]=headline.title</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=OR&filter[conditions][0][operator]=AND&filter[conditions][0][conditions][0][field]=primary_country&filter[conditions][0][conditions][0][value]=Afghanistan&filter[conditions][0][conditions][1][operator]=OR&filter[conditions][0][conditions][1][field]=format&filter[conditions][0][conditions][1][value][]=Map&filter[conditions][0][conditions][1][value][]=Infographic&filter[conditions][1][field]=headline&fields[include][]=format.name&fields[include][]=primary_country.name&fields[include][]=headline.title</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -670,13 +670,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/jobs?appname=apidoc&facets[0][field]=country&amp;facets[0][limit]=20&amp;limit=0</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/jobs?appname=apidoc&facets[0][field]=country&amp;facets[0][limit]=20&amp;limit=0</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/jobs?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/jobs?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -699,13 +699,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/jobs?appname=apidoc&facets[0][field]=theme&amp;limit=0</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/jobs?appname=apidoc&facets[0][field]=theme&amp;limit=0</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/jobs?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/jobs?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -727,13 +727,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=source.name&amp;limit=0</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=source.name&amp;limit=0</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -755,13 +755,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=country.name&amp;facets[0][sort]=count:asc&amp;limit=0</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=country.name&amp;facets[0][sort]=count:asc&amp;limit=0</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -784,13 +784,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=country.name&amp;facets[0][sort]=value:asc&amp;facets[0][limit]=5&amp;limit=0</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=country.name&amp;facets[0][sort]=value:asc&amp;facets[0][limit]=5&amp;limit=0</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -814,13 +814,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=date.original&amp;facets[0][interval]=year&amp;limit=0</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=date.original&amp;facets[0][interval]=year&amp;limit=0</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -843,13 +843,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=country&facets[0][filter][field]=theme&amp;facets[0][filter][value]=Coordination&amp;facets[0][sort]=count:desc&amp;facets[0][limit]=5&amp;limit=0</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=country&facets[0][filter][field]=theme&amp;facets[0][filter][value]=Coordination&amp;facets[0][sort]=count:desc&amp;facets[0][limit]=5&amp;limit=0</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -878,13 +878,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][name]=French&amp;facets[0][filter][field]=country&amp;facets[0][filter][value]=France&amp;facets[0][field]=country&amp;facets[0][sort]=count:desc&amp;facets[0][limit]=5&amp;facets[1][name]=Spanish&amp;facets[1][filter][field]=country&amp;facets[1][filter][value]=Spain&amp;facets[1][field]=country&amp;facets[1][sort]=count:desc&amp;facets[1][limit]=5&amp;limit=0</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][name]=French&amp;facets[0][filter][field]=country&amp;facets[0][filter][value]=France&amp;facets[0][field]=country&amp;facets[0][sort]=count:desc&amp;facets[0][limit]=5&amp;facets[1][name]=Spanish&amp;facets[1][filter][field]=country&amp;facets[1][filter][value]=Spain&amp;facets[1][field]=country&amp;facets[1][sort]=count:desc&amp;facets[1][limit]=5&amp;limit=0</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -933,13 +933,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&amp;preset=latest</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&amp;preset=latest</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -965,13 +965,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&amp;offset=3&amp;preset=latest</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&amp;offset=3&amp;preset=latest</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -1002,13 +1002,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&sort[]=date:desc&amp;sort[]=title:asc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&sort[]=date:desc&amp;sort[]=title:asc</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -1043,13 +1043,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&profile=list&fields[include][]=date.original</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&profile=list&fields[include][]=date.original</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -1096,7 +1096,7 @@
 
           <p>For example, you can not get expired jobs using <code>preset=latest</code>:</p>
 
-          <pre><code>http://api.reliefweb.int/v1/jobs?preset=latest&amp;filter[field]=status&amp;filter[value]=expired
+          <pre><code>https://api.reliefweb.int/v1/jobs?preset=latest&amp;filter[field]=status&amp;filter[value]=expired
           </code></pre>
 
           <p>because the filter for this would be:</p>
@@ -1128,13 +1128,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&preset=latest&query[value]=French&fields[include][]=language.name</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&preset=latest&query[value]=French&fields[include][]=language.name</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -1159,13 +1159,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&preset=minimal&query[value]=French&fields[include][]=language.name</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&preset=minimal&query[value]=French&fields[include][]=language.name</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -1207,13 +1207,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&amp;preset=latest&amp;fields[include][]=url</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&amp;preset=latest&amp;fields[include][]=url</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -1234,13 +1234,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&amp;preset=latest&amp;fields[exclude][]=title</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&amp;preset=latest&amp;fields[exclude][]=title</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -1261,13 +1261,13 @@
               <p>GET:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&amp;preset=latest&amp;profile=list&amp;fields[exclude][]=source</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&amp;preset=latest&amp;profile=list&amp;fields[exclude][]=source</code></pre></div>
               </div>
 
               <p>POST:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -1315,22 +1315,22 @@
 
               <p>Query:</p>
 
-              <pre><a href="http://api.reliefweb.int/v1/reports?appname=apidoc&amp;profile=full&amp;limit=1" rel="nofollow"><code>http://api.reliefweb.int/v1/reports?profile=full&amp;limit=1</code></a></pre>
+              <pre><a href="https://api.reliefweb.int/v1/reports?appname=apidoc&amp;profile=full&amp;limit=1" rel="nofollow"><code>https://api.reliefweb.int/v1/reports?profile=full&amp;limit=1</code></a></pre>
 
               <p>Response:</p>
 <pre>
 {
-  "href":"http:\/\/api.reliefweb.int\/v1\/reports?profile=full&amp;limit=1",
+  "href":"https:\/\/api.reliefweb.int\/v1\/reports?profile=full&amp;limit=1",
   "time":28,
   "links":
     {
       "self":
         {
-          "href":"http:\/\/api.reliefweb.int\/v1\/reports?offset=0&amp;limit=1&amp;preset=minimal"
+          "href":"https:\/\/api.reliefweb.int\/v1\/reports?offset=0&amp;limit=1&amp;preset=minimal"
         },
       "next":
         {
-          "href":"http:\/\/api.reliefweb.int\/v1\/reports?offset=1&amp;limit=1&amp;preset=minimal"
+          "href":"https:\/\/api.reliefweb.int\/v1\/reports?offset=1&amp;limit=1&amp;preset=minimal"
         }
     },
   "totalCount":666196,
@@ -1340,7 +1340,7 @@
       {
         "id":"1211236",
         "score":1,
-        "href":"http:\/\/api.reliefweb.int\/v1\/reports\/1211236",
+        "href":"https:\/\/api.reliefweb.int\/v1\/reports\/1211236",
         "fields":
           {
             "id":1211236,
@@ -1350,7 +1350,7 @@
             "origin":"http:\/\/www.unwomen.org\/en\/news\/stories\/2015\/10\/women-in-mali-demand-equal-role-in-peace-accords",
             "primary_country":
               {
-                "href":"http:\/\/api.reliefweb.int\/v1\/countries\/149",
+                "href":"https:\/\/api.reliefweb.int\/v1\/countries\/149",
                 "id":149,
                 "name":"Mali",
                 "iso3":"mli",
@@ -1359,7 +1359,7 @@
             "country":
               [
                 {
-                  "href":"http:\/\/api.reliefweb.int\/v1\/countries\/149",
+                  "href":"https:\/\/api.reliefweb.int\/v1\/countries\/149",
                   "id":149,
                   "name":"Mali",
                   "iso3":"mli",
@@ -1370,7 +1370,7 @@
             "source":
               [
                 {
-                  "href":"http:\/\/api.reliefweb.int\/v1\/sources\/4512",
+                  "href":"https:\/\/api.reliefweb.int\/v1\/sources\/4512",
                   "id":4512,
                   "name":"UN Women",
                   "shortname":"UN Women",
@@ -1590,7 +1590,7 @@
             <li>
               <p>Invalid value:</p>
 
-              <pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&limit=5000</code></pre>
+              <pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&limit=5000</code></pre>
 
               <p>Response:
 <pre>
@@ -1609,7 +1609,7 @@
             <li>
               <p>Non-encoded time value in GET request:</p>
 
-              <pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=date.created&amp;filter[value][from]=2004-06-01T00:00:00+00:00</code></pre>
+              <pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=date.created&amp;filter[value][from]=2004-06-01T00:00:00+00:00</code></pre>
 
               <p>Response:
 <pre>
@@ -1628,7 +1628,7 @@
             <li>
               <p>Invalid parameter:</p>
 
-              <pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&query[field]=country&amp;query[value]=France</code></pre>
+              <pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&query[field]=country&amp;query[value]=France</code></pre>
 
               <p>Response:
 <pre>
@@ -1647,7 +1647,7 @@
             <li>
               <p>Invalid syntax:</p>
 
-              <pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=country&amp;filter[value]=France</code></pre>
+              <pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=country&amp;filter[value]=France</code></pre>
 
               <p>Response:
 <pre>
@@ -1680,25 +1680,25 @@
               <p>All reports tagged with disasters including 'Myanmar:' or 'Earthquake' but not necessarily both at once</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=disaster.name&amp;filter[value][]=Myanmar: Earthquake&fields[include][]=disaster.name</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=disaster.name&amp;filter[value][]=Myanmar: Earthquake&fields[include][]=disaster.name</code></pre></div>
               </div>
 
               <p>All reports tagged with disasters including 'Myanmar: Earthquake' in their name</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=disaster.name&amp;filter[value][]="Myanmar: Earthquake"&fields[include][]=disaster.name</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=disaster.name&amp;filter[value][]="Myanmar: Earthquake"&fields[include][]=disaster.name</code></pre></div>
               </div>
 
               <p>All reports tagged with a disaster named exactly 'Myanmar: Earthquake' (there aren't any)</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=disaster.name.exact&amp;filter[value][]=Myanmar: Earthquake&fields[include][]=disaster.name</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=disaster.name.exact&amp;filter[value][]=Myanmar: Earthquake&fields[include][]=disaster.name</code></pre></div>
               </div>
 
               <p>All reports tagged with a disaster named exactly 'Myanmar: Earthquake - Apr 2016'</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=disaster.name.exact&amp;filter[value][]=Myanmar: Earthquake - Apr 2016&fields[include][]=disaster.name</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=disaster.name.exact&amp;filter[value][]=Myanmar: Earthquake - Apr 2016&fields[include][]=disaster.name</code></pre></div>
               </div>
 
             </li>
@@ -1709,7 +1709,7 @@
               <p>Look at the <code>totalcount</code> from:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=source.shortname&amp;filter[value][]=IFRC&amp;limit=0</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=source.shortname&amp;filter[value][]=IFRC&amp;limit=0</code></pre></div>
               </div>
             </li>
 
@@ -1748,7 +1748,7 @@
 
               <p>Nested values can also be tricky, for example, for the <code>filter</code> parameter. Take this example from earlier:</p>
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -1783,7 +1783,7 @@
               <p>So the GET query is:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=AND&filter[conditions][0][field]=headline&filter[conditions][1][field]=country&filter[conditions][1][value][]=France</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=AND&filter[conditions][0][field]=headline&filter[conditions][1][field]=country&filter[conditions][1][value][]=France</code></pre></div>
               </div>
 
             </li>
@@ -1798,10 +1798,10 @@
                   <p>Compare:</p>
 
                   <div class="apiCall">
-                    <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&fields[include][]=source.name&amp;query[fields][]=title^10&amp;query[fields][]=source.name^1&amp;query[value]=climate</code></pre></div>
+                    <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&fields[include][]=source.name&amp;query[fields][]=title^10&amp;query[fields][]=source.name^1&amp;query[value]=climate</code></pre></div>
                   </div>
                   <div class="apiCall">
-                    <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&fields[include][]=source.name&amp;query[fields][]=title^1&amp;query[fields][]=source.name^10&amp;query[value]=climate</code></pre></div>
+                    <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&fields[include][]=source.name&amp;query[fields][]=title^1&amp;query[fields][]=source.name^10&amp;query[value]=climate</code></pre></div>
                   </div>
                 </li>
 
@@ -1812,10 +1812,10 @@
                   <p>Compare:</p>
 
                   <div class="apiCall">
-                    <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&query[fields][]=title&amp;query[value]=hot weather</code></pre></div>
+                    <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&query[fields][]=title&amp;query[value]=hot weather</code></pre></div>
                   </div>
                   <div class="apiCall">
-                    <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&query[fields][]=title&amp;query[value]="hot weather"</code></pre></div>
+                    <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&query[fields][]=title&amp;query[value]="hot weather"</code></pre></div>
                   </div>
                 </li>
 
@@ -1827,13 +1827,13 @@
                   <p>Compare:</p>
 
                   <div class="apiCall">
-                    <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&sort[]=date:desc&amp;query[fields][]=title&amp;query[value]=hot AND cold&amp;query[operator]=OR</code></pre></div>
+                    <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&sort[]=date:desc&amp;query[fields][]=title&amp;query[value]=hot AND cold&amp;query[operator]=OR</code></pre></div>
                   </div>
                   <div class="apiCall">
-                    <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&sort[]=date:desc&amp;query[fields][]=title&amp;query[value]=hot OR cold&amp;query[operator]=OR</code></pre></div>
+                    <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&sort[]=date:desc&amp;query[fields][]=title&amp;query[value]=hot OR cold&amp;query[operator]=OR</code></pre></div>
                   </div>
                   <div class="apiCall">
-                    <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&sort[]=date:desc&amp;query[fields][]=title&amp;query[value]=hot NOT cold&amp;query[operator]=OR</code></pre></div>
+                    <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&sort[]=date:desc&amp;query[fields][]=title&amp;query[value]=hot NOT cold&amp;query[operator]=OR</code></pre></div>
                   </div>
 
                   <p><strong>Note:</strong> we added <code>sort[]=date:desc</code> to these queries to show the difference. Otherwise, as they're sorted by relevance, results of <code>AND</code> and <code>OR</code> queries can look very similar.</p>
@@ -1849,10 +1849,10 @@
                   <p>Compare:</p>
 
                   <div class="apiCall">
-                    <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&fields[include][]=source.name&amp;query[value]=title:climate</code></pre></div>
+                    <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&fields[include][]=source.name&amp;query[value]=title:climate</code></pre></div>
                   </div>
                   <div class="apiCall">
-                    <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&fields[include][]=source.name&amp;query[value]=source:climate</code></pre></div>
+                    <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&fields[include][]=source.name&amp;query[value]=source:climate</code></pre></div>
                   </div>
                 </li>
 
@@ -1861,7 +1861,7 @@
                   <p>Logical groupings of search terms using parentheses give even more flexibility:</p>
 
                   <div class="apiCall">
-                    <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=("situation report" AND humanitarian) OR country:France</code></pre></div>
+                    <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=("situation report" AND humanitarian) OR country:France</code></pre></div>
                   </div>
                 </li>
               </ul>
@@ -1881,7 +1881,7 @@
               <p>To translate, <code>updates</code> on the site are <code>reports</code> for the API.</p>
               <p>Thus, our familiar base:</p>
 
-              <pre><code>http://api.reliefweb.int/v1/reports</code></pre>
+              <pre><code>https://api.reliefweb.int/v1/reports</code></pre>
 
               <p>When there is only one value inside a group, it translates to a simple filter. Otherwise it's a conditional filter with multiple filters and an operator.</p>
 
@@ -1907,13 +1907,13 @@
               <p>As a GET request this becomes pretty long:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc&filter[conditions][0][conditions][0][conditions][0][field]=country.id&amp;filter[conditions][0][conditions][0][conditions][0][value][0]=39&amp;filter[conditions][0][conditions][0][conditions][0][value][1]=186&amp;filter[conditions][0][conditions][0][conditions][0][operator]=OR&amp;filter[conditions][0][conditions][0][conditions][1][field]=country.id&amp;filter[conditions][0][conditions][0][conditions][1][value][0]=22&amp;filter[conditions][0][conditions][0][conditions][1][value][1]=57&amp;filter[conditions][0][conditions][0][conditions][1][operator]=OR&amp;filter[conditions][0][conditions][0][conditions][1][negate]=true&amp;filter[conditions][0][conditions][0][conditions][2][field]=vulnerable_groups.id&amp;filter[conditions][0][conditions][0][conditions][2][value][]=6874&amp;filter[conditions][0][conditions][0][conditions][3][field]=language.id&amp;filter[conditions][0][conditions][0][conditions][3][value][]=267&amp;filter[conditions][0][conditions][0][operator]=AND&amp;filter[conditions][0][conditions][1][field]=date.created&amp;filter[conditions][0][conditions][1][value][from]=2015-01-01T00:00:00%2B00:00&amp;filter[conditions][0][conditions][1][value][to]=2015-12-31T23:59:59%2B00:00&amp;filter[conditions][0][operator]=AND</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[conditions][0][conditions][0][conditions][0][field]=country.id&amp;filter[conditions][0][conditions][0][conditions][0][value][0]=39&amp;filter[conditions][0][conditions][0][conditions][0][value][1]=186&amp;filter[conditions][0][conditions][0][conditions][0][operator]=OR&amp;filter[conditions][0][conditions][0][conditions][1][field]=country.id&amp;filter[conditions][0][conditions][0][conditions][1][value][0]=22&amp;filter[conditions][0][conditions][0][conditions][1][value][1]=57&amp;filter[conditions][0][conditions][0][conditions][1][operator]=OR&amp;filter[conditions][0][conditions][0][conditions][1][negate]=true&amp;filter[conditions][0][conditions][0][conditions][2][field]=vulnerable_groups.id&amp;filter[conditions][0][conditions][0][conditions][2][value][]=6874&amp;filter[conditions][0][conditions][0][conditions][3][field]=language.id&amp;filter[conditions][0][conditions][0][conditions][3][value][]=267&amp;filter[conditions][0][conditions][0][operator]=AND&amp;filter[conditions][0][conditions][1][field]=date.created&amp;filter[conditions][0][conditions][1][value][from]=2015-01-01T00:00:00%2B00:00&amp;filter[conditions][0][conditions][1][value][to]=2015-12-31T23:59:59%2B00:00&amp;filter[conditions][0][operator]=AND</code></pre></div>
               </div>
 
               <p>So here it is, easier to read and debug, as a POST request:</p>
 
               <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>http://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
                 <div class="post-parameters" contentEditable="true">
 <pre>
 {
