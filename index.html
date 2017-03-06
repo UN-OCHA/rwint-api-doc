@@ -130,6 +130,8 @@
             </dd>
           </dl>
 
+          <p>There are very simple client libraries for <a href="https://github.com/reliefweb/api-php-client">PHP</a> and <a href="https://github.com/reliefweb/api-go-client">Go</a>. Please use them!</p>
+
           <p>To view the results of GET requests in a browser more clearly, consider using an extension:</p>
           <ul>
             <li> Firefox: <a href="https://addons.mozilla.org/en-US/firefox/addon/jsonview/">https://addons.mozilla.org/en-US/firefox/addon/jsonview/</a></li>
@@ -374,7 +376,7 @@
             <li>
               <p>Query for exact values. Some fields (see <a href="#fields-tables">fields tables</a> for which ones) use the qualifier <code>.exact</code> to limit the search. Compare this search with and without using <code>.exact</code>. This can also be used with the <a href="#filter">filter</a> parameter. <code>value</code>, <code>fields</code></p>
 
-              <p><strong>Note:</strong> for more complex queries, the API uses <a href="https://lucene.apache.org/core/3_5_0/queryparsersyntax.html">Lucene query parser syntax</a> to deal with almost any combinations of search terms. See also 'Getting exact results' in the <a href="#examples">examples section</a>.</p>
+              <p><strong>Note:</strong> for more complex queries, the API uses <a href="https://lucene.apache.org/core/3_5_0/queryparsersyntax.html">Lucene query parser syntax</a> to deal with almost any combinations of search terms. See also 'Getting exact results' and 'Advanced use of the query field' in the <a href="#examples">examples section</a>.</p>
 
               <p>GET:</p>
 
@@ -1704,8 +1706,12 @@
 
           <ul>
             <li>
-              <strong>Getting exact results</strong>
+              <strong>Client libraries</strong>
+              <p>There are very simple client libraries for <a href="https://github.com/reliefweb/api-php-client">PHP</a> and <a href="https://github.com/reliefweb/api-go-client">Go</a>. Please use them!</p>
+            </li>
 
+            <li>
+              <strong>Getting exact results</strong>
               <p>Searching for "Myanmar: Earthquake" as the <code>disaster.name</code> will return results for "Myanmar:" plus "Earthquake". Using quotes can help here, as can the <code>exact</code> field qualifier. (Fields that can use <code>exact</code> are shown in the <a href="#fields-tables">fields tables</a>.) Note that in POST requests, as they are already quoted, this looks like <code>"\"Myanmar: Earthquake\""</code> with 'escaped' quotes.</p>
 
               <p>Compare:</p>
@@ -1842,6 +1848,7 @@
 
             <li>
               <strong>Advanced use of the query field.</strong>
+              <p>For more complex queries, the API uses <a href="https://lucene.apache.org/core/3_5_0/queryparsersyntax.html">Lucene query parser syntax</a> to deal with almost any combinations of search terms.</p>
               <ul>
                 <li>
                   <strong>Boost</strong>
