@@ -1138,10 +1138,7 @@ definitions:
       error:
         $ref: '#/definitions/error-definition'
   error-definition:
-    type:
-      type: string
-    message:
-      type: string
+    type: string
   post-params:
     properties:
       query[value]:
