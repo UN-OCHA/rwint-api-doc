@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  var counter = 1;
+
   $('a.target').click(function() {
 
     $(' .nav-tabs li').removeClass('active');
@@ -31,6 +33,35 @@ $(document).ready(function() {
     }
   });
 
+  // Copy works on input elements: need to clone the text to a hidden textarea.
+  function copyToClipboard(element) {
+    var oldPosX = window.scrollX;
+    var oldPosY = window.scrollY;
+    var cloneItem = element.cloneNode(true);
+    var copyItem = document.createElement( "textarea" );
+    var copyValue = cloneItem.value || cloneItem.textContent;
+    copyItem.style.opacity = 0;
+    copyItem.style.position = "absolute";
+    copyItem.value = copyValue;
+    document.body.appendChild(copyItem);
+
+    copyItem.focus();
+    copyItem.selectionStart = 0;
+    copyItem.selectionEnd = copyValue.length;
+
+    document.execCommand("copy");
+    element.focus();
+    // Restore the user's original position to avoid
+    // 'jumping' when they click a copy button.
+    window.scrollTo(
+        oldPosX,
+        oldPosY
+    );
+    element.selectionStart = 0;
+    element.selectionEnd = copyValue.length;
+    copyItem.remove();
+  }
+
   function showResults(e) {
     e.preventDefault();
     var that = this,
@@ -38,11 +69,13 @@ $(document).ready(function() {
         parentElement = $( this ).parent().parent().parent(),
         postdata = '';
     if ($( parentElement ).find(' .post-parameters ').length) {
-      postdata = $( parentElement ).find(' .post-parameters ').text();
+      var postdataElement = $( parentElement ).find(' .post-parameters ');
+      postdata = $( postdataElement ).text();
       verb = 'post';
     }
     // Check that this is going to api.reliefweb.int
-    var url = $( parentElement ).find(' .url ').text();
+    var urlElement = $( parentElement ).find(' .url ');
+    var url = $( urlElement ).text();
     if (!($( parentElement ).find(' .result ').length)) {
       $( parentElement ).append('<div class="result"></div>');
     }
@@ -59,7 +92,16 @@ $(document).ready(function() {
         $( parentElement ).find(' .result ').html('<button type="button" onclick="$( this ).parent().remove()">Error - please edit the query and try again</button><pre><code>' + JSON.stringify(data, null, '\t') + '</code></pre>').show();
       },
       success: function(data) {
-        $( parentElement ).find(' .result ').html('<button type="button" onclick="$( this ).parent().remove()">Hide results (Note the query can be edited)</button><pre><code>' + JSON.stringify(data, null, '\t') + '</code></pre>').show();
+        var copyButtonText = "Copy GET URL";
+        var copyElement = urlElement[0];
+        if (postdata.length) {
+          copyElement = postdataElement[0];
+          copyButtonText = "Copy POST json";
+        }
+        $( parentElement ).find(' .result ').html('<button id="hideButton-' + counter + '" type="button">Hide results (Note the query can be edited)</button><button id="copyButton-' + counter + '" type="button">' + copyButtonText + '</button><pre><code>' + JSON.stringify(data, null, '\t') + '</code></pre>').show();
+        document.getElementById("hideButton-" + counter).addEventListener('click', function(){$( this ).parent().remove()});
+        document.getElementById("copyButton-" + counter).addEventListener('click', function(){copyToClipboard(copyElement)});
+        counter++;
       }
     });
   }
