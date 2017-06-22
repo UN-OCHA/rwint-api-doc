@@ -2085,9 +2085,9 @@
                 <tr><td>cost</td><td><code>free</code> or <code>fee-based</code></td><td>string</td><td>searchable facetable</td><td></td><td><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>current</td><td>Flag to indicate the country has an active situation – deprecated for disasters.</td><td>boolean</td><td>sortable facetable</td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a></td></tr>
                 <tr><td>date</td><td>defaults to date.created</td><td>object</td><td>sortable facetable</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a></td></tr>
-                <tr><td>date.changed</td><td>Date entry modified on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
+                <tr><td>date.changed</td><td>Date entry modified on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>date.closing</td><td>Date job closes to applicants (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DC</td><td><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a></td></tr>
-                <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="training" href="#training">T</a><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a></td></tr>
+                <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a></td></tr>
                 <tr><td>date.end</td><td>Date training ends (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DE</td><td><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>date.original</td><td>Date entry first published by original source (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DO</td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>date.registration</td><td>Date registration closes (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DR</td><td><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
@@ -2311,6 +2311,60 @@
                 <tr><td>vulnerable_groups<br>.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/vulnerable-groups">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
               </table>
             </div>
+            <div id="disasters" role="tabpanel" class="tab-pane table-responsive">
+              <table class="table table-striped">
+                <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th><th>Preset settings</th></tr>
+                <tr><td>country</td><td>Shortcut for country - defaults to country.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
+                <tr><td>country.id</td><td>Id for country used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>C</td><td></td></tr>
+                <tr><td>country.iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>country.primary</td><td>Flag to indicate this is the primary country</td><td>boolean</td><td></td><td></td><td></td></tr>
+                <tr><td>country.name</td><td>Name of country in English</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>country.shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>current</td><td>Deprecated</td><td>boolean</td><td>sortable facetable</td><td></td><td></td></tr>
+                <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td><td></td></tr>
+                <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td><td><strong>sort</strong>: latest</td></tr>
+                <tr><td>description</td><td>Description of the disaster in Markdown format</td><td>string</td><td>searchable</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
+                <tr><td>description-html</td><td>Description of the disaster in HTML format</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>featured</td><td>Flag to indicate if the disaster is featured on ReliefWeb home page</td><td>boolean</td><td>sortable facetable</td><td></td><td></td></tr>
+                <tr><td>glide</td><td>Global IDEntifier number (<a href="http://www.glidenumber.net/">GLIDE</a>) of the disaster</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
+                <tr><td>id</td><td>Unique id of disaster used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td><td></td></tr>
+                <tr><td>name</td><td></td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em> <em>minimal</em></td></tr>
+                <tr><td>primary_country</td><td>Shortcut for primary country - defaults to primary_country.name</td><td>array</td><td></td><td></td><td></td></tr>
+                <tr><td>primary_country<br>.id</td><td>Id of primary country used by ReliefWeb</td><td>integer</td><td>sortable searchable facetable</td><td>PC</td><td></td></tr>
+                <tr><td>primary_country<br>.iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>sortable searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>primary_country<br>.name</td><td>Link for <a href="http://reliefweb.int/book/taxonomy-descriptions#primarycountry">more information</a></td><td>string</td><td>sortable searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>primary_country<br>.shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>sortable searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>primary_type</td><td>Shortcut for primary disaster type - defaults to primary_type.name</td><td>array</td><td></td><td></td><td></td></tr>
+                <tr><td>primary_type.id</td><td>Id for primary disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td><td></td></tr>
+                <tr><td>primary_type.name</td><td>Name of primary disaster type</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>related_glide</td><td>Related Global IDEntifier number (<a href="http://www.glidenumber.net/">GLIDE</a>)</td><td>array</td><td>searchable exact</td><td></td><td></td></tr>
+                <tr><td>status</td><td>current', 'alert', 'past'</td><td>string</td><td>searchable facetable</td><td></td><td><strong>query</strong>: <em>analysis</em> <strong>filter</strong>: <em>analysis</em> <code>['alert', 'alert-archive', 'archive', 'current', 'past']</code> <em>latest</em> <code>['alert', 'current', 'past']</code> <em>minimal</em> <code>['alert', 'current', 'past']</code></td></tr>
+                <tr><td>type</td><td>Shortcut for disaster type - defaults to type.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
+                <tr><td>type.code</td><td>Code of disaster type</td><td>string</td><td>sortable searchable facetable</td><td></td><td></td></tr>
+                <tr><td>type.id</td><td>Id of disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td><td></td></tr>
+                <tr><td>type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>type.primary</td><td>Whether disaster type is primary or not</td><td>boolean</td><td></td><td></td><td></td></tr>
+                <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>url_alias</td><td>Friendly' url of the disaster</td><td>string</td><td>searchable</td><td></td><td></td></tr>
+              </table>
+            </div>
+            <div id="countries" role="tabpanel" class="tab-pane table-responsive">
+              <table class="table table-striped">
+                <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th><th>Preset settings</th></tr>
+                <tr><td>current</td><td>Deprecated</td><td>boolean</td><td>sortable facetable</td><td></td><td></td></tr>
+                <tr><td>description</td><td>Description of the country in Markdown format</td><td>string</td><td>searchable</td><td></td><td></td></tr>
+                <tr><td>description-html</td><td>Description of the country in HTML format</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>featured</td><td>Flag to indicate if the country is featured on ReliefWeb home page</td><td>boolean</td><td>sortable facetable</td><td></td><td></td></tr>
+                <tr><td>id</td><td>Unique id of country used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td><td><strong>sort</strong>: <em>latest</em></td></tr>
+                <tr><td>iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
+                <tr><td>name</td><td>Country name in English</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em> <em>minimal</em></td></tr>
+                <tr><td>shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
+                <tr><td>status</td><td>Whether country has an active situation</td><td>string</td><td>searchable facetable</td><td></td><td><strong>query</strong>: <em>analysis</em></td></tr>
+                <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>url_alias</td><td>Friendly' url of the country</td><td>string</td><td>searchable</td><td></td><td></td></tr>
+                <tr><td>video_playlist</td><td>Playlist id of curated videos about the country</td><td>string</td><td></td><td></td><td></td></tr>
+              </table>
+            </div>
             <div id="jobs" role="tabpanel" class="tab-pane table-responsive">
               <table class="table table-striped">
                 <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th><th>Preset settings</th></tr>
@@ -2426,60 +2480,6 @@
                 <tr><td>type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/training-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>url_alias</td><td>Friendly' url of the training</td><td>string</td><td>searchable</td><td></td><td></td></tr>
-              </table>
-            </div>
-            <div id="countries" role="tabpanel" class="tab-pane table-responsive">
-              <table class="table table-striped">
-                <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th><th>Preset settings</th></tr>
-                <tr><td>current</td><td>Deprecated</td><td>boolean</td><td>sortable facetable</td><td></td><td></td></tr>
-                <tr><td>description</td><td>Description of the country in Markdown format</td><td>string</td><td>searchable</td><td></td><td></td></tr>
-                <tr><td>description-html</td><td>Description of the country in HTML format</td><td>string</td><td></td><td></td><td></td></tr>
-                <tr><td>featured</td><td>Flag to indicate if the country is featured on ReliefWeb home page</td><td>boolean</td><td>sortable facetable</td><td></td><td></td></tr>
-                <tr><td>id</td><td>Unique id of country used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td><td><strong>sort</strong>: <em>latest</em></td></tr>
-                <tr><td>iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
-                <tr><td>name</td><td>Country name in English</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em> <em>minimal</em></td></tr>
-                <tr><td>shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
-                <tr><td>status</td><td>Whether country has an active situation</td><td>string</td><td>searchable facetable</td><td></td><td><strong>query</strong>: <em>analysis</em></td></tr>
-                <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td><td></td></tr>
-                <tr><td>url_alias</td><td>Friendly' url of the country</td><td>string</td><td>searchable</td><td></td><td></td></tr>
-                <tr><td>video_playlist</td><td>Playlist id of curated videos about the country</td><td>string</td><td></td><td></td><td></td></tr>
-              </table>
-            </div>
-            <div id="disasters" role="tabpanel" class="tab-pane table-responsive">
-              <table class="table table-striped">
-                <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th><th>Preset settings</th></tr>
-                <tr><td>country</td><td>Shortcut for country - defaults to country.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
-                <tr><td>country.id</td><td>Id for country used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>C</td><td></td></tr>
-                <tr><td>country.iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
-                <tr><td>country.primary</td><td>Flag to indicate this is the primary country</td><td>boolean</td><td></td><td></td><td></td></tr>
-                <tr><td>country.name</td><td>Name of country in English</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
-                <tr><td>country.shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
-                <tr><td>current</td><td>Deprecated</td><td>boolean</td><td>sortable facetable</td><td></td><td></td></tr>
-                <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td><td></td></tr>
-                <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td><td><strong>sort</strong>: latest</td></tr>
-                <tr><td>description</td><td>Description of the disaster in Markdown format</td><td>string</td><td>searchable</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
-                <tr><td>description-html</td><td>Description of the disaster in HTML format</td><td>string</td><td></td><td></td><td></td></tr>
-                <tr><td>featured</td><td>Flag to indicate if the disaster is featured on ReliefWeb home page</td><td>boolean</td><td>sortable facetable</td><td></td><td></td></tr>
-                <tr><td>glide</td><td>Global IDEntifier number (<a href="http://www.glidenumber.net/">GLIDE</a>) of the disaster</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
-                <tr><td>id</td><td>Unique id of disaster used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td><td></td></tr>
-                <tr><td>name</td><td></td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em> <em>minimal</em></td></tr>
-                <tr><td>primary_country</td><td>Shortcut for primary country - defaults to primary_country.name</td><td>array</td><td></td><td></td><td></td></tr>
-                <tr><td>primary_country<br>.id</td><td>Id of primary country used by ReliefWeb</td><td>integer</td><td>sortable searchable facetable</td><td>PC</td><td></td></tr>
-                <tr><td>primary_country<br>.iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>sortable searchable facetable exact</td><td></td><td></td></tr>
-                <tr><td>primary_country<br>.name</td><td>Link for <a href="http://reliefweb.int/book/taxonomy-descriptions#primarycountry">more information</a></td><td>string</td><td>sortable searchable facetable exact</td><td></td><td></td></tr>
-                <tr><td>primary_country<br>.shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>sortable searchable facetable exact</td><td></td><td></td></tr>
-                <tr><td>primary_type</td><td>Shortcut for primary disaster type - defaults to primary_type.name</td><td>array</td><td></td><td></td><td></td></tr>
-                <tr><td>primary_type.id</td><td>Id for primary disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td><td></td></tr>
-                <tr><td>primary_type.name</td><td>Name of primary disaster type</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
-                <tr><td>related_glide</td><td>Related Global IDEntifier number (<a href="http://www.glidenumber.net/">GLIDE</a>)</td><td>array</td><td>searchable exact</td><td></td><td></td></tr>
-                <tr><td>status</td><td>current', 'alert', 'past'</td><td>string</td><td>searchable facetable</td><td></td><td><strong>query</strong>: <em>analysis</em> <strong>filter</strong>: <em>analysis</em> <code>['alert', 'alert-archive', 'archive', 'current', 'past']</code> <em>latest</em> <code>['alert', 'current', 'past']</code> <em>minimal</em> <code>['alert', 'current', 'past']</code></td></tr>
-                <tr><td>type</td><td>Shortcut for disaster type - defaults to type.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
-                <tr><td>type.code</td><td>Code of disaster type</td><td>string</td><td>sortable searchable facetable</td><td></td><td></td></tr>
-                <tr><td>type.id</td><td>Id of disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td><td></td></tr>
-                <tr><td>type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
-                <tr><td>type.primary</td><td>Whether disaster type is primary or not</td><td>boolean</td><td></td><td></td><td></td></tr>
-                <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td><td></td></tr>
-                <tr><td>url_alias</td><td>Friendly' url of the disaster</td><td>string</td><td>searchable</td><td></td><td></td></tr>
               </table>
             </div>
             <div id="sources" role="tabpanel" class="tab-pane table-responsive">
