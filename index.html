@@ -153,7 +153,7 @@
 
           <h2 id="content-types">Types of content </h2>
 
-          <p>There are six types of content available through the API. <code>reports</code>, <code>disasters</code>, <code>countries</code>, <code>jobs</code>, <code>training</code> and <code>sources</code>.</p>
+          <p>There are seven types of content available through the API. <code>reports</code>, <code>disasters</code>, <code>countries</code>, <code>jobs</code>, <code>training</code>, <code>sources</code> and <code>references</code>.</p>
 
           <ul>
             <li><strong><a href="http://reliefweb.int/updates">reports</a></strong> - The main content of ReliefWeb. Reports are updates and analysis curated from more than 4,000 sources and tagged by our team of editors working around the clock.</li>
@@ -162,6 +162,7 @@
             <li><strong><a href="http://reliefweb.int/jobs">jobs</a></strong> - The place to advertise or find humanitarian jobs. Jobs are classified by type, category, location and requirements and all are made available through the API.</li>
             <li><strong><a href="http://reliefweb.int/training">training</a></strong> - A growing section of the site. Training opportunities and courses for useful and necessary humanitarian skills. (Note that unlike the other content types, there's no 's' on 'training')</li>
             <li><strong><a href="http://reliefweb.int/organizations">sources</a></strong> - Our partners. ReliefWeb's role is to collect, curate and deliver timely humanitarian information. This information comes from a wide range of trusted sources. Information about those sources, and their reports, is available here.</li>
+            <li><strong><a href="http://reliefweb.int/taxonomy-descriptions">references</a></strong> - Our taxonomy. ReliefWeb's editorial team tag content with to make it easier to organize and find specific content. These are detailed here to make so they can be more transparently matched with vocabularies used by other organizations.</li>
           </ul>
 
           <h2 id="request-types">Types of request </h2>
@@ -2072,7 +2073,7 @@
                 <tr><td>body-html</td><td></td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>career_categories</td><td>defaults to career_categories.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>career_categories<br>.id</td><td></td><td>integer</td><td>searchable facetable</td><td>CC</td><td><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
-                <tr><td>career_categories<br>.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/career-categories">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
+                <tr><td>career_categories<br>.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/career-categories">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>city</td><td>defaults to city.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>city.name</td><td></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>content_type</td><td>Content types published from this source</td><td>array</td><td>sortable searchable</td><td></td><td><a class="target" data-toggle="tab" title="sources" href="#sources">S</a></td></tr>
@@ -2101,18 +2102,18 @@
                 <tr><td>disaster.type</td><td>Disaster type of the associated disaster. Note this may be different to the `disaster_type` of a report. Defaults to disaster.type.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>disaster.type.code</td><td>Code for the disaster type of the associated disaster.</td><td>string</td><td>searchable facetable</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>disaster.type.id</td><td>Id for the disaster type of the associated disaster.</td><td>integer</td><td>searchable facetable</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
-                <tr><td>disaster.type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
+                <tr><td>disaster.type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>disaster.type.primary</td><td>Whether this is the primary disaster type for the associated disaster.</td><td>boolean</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>disaster_type</td><td>defaults to disaster_type.name</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>disaster_type.code</td><td></td><td>array</td><td>searchable facetable</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>disaster_type.id</td><td>Id for disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>DT</td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
-                <tr><td>disaster_type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
+                <tr><td>disaster_type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>experience</td><td>defaults to experience.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a></td></tr>
                 <tr><td>experience.id</td><td>Id for years of experience used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>E</td><td><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a></td></tr>
-                <tr><td>experience.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/job-experiences">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a></td></tr>
+                <tr><td>experience.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/job-experiences">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a></td></tr>
                 <tr><td>feature</td><td>defaults to feature.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>feature.id</td><td>Id for feature used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
-                <tr><td>feature.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/features">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
+                <tr><td>feature.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/features">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>featured</td><td>Flag to indicate if the country is featured on ReliefWeb home page</td><td>boolean</td><td>sortable facetable</td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a></td></tr>
                 <tr><td>file</td><td>defaults to file.id</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>file.copyright</td><td></td><td>string</td><td>searchable</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
@@ -2162,12 +2163,12 @@
                 <tr><td>language</td><td>defaults to language.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>language.code</td><td></td><td>string</td><td>searchable facetable</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>language.id</td><td>Id for language used by ReliefWeb</td><td>integer</td><td>facetable exact</td><td>L</td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
-                <tr><td>language.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
+                <tr><td>language.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>longname</td><td></td><td>string</td><td>sortable searchable exact</td><td></td><td><a class="target" data-toggle="tab" title="sources" href="#sources">S</a></td></tr>
                 <tr><td>name</td><td></td><td>string</td><td>sortable searchable exact</td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a><a class="target" data-toggle="tab" title="sources" href="#sources">S</a></td></tr>
                 <tr><td>ocha_product</td><td>defaults to ocha_product.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>ocha_product.id</td><td>Id for OCHA product used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
-                <tr><td>ocha_product.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/ocha-products">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
+                <tr><td>ocha_product.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/ocha-products">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>origin</td><td>Url of original report at date.created</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>primary_country</td><td>defaults to primary_country.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a></td></tr>
                 <tr><td>primary_country<br>.id</td><td>Id for primary country used by ReliefWeb</td><td>integer</td><td>sortable searchable facetable</td><td>PC</td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a></td></tr>
@@ -2191,11 +2192,11 @@
                 <tr><td>status</td><td>Values depend on content type</td><td>string</td><td>searchable facetable</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a><a class="target" data-toggle="tab" title="countries" href="#countries">C</a><a class="target" data-toggle="tab" title="sources" href="#sources">S</a></td></tr>
                 <tr><td>theme</td><td>defaults to theme.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>theme.id</td><td>Id for theme used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>T</td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
-                <tr><td>theme.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/themes">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
+                <tr><td>theme.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/themes">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>title</td><td>Title</td><td>string</td><td>sortable searchable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>training_language</td><td>Language training is held in, defaults to training_language.name</td><td>string</td><td>facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>training_language.id</td><td>Id of language training is held in</td><td>integer</td><td>facetable</td><td></td><td><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
-                <tr><td>training_language.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
+                <tr><td>training_language.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>training_language.code</td><td>Code of language training is held in</td><td>string</td><td>facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>type</td><td>defaults to type.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a><a class="target" data-toggle="tab" title="sources" href="#sources">S</a></td></tr>
                 <tr><td>type.code</td><td></td><td>string</td><td>sortable searchable facetable</td><td></td><td><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a></td></tr>
@@ -2206,7 +2207,7 @@
                 <tr><td>url</td><td>Friendly' url of entity</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a><a class="target" data-toggle="tab" title="countries" href="#countries">C</a><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a><a class="target" data-toggle="tab" title="sources" href="#sources">S</a></td></tr>
                 <tr><td>vulnerable_groups</td><td>defaults to vulnerable_groups.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
                 <tr><td>vulnerable_groups<br>.id</td><td>Id for vulnerable group used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>VG</td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
-                <tr><td>vulnerable_groups<br>.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/vulnerable-groups">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
+                <tr><td>vulnerable_groups<br>.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/vulnerable-groups">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a></td></tr>
               </table>
             </div>
             <div id="reports" role="tabpanel" class="tab-pane table-responsive">
@@ -2231,15 +2232,15 @@
                 <tr><td>disaster.type</td><td>Disaster type of the associated disaster. Note this may be different to the `disaster_type` of a report. Defaults to disaster.type.name</td><td>array</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>disaster.type.code</td><td>Code for the disaster type of the associated disaster.</td><td>string</td><td>searchable facetable</td><td></td><td></td></tr>
                 <tr><td>disaster.type.id</td><td>Id for the disaster type of the associated disaster.</td><td>integer</td><td>searchable facetable</td><td></td><td></td></tr>
-                <tr><td>disaster.type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>disaster.type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>disaster.type.primary</td><td>Whether this is the primary disaster type for the associated disaster.</td><td>boolean</td><td></td><td></td><td></td></tr>
                 <tr><td>disaster_type</td><td>Shortcut for disaster type - defaults to disaster_type.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>disaster_type.id</td><td>Id for disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>DT</td><td></td></tr>
-                <tr><td>disaster_type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>disaster_type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>disaster_type.code</td><td>GLIDE hazard code for disaster type.</td><td>string</td><td>searchable facetable</td><td></td><td></td></tr>
                 <tr><td>feature</td><td>defaults to feature.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>feature.id</td><td>Id for feature used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td></td><td></td></tr>
-                <tr><td>feature.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/features">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>feature.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/features">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>file</td><td>File attachment shortcut - defaults to file.id</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>file.copyright</td><td>Copyright of file attachment</td><td>string</td><td>searchable</td><td></td><td></td></tr>
                 <tr><td>file.description</td><td>Description of file attachment</td><td>string</td><td>searchable</td><td></td><td></td></tr>
@@ -2254,7 +2255,7 @@
                 <tr><td>file.url</td><td>Link to file attachment</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>format</td><td>Shortcut for content format - defaults to format.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>format.id</td><td>Id of content format used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>F</td><td></td></tr>
-                <tr><td>format.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/content-formats">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
+                <tr><td>format.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/content-formats">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>headline</td><td>Shortcut for headline - defaults to headline.title</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>headline.featured</td><td></td><td>string</td><td>sortable searchable facetable</td><td></td><td></td></tr>
                 <tr><td>headline.image</td><td>Shortcut for headline image - defaults to headline.image.id</td><td>array</td><td></td><td></td><td></td></tr>
@@ -2280,10 +2281,10 @@
                 <tr><td>language</td><td>Shortcut for language - defaults to language.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>language.code</td><td>ISO 639-1 code of the language the entry is written in</td><td>string</td><td>searchable facetable</td><td></td><td></td></tr>
                 <tr><td>language.id</td><td>Id for language of report used by ReliefWeb</td><td>integer</td><td>facetable</td><td>L</td><td></td></tr>
-                <tr><td>language.name</td><td>Language the report is written in - Link for <a href="http://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>language.name</td><td>Language the report is written in - Link for <a href="https://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>ocha_product</td><td>Shortcut for OCHA product - defaults to ocha_product.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>ocha_product.id</td><td>Id of OCHA product used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td></td><td></td></tr>
-                <tr><td>ocha_product.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/ocha-products">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>ocha_product.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/ocha-products">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>origin</td><td>Url of original report when it was added to ReliefWeb</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>primary_country</td><td>Shortcut for primary country - defaults to primary_country.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>primary_country<br>.id</td><td>Id of primary country used by ReliefWeb</td><td>integer</td><td>sortable searchable facetable</td><td>PC</td><td></td></tr>
@@ -2298,17 +2299,17 @@
                 <tr><td>source.homepage</td><td>URL of the source's primary website</td><td>string</td><td>searchable</td><td></td><td></td></tr>
                 <tr><td>source.type</td><td>Shortcut for source type - defaults to source.type.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>source.type.id</td><td>Id for source type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>ST</td><td></td></tr>
-                <tr><td>source.type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/organization-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>source.type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/organization-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>status</td><td></td><td>string</td><td>searchable facetable</td><td></td><td><strong>query</strong>: <em>analysis</em> <strong>filter</strong>: <em>analysis</em> <code>['published', 'to-review']</code> <em>latest</em> <code>['published', 'to-review']</code> <em>minimal</em> <code>['published']</code></td></tr>
                 <tr><td>theme</td><td>Shortcut for theme - defaults to theme.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>theme.id</td><td>Id of theme used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>T</td><td></td></tr>
-                <tr><td>theme.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/themes">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
+                <tr><td>theme.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/themes">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>title</td><td>Title of report</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em> <em>minimal</em></td></tr>
                 <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>url_alias</td><td>Friendly' url of the report</td><td>string</td><td>searchable</td><td></td><td></td></tr>
                 <tr><td>vulnerable_groups</td><td>Shortcut for vulnerable groups - defaults to vulnerable_groups.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>vulnerable_groups<br>.id</td><td>Id for vulnerable groups used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>VG</td><td></td></tr>
-                <tr><td>vulnerable_groups<br>.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/vulnerable-groups">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>vulnerable_groups<br>.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/vulnerable-groups">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
               </table>
             </div>
             <div id="disasters" role="tabpanel" class="tab-pane table-responsive">
@@ -2342,7 +2343,7 @@
                 <tr><td>type</td><td>Shortcut for disaster type - defaults to type.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>type.code</td><td>Code of disaster type</td><td>string</td><td>sortable searchable facetable</td><td></td><td></td></tr>
                 <tr><td>type.id</td><td>Id of disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td><td></td></tr>
-                <tr><td>type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>type.primary</td><td>Whether disaster type is primary or not</td><td>boolean</td><td></td><td></td><td></td></tr>
                 <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>url_alias</td><td>Friendly' url of the disaster</td><td>string</td><td>searchable</td><td></td><td></td></tr>
@@ -2372,7 +2373,7 @@
                 <tr><td>body-html</td><td>Description of job in HTML format</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>career_categories</td><td>Shortcut for career categories - defaults to career_categories.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>career_categories<br>.id</td><td>Id for career categories used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>CC</td><td></td></tr>
-                <tr><td>career_categories<br>.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/career-categories">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>career_categories<br>.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/career-categories">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>city</td><td>Shortcut for city - defaults to city.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>city.name</td><td>Name of city in English</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>country</td><td>Shortcut for country - defaults to country.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
@@ -2387,7 +2388,7 @@
                 <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td><td><strong>sort</strong>: <em>analysis</em></td></tr>
                 <tr><td>experience</td><td>Shortcut for experience requirement - defaults to experience.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>experience.id</td><td>Id for experience requirement used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>E</td><td></td></tr>
-                <tr><td>experience.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/job-experiences">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>experience.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/job-experiences">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>file</td><td>Shortcut for file attachment - defaults to file.id</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>file.description</td><td>Description of the file attachment</td><td>string</td><td>searchable</td><td></td><td></td></tr>
                 <tr><td>file.filename</td><td>File name of the attachment</td><td>string</td><td></td><td></td><td></td></tr>
@@ -2405,15 +2406,15 @@
                 <tr><td>source.shortname</td><td>Short name of the source, typically an acronym e.g. UNICEF</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>source.type</td><td>Shortcut for source type - defaults to source.type.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>source.type.id</td><td>Id for source type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>ST</td><td></td></tr>
-                <tr><td>source.type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/organization-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>source.type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/organization-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>status</td><td>Whether job is still current</td><td>string</td><td>searchable facetable</td><td></td><td><strong>query</strong>: <em>analysis</em> <strong>filter</strong>: <em>analysis</em> <code>['published', 'expired']</code> <em>minimal</em> <code>['published']</code></td></tr>
                 <tr><td>theme</td><td>Shortcut for theme - defaults to theme.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>theme.id</td><td>Id for theme used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>T</td><td></td></tr>
-                <tr><td>theme.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/themes">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>theme.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/themes">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>title</td><td>Job title</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em> <em>minimal</em></td></tr>
                 <tr><td>type</td><td>Shortcut for type - defaults to type.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>type.id</td><td>Id for job type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td><td></td></tr>
-                <tr><td>type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/job-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/job-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>url_alias</td><td>Friendly' url of the job</td><td>string</td><td>searchable</td><td></td><td></td></tr>
               </table>
@@ -2425,7 +2426,7 @@
                 <tr><td>body-html</td><td>Training description in HTML format</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>career_categories</td><td>Shortcut for career categories - defaults to career_categories.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>career_categories<br>.id</td><td>Id for career categories used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>CC</td><td></td></tr>
-                <tr><td>career_categories<br>.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/career-categories">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>career_categories<br>.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/career-categories">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>city</td><td>Shortcut for city - defaults to city.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>city.name</td><td>Name of city in English</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>cost</td><td><code>free</code> or <code>fee-based</code></td><td>string</td><td>searchable facetable</td><td></td><td></td></tr>
@@ -2449,14 +2450,14 @@
                 <tr><td>file.url</td><td>URL of the file attachment</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>format</td><td>Shortcut for training format - defaults to format.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>format.id</td><td>Id for training format used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>F</td><td></td></tr>
-                <tr><td>format.name</td><td>Link to <a href="http://api.reliefweb.int/v1/references/training-formats">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>format.name</td><td>Link to <a href="https://api.reliefweb.int/v1/references/training-formats">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>how_to_register</td><td>Registration information in Markdown format</td><td>string</td><td>searchable</td><td></td><td></td></tr>
                 <tr><td>how_to_register<br>-html</td><td>Registration information in HTML format</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>id</td><td>Unique id for training opportunity used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td><td></td></tr>
                 <tr><td>language</td><td>Shortcut for language - defaults to language.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>language.code</td><td>ISO 639-1 code of the language the entry is written in</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>language.id</td><td>Id for language used by ReliefWeb</td><td>integer</td><td>facetable</td><td>L</td><td></td></tr>
-                <tr><td>language.name</td><td>Language in which post is written (not necessarily language in which the training will be held). Link for <a href="http://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>language.name</td><td>Language in which post is written (not necessarily language in which the training will be held). Link for <a href="https://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>source</td><td>Shortcut for source - defaults to source.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>source.id</td><td>Id for source used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>S</td><td></td></tr>
                 <tr><td>source.name</td><td>Common name of source</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
@@ -2465,19 +2466,19 @@
                 <tr><td>source.shortname</td><td>Short name of the source, typically an acronym e.g. UNICEF</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>source.type</td><td>Shortcut for source type - defaults to source.type.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>source.type.id</td><td>Id for source type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>ST</td><td></td></tr>
-                <tr><td>source.type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/organization-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>source.type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/organization-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>status</td><td>Whether training is still current</td><td>string</td><td>searchable facetable</td><td></td><td><strong>query</strong>: <em>analysis</em> <strong>filter</strong>: <em>analysis</em> <code>['published', 'expired']</code> <em>latest</em> <code>['published']</code> <em>minimal</em> <code>['published']</code></td></tr>
                 <tr><td>theme</td><td>Shortcut for theme - defaults to theme.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>theme.id</td><td>Id for theme used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>T</td><td></td></tr>
-                <tr><td>theme.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/themes">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>theme.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/themes">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>title</td><td>Title of course</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em> <em>minimal</em></td></tr>
                 <tr><td>training_language</td><td>Language training is held in, defaults to training_language.name</td><td>string</td><td>facetable exact</td><td></td><td></td></tr>
                 <tr><td>training_language.id</td><td>Id of language training is held in</td><td>integer</td><td>facetable</td><td></td><td></td></tr>
-                <tr><td>training_language.name</td><td>Name of language training is held in. Link for <a href="http://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>facetable exact</td><td></td><td></td></tr>
+                <tr><td>training_language.name</td><td>Name of language training is held in. Link for <a href="https://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>facetable exact</td><td></td><td></td></tr>
                 <tr><td>training_language.code</td><td>Code of language training is held in</td><td>string</td><td>facetable exact</td><td></td><td></td></tr>
                 <tr><td>type</td><td>Shortcut for type - defaults to type.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>type.id</td><td>Id for training type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td><td></td></tr>
-                <tr><td>type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/training-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/training-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>url_alias</td><td>Friendly' url of the training</td><td>string</td><td>searchable</td><td></td><td></td></tr>
               </table>
@@ -2511,7 +2512,7 @@
                 <tr><td>status</td><td>Whether source is active or not</td><td>string</td><td>searchable facetable</td><td></td><td><strong>query</strong>: <em>analysis</em> <strong>filter</strong>: <em>analysis</em> <code>['active', 'inactive']</code> <em>latest</em> <code>['active', 'inactive']</code> <em>minimal</em> <code>['active', 'inactive']</code></td></tr>
                 <tr><td>type</td><td>Shortcut for type of organization - defaults to type.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>type.id</td><td>Id of organization type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td><td></td></tr>
-                <tr><td>type.name</td><td>Link for <a href="http://api.reliefweb.int/v1/references/organization-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
+                <tr><td>type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/organization-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>url_alias</td><td>Friendly' url of the source</td><td>string</td><td>searchable</td><td></td><td></td></tr>
               </table>
