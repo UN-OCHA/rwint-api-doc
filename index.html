@@ -54,6 +54,7 @@
             <li><a href="#introduction">Introduction</a></li>
             <li><a href="#versions">Versions</a></li>
             <li><a href="#api-use">Using the API</a></li>
+            <li><a href="#doc-use">Using the documentation</a></li>
             <li><a href="#content-types">Types of content</a></li>
             <li><a href="#request-types">Types of request</a></li>
             <li><a href="#parameters">Request parameters</a></li>
@@ -144,12 +145,17 @@
 
           <p>When dealing with JSON format for the post requests, a misplaced comma can be difficult to spot. Validators like <a href="http://jsonlint.com">JSONlint</a> can save a lot of time.</p>
 
+          <h3 id="get-query-length-limit">Limit for GET queries </h3>
 
-          <h2 id="doc-use">Using the Documentation </h2>
+          <p>GET queries <em>can</em> sometimes be longer than 2048 characters, but this will not work with all browsers and becomes difficult to read. For more complex queries, putting the query in a POST request is recommended.</p>
+
+          <h2 id="doc-use">Using the documentation </h2>
 
           <p>All examples in this documentation can be edited in place and tested against the API using the 'Try it out' button.</p>
 
           <p>The API is also documented in line with version 2.0 of the <a href="https://openapis.org/specification">OpenAPI Specification</a> (also known as Swagger). The definition is at <a href="http://apidoc.rwlabs.org/swagger.yaml">http://apidoc.rwlabs.org/swagger.yaml</a> and you can explore this by pasting that URL into the Swagger UI demo: <a href="http://petstore.swagger.io/" rel="nofollow">http://petstore.swagger.io/</a></p>
+
+          <p>There is also a forum for questions and discussion at <a href="https://groups.google.com/forum/#!forum/rw-api-dev">groups.google.com</a></p>
 
           <h2 id="content-types">Types of content </h2>
 
@@ -230,7 +236,7 @@
             </li>
           </ul>
 
-          <h2 id="parameters">Request Parameters </h2>
+          <h2 id="parameters">Request parameters </h2>
 
           <h3 id="appname">Appname </h3>
 
@@ -2046,7 +2052,7 @@
             </li>
           </ul>
 
-          <h2 id="fields-tables">Field tables</h2>
+          <h2 id="fields-tables">Fields tables</h2>
 
           <p>Use tabs to see lists of fields by content type.The summary tab shows all fields, and which content types they are used in.</p>
           <p>The tables shows the names of fields with a short description, its type, whether it can be used for <a href="#query">search</a>, <a href="#facet">sorts</a> and <a href="#facet">facets</a> or with the <a href="#query">"exact"</a> qualifier, the abbreviation used in advanced search and its <a href="#preset">preset</a> settings.</p>
