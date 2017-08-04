@@ -86,8 +86,10 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <img src="img/rw-api-logo.svg" alt="logo" class="logo">
           <h1 class="page-header">ReliefWeb API Documentation</h1>
 
+          <div class="clearfix"></div>
           <h2 id="introduction">Introduction </h2>
 
           <p>The ReliefWeb API was built to power a <a href="http://m.reliefweb.int">mobile/ low-bandwidth version</a> of the ReliefWeb website. Since then it has been enhanced for a public release to provide access to ReliefWeb's curated and continuously updated data archive. It's now used to serve much of the main site, selected content on other OCHA sites, and third party apps.</p>
@@ -254,7 +256,7 @@
 
           <p><em>(array)</em> This is equivalent to the search box.</p>
 
-          <img src="img/query.png" border="0">
+          <img src="img/query.png" alt="search box" border="0">
 
           <p> The query field has many shorthand properties, see the <a href="#examples">tips</a> section for more details.</p>
 
@@ -420,7 +422,7 @@
 
           <p><em>(array)</em> Filters narrow down the content to be searched in. These correspond to the 'Search options' box under the search bar.</p>
 
-          <img src="img/filter.png" border="0">
+          <img src="img/filter.png" alt="search options" border="0">
 
           <p>Filters are made up of five parts: <code>field</code>, <code>value</code>, <code>operator</code>, <code>negate</code> and <code>conditions</code>.</p>
 
@@ -687,7 +689,7 @@
 
           <h3 id="facet">Facet </h3>
 
-          <img class="pull-right" src="img/facets.png" border="0">
+          <img class="pull-right" src="img/facets.png" alt="facets" border="0">
 
           <p><em>(array)</em> Facets are used on the ReliefWeb site to show a set of contents split by categories, status and/or date, with the count included. Facets are commonly used on e-commerce sites to break down product categories in an intuitive way. These allow for broad-ranging queries, which would otherwise involve many individual requests. These are shown on the site to allow a quick way to drill down into the results.</p>
 
@@ -1072,7 +1074,7 @@
             <li><code>minimal</code>: just the <code>title</code> or <code>name</code> field</li>
             <li><code>full</code>: all fields</li>
             <li><code>list</code>: results suited to lists and tables, as used, for example, in the listings: <a href="http://reliefweb.int/updates#content"><code>http://reliefweb.int/updates#content</code></a>
-              <img src="img/profile.png" border="0">
+              <img src="img/profile.png" alt="profile" border="0">
             </li>
           </ul>
 
