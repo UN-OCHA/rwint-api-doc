@@ -73,6 +73,7 @@
               <li class="indented"><a href="#profile">Profile</a></li>
               <li class="indented"><a href="#preset">Preset</a></li>
               <li class="indented"><a href="#fields">Fields</a></li>
+              <li class="indented"><a href="#verbose">Verbose</a></li>
             <li><a href="#results">Results</a></li>
               <li class="indented"><a href="#result-structure">Result structure</a></li>
               <li class="indented"><a href="#error-structure">Error structure</a></li>
@@ -1337,6 +1338,19 @@
 
           <p><strong>Note:</strong> when using <code>source</code> in <a href="#query">queries</a> it defaults to <code>source.name</code>, when used with <code>fields</code> it expands to source.name, source.id, source.href, source.longname, source.shortname, source.homepage and source.type.</p>
 
+          <h3 id="verbose">Verbose </h3>
+
+          <p><em>(int)</em> A helper for creating correct API calls, setting <code>verbose=1</code> adds a <code>details</code> section to the response to display the query parameters as a JSON object.</p>
+
+          <p>This is for checking how the GET parameters are translated into JSON, or that the POST parameters sent are as intended.</p>
+
+          <p>To see how this works, try the following GET query - a complicated example from the facet documentation with the <code>verbose</code> parameter added - and compare it with the <code>details</code> section of the response:</p>
+
+              <div class="apiCall">
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&verbose=1&facets[0][name]=French&amp;facets[0][filter][field]=country&amp;facets[0][filter][value]=France&amp;facets[0][field]=country&amp;facets[0][sort]=count:desc&amp;facets[0][limit]=5&amp;facets[1][name]=Spanish&amp;facets[1][filter][field]=country&amp;facets[1][filter][value]=Spain&amp;facets[1][field]=country&amp;facets[1][sort]=count:desc&amp;facets[1][limit]=5&amp;limit=0</code></pre></div>
+              </div>
+
+
           <h2 id="results">Result fields </h2>
 
           <h3 id="result-structure">Structure of a result </h3>
@@ -1860,6 +1874,18 @@
                 <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=AND&filter[conditions][0][field]=headline&filter[conditions][1][field]=country&filter[conditions][1][value][]=France</code></pre></div>
               </div>
 
+              <p>Use the <a href="#verbose"><code>verbose</code></a> parameter to check the conversion.</p>
+
+              <div class="apiCall">
+                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&verbose=1&filter[operator]=AND&filter[conditions][0][field]=headline&filter[conditions][1][field]=country&filter[conditions][1][value][]=France</code></pre></div>
+              </div>
+
+            </li>
+
+            <li>
+              <strong>Convert GET requests to POST requests.</strong>
+
+              <p>There is a limit on the length of GET requests, and often it's easier to see what's what with a JSON object than a query string. The <a href="#verbose"><code>verbose</code></a> parameter is included to help with this.</p>
             </li>
 
             <li>
