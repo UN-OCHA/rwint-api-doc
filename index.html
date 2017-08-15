@@ -57,6 +57,7 @@
         <div id="nav-sidebar" class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#quickstart">Quickstart</a></li>
             <li><a href="#versions">Versions</a></li>
             <li><a href="#api-use">Using the API</a></li>
             <li><a href="#doc-use">Using the documentation</a></li>
@@ -103,6 +104,23 @@
           <p>All the content of ReliefWeb is available through its API. The API is built to fit with current API best-practices, and is intended to be friendly to developers, as well as machines. It is publicly accessible using HTTP requests and returns JSON data.</p>
 
           <p>Understanding the structure of ReliefWeb's content will help in understanding how the API works, so these documents are intended to make both as clear as possible. For clarification or to suggest improvements, please <a href="http://reliefweb.int/contact">contact</a> us.</p>
+
+          <h2 id="quickstart">Quickstart </h2>
+
+          <img class="pull-right" src="img/api-query.png" alt="api-query" border="0">
+
+          <img class="pull-right" src="img/search-options.png" alt="search-qoptions" border="0">
+
+          <p>As the 'rivers' pages (<a href="http://reliefweb.int/updates">updates</a>, <a href="http://reliefweb.int/disasters">disasters</a>, <a href="http://reliefweb.int/jobs">jobs</a>, etc.) use the API too, the quickest way to get started with queries and filters is through the site's advanced search feature.</p>
+
+          <p>Use the 'Search Options' link to refine the results and, <strong>as a logged-in user</strong>, look for the 'API query' button in the sidebar.</p>
+
+          <p> To make this more useable, the link differs slightly from the one used for content:</p>
+          <ul>
+            <li>It includes the <a href="#verbose"><code>verbose</code></a> parameter to make it easy to use the same parameters in POST requests.</li>
+            <li>The <a href="#fields"><code>fields</code></a> parameter is limited to <code>name</code>/<code>title</code> and <code>date.created</code> to avoid crowding the query. You may want to change these fields.</li>
+            <li>It doesn't include <a href="#facets"><code>facets</code></a>.</li>
+          </ul>
 
           <h2 id="versions">Versions </h2>
 
@@ -247,8 +265,6 @@
           <h2 id="parameters">Request parameters </h2>
 
           <h3 id="appname">Appname </h3>
-
-
 
           <p><em>(string)</em> This parameter allows ReliefWeb to monitor API usage and adapt it to user needs.</p>
 
@@ -1741,6 +1757,12 @@
             </li>
 
             <li>
+              <strong>To help craft query filters, use the search options box as a GUI.</strong>
+
+              <p>See the <a href="#quickstart">Quickstart</a> section.</p>
+            </li>
+
+            <li>
               <strong>Getting exact results</strong>
               <p>Searching for "Myanmar: Earthquake" as the <code>disaster.name</code> will return results for "Myanmar:" plus "Earthquake". Using quotes can help here, as can the <code>exact</code> field qualifier. (Fields that can use <code>exact</code> are shown in the <a href="#fields-tables">fields tables</a>.) Note that in POST requests, as they are already quoted, this looks like <code>"\"Myanmar: Earthquake\""</code> with 'escaped' quotes.</p>
 
@@ -1966,122 +1988,6 @@
                   </div>
                 </li>
               </ul>
-            </li>
-
-            <li>
-              <strong>To help craft query filters, use the search options box as a GUI.</strong>
-
-              <p>Let's take a complicated query, and work out how to translate it.</p>
-
-              <p>This query is for reports in English in 2015, relating to Refugees, concerning Bolivia or Paraguay but not Argentina and Chile:</p>
-
-              <a href="http://reliefweb.int/updates?advanced-search=(C39.C186)_!(C22_C57)_(VG6874)_(L267)_(DA20150101-20151231)"><pre><code>http://reliefweb.int/updates?advanced-search=(C39.C186)_!(C22_C57)_(VG6874)_(L267)_(DA20150101-20151231)</code></pre></a>
-
-              <p>Click the link to see how easy it is to refine the query on the ReliefWeb site.</p>
-
-              <p>To translate, <code>updates</code> on the site are <code>reports</code> for the API.</p>
-              <p>Thus, our familiar base:</p>
-
-              <pre><code>https://api.reliefweb.int/v1/reports</code></pre>
-
-              <p>When there is only one value inside a group, it translates to a simple filter. Otherwise it's a conditional filter with multiple filters and an operator.</p>
-
-              <p>An underscore means <code>AND</code>, a dot means <code>OR</code>, an exclamation point means "Negate". Parentheses delimit groups (<code>WITH</code>, <code>WITHOUT</code>) with either <code>AND</code> or <code>OR</code> as inside operator.</p>
-
-              <p>Thus:</p>
-
-              <table>
-                <tr><td>Filter</td><td>Meaning</td></tr>
-                <tr><td><code>(C39.C186)</code> </td><td> WITH country 39 (Bolivia) OR country 186 (Paraguay).</td></tr>
-                <tr><td><code>_!(C22_C57)</code> </td><td> AND WITHOUT country 22 (Argentina) OR country 57 (Chile)</td></tr>
-                <tr><td><code>_(VG6874)</code> </td><td> AND WITH vulnerable group 6874 (refugees)</td></tr>
-                <tr><td><code>_(L267)</code> </td><td> AND WITH language 267 (English)</td></tr>
-                <tr><td><code>_(DA20150101-20151231)</code> </td><td> AND WITH posting date in 2015.</td></tr>
-              </table>
-
-              <p>For all fields except dates, the value is the taxonomy id (".id" subfield in the API). The field abbreviations are included in the <a href="#fields">fields</a> table.</p>
-
-              <p>Dates - <pre><code>DA[optionalFromDate]-[optionalToDate]</code></pre> are in the format <code>YYYYMMDD</code> and should be converted to ISO 8601 dates.</p>
-
-              <p><strong>Conversion</strong></p>
-
-              <p>As a GET request this becomes pretty long:</p>
-
-              <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[conditions][0][conditions][0][conditions][0][field]=country.id&amp;filter[conditions][0][conditions][0][conditions][0][value][0]=39&amp;filter[conditions][0][conditions][0][conditions][0][value][1]=186&amp;filter[conditions][0][conditions][0][conditions][0][operator]=OR&amp;filter[conditions][0][conditions][0][conditions][1][field]=country.id&amp;filter[conditions][0][conditions][0][conditions][1][value][0]=22&amp;filter[conditions][0][conditions][0][conditions][1][value][1]=57&amp;filter[conditions][0][conditions][0][conditions][1][operator]=OR&amp;filter[conditions][0][conditions][0][conditions][1][negate]=true&amp;filter[conditions][0][conditions][0][conditions][2][field]=vulnerable_groups.id&amp;filter[conditions][0][conditions][0][conditions][2][value][]=6874&amp;filter[conditions][0][conditions][0][conditions][3][field]=language.id&amp;filter[conditions][0][conditions][0][conditions][3][value][]=267&amp;filter[conditions][0][conditions][0][operator]=AND&amp;filter[conditions][0][conditions][1][field]=date.created&amp;filter[conditions][0][conditions][1][value][from]=2015-01-01T00:00:00%2B00:00&amp;filter[conditions][0][conditions][1][value][to]=2015-12-31T23:59:59%2B00:00&amp;filter[conditions][0][operator]=AND</code></pre></div>
-              </div>
-
-              <p>So here it is, easier to read and debug, as a POST request:</p>
-
-              <div class="apiCall">
-                <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
-                <div class="post-parameters" contentEditable="true">
-<pre>
-{
-  "filter":
-    {
-      "conditions":
-        [
-          {
-            "conditions":
-              [
-                {
-                  "field": "country.id",
-                  "value": ["39"]
-                },
-                {
-                  "field": "country.id",
-                  "value": ["186"]
-                }
-              ],
-            "operator": "OR"
-          },
-          {
-            "conditions":
-              [
-                {
-                  "field": "country.id",
-                  "value": ["22"]
-                },
-                {
-                  "field": "country.id",
-                  "value": ["57"]
-                }
-              ],
-            "operator": "AND",
-            "negate": true
-          },
-          {
-            "field": "vulnerable_groups.id",
-            "value": ["6874"]
-          },
-          {
-            "field": "language.id",
-            "value": ["267"]
-          },
-          {
-            "conditions":
-              [
-                {
-                  "field": "date.created",
-                  "value":
-                    {
-                      "from": "2015-01-01T00:00:00+00:00",
-                      "to": "2015-12-31T23:59:59+00:00"
-                    }
-                }
-              ],
-            "operator": "AND"
-          }
-        ],
-      "operator": "AND"
-    }
-}
-</pre>
-                </div>
-              </div>
-
-              <p>When there is a <code>OR WITH</code> or <code>OR WITHOUT</code> group then it combines with all the groups before it into a conditional filter with a <code>OR</code> operator.</p>
             </li>
           </ul>
 
