@@ -2124,6 +2124,35 @@
                 <tr><td>primary_type</td><td>defaults to primary_type.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a></td></tr>
                 <tr><td>primary_type.id</td><td>Id for disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td><td><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a></td></tr>
                 <tr><td>primary_type.name</td><td></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a></td></tr>
+                <tr><td>profile</td><td>defaults to profile.overview</td><td>string</td><td>searchable</td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.overview</td><td>Profile of the country in Markdown format</td><td>string</td><td>searchable</td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.overview-html</td><td>Profile of the country in HTML format</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.key_content</td><td>Latest situation reports and analysis</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.key_content.title</td><td>"Key Content"</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.key_content.active</td><td>Array of links for current key content for the country</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.key_content.active.url</td><td>Current key content link url</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.key_content.active.title</td><td>Current key content link title</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.key_content.active.image</td><td>Current key content link image</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.key_content.archive</td><td>Array of links for archive key content for the country</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.key_content.archive.url</td><td>Archive key content link url</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.key_content.archive.title</td><td>Archive key content link title</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.key_content.archive.image</td><td>Archive key content link image</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.appeals_response_plans</td><td>Appeals and Response Plans for this country</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.appeals_response_plans.title</td><td>"Appeals & Response Plans"</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.appeals_response_plans.active</td><td>Array of links for current appeals and plans</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.appeals_response_plans.active.url</td><td>Current appeal or plan url</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.appeals_response_plans.active.title</td><td>Current appeal or plan title</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.appeals_response_plans.active.image</td><td>Current appeal or plan image</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.appeals_response_plans.archive</td><td>Array of links for archive appeals and plans</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.appeals_response_plans.archive.url</td><td>Archive appeal or plan url</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.appeals_response_plans.archive.title</td><td>Archive appeal or plan title</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.appeals_response_plans.archive.image</td><td>Archive appeal or plan image</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.useful_links</td><td>Useful links to external sites</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.useful_links.title</td><td>"Useful links"</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.useful_links.active</td><td>Array of useful links</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.useful_links.active.url</td><td>Useful link url</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.useful_links.active.title</td><td>Useful link title</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
+                <tr><td>profile.useful_links.active.image</td><td>Useful link image</td><td>string</td><td></td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a></td></tr>
                 <tr><td>related_glide</td><td>Global IDEntifier number (<a href="http://www.glidenumber.net/">GLIDE</a>) of related disasters</td><td>array</td><td>searchable exact</td><td></td><td><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a></td></tr>
                 <tr><td>shortname</td><td></td><td>string</td><td>sortable searchable exact</td><td></td><td><a class="target" data-toggle="tab" title="countries" href="#countries">C</a><a class="target" data-toggle="tab" title="sources" href="#sources">S</a></td></tr>
                 <tr><td>source</td><td>defaults to source.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
@@ -2308,11 +2337,39 @@
                 <tr><td>id</td><td>Unique id of country used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td><td><strong>sort</strong>: <em>latest</em></td></tr>
                 <tr><td>iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>name</td><td>Country name in English</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em> <em>minimal</em></td></tr>
+                <tr><td>profile</td><td>defaults to profile.overview</td><td>string</td><td>searchable</td><td></td><td></td></tr>
+                <tr><td>profile.overview</td><td>Profile of the country in Markdown format</td><td>string</td><td>searchable</td><td></td><td></td></tr>
+                <tr><td>profile.overview-html</td><td>Profile of the country in HTML format</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.key_content</td><td>Latest situation reports and analysis</td><td>array</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.key_content.title</td><td>"Key Content"</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.key_content.active</td><td>Array of links for current key content for the country</td><td>array</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.key_content.active.url</td><td>Current key content link url</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.key_content.active.title</td><td>Current key content link title</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.key_content.active.image</td><td>Current key content link image</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.key_content.archive</td><td>Array of links for archive key content for the country</td><td>array</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.key_content.archive.url</td><td>Archive key content link url</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.key_content.archive.title</td><td>Archive key content link title</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.key_content.archive.image</td><td>Archive key content link image</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.appeals_response_plans</td><td>Appeals and Response Plans for this country</td><td>array</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.appeals_response_plans.title</td><td>"Appeals & Response Plans"</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.appeals_response_plans.active</td><td>Array of links for current appeals and plans</td><td>array</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.appeals_response_plans.active.url</td><td>Current appeal or plan url</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.appeals_response_plans.active.title</td><td>Current appeal or plan title</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.appeals_response_plans.active.image</td><td>Current appeal or plan image</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.appeals_response_plans.archive</td><td>Array of links for archive appeals and plans</td><td>array</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.appeals_response_plans.archive.url</td><td>Archive appeal or plan url</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.appeals_response_plans.archive.title</td><td>Archive appeal or plan title</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.appeals_response_plans.archive.image</td><td>Archive appeal or plan image</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.useful_links</td><td>Useful links to external sites</td><td>array</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.useful_links.title</td><td>"Useful links"</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.useful_links.active</td><td>Array of useful links</td><td>array</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.useful_links.active.url</td><td>Useful link url</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.useful_links.active.title</td><td>Useful link title</td><td>string</td><td></td><td></td><td></td></tr>
+                <tr><td>profile.useful_links.active.image</td><td>Useful link image</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>status</td><td>Whether country has an active situation</td><td>string</td><td>searchable facetable</td><td></td><td><strong>query</strong>: <em>analysis</em></td></tr>
                 <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td><td></td></tr>
                 <tr><td>url_alias</td><td>Friendly' url of the country</td><td>string</td><td>searchable</td><td></td><td></td></tr>
-                <tr><td>video_playlist</td><td>Playlist id of curated videos about the country</td><td>string</td><td></td><td></td><td></td></tr>
               </table>
             </div>
             <div id="jobs" role="tabpanel" class="tab-pane table-responsive">
