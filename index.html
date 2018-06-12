@@ -2172,7 +2172,7 @@
                 <tr><td>theme.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/themes">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>title</td><td>Title</td><td>string</td><td>sortable searchable exact</td><td></td><td><a class="target" data-toggle="tab" title="reports" href="#reports">R</a><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>training_language</td><td>Language training is held in, defaults to training_language.name</td><td>string</td><td>facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
-                <tr><td>training_language.id</td><td>Id of language training is held in</td><td>integer</td><td>facetable</td><td></td><td><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
+                <tr><td>training_language.id</td><td>Id of language training is held in</td><td>integer</td><td>facetable</td><td>TL</td><td><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>training_language.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>training_language.code</td><td>Code of language training is held in</td><td>string</td><td>facetable exact</td><td></td><td><a class="target" data-toggle="tab" title="training" href="#training">T</a></td></tr>
                 <tr><td>type</td><td>defaults to type.name</td><td>array</td><td></td><td></td><td><a class="target" data-toggle="tab" title="jobs" href="#jobs">J</a><a class="target" data-toggle="tab" title="training" href="#training">T</a><a class="target" data-toggle="tab" title="disasters" href="#disasters">D</a><a class="target" data-toggle="tab" title="sources" href="#sources">S</a></td></tr>
@@ -2309,12 +2309,12 @@
                 <tr><td>id</td><td>Unique id of disaster used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td><td></td></tr>
                 <tr><td>name</td><td></td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em> <em>minimal</em></td></tr>
                 <tr><td>primary_country</td><td>Shortcut for primary country - defaults to primary_country.name</td><td>array</td><td></td><td></td><td></td></tr>
-                <tr><td>primary_country<br>.id</td><td>Id of primary country used by ReliefWeb</td><td>integer</td><td>sortable searchable facetable</td><td>PC</td><td></td></tr>
+                <tr><td>primary_country<br>.id</td><td>Id of primary country used by ReliefWeb</td><td>integer</td><td>sortable searchable facetable</td><td></td><td></td></tr>
                 <tr><td>primary_country<br>.iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>sortable searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>primary_country<br>.name</td><td>Link for <a href="http://reliefweb.int/book/taxonomy-descriptions#primarycountry">more information</a></td><td>string</td><td>sortable searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>primary_country<br>.shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>sortable searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>primary_type</td><td>Shortcut for primary disaster type - defaults to primary_type.name</td><td>array</td><td></td><td></td><td></td></tr>
-                <tr><td>primary_type.id</td><td>Id for primary disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td><td></td></tr>
+                <tr><td>primary_type.id</td><td>Id for primary disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td></td><td></td></tr>
                 <tr><td>primary_type.name</td><td>Name of primary disaster type</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>profile</td><td>defaults to profile.overview</td><td>string</td><td>searchable</td><td></td><td></td></tr>
                 <tr><td>profile.overview</td><td>Profile of the country in Markdown format</td><td>string</td><td>searchable</td><td></td><td></td></tr>
@@ -2349,7 +2349,7 @@
                 <tr><td>status</td><td>current', 'alert', 'past'</td><td>string</td><td>searchable facetable</td><td></td><td><strong>query</strong>: <em>analysis</em> <strong>filter</strong>: <em>analysis</em> <code>['alert', 'alert-archive', 'archive', 'current', 'past']</code> <em>latest</em> <code>['alert', 'current', 'past']</code> <em>minimal</em> <code>['alert', 'current', 'past']</code></td></tr>
                 <tr><td>type</td><td>Shortcut for disaster type - defaults to type.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>type.code</td><td>Code of disaster type</td><td>string</td><td>sortable searchable facetable</td><td></td><td></td></tr>
-                <tr><td>type.id</td><td>Id of disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td><td></td></tr>
+                <tr><td>type.id</td><td>Id of disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>DT</td><td></td></tr>
                 <tr><td>type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>type.primary</td><td>Whether disaster type is primary or not</td><td>boolean</td><td></td><td></td><td></td></tr>
                 <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td><td></td></tr>
@@ -2465,7 +2465,7 @@
                 <tr><td>career_categories<br>.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/career-categories">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>city</td><td>Shortcut for city - defaults to city.name</td><td>array</td><td></td><td></td><td></td></tr>
                 <tr><td>city.name</td><td>Name of city in English</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
-                <tr><td>cost</td><td><code>free</code> or <code>fee-based</code></td><td>string</td><td>searchable facetable</td><td></td><td></td></tr>
+                <tr><td>cost</td><td><code>free</code> or <code>fee-based</code></td><td>string</td><td>searchable facetable</td><td>CO</td><td></td></tr>
                 <tr><td>country</td><td>Shortcut for country - defaults to country.name</td><td>array</td><td></td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em></td></tr>
                 <tr><td>country.id</td><td>Id for country used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>C</td><td></td></tr>
                 <tr><td>country.iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
@@ -2474,7 +2474,7 @@
                 <tr><td>country.shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td><td></td></tr>
                 <tr><td>date.changed</td><td>Date when the entry was last modified on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td><td></td></tr>
-                <tr><td>date.created</td><td>Date when the entry was created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td><td><strong>sort</strong>: <em>latest</em></td></tr>
+                <tr><td>date.created</td><td>Date when the entry was created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td><td><strong>sort</strong>: <em>latest</em></td></tr>
                 <tr><td>date.end</td><td>Date training ends (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DE</td><td></td></tr>
                 <tr><td>date.registration</td><td>Date registration closes (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DR</td><td></td></tr>
                 <tr><td>date.start</td><td>Date training starts (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DS</td><td></td></tr>
@@ -2510,7 +2510,7 @@
                 <tr><td>theme.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/themes">values</a></td><td>string</td><td>searchable facetable exact</td><td></td><td></td></tr>
                 <tr><td>title</td><td>Title of course</td><td>string</td><td>sortable searchable exact</td><td></td><td><strong>query</strong>: <em>analysis</em> <em>latest</em> <em>minimal</em></td></tr>
                 <tr><td>training_language</td><td>Language training is held in, defaults to training_language.name</td><td>string</td><td>facetable exact</td><td></td><td></td></tr>
-                <tr><td>training_language.id</td><td>Id of language training is held in</td><td>integer</td><td>facetable</td><td></td><td></td></tr>
+                <tr><td>training_language.id</td><td>Id of language training is held in</td><td>integer</td><td>facetable</td><td>TL</td><td></td></tr>
                 <tr><td>training_language.name</td><td>Name of language training is held in. Link for <a href="https://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>facetable exact</td><td></td><td></td></tr>
                 <tr><td>training_language.code</td><td>Code of language training is held in</td><td>string</td><td>facetable exact</td><td></td><td></td></tr>
                 <tr><td>type</td><td>Shortcut for type - defaults to type.name</td><td>array</td><td></td><td></td><td></td></tr>
