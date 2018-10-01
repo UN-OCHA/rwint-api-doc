@@ -1,21 +1,50 @@
-$(document).ready(function() {
-  var counter = 1;
+(function() {
 
-  $('a.target').click(function() {
+  'use strict';
 
-    $(' .nav-tabs li').removeClass('active');
+  var tryText = "Try it out",
+    counter = 1;
+
+  // Show which Fields table tab is being displayed.
+  var targets = document.getElementsByClassName('target');
+  for (var i=0; i<targets.length; i++) {
+    targets[i].addEventListener('click', handleActiveTab);
+  }
+
+  function handleActiveTab() {
+    document.querySelector(' .nav-tabs li.active').classList.remove('active');
+    var tabs = document.querySelectorAll(' .nav-tabs li ');
     var targetHref = this.href;
-    $(' .nav-tabs li').filter(function(index) { return $('a', this)[0].href === targetHref; }).addClass('active');
-  });
-  $(' .nav-sidebar a.target').click(function() {
-    $('html, body').animate({
-      scrollTop: $('#fields-tables').offset().top
-    });
-  });
+    for (var tab of tabs) {
+      if (tab.children[0].href === targetHref) {
+        tab.classList.add('active');
+        break;
+      }
+    }
+    // Move to the fields tables section.
+    location.href = '#fields-tables';
+  }
 
-  // This to make sure returns don't create divs in contenteditable.
-  // https://stackoverflow.com/questions/6024594/avoid-createelement-function-if-its-inside-a-li-element-contenteditable
-  $(' .apiCall .post-parameters ').keydown(function(e) {
+  // Submit queries on return for url fields.
+  var urls = document.getElementsByClassName('url');
+  for (var i=0; i<urls.length; i++) {
+    urls[i].addEventListener('keydown', handleUrlReturns);
+  }
+
+  function handleUrlReturns(e) {
+    if (e.keyCode === 13) {
+      showResults(e);
+    }
+  }
+
+  // Make sure returns don't create divs in contenteditable JSON.
+  // https://stackoverflow.com/questions/6024594
+  var posts = document.getElementsByClassName('post-parameters');
+  for (var i=0; i<posts.length; i++) {
+    posts[i].addEventListener('keydown', handleJsonReturns);
+  }
+
+  function handleJsonReturns(e) {
     if (e.keyCode === 13) {
       if (window.getSelection) {
         var selection = window.getSelection(),
@@ -31,82 +60,98 @@ $(document).ready(function() {
         e.preventDefault();
       }
     }
-  });
+  }
 
   // Copy works on input elements: need to clone the text to a hidden textarea.
-  function copyToClipboard(element) {
-    var oldPosX = window.scrollX;
-    var oldPosY = window.scrollY;
-    var cloneItem = element.cloneNode(true);
+  function copyToClipboard(text) {
     var copyItem = document.createElement( "textarea" );
-    var copyValue = cloneItem.value || cloneItem.textContent;
-    copyItem.style.opacity = 0;
-    copyItem.style.position = "absolute";
-    copyItem.value = copyValue;
+    copyItem.style.position = 'fixed';
+    copyItem.value = text;
     document.body.appendChild(copyItem);
-
-    copyItem.focus();
-    copyItem.selectionStart = 0;
-    copyItem.selectionEnd = copyValue.length;
-
+    copyItem.select();
     document.execCommand("copy");
-    element.focus();
-    // Restore the user's original position to avoid
-    // 'jumping' when they click a copy button.
-    window.scrollTo(
-        oldPosX,
-        oldPosY
-    );
-    element.selectionStart = 0;
-    element.selectionEnd = copyValue.length;
     copyItem.remove();
   }
 
   function showResults(e) {
     e.preventDefault();
-    var that = this,
-        verb = 'get',
-        parentElement = $( this ).parent().parent().parent(),
-        postdata = '';
-    if ($( parentElement ).find(' .post-parameters ').length) {
-      var postdataElement = $( parentElement ).find(' .post-parameters ');
-      postdata = $( postdataElement ).text();
-      verb = 'post';
+    var options = {method: "GET"};
+    var apiCall = e.target.parentNode;
+    // Check for post-parameters and results.
+    for (var i=0; i<apiCall.children.length; i++) {
+      if (apiCall.children[i].className === 'post-parameters') {
+        var options = {
+          method: "POST",
+          body: apiCall.children[i].innerText
+        };
+      }
+      // Get result div, if there is one.
+      if (apiCall.children[i].className === 'result') {
+        var result = apiCall.children[i];
+      }
+      // Change the try text.
+      if (apiCall.children[i].className === 'try') {
+        var tryButton = apiCall.children[i];
+      }
+    }
+    // Create result div if necessary.
+    if (!result) {
+      result = document.createElement('div');
+      result.setAttribute('class', 'result');
+      apiCall.appendChild(result);
     }
     // Check that this is going to api.reliefweb.int
-    var urlElement = $( parentElement ).find(' .url ');
-    var url = $( urlElement ).text();
-    if (!($( parentElement ).find(' .result ').length)) {
-      $( parentElement ).append('<div class="result"></div>');
-    }
+    var url = apiCall.children[0].innerText;
     if (url.indexOf('https://api.reliefweb.int/v1') !== 0) {
-        $( parentElement ).find(' .result ').html('<strong>Error:</strong> The call must be made to <code>https://api.reliefweb.int/v1</code>').show();
-        return;
+      result.innerHTML = "<strong>Error:</strong> The call must be made to <code>https://api.reliefweb.int/v1</code>";
+      return;
     }
-    $.ajax({
-      type: verb,
-      url: url,
-      datatype: 'json',
-      data: postdata,
-      error: function(data) {
-        $( parentElement ).find(' .result ').html('<button type="button" onclick="$( this ).parent().remove()">Error - please edit the query and try again</button><pre><code>' + JSON.stringify(data, null, '\t') + '</code></pre>').show();
-      },
-      success: function(data) {
-        var copyButtonText = "Copy GET URL";
-        var copyElement = urlElement[0];
-        if (postdata.length) {
-          copyElement = postdataElement[0];
-          copyButtonText = "Copy POST json";
-        }
-        $( parentElement ).find(' .result ').html('<button id="hideButton-' + counter + '" type="button">Hide results (Note the query can be edited)</button><button id="copyButton-' + counter + '" type="button">' + copyButtonText + '</button><pre><code>' + JSON.stringify(data, null, '\t') + '</code></pre>').show();
-        document.getElementById("hideButton-" + counter).addEventListener('click', function(){$( this ).parent().remove()});
-        document.getElementById("copyButton-" + counter).addEventListener('click', function(){copyToClipboard(copyElement)});
-        counter++;
+
+    // Query the API.
+    fetch(url, options)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(json) {
+      var resultStatus = "success",
+          reTry = "Try again (after editing the request)",
+          copyType = (options.method === 'POST') ? "POST JSON" : "GET URL",
+          copyText = (options.method === 'POST') ? options.body : url,
+          html = '<button id="hideButton-' + counter + '">Hide results</button>';
+      if (json.error) {
+        resultStatus = "error";
+        reTry = 'Error: "' + json.error.message + '" Adjust request and click to try again';
       }
+      html += '<button id="copyButton-' + counter + '">Copy ' + copyType + '</button>';
+      html += '<pre class="' + resultStatus + '">';
+      html += '<code>' + JSON.stringify(json, null, '\t') + '</code>';
+      html += '</pre>';
+
+      // Add result.
+      result.innerHTML = html;
+
+      // Add functionality to buttons..
+      document.getElementById("hideButton-" + counter).addEventListener('click', function() {
+        this.parentElement.remove();
+        tryButton.innerText = tryText;
+      });
+      document.getElementById("copyButton-" + counter).addEventListener('click', function() {copyToClipboard(copyText)});
+
+      // Change the try text.
+      tryButton.innerText = reTry;
+
+      counter++;
     });
   }
 
-  $(' .apiCall .url ').wrap('<div class="input-group"></div>').parent().append('<span class="input-group-btn"><button type="button" class="try btn btn-default" >Try it out</button>');
-  $(' .apiCall .try ').click(showResults);
+  // Add 'try it out' buttons and handlers to all API calls.
+  var calls = document.getElementsByClassName('apiCall');
+  for (var i=0; i<calls.length; i++) {
+    var tryIt = document.createElement('button');
+    tryIt.setAttribute('class', 'try');
+    tryIt.innerText = tryText;
+    tryIt.addEventListener('click', showResults);
+    calls[i].appendChild(tryIt);
+  }
 
-});
+})();

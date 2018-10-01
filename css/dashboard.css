@@ -139,12 +139,15 @@ li.indented a {
   background-color: #f5f5bb;
 }
 
+.apiCall .result pre.error {
+  background-color: #f5bbbb;
+}
+
 .apiCall .url pre {
   background-color: #bbf5f5;
 }
 
-.apiCall .try {
-  line-height: 1.84;
-  margin-bottom: 10px;
-  background-color: #bbf5f5;
+.apiCall button {
+  line-height: 2;
+  margin: 0 10px 10px 0;
 }
