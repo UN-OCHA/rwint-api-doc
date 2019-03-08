@@ -202,6 +202,9 @@
             <li><strong><a href="http://reliefweb.int/jobs">jobs</a></strong> - The place to advertise or find humanitarian jobs. Jobs are classified by type, category, location and requirements and all are made available through the API.</li>
             <li><strong><a href="http://reliefweb.int/training">training</a></strong> - A growing section of the site. Training opportunities and courses for useful and necessary humanitarian skills. (Note that unlike the other content types, there's no 's' on 'training')</li>
             <li><strong><a href="http://reliefweb.int/organizations">sources</a></strong> - Our partners. ReliefWeb's role is to collect, curate and deliver timely humanitarian information. This information comes from a wide range of trusted sources. Information about those sources, and their reports, is available here.</li>
+            <li><strong><a href="http://reliefweb.int/faq">FAQ</a></strong> - Questions and answers about navigating, using and contributing to ReliefWeb.</li>
+            <li><strong><a href="http://reliefweb.int/blog">blog</a></strong> - Blog posts about ideas and projects to grow and improve ReliefWeb.</li>
+            <li><strong><a href="http://reliefweb.int/help">book</a></strong> - 'Static' information about the site and humanitarian resources. Besides the help pages and <a href="https://reliefweb.int/terms-conditions">terms and conditions</a>, there are pages on <a href="https://reliefweb.int/location-maps">location maps</a>, <a href="https://reliefweb.int/taxonomy-descriptions">taxonomy descriptions</a> and <a href="https://reliefweb.int/share">how to share humanitarian content on ReliefWeb</a>.</li>
             <li><strong><a href="http://reliefweb.int/taxonomy-descriptions">references</a></strong> - Our taxonomy. ReliefWeb's editorial team tag content with to make it easier to organize and find specific content. These are detailed here to make so they can be more transparently matched with vocabularies used by other organizations.</li>
           </ul>
 
@@ -1603,13 +1606,15 @@
             <li role="presentation"><a href="#jobs" role="tab" data-toggle="tab">Job</a></li>
             <li role="presentation"><a href="#training" role="tab" data-toggle="tab">Training</a></li>
             <li role="presentation"><a href="#sources" role="tab" data-toggle="tab">Source</a></li>
+            <li role="presentation"><a href="#faq" role="tab" data-toggle="tab">FAQ</a></li>
+            <li role="presentation"><a href="#book" role="tab" data-toggle="tab">Book</a></li>
+            <li role="presentation"><a href="#blog" role="tab" data-toggle="tab">Blog</a></li>
             </ul>
 
           <div class="tab-content">
 
 <!-- Start fields tables -->
 <!-- Copied from spreadsheet at https://docs.google.com/spreadsheets/d/194BA3jUqbVi3cnQF0NiFhZ7xn3kyDAduLKk0NC_CgeQ -->
-
 
             <div id="summary" role="tabpanel" class="tab-pane active table-responsive">
               <table class="table table-striped">
@@ -2162,7 +2167,78 @@
                 <tr><td>url_alias</td><td>Friendly' url of the source</td><td>string</td><td>searchable</td><td></td></tr>
               </table>
             </div>
-
+            <div id="faq" role="tabpanel" class="tab-pane table-responsive">
+              <table class="table table-striped">
+                <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
+                <tr><td>body</td><td>Answer to FAQ in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+                <tr><td>body-html</td><td>Answer to FAQ in HTML format</td><td>string</td><td></td><td></td></tr>
+                <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td></tr>
+                <tr><td>date.changed</td><td>Date entry modified on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td></tr>
+                <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+                <tr><td>faq_category</td><td>Shortcut for type of FAQ question - defaults to faq_category.name</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+                <tr><td>faq_category.id</td><td>Id of type of faq question</td><td>number</td><td>facetable</td><td></td></tr>
+                <tr><td>faq_category.name</td><td>Name of type of faq question</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+                <tr><td>id</td><td>Unique id of faq question used by ReliefWeb</td><td>number</td><td>sortable searchable</td><td></td></tr>
+                <tr><td>status</td><td>Published or not</td><td>string</td><td>facetable</td><td></td></tr>
+                <tr><td>title</td><td>Question</td><td>string</td><td>sortable exact</td><td></td></tr>
+                <tr><td>url</td><td>Canonical url of the faq question</td><td>string</td><td></td><td></td></tr>
+                <tr><td>url_alias</td><td>Friendly' url of faq question</td><td>string</td><td></td><td></td></tr>
+              </table>
+            </div>
+            <div id="book" role="tabpanel" class="tab-pane table-responsive">
+              <table class="table table-striped">
+                <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
+                <tr><td>body</td><td>Text in Markdown format</td><td>string searchable</td><td></td><td></td></tr>
+                <tr><td>body-html</td><td>Text in HTML format</td><td>string</td><td></td><td></td></tr>
+                <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td></tr>
+                <tr><td>date.changed</td><td>Date entry modified on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td></tr>
+                <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+                <tr><td>id</td><td>Unique id of page used by ReliefWeb</td><td>number</td><td>sortable searchable</td><td></td></tr>
+                <tr><td>status</td><td>Published or not</td><td>string</td><td>facetable</td><td></td></tr>
+                <tr><td>title</td><td>Title of page</td><td>string</td><td>sortable exact</td><td></td></tr>
+                <tr><td>url</td><td>Canonical url of the page</td><td>string</td><td></td><td></td></tr>
+                <tr><td>url_alias</td><td>Friendly' url of page</td><td>string</td><td></td><td></td></tr>
+              </table>
+            </div>
+            <div id="blog" role="tabpanel" class="tab-pane table-responsive">
+              <table class="table table-striped">
+                <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
+                <tr><td>attached_image</td><td>Attached image shortcut - defaults to attached_image.id</td><td>integer</td><td></td><td></td></tr>
+                <tr><td>attached_image.caption</td><td>Caption attached to the image</td><td>string</td><td>searchable</td><td></td></tr>
+                <tr><td>attached_image.copyright</td><td>Copyright attached to the image</td><td>string</td><td>searchable</td><td></td></tr>
+                <tr><td>attached_image.id</td><td>Unique id of image used by ReliefWeb</td><td>integer</td><td>searchable</td><td></td></tr>
+                <tr><td>attached_image.mimetype</td><td>MIME type of the image</td><td>string</td><td></td><td></td></tr>
+                <tr><td>attached_image.filename</td><td>File name of the image</td><td>string</td><td></td><td></td></tr>
+                <tr><td>attached_image.url</td><td>Link to the original image</td><td>string</td><td></td><td></td></tr>
+                <tr><td>attached_image.url-large</td><td>Link to a large image with a width of 680px</td><td>string</td><td></td><td></td></tr>
+                <tr><td>attached_image.url-small</td><td>Link to a small image with a width of 200px</td><td>string</td><td></td><td></td></tr>
+                <tr><td>attached_image.url-thumb</td><td>Link to a thumbnail image with a maximum width of 220px and a maximum height of 100px</td><td>string</td><td></td><td></td></tr>
+                <tr><td>author</td><td>Name of blog post author</td><td>string</td><td>searchable exact</td><td></td></tr>
+                <tr><td>body</td><td>Text of blog post in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+                <tr><td>body-html</td><td>Text of blog post in HTML format</td><td>string</td><td></td><td></td></tr>
+                <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td></tr>
+                <tr><td>date.changed</td><td>Date entry modified on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td></tr>
+                <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+                <tr><td>id</td><td>Id for blog post used by ReliefWeb</td><td>number</td><td>sortable searchable</td><td></td></tr>
+                <tr><td>image</td><td>Image shortcut - defaults to image.id</td><td>integer</td><td></td><td></td></tr>
+                <tr><td>image.caption</td><td>Caption attached to the image</td><td>string</td><td>searchable</td><td></td></tr>
+                <tr><td>image.copyright</td><td>Copyright attached to the image</td><td>string</td><td>searchable</td><td></td></tr>
+                <tr><td>image.id</td><td>Unique id of image used by ReliefWeb</td><td>integer</td><td>searchable</td><td></td></tr>
+                <tr><td>image.mimetype</td><td>MIME type of the image</td><td>string</td><td></td><td></td></tr>
+                <tr><td>image.filename</td><td>File name of the image</td><td>string</td><td></td><td></td></tr>
+                <tr><td>image.url</td><td>Link to the original image</td><td>string</td><td></td><td></td></tr>
+                <tr><td>image.url-large</td><td>Link to a large image with a width of 680px</td><td>string</td><td></td><td></td></tr>
+                <tr><td>image.url-small</td><td>Link to a small image with a width of 200px</td><td>string</td><td></td><td></td></tr>
+                <tr><td>image.url-thumb</td><td>Link to a thumbnail image with a maximum width of 220px and a maximum height of 100px</td><td>string</td><td></td><td></td></tr>
+                <tr><td>status</td><td>Published or not</td><td>string</td><td>facetable</td><td></td></tr>
+                <tr><td>tags</td><td>Shortcut for categories applied to blog post - defaults to tags.name</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+                <tr><td>tags.id</td><td>Unique id for blog post categories used by ReliefWeb</td><td>number</td><td>facetable</td><td></td></tr>
+                <tr><td>tags.name</td><td>Name of blog post categories</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+                <tr><td>title</td><td>Title of blog post</td><td>string</td><td>sortable exact</td><td></td></tr>
+                <tr><td>url</td><td>Canonical url of blog post</td><td>string</td><td></td><td></td></tr>
+                <tr><td>url_alias</td><td>Friendly' url of blog post</td><td>string</td><td></td><td></td></tr>
+              </table>
+            </div>
 
 <!-- End fields tables -->
           </div>
@@ -2196,8 +2272,52 @@
           <ul>
             <li id="preset-analysis">
               <h3>Analysis</h3>
-              <h4>Countries - analysis</h4>
-              <div>
+              <ul>
+                <li>
+                  <h4>Blog - analysis</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body"
+    ],
+    "operator": "OR"
+  },
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Book - analysis</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body"
+    ],
+    "operator": "OR"
+  },
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Countries - analysis</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2212,9 +2332,11 @@
   "filter": {}
 }
 </pre>
-              <div>
-              <h4>Disasters - analysis</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Disasters - analysis</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2235,9 +2357,32 @@
   }
 }
 </pre>
-              <div>
-              <h4>Jobs - analysis</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Faq - analysis</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body"
+    ],
+    "operator": "OR"
+  },
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Jobs - analysis</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2260,9 +2405,11 @@
   }
 }
 </pre>
-              <div>
-              <h4>Reports - analysis</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Reports - analysis</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2291,7 +2438,9 @@
   }
 }
 </pre>
-              <div>
+              </div>
+            </li>
+            <li>
               <h4>Sources - analysis</h4>
               <div>
 <pre>
@@ -2308,9 +2457,11 @@
   }
 }
 </pre>
-              <div>
-              <h4>Training - analysis</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Training - analysis</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2333,12 +2484,64 @@
   }
 }
 </pre>
-              <div>
-            <li>
+                  </div>
+                </li>
+              </ul>
+            </li>
             <li id="preset-latest">
               <h3>Latest</h3>
-              <h4>Countries - latest</h4>
-              <div>
+              <ul>
+                <li>
+                  <h4>Blog - latest</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body"
+    ],
+    "operator": "OR"
+  },
+  "sort": [
+    "date.created:desc"
+  ],
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Book - latest</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body"
+    ],
+    "operator": "OR"
+  },
+  "sort": [
+    "date.created:desc"
+  ],
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Countries - latest</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2355,9 +2558,11 @@
   "filter": {}
 }
 </pre>
-              <div>
-              <h4>Disasters - latest</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Disasters - latest</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2381,9 +2586,35 @@
   }
 }
 </pre>
-              <div>
-              <h4>Jobs - latest</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Faq - latest</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body"
+    ],
+    "operator": "OR"
+  },
+  "sort": [
+    "date.created:desc"
+  ],
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Jobs - latest</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2408,9 +2639,11 @@
   }
 }
 </pre>
-              <div>
-              <h4>Reports - latest</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Reports - latest</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2441,9 +2674,11 @@
   }
 }
 </pre>
-              <div>
-              <h4>Sources - latest</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Sources - latest</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2465,9 +2700,11 @@
   }
 }
 </pre>
-              <div>
-              <h4>Training - latest</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Training - latest</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2495,12 +2732,58 @@
   }
 }
 </pre>
-              <div>
-            <li>
+                  </div>
+                </li>
+              </ul>
+            </li>
             <li id="preset-minimal">
               <h3>Minimal</h3>
-              <h4>Countries - minimal</h4>
-              <div>
+              <ul>
+                <li>
+                  <h4>Blog - minimal</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "include": [
+        "title"
+      ]
+    ]
+  },
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Book - minimal</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "include": [
+        "title"
+      ]
+    ]
+  },
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Countries - minimal</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2511,9 +2794,11 @@
   "filter": {}
 }
 </pre>
-              <div>
-              <h4>Disasters - minimal</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Disasters - minimal</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2528,9 +2813,32 @@
   }
 }
 </pre>
-              <div>
-              <h4>Jobs - minimal</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Faq - minimal</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "include": [
+        "title"
+      ]
+    ]
+  },
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Jobs - minimal</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2545,9 +2853,11 @@
   }
 }
 </pre>
-              <div>
-              <h4>Reports - minimal</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Reports - minimal</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2562,9 +2872,11 @@
   }
 }
 </pre>
-              <div>
-              <h4>Sources - minimal</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Sources - minimal</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2579,9 +2891,11 @@
   }
 }
 </pre>
-              <div>
-              <h4>Training - minimal</h4>
-              <div>
+                  </div>
+                </li>
+                <li>
+                  <h4>Training - minimal</h4>
+                  <div>
 <pre>
 {
   "query": {
@@ -2596,7 +2910,9 @@
   }
 }
 </pre>
-              <div>
+                  </div>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
