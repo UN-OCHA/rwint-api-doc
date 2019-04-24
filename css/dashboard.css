@@ -67,6 +67,17 @@ body {
   background-color: #428bca;
 }
 
+/*
+ * Increase contrast for links with backgrounds.
+ */
+.nav-sidebar a,
+.table-striped a {
+  color: #224f77;
+}
+code,
+pre {
+  font-weight: bold;
+}
 
 /*
  * Main content
@@ -125,12 +136,12 @@ h3:before,
   height: 60px;
   visibility: hidden;
 }
-
-li.indented {
-  padding-left: 20px;
+.nav-sidebar li > ul {
+  padding-left: 40px;
+  list-style-type: none;
 }
 
-li.indented a {
+.nav-sidebar li > ul > li {
   padding-top: 4px;
   padding-bottom: 4px;
 }

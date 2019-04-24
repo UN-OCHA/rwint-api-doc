@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
+    <meta name="description" content="Documentation for using the ReliefWeb API, with full field listings and interactive examples.">
     <meta name="author" content="">
     <link rel="icon" href="img/favicon.png">
 
@@ -63,49 +63,59 @@
             <li><a href="#doc-use">Using the documentation</a></li>
             <li><a href="#endpoints">Endpoints</a></li>
             <li><a href="#lists-items">Lists and items</a></li>
-            <li><a href="#parameters">Request parameters</a></li>
-              <li class="indented"><a href="#appname">Appname</a></li>
-              <li class="indented"><a href="#query">Query</a></li>
-              <li class="indented"><a href="#filter">Filter</a></li>
-              <li class="indented"><a href="#facet">Facet</a></li>
-              <li class="indented"><a href="#limit">Limit</a></li>
-              <li class="indented"><a href="#offset">Offset</a></li>
-              <li class="indented"><a href="#sort">Sort</a></li>
-              <li class="indented"><a href="#profile">Profile</a></li>
-              <li class="indented"><a href="#preset">Preset</a></li>
-              <li class="indented"><a href="#fields">Fields</a></li>
-              <li class="indented"><a href="#verbose">Verbose</a></li>
-            <li><a href="#results">Results</a></li>
-              <li class="indented"><a href="#result-structure">Result structure</a></li>
-              <li class="indented"><a href="#error-structure">Error structure</a></li>
-            <li><a href="#examples">Examples, tips, suggestions</a></li>
-              <li class="indented"><a href="#get-limit">Limit for GET queries</a></li>
-              <li class="indented"><a href="#client-libraries">Client libraries</a></li>
-              <li class="indented"><a href="#exact-results">Getting exact results</a></li>
-              <li class="indented"><a href="#totalcount">Using totalcount</a></li>
-              <li class="indented"><a href="#post-to-get">Convert POST to GET</a></li>
-              <li class="indented"><a href="#get-to-post">Convert GET to POST</a></li>
-              <li class="indented"><a href="#advanced-queries">Advanced queries</a></li>
-
-            <li><a href="#fields-tables">Fields tables</a></li>
-            <ul class="">
-              <li><a role="tab" data-toggle="tab" class="target" href="#summary">Summary</a></li>
-              <li><a role="tab" data-toggle="tab" class="target" href="#reports">Reports</a></li>
-              <li><a role="tab" data-toggle="tab" class="target" href="#disasters">Disasters</a></li>
-              <li><a role="tab" data-toggle="tab" class="target" href="#countries">Countries</a></li>
-              <li><a role="tab" data-toggle="tab" class="target" href="#jobs">Jobs</a></li>
-              <li><a role="tab" data-toggle="tab" class="target" href="#training">Training</a></li>
-              <li><a role="tab" data-toggle="tab" class="target" href="#sources">Sources</a></li>
-              <li><a role="tab" data-toggle="tab" class="target" href="#faq">FAQ</a></li>
-              <li><a role="tab" data-toggle="tab" class="target" href="#book">Book</a></li>
-              <li><a role="tab" data-toggle="tab" class="target" href="#blog">Blog</a></li>
-            </ul>
-            <li><a href="#preset-settings">Preset settings</a></li>
-            <ul class="">
-              <li><a href="#preset-analysis">Analysis</a></li>
-              <li><a href="#preset-latest">Latest</a></li>
-              <li><a href="#preset-minimal">Minimal</a></li>
-            </ul>
+            <li><a href="#parameters">Request parameters</a>
+              <ul>
+                <li><a href="#appname">Appname</a></li>
+                <li><a href="#query">Query</a></li>
+                <li><a href="#filter">Filter</a></li>
+                <li><a href="#facet">Facet</a></li>
+                <li><a href="#limit">Limit</a></li>
+                <li><a href="#offset">Offset</a></li>
+                <li><a href="#sort">Sort</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#preset">Preset</a></li>
+                <li><a href="#fields">Fields</a></li>
+                <li><a href="#verbose">Verbose</a></li>
+              </ul>
+            </li>
+            <li><a href="#results">Results</a>
+              <ul>
+                <li><a href="#result-structure">Result structure</a></li>
+                <li><a href="#error-structure">Error structure</a></li>
+              </ul>
+            </li>
+            <li><a href="#examples">Examples, tips, suggestions</a>
+              <ul>
+                <li><a href="#get-limit">Limit for GET queries</a></li>
+                <li><a href="#client-libraries">Client libraries</a></li>
+                <li><a href="#exact-results">Getting exact results</a></li>
+                <li><a href="#totalcount">Using totalcount</a></li>
+                <li><a href="#post-to-get">Convert POST to GET</a></li>
+                <li><a href="#get-to-post">Convert GET to POST</a></li>
+                <li><a href="#advanced-queries">Advanced queries</a></li>
+              </ul>
+            </li>
+            <li><a href="#fields-tables">Fields tables</a>
+              <ul class="nav-tabs">
+                <li><a role="tab" data-toggle="tab" class="target" href="#summary">Summary</a></li>
+                <li><a data-toggle="tab" class="target" href="#reports">Reports</a></li>
+                <li><a data-toggle="tab" class="target" href="#disasters">Disasters</a></li>
+                <li><a data-toggle="tab" class="target" href="#countries">Countries</a></li>
+                <li><a data-toggle="tab" class="target" href="#jobs">Jobs</a></li>
+                <li><a data-toggle="tab" class="target" href="#training">Training</a></li>
+                <li><a data-toggle="tab" class="target" href="#sources">Sources</a></li>
+                <li><a data-toggle="tab" class="target" href="#faq">FAQ</a></li>
+                <li><a data-toggle="tab" class="target" href="#book">Book</a></li>
+                <li><a data-toggle="tab" class="target" href="#blog">Blog</a></li>
+              </ul>
+            </li>
+            <li><a href="#preset-settings">Preset settings</a>
+              <ul class="">
+                <li><a href="#preset-analysis">Analysis</a></li>
+                <li><a href="#preset-latest">Latest</a></li>
+                <li><a href="#preset-minimal">Minimal</a></li>
+              </ul>
+            </li>
             <li><a href="#tos">Terms of service</a></li>
             <li><a href="#quotas">Quotas</a></li>
           </ul>
@@ -1270,15 +1280,16 @@
             <li><code>links</code>: <a href="http://stateless.co/hal_specification.html">HAL</a>-type links to previous and next resources, for lists, or to collection for items.</li>
             <li><code>totalCount</code>: Total number of results that match the request.</li>
             <li><code>count</code>: Number of results returned in this result.</li>
-            <li><code>data</code>: All the information:</li>
-            <ul>
-              <li><code>id</code> Unique ReliefWeb id for the item (for items and lists). Ids can be used to find the resource directly on the ReliefWeb site.<br>
-              <em>  For reports, jobs and training:</em> <code>http://reliefweb.int/node/&lt;id&gt;</code><br>
-              <em>  For countries, disasters, sources, and some category fields with an id:</em> <code>http://reliefweb.int/taxonomy/term/&lt;id&gt;</code></li>
-              <li> <code>fields</code> Fields selected by <code>fields</code> and/or <code>profile</code> parameter (for items and lists).</li>
-              <li> <code>score</code> Relevance of result to query. If there was no <code>query</code> parameter, this will be 1 (for lists only).</li>
-              <li> <code>href</code> Url of the resource item. Useful for drilling down into individual results (for lists only).</li>
-            </ul>
+            <li><code>data</code>: All the information:
+              <ul>
+                <li><code>id</code> Unique ReliefWeb id for the item (for items and lists). Ids can be used to find the resource directly on the ReliefWeb site.<br>
+                <em>  For reports, jobs and training:</em> <code>http://reliefweb.int/node/&lt;id&gt;</code><br>
+                <em>  For countries, disasters, sources, and some category fields with an id:</em> <code>http://reliefweb.int/taxonomy/term/&lt;id&gt;</code></li>
+                <li> <code>fields</code> Fields selected by <code>fields</code> and/or <code>profile</code> parameter (for items and lists).</li>
+                <li> <code>score</code> Relevance of result to query. If there was no <code>query</code> parameter, this will be 1 (for lists only).</li>
+                <li> <code>href</code> Url of the resource item. Useful for drilling down into individual results (for lists only).</li>
+              </ul>
+            </li>
           </ul>
 
           <p>Example:</p>
@@ -1603,7 +1614,7 @@
 
           <p><strong>Note:</strong> In the field descriptions in this table, fields that have subfields are often described as defaulting to one of those subfields. This refers to a search, and not the result. So, for example, a <code>query[fields][]=country</code> is equivalent to <code>query[fields][]=country.name</code>. The result will return JSON objects for each country, not only the names.</p>
 
-          <ul class="nav nav-tabs" role="tablist">
+          <ul id="fields-table" class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#summary" role="tab" data-toggle="tab">Summary</a></li>
             <li role="presentation"><a href="#reports" role="tab" data-toggle="tab">Report</a></li>
             <li role="presentation"><a href="#disasters" role="tab" data-toggle="tab">Disaster</a></li>

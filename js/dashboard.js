@@ -22,7 +22,8 @@
       }
     }
     // Move to the fields tables section.
-    location.href = '#fields-tables';
+    location.href = '#fields-table';
+    window.scrollBy(0, -50);
   }
 
   // Submit queries on return for url fields.
