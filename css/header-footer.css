@@ -1,0 +1,733 @@
+
+/**********
+ * Header *
+ **********/
+#header:before {
+  content: "";
+  display: block;
+  position: relative;
+  height: 35px;
+  background: #055372;
+  background-image: linear-gradient(-180deg, #055372 67%, #04415a 97%);
+  margin: 0 -12px;
+}
+#header:after {
+  content: "";
+  display: block;
+  position: relative;
+  top: -3px;
+  margin: -2px -12px;
+  border-top: 3px solid #e6ecef;
+  z-index: -1;
+  width: auto;
+}
+#header a,
+#header button {
+  position: relative;
+  display: inline-block;
+  height: inherit;
+  width: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-transform: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+#header a:hover,
+#header a:visited,
+#header a:active {
+  text-decoration: none;
+}
+
+#header ul {
+  margin: 0;
+  padding: 0;
+  height: inherit;
+  float: right;
+}
+#header li {
+  display: inline-block;
+  height: inherit;
+  float: left;
+}
+#header li a {
+  padding: 0 15px;
+}
+#header li a:after {
+  content: "";
+  display: inline-block;
+  height: inherit;
+  vertical-align: middle;
+  margin-top: -1px;
+}
+
+#header h1 {
+  position: absolute;
+  top: 35px;
+  width: 140px;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  background: url(images/rw-api-logo.png) 0 50% no-repeat;
+  background: rgba(0,0,0,0) url(images/rw-api-logo.svg) 0 50% no-repeat;
+}
+
+#header > nav:after,
+#header > section:after,
+#header > form:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#header #navigation-menu {
+  min-height: 60px;
+  float: right;
+}
+#header #navigation-menu li {
+  border: 1px solid #e6ecef;
+  margin-top: -1px;
+  height: 64px;
+}
+#header #navigation-menu li + li {
+  margin-left: -1px;
+}
+#header #navigation-menu li > a {
+  border-bottom: 3px solid transparent;
+  height: 63px;
+  margin: 0 -1px -1px -1px;
+}
+#header #navigation-menu li > a:hover,
+#header #navigation-menu li > a:active,
+#header #navigation-menu li > a:focus {
+  background: #e6ecef;
+  z-index: 3;
+}
+#header #navigation-menu li > a:focus,
+#header #navigation-menu li > a[data-active] {
+  border-bottom: 3px solid #eb1405;
+}
+
+#header #navigation-menu a,
+#header #navigation-menu button {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  color: #2e3436;
+}
+#header #navigation-menu a:hover,
+#header #navigation-menu a:active,
+#header #navigation-menu a:focus,
+#header #navigation-menu button:hover,
+#header #navigation-menu button:active,
+#header #navigation-menu button:focus {
+  color: black;
+}
+
+/**********
+ * Footer *
+ **********/
+#footer {
+  background: #055372;
+  color: white;
+}
+#footer a {
+  position: relative;
+  display: inline-block;
+  height: inherit;
+  width: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-transform: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+#footer a:hover,
+#footer a:visited,
+#footer a:active {
+  text-decoration: none;
+}
+#footer ul {
+  margin: 0;
+  padding: 0;
+}
+#footer li {
+  list-style: none;
+}
+/** OCHA services **/
+#footer #ocha-services {
+  background: #055372;
+  z-index: 3;
+}
+#footer #ocha-services > ul {
+  position: relative;
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 100px;
+}
+#footer #ocha-services > ul > li {
+  position: relative;
+  display: table-cell;
+  border: 0px solid transparent;
+  vertical-align: top;
+  padding-bottom: 1px;
+}
+#footer #ocha-services > ul > li + li + li + li {
+  padding-bottom: 0;
+}
+#footer #ocha-services li div {
+  font-size: 12px;
+  font-weight: 300;
+  color: #cef0fd;
+  line-height: 18px;
+  margin-bottom: 10px;
+  padding-bottom: 2px;
+}
+#footer #ocha-services li div + ul {
+  margin-top: -1px;
+}
+#footer #ocha-services li div.accessibility + ul {
+  padding-top: 30px;
+}
+#footer #ocha-services li li {
+  margin-bottom: 12px;
+}
+#footer #ocha-services a {
+  display: inline;
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+}
+#footer #ocha-services a:hover,
+#footer #ocha-services a:active,
+#footer #ocha-services a:focus {
+  border-color: #0988bb;
+}
+#footer #ocha-services > ul > li + li + li + li a {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  border: none;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #055372;
+  background: #cef0fd;
+}
+#footer #ocha-services > ul > li + li + li + li a:hover,
+#footer #ocha-services > ul > li + li + li + li a:active,
+#footer #ocha-services > ul > li + li + li + li a:focus {
+  color: #0988bb;
+}
+
+#footer #additional-links {
+  padding: 47px 0;
+}
+#footer #additional-links ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#footer #additional-links li {
+  display: inline-block;
+}
+#footer #additional-links li {
+  padding: 0 31px 0 0;
+}
+#footer #additional-links li:first-child {
+  padding-left: 0;
+}
+#footer #additional-links li:last-child {
+  padding-right: 0;
+}
+#footer #additional-links {
+  display: inline-block;
+  max-width: 67%;
+  text-transform: uppercase;
+}
+#footer #additional-links a {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  border-bottom: 1px solid transparent;
+}
+#footer #additional-links a:hover,
+#footer #additional-links a:active,
+#footer #additional-links a:focus {
+  border-color: #0988bb;
+}
+#footer #ocha-disclaimer {
+  position: relative;
+  float: left;
+  width: 67%;
+  padding: 48px 0 69px;
+  margin-top: 15px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+}
+#footer #ocha-disclaimer p {
+  margin: 0;
+  line-height: 1.5;
+}
+#footer #ocha-disclaimer p + p {
+  position: absolute;
+  left: 160px;
+  bottom: 66px;
+  max-width: 540px;
+  margin: 0 0 0 14px;
+}
+#footer #ocha-disclaimer p + p:before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 37px;
+  background: white;
+  left: -13px;
+  top: -4px;
+}
+#footer #ocha-disclaimer #ocha-logo {
+  position: relative;
+  display: block;
+  height: 37px;
+  width: 149px;
+  margin-top: 12px;
+  background: url(images/ocha-logo.png) 0 0 no-repeat;
+  background: rgba(0,0,0,0) url(images/ocha-logo.svg) 0 no-repeat;
+}
+#footer #copyright {
+  float: right;
+  width: 33%;
+  padding: 10px 0 48px;
+  text-align: right;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+}
+#footer #copyright p {
+  margin: 0;
+}
+#footer #copyright a {
+  display: inline-block;
+  background: rgba(0,0,0,0) url(images/rw-logo-white.svg) 0 no-repeat;
+  width: 140px;
+  height: 60px;
+  margin-bottom: -4px;
+}
+
+/***********************
+ * Javascript disabled *
+ ***********************/
+
+/* Allow the menu to wrap to the next line when JS is off */
+.no-js #header #navigation-menu:before {
+  content: "";
+  display: inline-block;
+  width: 160px;
+  height: 60px;
+  float: left;
+}
+/* Show OCHA Services title */
+.no-js #footer #ocha-services {
+  font-size: 14px;
+}
+.no-js #footer #ocha-services-title {
+  position: relative;
+  width: auto;
+  height: auto;
+  margin: 0 0 24px 0;
+  padding: 0;
+  white-space: normal;
+  clip-path: none;
+  clip: auto;
+  overflow: initial;
+}
+
+/**********************
+ * Javascript enabled *
+ **********************/
+
+.js #header button[aria-expanded] {
+  position: relative;
+  float: right;
+  min-width: 60px;
+  height: 63px;
+  padding: 0 20px 0 21px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  color: #2e3436;
+  border: 1px solid #e6ecef;
+  border-top: none;
+  border-bottom-width: 3px;
+}
+.js #header button[aria-expanded]:hover,
+.js #header button[aria-expanded]:active,
+.js #header button[aria-expanded]:focus {
+  color: black;
+}
+.js #header #navigation-menu-toggler {
+  display: none;
+}
+/* Footer - OCHA services */
+.js #footer #ocha-services {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  right: 0;
+  padding: 22px;
+  z-index: 10;
+  -webkit-box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.3);
+}
+.js #footer #ocha-services[data-hidden="false"] {
+  display: block;
+}
+.js #footer #ocha-services-toggler {
+  position: absolute;
+  top: 0;
+  left: 12px;
+  height: 35px;
+  padding: 2px 0 0 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 300;
+  color: white;
+  z-index: 4;
+}
+.js #footer #ocha-services-toggler:hover,
+.js #footer #ocha-services-toggler:active,
+.js #footer #ocha-services-toggler:focus {
+  text-decoration: underline;
+  z-index: 3;
+}
+.js #footer #ocha-services-toggler:before {
+  content: "";
+  display: inline-block;
+  width: 21px;
+  height: 18px;
+  margin: -2px 4px 0 0;
+  vertical-align: middle;
+  background: url(images/ocha-logo-small.png) 50% no-repeat;
+  background: rgba(0,0,0,0) url(images/ocha-logo-small.svg) 50% no-repeat;
+}
+.js #footer #ocha-services-toggler:after {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-left: 4px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23fff' d='M48,14a4,4,0,0,1-1.17,2.83l-20,20a4,4,0,0,1-5.66,0l-20-20a4,4,0,0,1,5.66-5.66L24,28.34,41.17,11.17A4,4,0,0,1,48,14Z'/%3E%3C/svg%3E") 0 no-repeat;
+}
+.js #footer #ocha-services-toggler[aria-expanded="true"]:after {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23fff' d='M0,34a4,4,0,0,1,1.17-2.83l20-20a4,4,0,0,1,5.66,0l20,20a4,4,0,1,1-5.66,5.66L24,19.66,6.83,36.83A4,4,0,0,1,0,34Z'/%3E%3C/svg%3E") 0 no-repeat;
+}
+.js #footer #ocha-services:before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  margin-left: 55px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #055372;
+}
+.js #footer #ocha-disclaimer {
+  padding-top: 0;
+}
+
+/*****************
+ * Media Queries *
+ *****************/
+/** Display menu button **/
+@media screen and (max-width : 1023px) {
+  html {
+    padding: 0;
+  }
+  html:before,
+  html:after {
+    display: none;
+  }
+  #footer #additional-links {
+    width: 100%;
+    max-width: none;
+    text-align: center;
+  }
+  #footer #social-media {
+    float: none;
+    width: 100%;
+    max-width: none;
+    padding-top: 0;
+    text-align: center;
+  }
+  #footer #additional-links ul {
+    margin: 0 auto;
+    display: inline-block;
+  }
+  #footer #additional-links ul li {
+    padding: 0 15px 0 0;
+  }
+
+  #footer #ocha-disclaimer {
+    text-align: center;
+    width: 100%;
+    margin-top: 2px;
+    padding: 48px 0;
+  }
+  #footer #ocha-disclaimer p {
+    display: block;
+    margin: 0 auto;
+  }
+  #footer #ocha-disclaimer p + p {
+    position: static;
+    border: none;
+    padding: 0 12px;
+    left: auto;
+    bottom: auto;
+    margin: 16px auto 0;
+  }
+  #footer #ocha-disclaimer p + p:before {
+    display: none;
+  }
+  #footer #ocha-disclaimer #ocha-logo {
+    margin: 16px auto 0;
+  }
+  #footer #copyright {
+    width: 100%;
+    text-align: center;
+    padding: 0 0 48px;
+  }
+
+  .js #header:before {
+    z-index: 3;
+  }
+  .js #header button[aria-expanded] {
+    margin-right: 0;
+  }
+  .js #header button[aria-expanded]:focus:after,
+  .js #header button[aria-expanded="true"]:after {
+    right: 0;
+  }
+  .js #header #navigation-menu-toggler {
+    position: relative;
+    display: inline-block;
+    z-index: 5;
+  }
+  .js #header #navigation-menu-toggler[aria-expanded="true"]:before {
+    content: "";
+    position: absolute;
+    height: 3px;
+    bottom: -3px;
+    left: -1px;
+    right: -1px;
+    background: #eb1405;
+  }
+  .js #header #navigation-menu-toggler:after {
+    content: "";
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-left: 5px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23eb1405' d='M48,14a4,4,0,0,1-1.17,2.83l-20,20a4,4,0,0,1-5.66,0l-20-20a4,4,0,0,1,5.66-5.66L24,28.34,41.17,11.17A4,4,0,0,1,48,14Z'/%3E%3C/svg%3E") 0 no-repeat;
+  }
+  .js #header #navigation-menu-toggler[aria-expanded="true"]:after {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23eb1405' d='M0,34a4,4,0,0,1,1.17-2.83l20-20a4,4,0,0,1,5.66,0l20,20a4,4,0,1,1-5.66,5.66L24,19.66,6.83,36.83A4,4,0,0,1,0,34Z'/%3E%3C/svg%3E") 0 no-repeat;
+  }
+  .js #header #navigation-menu ul {
+    display: none;
+    position: absolute;
+    top: 95px;
+    right: 0;
+    min-height: calc(100vh - 92px);
+    width: 100%;
+    padding: 20px 0;
+    background: white;
+    z-index: 4;
+    border-top: 3px solid #e6ecef;
+    -webkit-box-shadow: 0 3px 5px 0px #e6ecef;
+    box-shadow: 0 3px 5px 0px #e6ecef;
+  }
+  .js #header #navigation-menu[data-hidden="false"] ul {
+    display: block;
+  }
+  .js #header #navigation-menu li {
+    float: none;
+    display: block;
+    height: 48px;
+    border: none;
+    margin: 0;
+  }
+  .js #header #navigation-menu li a {
+    position: relative;
+    height: inherit;
+    width: 100%;
+    margin: 0;
+    padding: 15px 30px;
+  }
+  .js #header #navigation-menu li a:hover,
+  .js #header #navigation-menu li a:active,
+  .js #header #navigation-menu li a:focus {
+    background: #e6ecef;
+    color: black;
+    border-bottom: none;
+  }
+  .js #header #navigation-menu li a[data-active] {
+    border-bottom: none;
+  }
+  .js #header #navigation-menu li a[data-active]:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15px;
+    height: inherit;
+    width: 3px;
+    background: #eb1405;
+  }
+  .js #header #navigation-menu li a:after {
+    margin-top: -28px;
+  }
+}
+
+/** Content centering **/
+@media screen and (max-width : 767px) {
+  #footer #ocha-services {
+    font-size: 16px;
+  }
+  #footer #ocha-services > ul {
+    display: block;
+  }
+  #footer #ocha-services > ul > li {
+    display: block;
+    margin-bottom: 24px;
+  }
+  #footer #ocha-services > ul > li + li {
+    margin-bottom: 0;
+  }
+  #footer #ocha-services > ul > li + li + li + li {
+    margin: 24px 0;
+  }
+  #footer #ocha-services > ul > li + li + li + li a {
+    position: relative;
+    display: block;
+  }
+  #footer #ocha-services li div.accessibility + ul {
+    padding-top: 0;
+  }
+
+  #footer #additional-links ul li {
+    width: 100%;
+    padding: 0 0 12px;
+  }
+  #footer #additional-links ul li a {
+    display: inline;
+  }
+
+  .no-js #footer #ocha-services {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .js #footer #ocha-services {
+    padding: 22px 12px;
+  }
+  .js #footer #ocha-services:before {
+    margin-left: 11px;
+  }
+  .js #footer #ocha-services-toggler span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0,0,0,0);
+    overflow: hidden;
+  }
+  .js #footer #ocha-services-toggler:after {
+    margin-left: 0;
+  }
+}
+@media screen and (min-width : 768px) and (max-width : 1199px) {
+  #header,
+  #footer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  #header:before,
+  #header:after {
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+  .js #footer #ocha-services-toggler {
+    left: 24px;
+  }
+  .js #footer #ocha-services {
+    padding: 22px 24px;
+  }
+  .js #footer #ocha-services > ul {
+    grid-gap: 12px;
+  }
+}
+@media screen and (min-width : 1200px) and (max-width : 1235px) {
+  #header,
+  #footer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  #header:before,
+  #header:after {
+    margin-left: -40px;
+    margin-right: -40px;
+  }
+
+  .js #footer #ocha-services {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .js #footer #ocha-services-toggler {
+    left: 40px;
+  }
+}
+@media screen and (min-width : 1200px) {
+  #footer #ocha-services li li {
+    white-space: nowrap;
+  }
+}
+@media screen and (min-width : 1236px) {
+  #header,
+  #footer {
+    padding-left: 130px;
+    padding-right: 130px;
+  }
+  #header:before,
+  #header:after {
+    margin-left: -130px;
+    margin-right: -130px;
+  }
+
+  .js #footer #ocha-services {
+    padding-left: 130px;
+    padding-right: 130px;
+  }
+  .js #footer #ocha-services-toggler {
+    left: 130px;
+  }
+}

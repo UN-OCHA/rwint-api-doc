@@ -1,0 +1,52 @@
+---
+name: exact-results
+title: How can I get exact results for my search terms?
+order: 60
+---
+
+<p>Searching for "Myanmar: Earthquake" as the <code>disaster.name</code> will return results for "Myanmar:" plus "Earthquake". Using quotes can help here, as can the <code>exact</code> field qualifier. (Fields that can use <code>exact</code> are shown in the <a href="/fields-tables">fields tables</a>.) Note that in POST requests, as they are already quoted, this looks like <code>"\"Myanmar: Earthquake\""</code> with 'escaped' quotes.</p>
+
+<p>Compare:</p>
+
+<p>All reports tagged with disasters including 'Myanmar:' or 'Earthquake' but not necessarily both at once</p>
+
+<div class="apiCall">
+  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=disaster.name&amp;filter[value]=Myanmar: Earthquake&fields[include][]=disaster.name</code></pre></div>
+</div>
+
+<p>All reports tagged with disasters including 'Myanmar: Earthquake' in their name</p>
+
+<div class="apiCall">
+  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=disaster.name&amp;filter[value]="Myanmar: Earthquake"&fields[include][]=disaster.name</code></pre></div>
+</div>
+
+<p>The same query written as a POST request:</p>
+
+<div class="apiCall">
+  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+  <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "filter": {
+    "field": "disaster.name",
+    "value": "\"Myanmar: Earthquake\""
+  },
+  "fields": {
+    "include": ["disaster.name"]
+  }
+}
+</pre>
+  </div>
+</div>
+
+<p>All reports tagged with a disaster named exactly 'Myanmar: Earthquake' (there aren't any)</p>
+
+<div class="apiCall">
+  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=disaster.name.exact&amp;filter[value]=Myanmar: Earthquake&fields[include][]=disaster.name</code></pre></div>
+</div>
+
+<p>All reports tagged with a disaster named exactly 'Myanmar: Earthquake - Apr 2016'</p>
+
+<div class="apiCall">
+  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=disaster.name.exact&amp;filter[value]=Myanmar: Earthquake - Apr 2016&fields[include][]=disaster.name</code></pre></div>
+</div>

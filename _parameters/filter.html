@@ -1,0 +1,271 @@
+---
+name: filter
+order: 80
+---
+
+<p><em>(array)</em> Filters narrow down the content to be searched in. These correspond to the 'Search options' box under the search bar.</p>
+
+<img src="img/filter.png" alt="search options" border="0">
+
+<p>Filters are made up of five parts: <code>field</code>, <code>value</code>, <code>operator</code>, <code>negate</code> and <code>conditions</code>.</p>
+
+<ul>
+  <li><code>field</code> <em>(string)</em>: Which field to filter on. See <a href="/fields-tables">fields tables</a></li>
+  <li><code>value</code> <em>(boolean | integer | string | array)</em>: Most of the possible values are pre-defined. If this is for a <code>date</code>, or numeric value (e.g. <code>id</code>), it can be a range defined by <code>from</code> and <code>to</code> values. If only <code>from</code> or <code>to</code> is present, then value will match those <em>greater than or equal to</em> or <em>less than or equal to</em> the value respectively. If <code>value</code> is missing, the filter will act on whether the field exists or not.</li>
+  <li><code>operator</code> <em>(string)</em>: How to combine filter array values or conditions. Can be <code>AND</code> or <code>OR</code>.</li>
+  <li><code>negate</code> <em>(boolean)</em>: <code>true</code> will select all items that <strong>do not match</strong> the filter.</li>
+  <li><code>conditions</code> <em>(array)</em>: Used to combine multiple filters.</li>
+</ul>
+
+<p>Examples:</p>
+
+<ul>
+  <li>
+    <p>Filter by whether a field has a value or not. This returns reports with headlines. <code>field</code></p>
+
+    <p>GET:</p>
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=headline</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "filter":
+    {
+      "field": "headline"
+    }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Filter by whether a field has a particular value. This returns reports tagged with France. <code>value</code>, <code>field</code></p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=country&amp;filter[value]=France</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "filter":
+    {
+      "field": "country",
+      "value": "France"
+    }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Filter by whether a field has one of a range of values. This returns reports tagged with France or Spain. <code>value</code>, <code>field</code>, <code>operator</code></p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=country&filter[value][]=Spain&filter[value][]=France&filter[operator]=OR</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "filter":
+    {
+      "field": "country",
+      "value": ["France", "Spain"],
+      "operator": "OR"
+    }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Filter to exclude some values. This returns reports tagged with France or Spain but not Italy. <code>value</code>, <code>field</code>, <code>operator</code>, <code>conditions</code>, <code>negate</code></p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=AND&amp;filter[conditions][0][field]=country&amp;filter[conditions][0][value][]=Spain&amp;filter[conditions][0][value][]=France&amp;filter[conditions][0][operator]=OR&amp;filter[conditions][1][field]=country&amp;filter[conditions][1][value]=Italy&amp;filter[conditions][1][negate]=true</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "filter":
+    {
+      "operator": "AND",
+      "conditions": [
+        {
+          "field": "country",
+          "value": ["France", "Spain"],
+          "operator": "OR"
+        },
+        {
+          "field": "country",
+          "value": "Italy",
+          "negate": true
+        }
+      ]
+    }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Filter by a range of values - dates or numbers. This gets reports from June 2004. <code>field</code>, <code>value from</code>, <code>value to</code></p>
+
+    <p><strong>Note:</strong> Dates must be <a href="https://en.wikipedia.org/wiki/Percent-encoding">URL-encoded</a> for GET requests, but not for post requests. <code>+</code> should be written as <code>%2B</code>.</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=date.created&amp;filter[value][from]=2004-06-01T00:00:00%2B00:00&amp;filter[value][to]=2004-06-30T23:59:59%2B00:00</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "filter":
+    {
+      "field": "date.created",
+      "value":
+        {
+          "from": "2004-06-01T00:00:00+00:00",
+          "to": "2004-06-30T23:59:59+00:00"
+        }
+    }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Filter by multiple conditions. This combines two earlier examples, getting reports tagged with France that also have headlines. <code>value</code>, <code>field</code>, <code>operator</code>, <code>conditions</code></p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=AND&amp;filter[conditions][0][field]=headline&amp;filter[conditions][1][field]=country&amp;filter[conditions][1][value]=France</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "filter":
+    {
+      "operator": "AND",
+      "conditions": [
+        {
+          "field": "headline"
+        },
+        {
+          "field": "country",
+          "value": "France"
+        }
+      ]
+    }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Filter by multiple, nested conditions. With more than a couple of filters, it's easier to read the JSON body of a POST query than the GET url. This esample returns Maps or Infographics for Afghanistan and any reports with headlines. <code>value</code>, <code>field</code>, <code>operator</code>, <code>conditions</code></p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=OR&filter[conditions][0][operator]=AND&filter[conditions][0][conditions][0][field]=primary_country&filter[conditions][0][conditions][0][value]=Afghanistan&filter[conditions][0][conditions][1][operator]=OR&filter[conditions][0][conditions][1][field]=format&filter[conditions][0][conditions][1][value][]=Map&filter[conditions][0][conditions][1][value][]=Infographic&filter[conditions][1][field]=headline&fields[include][]=format.name&fields[include][]=primary_country.name&fields[include][]=headline.title</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "filter":
+    {
+      "operator": "OR",
+      "conditions":
+        [
+          {
+            "operator": "AND",
+            "conditions":
+              [
+                {
+                  "field": "primary_country.name",
+                  "value": "Afghanistan"
+                },
+                {
+                  "operator": "OR",
+                  "conditions":
+                    [
+                      {
+                        "field": "format.name",
+                        "value": ["Map", "Infographic"]
+                      }
+                    ]
+                }
+              ]
+          }
+        ],
+      "conditions":
+        [
+          {
+            "field": "headline"
+          }
+        ]
+    },
+  "fields":
+    {
+      "include":
+        [
+          "headline.title",
+          "format.name",
+          "primary_country.name"
+        ]
+    }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+</ul>

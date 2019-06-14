@@ -1,0 +1,90 @@
+---
+layout: main
+title: ReliefWeb API Endpoints
+---
+
+<h2>Endpoints, Lists and Items</h2>
+
+<p>This page documents the endpoints for requests and explains the differences between list and item requests.</p>
+
+<h3 id="endpoints">Endpoints</h3>
+
+<p>There are ten types of content available through the API, each with a dedicated endpoint. <code>reports</code>, <code>disasters</code>, <code>countries</code>, <code>jobs</code>, <code>training</code>, <code>sources</code>,<code>faq</code>, <code>blog</code>, <code>book</code> and <code>references</code>.</p>
+
+<ul>
+  <li><strong><a href="https://reliefweb.int/updates">reports</a></strong> - The main content of ReliefWeb. Reports are updates and analysis curated from more than 4,000 sources and tagged by our team of editors working around the clock.</li>
+  <li><strong><a href="https://reliefweb.int/disasters">disasters</a></strong> - A key function of the site is to group reports together by disaster. This disaster metadata is essential for providing overviews of situations and for finding related content.</li>
+  <li><strong><a href="https://reliefweb.int/countries">countries</a></strong> - ReliefWeb's information about countries. Shows how ReliefWeb groups information by geographical locations.</li>
+  <li><strong><a href="https://reliefweb.int/jobs">jobs</a></strong> - The place to advertise or find humanitarian jobs. Jobs are classified by type, category, location and requirements and all are made available through the API.</li>
+  <li><strong><a href="https://reliefweb.int/training">training</a></strong> - A growing section of the site. Training opportunities and courses for useful and necessary humanitarian skills. (Note that unlike the other content types, there's no 's' on 'training')</li>
+  <li><strong><a href="https://reliefweb.int/organizations">sources</a></strong> - Our partners. ReliefWeb's role is to collect, curate and deliver timely humanitarian information. This information comes from a wide range of trusted sources. Information about those sources, and their reports, is available here.</li>
+  <li><strong><a href="https://reliefweb.int/faq">FAQ</a></strong> - Questions and answers about navigating, using and contributing to ReliefWeb.</li>
+  <li><strong><a href="https://reliefweb.int/blog">blog</a></strong> - Blog posts about ideas and projects to grow and improve ReliefWeb.</li>
+  <li><strong><a href="https://reliefweb.int/help">book</a></strong> - 'Static' information about the site and humanitarian resources. Besides the help pages and <a href="https://reliefweb.int/terms-conditions">terms and conditions</a>, there are pages on <a href="https://reliefweb.int/location-maps">location maps</a>, <a href="https://reliefweb.int/taxonomy-descriptions">taxonomy descriptions</a> and <a href="https://reliefweb.int/share">how to share humanitarian content on ReliefWeb</a>.</li>
+  <li><strong><a href="http://reliefweb.int/taxonomy-descriptions">references</a></strong> - Our taxonomy. ReliefWeb's editorial team tag content with to make it easier to organize and find specific content. These are detailed here to make so they can be more transparently matched with vocabularies used by other organizations.</li>
+</ul>
+
+<h3 id="lists-items">Lists and items </h3>
+
+<p>There are two main types of request <strong>list</strong> and <strong>item</strong>:</p>
+
+<ul>
+  <li>
+    <p><strong>List requests</strong> - without a content id.</p>
+
+    <p>Almost all of the documentation concerns these requests, as there are many possibilities to refine the request to dig for information.</p>
+
+    <p><em>Note:</em> all <a href="/parameters">parameters</a> can be used with list requests.</p>
+
+    <p>Examples:</p>
+
+    <ul>
+      <li>
+        <p>Show reports (by default, the latest 10):</p>
+
+        <p>GET:</p>
+
+        <div class="apiCall">
+          <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+        </div>
+
+        <p>POST:</p>
+        <div class="apiCall">
+          <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+          <div class="post-parameters" contentEditable="true">
+<pre>
+{
+}
+</pre>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <p><strong>Item requests</strong> - with a content id.</p>
+
+    <p>These are to find more details on a specific piece of content based its the ReliefWeb id. You would usually have to find the id through a list request.</p>
+
+    <p><em>Note:</em> only the <a href="/parameters#fields"><code>fields</code></a> and <a href="/parameters#profile"><code>profile</code></a> parameters can be used with item requests.</p>
+
+    <p>Examples:</p>
+
+    <ul>
+      <li>
+        <p>Information about the report with id 1082221:</p>
+
+        <p>GET:</p>
+
+        <div class="apiCall">
+          <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports/1082221?appname=apidoc&fields[include][]=source.name</code></pre></div>
+        </div>
+
+        <p><strong>Note: </strong>As the parameters are much easier to handle, item requests are only possible with GET requests.</p>
+
+      </li>
+    </ul>
+
+  </li>
+</ul>

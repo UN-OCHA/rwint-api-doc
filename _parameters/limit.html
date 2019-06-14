@@ -1,0 +1,33 @@
+---
+name: limit
+order: 60
+---
+
+<p><em>(integer)</em> How many results to return. Must be between 0 and 1000, defaults to 10.</p>
+
+<p>Example:</p>
+
+<ul>
+  <li>
+    <p>Get more than the default number of results. This returns all of the countries indexed (note the <a href="/faq#totalcount">totalcount</a>).</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/countries?appname=apidoc&limit=300</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/countries?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "limit": 300
+}
+</pre>
+      </div>
+    </div>
+  </li>
+</ul>

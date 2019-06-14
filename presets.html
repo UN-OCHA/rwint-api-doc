@@ -1,0 +1,54 @@
+---
+layout: main
+title: Reliefweb API Preset settings
+---
+
+<h2 id="preset-settings">ReliefWeb API Preset settings </h2>
+
+<p>Jump to settings:</p>
+<ul class="jump-links flex">
+  {% for preset in site.presets %}
+  <li><a href="#preset-{{ preset.name | downcase }}">{{ preset.name }}</a></li>
+  {% endfor %}
+</ul>
+
+<h3>Introduction</h3>
+
+<p>This page lists the settings associated with the <a href="/parameters#preset">'preset' parameter</a>.</p>
+
+<p>Presets settings default to <code>minimal</code>.</p>
+
+<p><strong>Note</strong>: Each query parameter overrides any preset configuration apart from <code>filter</code>, which is joined with <code>AND</code> to any preset conditions and <code>query</code> where each setting is independently overridden.</p>
+
+<p>For example, you can not get expired jobs using <code>preset=latest</code>, because the filter for this would be:</p>
+
+<pre>
+"filter": {
+  "operator": "AND",
+  "conditions": [
+    {
+      "field": "status",
+      "value": ["published"],
+      "operator": "OR"
+    },
+    {
+      "field": "status",
+      "value": ["expired"],
+    }
+  ]
+}
+</pre>
+<p>and no job can have both statuses at the same time.</p>
+
+<h3>The settings</h3>
+
+<ul class="presets">
+  {% for preset in site.presets %}
+  <li id="preset-{{ preset.name | downcase }}">
+    <h3>{{ preset.name }}</h3>
+    <ul>
+      {{ preset.content }}
+    </ul>
+  </li>
+  {% endfor %}
+</ul>

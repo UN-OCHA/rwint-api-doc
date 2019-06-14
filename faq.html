@@ -1,0 +1,21 @@
+---
+layout: main
+title: Reliefweb API - Documentation
+---
+
+<h2 id="examples">ReliefWeb API Frequently* Asked Questions</h2>
+
+<p>Jump to questions:</p>
+<ul class="jump-links">
+  {% assign sortedquestions = site.questions | sort: 'order' | reverse %}
+  {% for question in sortedquestions %}
+  <li><a href="#{{ question.name }}">{{ question.title }}</a></li>
+  {% endfor %}
+</ul>
+
+<p>* In reality, some of these questions haven't been asked frequently, but are used as a way to make suggestions and pass on tips. Please <a href="http://reliefweb.int/contact">let us know</a> if you have any other questions or suggestions what would be helpful in this section.</p>
+
+{% for question in sortedquestions %}
+<h3 id="{{ question.name }}">{{ question.title }}</h3>
+{{ question.content }}
+{% endfor %}

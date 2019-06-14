@@ -1,0 +1,25 @@
+---
+layout: main
+title: Reliefweb API Request Parameters
+css: '<link href="/css/index.css" rel="stylesheet">'
+---
+
+<div class="two-column">
+  <section id="index">
+    <h3 id="index-title" class="index-title">Index</h3>
+    <ul class="links" aria-labelledby="index-title">
+      {% assign sortedparameters = site.parameters | sort: "order" | reverse %}
+      {% for parameter in sortedparameters %}
+      <li><a href="#{{ parameter.name }}">{{ parameter.name | capitalize }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section id="parameters">
+    <h2>Request parameters </h2>
+    {% for parameter in sortedparameters %}
+    <h3 id="{{ parameter.name }}">{{ parameter.name | capitalize }}</h3>
+    {{ parameter.content }}
+    {% endfor %}
+  </section>
+</div>

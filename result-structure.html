@@ -1,0 +1,83 @@
+---
+layout: main
+title: ReliefWeb API Result structure
+---
+
+<h2 id="results">ReliefWeb API Result structure</h2>
+
+<h3 id="result-structure">Structure of a successful result </h3>
+
+<p>Result body comes as a json object with the following fields:</p>
+
+<ul>
+  <li><code>href</code>: Url of the current request - POST request bodies aren't reflected here.</li>
+  <li><code>time</code>: Milliseconds taken to calculate the response.</li>
+  <li><code>links</code>: <a href="http://stateless.co/hal_specification.html">HAL</a>-type links to previous and next resources, for lists, or to collection for items.</li>
+    <ul>
+      <li><code>self</code>: Current request.</li>
+      <li><code>next</code>: Next page of results in list. Previous link also shown when appropriate.</li>
+    </ul>
+  <li><code>totalCount</code>: Total number of results that match the request. See <a href="/questions/totalcount">How can I get just the total?</a></li>
+  <li><code>count</code>: Number of results returned in this result.</li>
+  <li><code>data</code>: All the requested items:
+    <ul>
+      <li><code>id</code> Unique ReliefWeb id for the item (for items and lists). Ids can be used to find the resource directly on the ReliefWeb site.<br>
+      <em>  For reports, jobs and training:</em> <code>http://reliefweb.int/node/&lt;id&gt;</code><br>
+      <em>  For countries, disasters, sources, and some category fields with an id:</em> <code>http://reliefweb.int/taxonomy/term/&lt;id&gt;</code></li>
+      <li> <code>fields</code> Fields returned for this result. These can be selected by specifying <code>fields</code>, <code>profile</code> and <code>preset</code> parameters (for items and lists).</li>
+      <li> <code>score</code> Relevance of result to query. If there was no <code>query</code> parameter, this will be 1 (for lists only).</li>
+      <li> <code>href</code> Url of the resource item. Useful for drilling down into individual results (for lists only).</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Example:</p>
+<ul>
+  <li>
+
+    <p>Query:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&amp;profile=full&amp;limit=1</code></pre></div>
+    </div>
+
+  </li>
+</ul>
+
+<h3 id="error-structure">Structure of an error </h3>
+
+<p>The message of an error should give information to fix the request. Again, for clarification or suggested improvements, please <a href="http://reliefweb.int/contact">contact</a> us.</p>
+
+<ul>
+  <li>
+    <p>Invalid "limit" specified. Valid values are between 0 and 1000</p>
+
+    <p>In the example, change <code>5000</code> to fix this.</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&limit=5000</code></pre></div>
+    </div>
+  </li>
+  <li>
+    <p>Invalid range 'from' value for field 'date.created'. It must be an ISO 8601 date.</p>
+
+    <p>In this example, the date field is non url-encoded. To fix it, replace the <code>+</code> sign to <code>%2B</code>.</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=date.created&amp;filter[value][from]=2004-06-01T00:00:00+00:00</code></pre></div>
+    </div>
+  </li>
+  <li>
+    <p>Invalid query field 'field'. Valid values are 'value', 'operator', 'fields'.</p>
+
+    <p>In this example, there are two errors.</p>
+    <ul>
+      <li>The wrong key is used for the query parameter. Replace <code>query[field]</code> with <code>query[fields]</code> to fix it.</li>
+      <li>This exposes another error, that <code>query[fields]</code> expects an array. To fix that error: <code>query[fields][]=country</code>.</li>
+    </ul>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&query[field]=country&amp;query[value]=France</code></pre></div>
+    </div>
+  </li>
+</ul>

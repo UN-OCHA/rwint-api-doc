@@ -1,1 +1,5 @@
-baseurl: https://apidoc.rwlabs.org
+collections:
+  - meta
+  - parameters
+  - presets
+  - questions

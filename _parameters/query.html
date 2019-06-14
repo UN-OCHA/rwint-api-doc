@@ -1,0 +1,142 @@
+---
+name: query
+order: 90
+---
+
+<p><em>(array)</em> This is equivalent to the search box.</p>
+
+<img src="img/query.png" alt="search box" border="0">
+
+<p> The query field has many shorthand properties, see the <a href="/faq">FAQ</a> section for more details.</p>
+
+<p>Queries are made of three parts: <code>value</code>, <code>fields</code> and <code>operator</code>.</p>
+
+<ul>
+  <li><code>value</code> <em>(string)</em>: What to search for. Required for all queries.</li>
+  <li><code>fields</code> <em>(array)</em>: Which fields to query on. See <a href="/fields-tables">fields tables</a> for options.</li>
+  <li><code>operator</code> <em>(string)</em>: How to interpret spaces in the query. Can be <code>AND</code> or <code>OR</code>. Default value is <code>OR</code>.
+</ul>
+
+<p>Examples:</p>
+
+<ul>
+  <li>
+    <p>Query for a word or phrase. Here, looking for 'earthquake'. <code>value</code></p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=earthquake</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "query":
+    {
+      "value": "earthquake"
+    }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Query for a word or phrase occuring in a limited number of fields. Here, looking for sources with 'earthquake' in their name.</p>
+
+    <p><strong>Note:</strong> for searching in a single field,  <code>query[value]=&lt;field&gt;:&lt;value&gt;</code> is more concise. Using <code>query[fields]</code> is useful when limiting the search to a number of fields. <code>value</code>, <code>fields</code></p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=earthquake&query[fields][]=source&fields[include][]=source.name</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "query":
+    {
+      "value": "earthquake",
+      "fields": ["source"]
+    },
+  "fields":
+    {
+      "include": ["source.name"]
+    }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Query for all specified words. This example looks for titles with the words 'hot' AND 'cold'. Try editing the call, removing the <code>operator</code> parameter or using 'OR' instead of 'AND', and compare the results. ('OR' is the default value for <code>operator</code>.) <code>value</code>, <code>fields</code>, <code>operator</code></p>
+
+  <p><strong>Note:</strong> because results are ordered by relevance (see the result field <a href="/result-structure">Score</a>), the results for <code>AND</code> and <code>OR</code> can be almost identical. We have used <a href="#preset"><code>preset=latest</code></a> to make the difference more explicit. We could also have used <a href="#sort"><code>sort[]=date:desc</code></a>.</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&query[fields][]=title&amp;query[value]=hot cold&amp;query[operator]=AND&amp;preset=latest</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "query":
+    {
+      "value": "hot cold",
+      "fields": ["title"],
+      "operator": "AND"
+    },
+  "preset": "latest"
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Query for exact values. Some fields (shown in <a href="/fields-tables">fields tables</a> with the <code>exact</code> attribute) use the qualifier <code>.exact</code> to limit the search. Compare this search with and without using <code>.exact</code>. This can also be used with the <a href="#filter">filter</a> parameter. <code>value</code>, <code>fields</code></p>
+
+    <p><strong>Note:</strong> for more complex queries, the API uses <a href="https://lucene.apache.org/core/3_5_0/queryparsersyntax.html">Lucene query parser syntax</a> to deal with almost any combinations of search terms. See also <a href="/faq#exact-results">Getting exact results</a> and <a href="/faq#advanced-queries">Advanced use of the query field</a> in the <a href="/faq">FAQ</a> section.</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&amp;query[fields][]=source.shortname.exact&amp;query[value]=UN&amp;fields[include][]=source.shortname</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "query":
+    {
+      "value": "UN",
+      "fields": ["source.shortname.exact"]
+    },
+  "fields":
+    {
+      "include": ["source.shortname"]
+    }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+</ul>

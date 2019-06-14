@@ -1,0 +1,33 @@
+---
+name: offset
+order: 50
+---
+
+<p><em>(integer)</em> How many results to skip. Used for paging through results or for getting more than the limit. Must be greater than 0, defaults to 0.</p>
+
+<p>Example:</p>
+
+<ul>
+  <li>
+    <p>Start the results at a specified point. As there are more than 1000 sources, they can't be returned in one query. Assuming a previous query with a <code>limit</code> of 1000, this returns the next sources in sequence (and would normally also be used with the <code>limit</code> parameter).</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/sources?appname=apidoc&offset=1000</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/sources?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "offset": 1000
+}
+</pre>
+      </div>
+    </div>
+  </li>
+</ul>

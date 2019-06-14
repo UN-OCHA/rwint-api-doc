@@ -1,0 +1,80 @@
+---
+name: preset
+order: 20
+---
+
+<p><em>(string)</em> A shorthand specification of sets of fields, filters and sort order for common use-cases. Similar to <a href="#profile">profile</a> but with more opinions.</p>
+
+<ul>
+  <li><code>analysis</code>: Include archived disasters and expired jobs and training which otherwise would be excluded from results. This is useful for visualizing trends and performing analysis of past content.</li>
+  <li><code>latest</code>: Sorts by date for appropriate content types. Countries and sources sorted by <code>id</code>. Use this for list requests.</li>
+  <li><code>minimal</code>: The default setting applies sensible status filters for most requests.</li>
+</ul>
+
+<p>More information and the presets for each content type are specified on the <a href="/presets">preset settings</a> page.</p>
+
+<p>Example:</p>
+
+<ul>
+  <li>
+    <p>Query for 'French' with <code>latest</code> preset.</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&preset=latest&query[value]=French&fields[include][]=language.name</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "preset": "latest",
+  "query":
+    {
+      "value": "French"
+    },
+  "fields":
+    {
+      "include": ["language.name"]
+    }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Query for 'French' with <code>minimal</code> preset.</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&preset=minimal&query[value]=French&fields[include][]=language.name</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "preset": "minimal",
+  "query":
+    {
+      "value": "French"
+    },
+  "fields":
+    {
+      "include": ["language.name"]
+    }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+</ul>

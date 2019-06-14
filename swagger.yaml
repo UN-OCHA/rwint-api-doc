@@ -2,10 +2,10 @@ swagger: "2.0"
 info:
   title: The ReliefWeb API
   description: Interactive API documentation for the data API of Reliefweb.int. ReliefWeb is a leading source of information on global crises and disasters.<br><br> Our continuous coverage and archive going back to the 1970s makes ReliefWeb an unparalleled resource for both current and historical data on humanitarian response.<br><br> The vast majority of content on ReliefWeb has been contributed by humanitarian partners. We owe it to the community to make data more accessible and reusable, so that developers can build tools that increase exposure for valuable content and facilitate analysis for better decisions.
-  termsOfService: http://reliefweb.int/help/api/tos
+  termsOfService: https://apidoc.rwlabs.org/#tos
   version: v1
   contact:
-    url: http://feedback.reliefweb.int
+    url: https://reliefweb.int/contact
     email: api@reliefweb.int
   license:
     name: Creative Commons Zero - Public Domain
@@ -26,43 +26,43 @@ tags:
     description: Versions and main endpoints.
     externalDocs:
       description: RWApi docs.
-      url: http://reliefweb.int/help/api
+      url: https://apidoc.rwlabs.org
   -
     name: Reports
     description: Gateway to updates and analysis from more than 4,000 global information sources.
     externalDocs:
       description: RWApi docs.
-      url: http://reliefweb.int/help/api/advanced
+      url: https://apidoc.rwlabs.org
   -
     name: Jobs
     description: Humanitarian job listings.
     externalDocs:
       description: RWApi docs.
-      url: http://reliefweb.int/help/api/advanced
+      url: https://apidoc.rwlabs.org
   -
     name: Training
     description: Humanitarian training opportunities and courses.
     externalDocs:
       description: RWApi docs.
-      url: http://reliefweb.int/help/api/advanced
+      url: https://apidoc.rwlabs.org
   -
     name: Countries
     description: Countries covered by ReliefWeb.
     externalDocs:
       description: RWApi docs.
-      url: http://reliefweb.int/help/api/advanced
+      url: https://apidoc.rwlabs.org
   -
     name: Disasters
     description: Disasters covered by ReliefWeb.
     externalDocs:
       description: RWApi docs.
-      url: http://reliefweb.int/help/api/advanced
+      url: https://apidoc.rwlabs.org
   -
     name: Sources
     description: Organizations providing content to ReliefWeb.
     externalDocs:
       description: RWApi docs.
-      url: http://reliefweb.int/help/api/advanced
+      url: https://apidoc.rwlabs.org
 paths:
   /../:
     get:

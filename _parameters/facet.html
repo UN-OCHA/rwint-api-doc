@@ -1,0 +1,297 @@
+---
+name: facet
+order: 70
+---
+
+<img class="pull-right" src="img/facets.png" alt="facets" border="0">
+
+<p><em>(array)</em> Facets are used on the ReliefWeb site to show a set of contents split by categories, status and/or date, and their frequencies. These allow for broad-ranging queries, which would otherwise involve many individual requests. These are shown on the site to allow a quick way to drill down into the results.</p>
+
+<p>Facets are made up of seven parts: <code>field</code>, <code>name</code>, <code>limit</code>, <code>sort</code>, <code>filter</code>, <code>interval</code> and <code>scope</code>.</p>
+
+<ul>
+  <li><code>field</code> <em>(string)</em>: which field to create facets for. These may be dates, categories or the status field. See <a href="/fields-tables">fields tables</a></li>
+  <li><code>name</code> <em>(string)</em>: A label for this facet. Useful for when faceting multiple ways over the same field.</li>
+  <li><code>limit</code> (integer): The number of facets to return for non-date based facets. Defaults to 10.</li>
+  <li><code>sort</code> <em>(string)</em>: The sort order of non-date facets, by <code>value</code> or <code>count</code> of terms (e.g. countries can be ordered alphabetically or with the most represented first, or last). In the form of <code>{type:direction}</code> where <code>type</code> is <code>count</code> or <code>value</code> and <code>direction</code> is <code>asc</code> or <code>desc</code>. Defaults to <code>count:desc</code>.</li>
+  <li><code>filter</code> <em>(array)</em>: See filter parameters - these can be applied to facets.</li>
+  <li><code>interval</code> <em>(string)</em>: For date facets, break down into <code>year</code>, <code>month</code>, <code>week</code> or <code>day</code>.</li>
+  <li><code>scope</code> <em>(string)</em>: <code>global</code> or <code>query</code>. Whether the facet is filtered by the query or globally.</li>
+</ul>
+
+<p>Examples:</p>
+
+<p><strong>Note:</strong> In the following examples we're using limit=0, as we're only interested in the facets themselves.</p>
+
+<ul>
+  <li>
+    <p>Get the most common categories for a given field. This lists the top countries with the highest number of jobs and the number of jobs for each. <code>field</code>, <code>limit</code></p>
+
+    <p>This is also useful for getting all available categories for some fields. For example, try swapping 'theme' for 'country' to get a list of all the themes ReliefWeb uses for tagging jobs.</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/jobs?appname=apidoc&facets[0][field]=country&amp;facets[0][limit]=20&amp;limit=0</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/jobs?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "facets": [
+    {
+      "field": "country",
+      "limit": 20
+    }
+  ],
+  "limit": 0
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Use sort to change the order. This gets the 10 countries with fewest reports, and the number of reports for each. (10 is the default limit for facets). <code>field</code>, <code>sort</code></p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=country.name&amp;facets[0][sort]=count:asc&amp;limit=0</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "facets": [
+    {
+      "field": "country",
+      "sort": "count:asc"
+    }
+  ],
+  "limit": 0
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Alter the field that is sorted on. This lists the first 5 countries (alphabetically) and the number of reports for each. <code>field</code>, <code>sort</code>, <code>limit</code></p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=country.name&amp;facets[0][sort]=value:asc&amp;facets[0][limit]=5&amp;limit=0</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "facets": [
+    {
+      "field": "country",
+      "sort": "value:asc",
+      "limit": 5
+    }
+  ],
+  "limit": 0
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Use intervals to facet by dates. Note that facet limits don't apply for date fields - to restrict the number requires a facet filter - see the next example. This shows all years (ordered ascending) and the number of reports for each. <code>field</code>, <code>interval</code></p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=date.original&amp;facets[0][interval]=year&amp;limit=0</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "facets": [
+    {
+      "field": "date.original",
+      "interval": "year"
+    }
+  ],
+  "limit": 0
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Restrict the facetted results with a facet filter. This returns the five countries with most reports tagged with theme 'Coordination'. <code>field</code>, <code>filter field</code>, <code>filter value</code>, <code>sort</code>, <code>limit</code></p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][field]=country&facets[0][filter][field]=theme&amp;facets[0][filter][value]=Coordination&amp;facets[0][sort]=count:desc&amp;facets[0][limit]=5&amp;limit=0</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "facets": [
+    {
+      "field": "country",
+      "filter":
+        {
+          "field": "theme",
+          "value": "Coordination"
+        },
+      "sort": "count:desc",
+      "limit": 5
+    }
+  ],
+  "limit": 0
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Get more than one facet in the same request. This shows the top 5 sources for reports filtered on France and Spain. <code>name</code>, <code>field</code>, <code>filter field</code>, <code>filter value</code>, <code>sort</code>, <code>limit</code></p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&facets[0][name]=French&amp;facets[0][filter][field]=country&amp;facets[0][filter][value]=France&amp;facets[0][field]=source&amp;facets[0][sort]=count:desc&amp;facets[0][limit]=5&amp;facets[1][name]=Spanish&amp;facets[1][filter][field]=country&amp;facets[1][filter][value]=Spain&amp;facets[1][field]=source&amp;facets[1][sort]=count:desc&amp;facets[1][limit]=5&amp;limit=0</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "facets": [
+    {
+      "name": "French",
+      "field": "source",
+      "filter":
+        {
+          "field": "country",
+          "value": "France"
+        },
+      "sort": "count:desc",
+      "limit": 5
+    },
+    {
+      "name": "Spanish",
+      "field": "source",
+      "filter":
+        {
+          "field": "country",
+          "value": "Spain"
+        },
+      "sort": "count:desc",
+      "limit": 5
+    }
+  ],
+  "limit": 0
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>Use facet scopes. Adapting the previous example and adding a filter and a query (that, combined, have no results), the <code>default</code> scope (which is added for the sake of clarity; it doesn't need to be specified) gets sources for reports that match both the query and the filter (i.e. none). The <code>query</code> scope ignores the filter, but not the query, while the <code>global</code> scope ignores both the filter and the query. To illustrate the behavior, try the following query without the query and/or the filter. <code>name</code>, <code>field</code>, <code>filter field</code>, <code>filter value</code>, <code>sort</code>, <code>limit</code>, <code>scope</code></p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&amp;query[value]=earthquake&amp;filter[field]=country&amp;filter[value]=Belgium&amp;facets[0][name]=French-global&amp;facets[0][filter][field]=country&amp;facets[0][filter][value]=France&amp;facets[0][field]=source&amp;facets[0][sort]=count:desc&amp;facets[0][limit]=5&amp;facets[0][scope]=global&amp;facets[1][name]=French-query&amp;facets[1][filter][field]=country&amp;facets[1][filter][value]=France&amp;facets[1][field]=source&amp;facets[1][sort]=count:desc&amp;facets[1][limit]=5&amp;facets[1][scope]=query&amp;facets[2][name]=French-default&amp;facets[2][filter][field]=country&amp;facets[2][filter][value]=France&amp;facets[2][field]=source&amp;facets[2][sort]=count:desc&amp;facets[2][limit]=5&amp;facets[2][scope]=default&amp;limit=0</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "query":
+    {
+      "value": "earthquake"
+    },
+  "filter":
+    {
+      "field": "country",
+      "value": "Belgium"
+    },
+  "facets": [
+    {
+      "name": "French-global",
+      "field": "source",
+      "filter":
+        {
+          "field": "country",
+          "value": "France"
+        },
+      "sort": "count:desc",
+      "limit": 5,
+      "scope": "global"
+    },
+    {
+      "name": "French-query",
+      "field": "source",
+      "filter":
+        {
+          "field": "country",
+          "value": "France"
+        },
+      "sort": "count:desc",
+      "limit": 5,
+      "scope": "query"
+    },
+    {
+      "name": "French-default",
+      "field": "source",
+      "filter":
+        {
+          "field": "country",
+          "value": "France"
+        },
+      "sort": "count:desc",
+      "limit": 5,
+      "scope": "default"
+    }
+  ],
+  "limit": 0
+}
+</pre>
+      </div>
+    </div>
+  </li>
+</ul>

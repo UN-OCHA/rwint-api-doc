@@ -1,0 +1,80 @@
+---
+name: post-to-get
+title: How do I convert POST requests to GET requests?
+order: 30
+---
+
+<p>The short answer is you don't - but this explanation was written before this documentation had 'try it now' functionality and the idea was for testing API requests in the browser. Keeping it here in case it's helpful for interpreting GET request syntax.</p>
+
+<p>This example query uses the <code>fields</code>, <code>limit</code> and <code>preset</code> parameters:</p>
+
+<pre>
+{
+  "limit": 3,
+  "preset": "latest",
+  "fields": {
+    "include": ["url"]
+  }
+}
+</pre>
+<p>Both <code>limit</code> and <code>preset</code> are simple keys and values, translating cleanly to <code>limit=3&preset=latest</code> but the <code>fields</code> paramater requires more thought (or copy and pasting - many times adapting the examples is quicker than starting from scratch). While strings or integers can be specified with only the <code>=</code> sign, objects and arrays need use of square brackets:<code>fields[include][]=url</code>.</p>
+
+<p>Thus the GET query string becomes: <code>limit=3&preset=latest&fields[include][]=url</code></p>
+
+<p>If <code>title</code> was also an included field, the POST query would be:</p>
+<pre>
+{
+  "limit": 3,
+  "preset": "latest",
+  "fields": {
+    "include": ["url", "title"]
+  }
+}
+</pre>
+
+<p>and the GET query:<code>limit=3&preset=latest&fields[include][]=url&fields[include][]=title</code></p>
+
+<p>Nested values can also be tricky, for example, for the <code>filter</code> parameter. Take this example from earlier:</p>
+<div class="apiCall">
+  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+  <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "filter":
+  {
+    "operator": "AND",
+    "conditions":
+      [
+        {
+          "field": "headline"
+        },
+        {
+          "field": "country",
+          "value": ["France"]
+        }
+      ]
+  }
+}
+</pre>
+  </div>
+</div>
+
+<p>This involves four 'children' of the filter parameter, which each need to be specified individually.</p>
+
+<p>The first is clear: <pre>filter[operator]=AND</pre></p>
+
+<p>The conditions must be separated with an arbitrary key. Starting from 0 is customary: <pre>filter[conditions][0][field]=headline</pre></p>
+
+<p>And the last shows the same conventions as the previous example - note how <code>field</code>, which requires a string, does not have <code>[]</code> at the end of the key, while <code>value</code> which requires an array, must be followed by <code>[]</code>: <pre>filter[conditions][1][field]=country&filter[conditions][1][value][]=France</pre></p>
+
+<p>So the GET query is:</p>
+
+<div class="apiCall">
+  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=AND&filter[conditions][0][field]=headline&filter[conditions][1][field]=country&filter[conditions][1][value][]=France</code></pre></div>
+</div>
+
+<p>Use the <a href="/parameters#verbose"><code>verbose</code></a> parameter to check the conversion.</p>
+
+<div class="apiCall">
+  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&verbose=1&filter[operator]=AND&filter[conditions][0][field]=headline&filter[conditions][1][field]=country&filter[conditions][1][value][]=France</code></pre></div>
+</div>

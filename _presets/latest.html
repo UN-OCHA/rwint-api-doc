@@ -1,0 +1,247 @@
+---
+name: Latest
+---
+
+                <li>
+                  <h4>Blog - latest</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body"
+    ],
+    "operator": "OR"
+  },
+  "sort": [
+    "date.created:desc"
+  ],
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Book - latest</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body"
+    ],
+    "operator": "OR"
+  },
+  "sort": [
+    "date.created:desc"
+  ],
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Countries - latest</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "name",
+      "shortname",
+      "iso3"
+    ],
+    "operator": "OR"
+  },
+  "sort": [
+    "id:desc"
+  ],
+  "filter": {}
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Disasters - latest</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "name",
+      "status",
+      "glide",
+      "description",
+      "type",
+      "country"
+    ],
+    "operator": "OR"
+  },
+  "sort": [
+    "date.created:desc"
+  ],
+  "filter": {
+    "field": "status",
+    "value": ["alert", "current", "past"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Faq - latest</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body"
+    ],
+    "operator": "OR"
+  },
+  "sort": [
+    "date.created:desc"
+  ],
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Jobs - latest</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body",
+      "career_categories",
+      "country",
+      "how_to_apply",
+      "source",
+      "theme"
+    ],
+    "operator": "OR"
+  },
+  "sort": [
+    "date.created:desc"
+  ],
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Reports - latest</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "body",
+      "country",
+      "disaster",
+      "disaster_type",
+      "format.name",
+      "headline.title",
+      "headline.summary",
+      "language",
+      "primary_country",
+      "source",
+      "theme.name",
+      "title",
+      "vulnerable_groups"
+    ],
+    "operator": "OR"
+  },
+  "sort": [
+    "date.created:desc"
+  ],
+  "filter": {
+    "field": "status",
+    "value": ["published", "to-review"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Sources - latest</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "name",
+      "shortname",
+      "longname",
+      "spanish_name"
+    ],
+    "operator": "OR"
+  },
+  "sort": [
+    "id:desc"
+  ],
+  "filter": {
+    "field": "status",
+    "value": ["active", "inactive"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Training - latest</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "body",
+      "country",
+      "format",
+      "source",
+      "theme",
+      "title",
+      "type",
+      "how_to_register",
+      "career_categories",
+      "training_language"
+    ],
+    "operator": "OR"
+  },
+  "sort": [
+    "date.created:desc"
+  ],
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>

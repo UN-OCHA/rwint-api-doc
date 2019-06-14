@@ -1,0 +1,47 @@
+---
+name: profile
+order: 30
+---
+
+<p><em>(string)</em> A shorthand specification for which sets of fields to include in result.</p>
+
+<ul>
+  <li><code>minimal</code>: just the <code>title</code> or <code>name</code> field</li>
+  <li><code>full</code>: all fields</li>
+  <li><code>list</code>: results suited to lists and tables, as used, for example, in the listings: <a href="http://reliefweb.int/updates#content"><code>http://reliefweb.int/updates#content</code></a>
+    <img src="img/profile.png" alt="profile" border="0">
+  </li>
+</ul>
+
+<p>Defaults to <code>minimal</code>. Fields returned are affected by the <a href="#fields"><code>fields</code></a> parameter.</p>
+
+<p>Example:</p>
+
+<ul>
+  <li>
+    <p>Get limited fields without specifying all of them. This returns <code>list</code> profile fields for countries and adds the <code>iso3</code> code.</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/countries?appname=apidoc&profile=list&fields[include][]=iso3</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/countries?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "profile": "list",
+  "fields":
+    {
+      "include": ["iso3"]
+    }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+</ul>

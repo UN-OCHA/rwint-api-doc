@@ -1,0 +1,37 @@
+---
+name: slim
+order: 5
+---
+
+<p><em>(int)</em> A switch to remove the hypermedia links from the result.</p>
+
+<p>The API was built while the debate about Hypermedia was near its peak, and duly implemented hypermedia links so that clients (human or machine) can navigate through the API like one navigates through a webpage.</p>
+
+<p>To avoid the hypermedia links, reducing the size of the response a little, use the <code>slim</code> parameter.
+
+<p>Example:</p>
+<ul>
+  <li>
+    <p>Try this with and without the <code>slim</code> parameter.</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&amp;slim=1&amp;limit=2</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/countries?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "slim": 1,
+  "limit": 2
+}
+</pre>
+      </div>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,669 @@
+---
+layout: main
+title: Reliefweb API Fields Tables
+css: '<link href="/css/tabs.css" rel="stylesheet"/>'
+---
+
+<h2 id="fields-tables">ReliefWeb API Fields tables</h2>
+
+<h3>Introduction</h3>
+
+<p>Use tabs to see lists of fields by content type.The summary tab shows all fields with links to the content types they are used in. The other tabs show the names of fields with a short description, its type, and the abbreviations used in advanced searches on ReliefWeb.</p>
+
+<p>For advanced use, the attributes column shows whether a field can be used for search - in a <a href="/parameters#query">query</a> or a <a href="/parameters#filter">filter</a> - <a href="/parameters#sort">sorts</a> and <a href="/parameters#facet">facets</a> or with the <a href="/questions#exact-results">"exact"</a> qualifier. <code>Multi</code> means a returned field can have mulitple values (objects) like country or theme. <code>common</code> fields make it easier to search. For example, <code>source.common</code> contains both the full name and the short name of the source, so both "OCHA" and "Office for the Coordination of Humanitarian Affairs" will return the same result. ".common" fields often have an ".exact" version too.</p>
+
+<p><strong>Note:</strong> In the field descriptions in this table, fields that have subfields are often described as defaulting to one of those subfields. This refers to a search, and not the result. So, for example, a <code>query[fields][]=country</code> is equivalent to <code>query[fields][]=country.name</code>. The result will return JSON objects for each country, not only the names.</p>
+
+<h3>The tables</h3>
+
+<div id="tabs" class="tab-content">
+  <input type="radio" name="tabs" id="summarytab" checked>
+  <label for="summarytab">Summary</label>
+  <input type="radio" name="tabs" id="blogtab">
+  <label for="blogtab">Blog</label>
+  <input type="radio" name="tabs" id="booktab">
+  <label for="booktab">Book</label>
+  <input type="radio" name="tabs" id="countriestab">
+  <label for="countriestab">Countries</label>
+  <input type="radio" name="tabs" id="disasterstab">
+  <label for="disasterstab">Disasters</label>
+  <input type="radio" name="tabs" id="faqtab">
+  <label for="faqtab">FAQ</label>
+  <input type="radio" name="tabs" id="jobstab">
+  <label for="jobstab">Jobs</label>
+  <input type="radio" name="tabs" id="reportstab">
+  <label for="reportstab">Reports</label>
+  <input type="radio" name="tabs" id="sourcestab">
+  <label for="sourcestab">Sources</label>
+  <input type="radio" name="tabs" id="trainingtab">
+  <label for="trainingtab">Training</label>
+
+  <!-- Start fields tables -->
+  <!-- Copied from spreadsheet at https://docs.google.com/spreadsheets/d/194BA3jUqbVi3cnQF0NiFhZ7xn3kyDAduLKk0NC_CgeQ -->
+
+  <div id="summary" role="tabpanel" class="tab-pane">
+    <table>
+      <tr><th>Name</th><th>Type</th><th>Abbreviation</th><th>Content Types</th></tr>
+      <tr><td>body</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>body-html</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>career_categories</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>career_categories<br>.id</td><td>integer</td><td>CC</td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>career_categories<br>.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>city</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>city.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>content_type</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>country</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>country.id</td><td>integer</td><td>C</td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>country.iso3</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>country.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>country.primary</td><td>boolean</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>country.shortname</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>cost</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>current</td><td>boolean</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>date</td><td>object</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>date.changed</td><td>date</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>date.closing</td><td>date</td><td>DC</td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a></td></tr>
+      <tr><td>date.created</td><td>date</td><td>DA</td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>date.end</td><td>date</td><td>DE</td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>date.original</td><td>date</td><td>DO</td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>date.registration</td><td>date</td><td>DR</td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>date.start</td><td>date</td><td>DS</td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>description</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>description-html</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>disaster</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>disaster.id</td><td>integer</td><td>D</td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>disaster.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>disaster.glide</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>disaster.type</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>disaster.type.code</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>disaster.type.id</td><td>integer</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>disaster.type.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>disaster.type.primary</td><td>boolean</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>disaster_type</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>disaster_type.code</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>disaster_type.id</td><td>integer</td><td>DT</td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>disaster_type.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>disclaimer</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>experience</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a></td></tr>
+      <tr><td>experience.id</td><td>integer</td><td>E</td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a></td></tr>
+      <tr><td>experience.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a></td></tr>
+      <tr><td>feature</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>feature.id</td><td>integer</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>feature.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>featured</td><td>boolean</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>file</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>file.copyright</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>file.description</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>file.filename</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>file.id</td><td>integer</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>file.mimetype</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>file.preview</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>file.preview<br>.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>file.preview<br>.url-large</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>file.preview<br>.url-small</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>file.preview<br>.url-thumb</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>file.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>format</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>format.id</td><td>integer</td><td>F</td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>format.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>fts_id</td><td>integer</td><td></td><td><a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>glide</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>headline</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>headline.featured</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>headline.image</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>headline.image<br>.caption</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>headline.image<br>.copyright</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>headline.image<br>.filename</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>headline.image<br>.id</td><td>integer</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>headline.image<br>.mimetype</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>headline.image<br>.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>headline.summary</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>headline.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>homepage</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>how_to_apply</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a></td></tr>
+      <tr><td>how_to_apply-html</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a></td></tr>
+      <tr><td>how_to_register</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>how_to_register-html</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>id</td><td>integer</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>image</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>image.caption</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>image.copyright</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>image.filename</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>image.id</td><td>integer</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>image.mimetype</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>image.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>image.url-large</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>image.url-small</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>image.url-thumb</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>iso3</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a></td></tr>
+      <tr><td>language</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>language.code</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>language.id</td><td>integer</td><td>L</td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>language.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>longname</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>ocha_product</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>ocha_product.id</td><td>integer</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>ocha_product.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>origin</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>primary_country</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>primary_country<br>.id</td><td>integer</td><td>PC</td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>primary_country<br>.iso3</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>primary_country<br>.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>primary_country<br>.shortname</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>primary_type</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>primary_type.id</td><td>integer</td><td>TY</td><td><a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>primary_type.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.overview</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.overview-html</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content.active</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content.active.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content.active.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content.active.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content.archive</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content.archive.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content.archive.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content.archive.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.appeals_response_plans</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.appeals_response_plans.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.appeals_response_plans.active</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.appeals_response_plans.active.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.appeals_response_plans.active.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.appeals_response_plans.active.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.appeals_response_plans.archive</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.appeals_response_plans.archive.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.appeals_response_plans.archive.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.appeals_response_plans.archive.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.useful_links</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.useful_links.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.useful_links.active</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.useful_links.active.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.useful_links.active.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.useful_links.active.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>related_glide</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>shortname</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>source</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>source.disclaimer</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>source.homepage</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>source.id</td><td>integer</td><td>S</td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>source.longname</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>source.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>source.shortname</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>source.spanish_name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>source.type</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>source.type.id</td><td>integer</td><td>ST</td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>source.type.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>spanish_name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>status</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>theme</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>theme.id</td><td>integer</td><td>T</td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>theme.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>training_language</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>training_language.id</td><td>integer</td><td>TL</td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>training_language.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>training_language.code</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>type</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>type.code</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>type.id</td><td>integer</td><td>TY</td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>type.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>type.primary</td><td>boolean</td><td></td><td><a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
+      <tr><td>vulnerable_groups</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>vulnerable_groups<br>.id</td><td>integer</td><td>VG</td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+      <tr><td>vulnerable_groups<br>.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
+    </table>
+  </div>
+  <div id="reports" class="tab-pane">
+    <table>
+      <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
+      <tr><td>body</td><td>Main text in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>body-html</td><td>Main text in HTML format</td><td>string</td><td></td><td></td></tr>
+      <tr><td>country</td><td>Shortcut for country - defaults to country.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>country.id</td><td>Id for country used by ReliefWeb</td><td>integer</td><td>searchable facetable exact</td><td>C</td></tr>
+      <tr><td>country.iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>country.name</td><td>Name of country in English</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>country.primary</td><td>Flag to indicate this is the primary country</td><td>boolean</td><td></td><td></td></tr>
+      <tr><td>country.shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>date</td><td>Shortcut for date fields - defaults to date.created</td><td>object</td><td></td><td></td></tr>
+      <tr><td>date.changed</td><td>Date entry modified on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td></tr>
+      <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+      <tr><td>date.original</td><td>Date entry first published by original source (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DO</td></tr>
+      <tr><td>disaster</td><td>Shortcut for related disaster - defaults to disaster.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>disaster.id</td><td>Id for related disaster used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>D</td></tr>
+      <tr><td>disaster.name</td><td>Name assigned to the disaster based on the ReliefWeb disaster naming convention</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>disaster.glide</td><td>Global IDEntifier number (<a href="http://www.glidenumber.net/">GLIDE</a>) of the disaster</td><td>string</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>disaster.type</td><td>Disaster type of the associated disaster. Note this may be different to the `disaster_type` of a report. Defaults to disaster.type.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>disaster.type.code</td><td>Code for the disaster type of the associated disaster.</td><td>string</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>disaster.type.id</td><td>Id for the disaster type of the associated disaster.</td><td>integer</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>disaster.type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>disaster.type.primary</td><td>Whether this is the primary disaster type for the associated disaster.</td><td>boolean</td><td></td><td></td></tr>
+      <tr><td>disaster_type</td><td>Shortcut for disaster type - defaults to disaster_type.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>disaster_type.id</td><td>Id for disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>DT</td></tr>
+      <tr><td>disaster_type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>disaster_type.code</td><td>GLIDE hazard code for disaster type.</td><td>string</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>feature</td><td>defaults to feature.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>feature.id</td><td>Id for feature used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>feature.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/features">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>file</td><td>File attachment shortcut - defaults to file.id</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>file.copyright</td><td>Copyright of file attachment</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>file.description</td><td>Description of file attachment</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>file.filename</td><td>File name of file attachment</td><td>string</td><td></td><td></td></tr>
+      <tr><td>file.id</td><td>Id of file attachment used by ReliefWeb</td><td>integer</td><td>searchable</td><td></td></tr>
+      <tr><td>file.mimetype</td><td>MIME type of file attachment</td><td>string</td><td></td><td></td></tr>
+      <tr><td>file.preview</td><td>Shortcut for preview image of file attachment - defaults to file.preview.url</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>file.preview<br>.url</td><td>Link to preview image of file attachment</td><td>string</td><td></td><td></td></tr>
+      <tr><td>file.preview<br>.url-large</td><td>Link to a large preview image with a width of 680px</td><td>string</td><td></td><td></td></tr>
+      <tr><td>file.preview<br>.url-small</td><td>Link to a small preview image with a width of 200px</td><td>string</td><td></td><td></td></tr>
+      <tr><td>file.preview<br>.url-thumb</td><td>Link to a thumbnail preview image with a maximum width of 220px and a maximum height of 100px</td><td>string</td><td></td><td></td></tr>
+      <tr><td>file.url</td><td>Link to file attachment</td><td>string</td><td></td><td></td></tr>
+      <tr><td>format</td><td>Shortcut for content format - defaults to format.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>format.id</td><td>Id of content format used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>F</td></tr>
+      <tr><td>format.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/content-formats">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>headline</td><td>Shortcut for headline - defaults to headline.title</td><td>array</td><td></td><td></td></tr>
+      <tr><td>headline.featured</td><td></td><td>string</td><td>sortable searchable facetable</td><td></td></tr>
+      <tr><td>headline.image</td><td>Shortcut for headline image - defaults to headline.image.id</td><td>array</td><td></td><td></td></tr>
+      <tr><td>headline.image<br>.id</td><td>Unique id of headline image used by ReliefWeb</td><td>integer</td><td>searchable</td><td></td></tr>
+      <tr><td>headline.image<br>.mimetype</td><td>MIME type of the headline image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>headline.image<br>.filename</td><td>File name of the headline image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>headline.image<br>.caption</td><td>Caption attached to the headline image</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>headline.image<br>.copyright</td><td>Copyright attached to the headline image</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>headline.image<br>.url</td><td>URL of the headline image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>headline.summary</td><td>Summary of body, if report is selected as headline. Typically 180-190 characters long</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>headline.title</td><td>Headline text, if report is selected as headline. Typically 100-120 characters long</td><td>string</td><td>sortable searchable</td><td></td></tr>
+      <tr><td>id</td><td>Unique id of report used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td></tr>
+      <tr><td>image</td><td>Image shortcut - defaults to image.id</td><td>integer</td><td></td><td></td></tr>
+      <tr><td>image.caption</td><td>Caption attached to the image</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>image.copyright</td><td>Copyright attached to the image</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>image.id</td><td>Unique id of image used by ReliefWeb</td><td>integer</td><td>searchable</td><td></td></tr>
+      <tr><td>image.mimetype</td><td>MIME type of the image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>image.filename</td><td>File name of the image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>image.url</td><td>Link to the original image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>image.url-large</td><td>Link to a large image with a width of 680px</td><td>string</td><td></td><td></td></tr>
+      <tr><td>image.url-small</td><td>Link to a small image with a width of 200px</td><td>string</td><td></td><td></td></tr>
+      <tr><td>image.url-thumb</td><td>Link to a thumbnail image with a maximum width of 220px and a maximum height of 100px</td><td>string</td><td></td><td></td></tr>
+      <tr><td>language</td><td>Shortcut for language - defaults to language.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>language.code</td><td>ISO 639-1 code of the language the entry is written in</td><td>string</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>language.id</td><td>Id for language of report used by ReliefWeb</td><td>integer</td><td>facetable</td><td>L</td></tr>
+      <tr><td>language.name</td><td>Language the report is written in - Link for <a href="https://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>ocha_product</td><td>Shortcut for OCHA product - defaults to ocha_product.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>ocha_product.id</td><td>Id of OCHA product used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>ocha_product.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/ocha-products">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>origin</td><td>Url of original report when it was added to ReliefWeb</td><td>string</td><td></td><td></td></tr>
+      <tr><td>primary_country</td><td>Shortcut for primary country - defaults to primary_country.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>primary_country<br>.id</td><td>Id of primary country used by ReliefWeb</td><td>integer</td><td>sortable searchable facetable</td><td>PC</td></tr>
+      <tr><td>primary_country<br>.name</td><td>Link for <a href="http://reliefweb.int/taxonomy-descriptions#primarycountry">more information</a></td><td>string</td><td>sortable searchable facetable exact</td><td></td></tr>
+      <tr><td>primary_country<br>.shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>sortable searchable facetable exact</td><td></td></tr>
+      <tr><td>primary_country<br>.iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>sortable searchable facetable exact</td><td></td></tr>
+      <tr><td>source</td><td>Shortcut for <a href="http://reliefweb.int/organizations">sources</a> - defaults to source.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>source.disclaimer</td><td>Disclaimer information for the source</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>source.id</td><td>Id for source used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>S</td></tr>
+      <tr><td>source.name</td><td>Common name of source</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>source.longname</td><td>Official name of the source if different from source.name</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>source.homepage</td><td>URL of the source's primary website</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>source.shortname</td><td>Short name of the source, typically an acronym e.g. UNICEF</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>source.spanish_name</td><td>Spanish name of the source</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>source.type</td><td>Shortcut for source type - defaults to source.type.name</td><td>array</td><td></td><td></td></tr>
+      <tr><td>source.type.id</td><td>Id for source type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>ST</td></tr>
+      <tr><td>source.type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/organization-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>status</td><td></td><td>string</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>theme</td><td>Shortcut for theme - defaults to theme.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>theme.id</td><td>Id of theme used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>T</td></tr>
+      <tr><td>theme.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/themes">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>title</td><td>Title of report</td><td>string</td><td>sortable searchable exact</td><td></td></tr>
+      <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>url_alias</td><td>Friendly' url of the report</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>vulnerable_groups</td><td>Shortcut for vulnerable groups - defaults to vulnerable_groups.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>vulnerable_groups<br>.id</td><td>Id for vulnerable groups used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>VG</td></tr>
+      <tr><td>vulnerable_groups<br>.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/vulnerable-groups">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+    </table>
+  </div>
+  <div id="disasters" class="tab-pane">
+    <table>
+      <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
+      <tr><td>country</td><td>Shortcut for country - defaults to country.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>country.id</td><td>Id for country used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>C</td></tr>
+      <tr><td>country.iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>country.primary</td><td>Flag to indicate this is the primary country</td><td>boolean</td><td></td><td></td></tr>
+      <tr><td>country.name</td><td>Name of country in English</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>country.shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>current</td><td>Deprecated</td><td>boolean</td><td>sortable facetable</td><td></td></tr>
+      <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>date.created</td><td>Date when the disaster occurred (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+      <tr><td>description</td><td>Description of the disaster in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>description-html</td><td>Description of the disaster in HTML format</td><td>string</td><td></td><td></td></tr>
+      <tr><td>featured</td><td>Flag to indicate if the disaster is featured on ReliefWeb home page</td><td>boolean</td><td>sortable facetable</td><td></td></tr>
+      <tr><td>glide</td><td>Global IDEntifier number (<a href="http://www.glidenumber.net/">GLIDE</a>) of the disaster</td><td>string</td><td>sortable searchable exact</td><td></td></tr>
+      <tr><td>id</td><td>Unique id of disaster used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td></tr>
+      <tr><td>name</td><td></td><td>string</td><td>sortable searchable exact</td><td></td></tr>
+      <tr><td>primary_country</td><td>Shortcut for primary country - defaults to primary_country.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>primary_country<br>.id</td><td>Id of primary country used by ReliefWeb</td><td>integer</td><td>sortable searchable facetable</td><td></td></tr>
+      <tr><td>primary_country<br>.iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>sortable searchable facetable exact</td><td></td></tr>
+      <tr><td>primary_country<br>.name</td><td>Link for <a href="http://reliefweb.int/book/taxonomy-descriptions#primarycountry">more information</a></td><td>string</td><td>sortable searchable facetable exact</td><td></td></tr>
+      <tr><td>primary_country<br>.shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>sortable searchable facetable exact</td><td></td></tr>
+      <tr><td>primary_type</td><td>Shortcut for primary disaster type - defaults to primary_type.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>primary_type.id</td><td>Id for primary disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>primary_type.name</td><td>Name of primary disaster type</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>profile</td><td>defaults to profile.overview</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>profile.overview</td><td>Profile of the country in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>profile.overview-html</td><td>Profile of the country in HTML format</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content</td><td>Latest situation reports and analysis</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.title</td><td>"Key Content"</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.active</td><td>Array of links for current key content for the country</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.active.url</td><td>Current key content link url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.active.title</td><td>Current key content link title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.active.image</td><td>Current key content link image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.archive</td><td>Array of links for archive key content for the country</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.archive.url</td><td>Archive key content link url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.archive.title</td><td>Archive key content link title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.archive.image</td><td>Archive key content link image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans</td><td>Appeals and Response Plans for this country</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.title</td><td>"Appeals & Response Plans"</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.active</td><td>Array of links for current appeals and plans</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.active.url</td><td>Current appeal or plan url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.active.title</td><td>Current appeal or plan title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.active.image</td><td>Current appeal or plan image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.archive</td><td>Array of links for archive appeals and plans</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.archive.url</td><td>Archive appeal or plan url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.archive.title</td><td>Archive appeal or plan title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.archive.image</td><td>Archive appeal or plan image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links</td><td>Useful links to external sites</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links.title</td><td>"Useful links"</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links.active</td><td>Array of useful links</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links.active.url</td><td>Useful link url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links.active.title</td><td>Useful link title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links.active.image</td><td>Useful link image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>related_glide</td><td>Related Global IDEntifier number (<a href="http://www.glidenumber.net/">GLIDE</a>)</td><td>array</td><td>searchable exact</td><td></td></tr>
+      <tr><td>status</td><td>current', 'alert', 'past'</td><td>string</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>type</td><td>Shortcut for disaster type - defaults to type.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>type.code</td><td>Code of disaster type</td><td>string</td><td>sortable searchable facetable</td><td></td></tr>
+      <tr><td>type.id</td><td>Id of disaster type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>DT</td></tr>
+      <tr><td>type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/disaster-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>type.primary</td><td>Whether disaster type is primary or not</td><td>boolean</td><td></td><td></td></tr>
+      <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>url_alias</td><td>Friendly' url of the disaster</td><td>string</td><td>searchable</td><td></td></tr>
+    </table>
+  </div>
+  <div id="countries" role="tabpanel" class="tab-pane">
+    <table>
+      <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
+      <tr><td>current</td><td>Deprecated</td><td>boolean</td><td>sortable facetable</td><td></td></tr>
+      <tr><td>description</td><td>Description of the country in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>description-html</td><td>Description of the country in HTML format</td><td>string</td><td></td><td></td></tr>
+      <tr><td>featured</td><td>Flag to indicate if the country is featured on ReliefWeb home page</td><td>boolean</td><td>sortable facetable</td><td></td></tr>
+      <tr><td>id</td><td>Unique id of country used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td></tr>
+      <tr><td>iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>sortable searchable exact</td><td></td></tr>
+      <tr><td>name</td><td>Country name in English</td><td>string</td><td>sortable searchable exact</td><td></td></tr>
+      <tr><td>profile</td><td>defaults to profile.overview</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>profile.overview</td><td>Profile of the country in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>profile.overview-html</td><td>Profile of the country in HTML format</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content</td><td>Latest situation reports and analysis</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.title</td><td>"Key Content"</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.active</td><td>Array of links for current key content for the country</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>profile.key_content.active.url</td><td>Current key content link url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.active.title</td><td>Current key content link title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.active.image</td><td>Current key content link image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.archive</td><td>Array of links for archive key content for the country</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>profile.key_content.archive.url</td><td>Archive key content link url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.archive.title</td><td>Archive key content link title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content.archive.image</td><td>Archive key content link image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans</td><td>Appeals and Response Plans for this country</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.title</td><td>"Appeals & Response Plans"</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.active</td><td>Array of links for current appeals and plans</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.active.url</td><td>Current appeal or plan url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.active.title</td><td>Current appeal or plan title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.active.image</td><td>Current appeal or plan image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.archive</td><td>Array of links for archive appeals and plans</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.archive.url</td><td>Archive appeal or plan url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.archive.title</td><td>Archive appeal or plan title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.appeals_response_plans.archive.image</td><td>Archive appeal or plan image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links</td><td>Useful links to external sites</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links.title</td><td>"Useful links"</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links.active</td><td>Array of useful links</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>profile.useful_links.active.url</td><td>Useful link url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links.active.title</td><td>Useful link title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links.active.image</td><td>Useful link image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>sortable searchable exact</td><td></td></tr>
+      <tr><td>status</td><td>Whether country has an active situation</td><td>string</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>url_alias</td><td>Friendly' url of the country</td><td>string</td><td>searchable</td><td></td></tr>
+    </table>
+  </div>
+  <div id="jobs" class="tab-pane">
+    <table>
+      <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
+      <tr><td>body</td><td>Description of job in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>body-html</td><td>Description of job in HTML format</td><td>string</td><td></td><td></td></tr>
+      <tr><td>career_categories</td><td>Shortcut for career categories - defaults to career_categories.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>career_categories<br>.id</td><td>Id for career categories used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>CC</td></tr>
+      <tr><td>career_categories<br>.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/career-categories">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>city</td><td>Shortcut for city - defaults to city.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>city.name</td><td>Name of city in English</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>country</td><td>Shortcut for country - defaults to country.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>country.id</td><td>Id for country used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>C</td></tr>
+      <tr><td>country.primary</td><td>Flag to indicate this is the primary country</td><td>boolean</td><td></td><td></td></tr>
+      <tr><td>country.name</td><td>Name of country in English</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>country.shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>country.iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td></tr>
+      <tr><td>date.changed</td><td>Date entry modified on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td></tr>
+      <tr><td>date.closing</td><td>Date job closes to applicants (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DC</td></tr>
+      <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+      <tr><td>experience</td><td>Shortcut for experience requirement - defaults to experience.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>experience.id</td><td>Id for experience requirement used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>E</td></tr>
+      <tr><td>experience.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/job-experiences">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>file</td><td>Shortcut for file attachment - defaults to file.id</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>file.description</td><td>Description of the file attachment</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>file.filename</td><td>File name of the attachment</td><td>string</td><td></td><td></td></tr>
+      <tr><td>file.id</td><td>Id for file attachment used by ReliefWeb</td><td>integer</td><td>searchable</td><td></td></tr>
+      <tr><td>file.mimetype</td><td>MIME type of the file attachment</td><td>string</td><td></td><td></td></tr>
+      <tr><td>file.url</td><td>URL of the file attachment</td><td>string</td><td></td><td></td></tr>
+      <tr><td>how_to_apply</td><td>Application instructions for the job in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>how_to_apply-html</td><td>Application instructions for the job in HTML format</td><td>string</td><td></td><td></td></tr>
+      <tr><td>id</td><td>Unique id of job used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td></tr>
+      <tr><td>language</td><td>Language of job posting</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>language.id</td><td>Id for language used by ReliefWeb</td><td>integer</td><td>sortable facetable</td><td></td></tr>
+      <tr><td>language.name</td><td>Name of language</td><td>string</td><td>sortable facetable exact</td><td></td></tr>
+      <tr><td>language.code</td><td>Code for language</td><td>string</td><td>sortable facetable exact</td><td></td></tr>
+      <tr><td>source</td><td>Shortcut for source - defaults to source.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>source.homepage</td><td>URL of the source's primary website</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>source.id</td><td>Id for source used by ReliefWeb</td><td>integer</td><td>searchable facetable exact</td><td>S</td></tr>
+      <tr><td>source.longname</td><td>Official name of the source if different from source.name</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>source.name</td><td>Common name of source</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>source.shortname</td><td>Short name of the source, typically an acronym e.g. UNICEF</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>source.spanish_name</td><td>Spanish name of the source</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>source.type</td><td>Shortcut for source type - defaults to source.type.name</td><td>array</td><td></td><td></td></tr>
+      <tr><td>source.type.id</td><td>Id for source type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>ST</td></tr>
+      <tr><td>source.type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/organization-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>status</td><td>Whether job is still current</td><td>string</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>theme</td><td>Shortcut for theme - defaults to theme.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>theme.id</td><td>Id for theme used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>T</td></tr>
+      <tr><td>theme.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/themes">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>title</td><td>Job title</td><td>string</td><td>sortable searchable exact</td><td></td></tr>
+      <tr><td>type</td><td>Shortcut for type - defaults to type.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>type.id</td><td>Id for job type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td></tr>
+      <tr><td>type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/job-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>url_alias</td><td>Friendly' url of the job</td><td>string</td><td>searchable</td><td></td></tr>
+    </table>
+  </div>
+  <div id="training" class="tab-pane">
+    <table>
+      <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
+      <tr><td>body</td><td>Training description in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>body-html</td><td>Training description in HTML format</td><td>string</td><td></td><td></td></tr>
+      <tr><td>career_categories</td><td>Shortcut for career categories - defaults to career_categories.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>career_categories<br>.id</td><td>Id for career categories used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>CC</td></tr>
+      <tr><td>career_categories<br>.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/career-categories">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>city</td><td>Shortcut for city - defaults to city.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>city.name</td><td>Name of city in English</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>cost</td><td><code>free</code> or <code>fee-based</code></td><td>string</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>country</td><td>Shortcut for country - defaults to country.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>country.id</td><td>Id for country used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>C</td></tr>
+      <tr><td>country.iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>country.name</td><td>Name of country in English</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>country.primary</td><td>Flag to indicate this is the primary country</td><td>boolean</td><td></td><td></td></tr>
+      <tr><td>country.shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td></tr>
+      <tr><td>date.changed</td><td>Date when the entry was last modified on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td></tr>
+      <tr><td>date.created</td><td>Date when the entry was created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+      <tr><td>date.end</td><td>Date training ends (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DE</td></tr>
+      <tr><td>date.registration</td><td>Date registration closes (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DR</td></tr>
+      <tr><td>date.start</td><td>Date training starts (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DS</td></tr>
+      <tr><td>file</td><td>Shortcut for file attachment - defaults to file.id</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>file.description</td><td>Description of the file attachment</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>file.filename</td><td>File name of the attachment</td><td>string</td><td></td><td></td></tr>
+      <tr><td>file.id</td><td>Id for file attachment used by ReliefWeb</td><td>integer</td><td>searchable</td><td></td></tr>
+      <tr><td>file.mimetype</td><td>MIME type of the file attachment</td><td>string</td><td></td><td></td></tr>
+      <tr><td>file.url</td><td>URL of the file attachment</td><td>string</td><td></td><td></td></tr>
+      <tr><td>format</td><td>Shortcut for training format - defaults to format.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>format.id</td><td>Id for training format used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>F</td></tr>
+      <tr><td>format.name</td><td>Link to <a href="https://api.reliefweb.int/v1/references/training-formats">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>how_to_register</td><td>Registration information in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>how_to_register<br>-html</td><td>Registration information in HTML format</td><td>string</td><td></td><td></td></tr>
+      <tr><td>id</td><td>Unique id for training opportunity used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td></tr>
+      <tr><td>language</td><td>Shortcut for language - defaults to language.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>language.code</td><td>ISO 639-1 code of the language the entry is written in</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>language.id</td><td>Id for language used by ReliefWeb</td><td>integer</td><td>facetable</td><td>L</td></tr>
+      <tr><td>language.name</td><td>Language in which post is written (not necessarily language in which the training will be held). Link for <a href="https://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>source</td><td>Shortcut for source - defaults to source.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>source.id</td><td>Id for source used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>S</td></tr>
+      <tr><td>source.name</td><td>Common name of source</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>source.longname</td><td>Official name of the source if different from source.name</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>source.homepage</td><td>URL of the source's primary website</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>source.shortname</td><td>Short name of the source, typically an acronym e.g. UNICEF</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>source.spanish_name</td><td>Spanish name of the source</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>source.type</td><td>Shortcut for source type - defaults to source.type.name</td><td>array</td><td></td><td></td></tr>
+      <tr><td>source.type.id</td><td>Id for source type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>ST</td></tr>
+      <tr><td>source.type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/organization-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>status</td><td>Whether training is still current</td><td>string</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>theme</td><td>Shortcut for theme - defaults to theme.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>theme.id</td><td>Id for theme used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>T</td></tr>
+      <tr><td>theme.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/themes">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>title</td><td>Title of course</td><td>string</td><td>sortable searchable exact</td><td></td></tr>
+      <tr><td>training_language</td><td>Language training is held in, defaults to training_language.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>training_language.id</td><td>Id of language training is held in</td><td>integer</td><td>facetable</td><td>TL</td></tr>
+      <tr><td>training_language.name</td><td>Name of language training is held in. Link for <a href="https://api.reliefweb.int/v1/references/languages">values</a>.</td><td>string</td><td>facetable exact</td><td></td></tr>
+      <tr><td>training_language.code</td><td>Code of language training is held in</td><td>string</td><td>facetable exact</td><td></td></tr>
+      <tr><td>type</td><td>Shortcut for type - defaults to type.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>type.id</td><td>Id for training type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td></tr>
+      <tr><td>type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/training-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>url_alias</td><td>Friendly' url of the training</td><td>string</td><td>searchable</td><td></td></tr>
+    </table>
+  </div>
+  <div id="sources" class="tab-pane">
+    <table>
+      <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
+      <tr><td>content_type</td><td>Content types published from this source</td><td>array</td><td>sortable searchable</td><td></td></tr>
+      <tr><td>country</td><td>Shortcut for country - defaults to country.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>country.id</td><td>Id for country used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>C</td></tr>
+      <tr><td>country.iso3</td><td>ISO 3166-1 alpha-3 code</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>country.name</td><td>Name of the country in English where the source headquarters is located</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>country.primary</td><td>Flag to indicate this is the primary country</td><td>boolean</td><td></td><td></td></tr>
+      <tr><td>country.shortname</td><td>Short name of the country in English where the source headquarters is located</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>description</td><td>Description of the source in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>description-html</td><td>Description of the source in HTML format</td><td>string</td><td></td><td></td></tr>
+      <tr><td>disclaimer</td><td>Disclaimer information</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>fts_id</td><td>Id number for organization used by <a href="https://fts.unocha.org/">FTS</a></td><td>number</td><td>sortable searchable</td><td></td></tr>
+      <tr><td>homepage</td><td>URL of organization</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>id</td><td>Unique id for source used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td></tr>
+      <tr><td>logo</td><td>Shortcut for logo - defaults to logo.url</td><td>object</td><td></td><td></td></tr>
+      <tr><td>logo.filename</td><td>File name of the logo</td><td>string</td><td></td><td></td></tr>
+      <tr><td>logo.filesize</td><td>File size of the logo</td><td>string</td><td></td><td></td></tr>
+      <tr><td>logo.height</td><td>Height of the logo</td><td>integer</td><td></td><td></td></tr>
+      <tr><td>logo.id</td><td>Id for logo used by ReliefWeb</td><td>integer</td><td></td><td></td></tr>
+      <tr><td>logo.mimetype</td><td>MIME type of the logo</td><td>string</td><td></td><td></td></tr>
+      <tr><td>logo.url</td><td>URL of the logo</td><td>string</td><td></td><td></td></tr>
+      <tr><td>logo.width</td><td>Width of the logo</td><td>integer</td><td></td><td></td></tr>
+      <tr><td>longname</td><td>Official name of source, where applicable</td><td>string</td><td>sortable searchable exact</td><td></td></tr>
+      <tr><td>name</td><td>Name of source</td><td>string</td><td>sortable searchable exact</td><td></td></tr>
+      <tr><td>shortname</td><td>Name of the source in abbreviated format, where applicable</td><td>string</td><td>sortable searchable exact</td><td></td></tr>
+      <tr><td>spanish_name</td><td>Name of the source in Spanish</td><td>string</td><td>sortable searchable exact</td><td></td></tr>
+      <tr><td>status</td><td>Whether source is active or not</td><td>string</td><td>searchable facetable</td><td></td></tr>
+      <tr><td>type</td><td>Shortcut for type of organization - defaults to type.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
+      <tr><td>type.id</td><td>Id of organization type used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>TY</td></tr>
+      <tr><td>type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/organization-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>url_alias</td><td>Friendly' url of the source</td><td>string</td><td>searchable</td><td></td></tr>
+    </table>
+  </div>
+  <div id="faq" class="tab-pane">
+    <table>
+      <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
+      <tr><td>body</td><td>Answer to FAQ in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>body-html</td><td>Answer to FAQ in HTML format</td><td>string</td><td></td><td></td></tr>
+      <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td></tr>
+      <tr><td>date.changed</td><td>Date entry modified on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td></tr>
+      <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+      <tr><td>faq_category</td><td>Shortcut for type of FAQ question - defaults to faq_category.name</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>faq_category.id</td><td>Id of type of faq question</td><td>number</td><td>facetable</td><td></td></tr>
+      <tr><td>faq_category.name</td><td>Name of type of faq question</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>id</td><td>Unique id of faq question used by ReliefWeb</td><td>number</td><td>sortable searchable</td><td></td></tr>
+      <tr><td>status</td><td>Published or not</td><td>string</td><td>facetable</td><td></td></tr>
+      <tr><td>title</td><td>Question</td><td>string</td><td>sortable exact</td><td></td></tr>
+      <tr><td>url</td><td>Canonical url of the faq question</td><td>string</td><td></td><td></td></tr>
+      <tr><td>url_alias</td><td>Friendly' url of faq question</td><td>string</td><td></td><td></td></tr>
+    </table>
+  </div>
+  <div id="book" class="tab-pane">
+    <table>
+      <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
+      <tr><td>body</td><td>Text in Markdown format</td><td>string searchable</td><td></td><td></td></tr>
+      <tr><td>body-html</td><td>Text in HTML format</td><td>string</td><td></td><td></td></tr>
+      <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td></tr>
+      <tr><td>date.changed</td><td>Date entry modified on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td></tr>
+      <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+      <tr><td>id</td><td>Unique id of page used by ReliefWeb</td><td>number</td><td>sortable searchable</td><td></td></tr>
+      <tr><td>status</td><td>Published or not</td><td>string</td><td>facetable</td><td></td></tr>
+      <tr><td>title</td><td>Title of page</td><td>string</td><td>sortable exact</td><td></td></tr>
+      <tr><td>url</td><td>Canonical url of the page</td><td>string</td><td></td><td></td></tr>
+      <tr><td>url_alias</td><td>Friendly' url of page</td><td>string</td><td></td><td></td></tr>
+    </table>
+  </div>
+  <div id="blog" class="tab-pane">
+    <table>
+      <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
+      <tr><td>attached_image</td><td>Attached image shortcut - defaults to attached_image.id</td><td>integer</td><td></td><td></td></tr>
+      <tr><td>attached_image.caption</td><td>Caption attached to the image</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>attached_image.copyright</td><td>Copyright attached to the image</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>attached_image.id</td><td>Unique id of image used by ReliefWeb</td><td>integer</td><td>searchable</td><td></td></tr>
+      <tr><td>attached_image.mimetype</td><td>MIME type of the image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>attached_image.filename</td><td>File name of the image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>attached_image.url</td><td>Link to the original image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>attached_image.url-large</td><td>Link to a large image with a width of 680px</td><td>string</td><td></td><td></td></tr>
+      <tr><td>attached_image.url-small</td><td>Link to a small image with a width of 200px</td><td>string</td><td></td><td></td></tr>
+      <tr><td>attached_image.url-thumb</td><td>Link to a thumbnail image with a maximum width of 220px and a maximum height of 100px</td><td>string</td><td></td><td></td></tr>
+      <tr><td>author</td><td>Name of blog post author</td><td>string</td><td>searchable exact</td><td></td></tr>
+      <tr><td>body</td><td>Text of blog post in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>body-html</td><td>Text of blog post in HTML format</td><td>string</td><td></td><td></td></tr>
+      <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td></tr>
+      <tr><td>date.changed</td><td>Date entry modified on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td></tr>
+      <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+      <tr><td>id</td><td>Id for blog post used by ReliefWeb</td><td>number</td><td>sortable searchable</td><td></td></tr>
+      <tr><td>image</td><td>Image shortcut - defaults to image.id</td><td>integer</td><td></td><td></td></tr>
+      <tr><td>image.caption</td><td>Caption attached to the image</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>image.copyright</td><td>Copyright attached to the image</td><td>string</td><td>searchable</td><td></td></tr>
+      <tr><td>image.id</td><td>Unique id of image used by ReliefWeb</td><td>integer</td><td>searchable</td><td></td></tr>
+      <tr><td>image.mimetype</td><td>MIME type of the image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>image.filename</td><td>File name of the image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>image.url</td><td>Link to the original image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>image.url-large</td><td>Link to a large image with a width of 680px</td><td>string</td><td></td><td></td></tr>
+      <tr><td>image.url-small</td><td>Link to a small image with a width of 200px</td><td>string</td><td></td><td></td></tr>
+      <tr><td>image.url-thumb</td><td>Link to a thumbnail image with a maximum width of 220px and a maximum height of 100px</td><td>string</td><td></td><td></td></tr>
+      <tr><td>status</td><td>Published or not</td><td>string</td><td>facetable</td><td></td></tr>
+      <tr><td>tags</td><td>Shortcut for categories applied to blog post - defaults to tags.name</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>tags.id</td><td>Unique id for blog post categories used by ReliefWeb</td><td>number</td><td>facetable</td><td></td></tr>
+      <tr><td>tags.name</td><td>Name of blog post categories</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>title</td><td>Title of blog post</td><td>string</td><td>sortable exact</td><td></td></tr>
+      <tr><td>url</td><td>Canonical url of blog post</td><td>string</td><td></td><td></td></tr>
+      <tr><td>url_alias</td><td>Friendly' url of blog post</td><td>string</td><td></td><td></td></tr>
+    </table>
+  </div>
+
+<!-- End fields tables -->
+</div>

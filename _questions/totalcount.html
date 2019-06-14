@@ -1,0 +1,13 @@
+---
+name: totalcount
+title: How can I get just the total?
+order: 40
+---
+
+<p>Each response has a 'totalCount' field, which shows the total number of matches for the query, not just the amount returned in the response, which is constrained by <a href="/parameters#limit">limit</a>. If you only want to know the total, set the limit to 0 for a more concise response.</p>
+
+<p>To find out how many reports have been published from IFRC, for example, look at the <code>totalCount</code> from:</p>
+
+<div class="apiCall">
+  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[field]=source.shortname&amp;filter[value]=IFRC&amp;limit=0</code></pre></div>
+</div>

@@ -1,0 +1,37 @@
+---
+name: sort
+order: 40
+---
+
+<p><em>(array)</em> Sortable field names and their direction <code>desc</code> or <code>asc</code> in the form <code>field:order</code>. The order of the field names in the array will determine the priority of the sorting.</p>
+
+<p><strong>Note:</strong> requests with a <a href="#query">query</a> will be sorted by relevance. If there is no <code>sort</code> specified, results may not be consistent.</p>
+
+<p>For the most recent results, use the <a href="#preset">preset</a> <code>latest</code>.</p>
+
+<p>Example:</p>
+
+<ul>
+  <li>
+    <p>Sort by more than one field. This returns reports sorted by date first and then by title.</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&sort[]=date:desc&amp;sort[]=title:asc</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "sort": ["date:desc", "title:asc"]
+}
+</pre>
+      </div>
+    </div>
+  </li>
+</ul>

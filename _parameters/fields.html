@@ -1,0 +1,103 @@
+---
+name: fields
+order: 10
+---
+
+<p><em>(array)</em> Arrays of fields to return in the result. To be used in conjunction with the profile parameter to personalize the fields returned and streamline requests.</p>
+
+<p>Fields are made up of two parts: <code>include</code> and <code>exclude</code>.</p>
+
+<ul>
+  <li><code>include</code>: <em>(array)</em>: Fields to include.</li>
+  <li><code>exclude</code>: <em>(array)</em>: Fields to exclude.</li>
+</ul>
+
+<p>In the examples for many of the other parameters, we have used fields[include] to show that we are getting the results we wanted. If you want to filter reports by a particular format, for example, it's often useful to include the format.name field while refining the query, to check you're getting what you expected, even if you remove it for the final results.</p>
+
+<p>Examples:</p>
+
+<ul>
+  <li>
+    <p>The latest 3 reports with urls.</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&amp;preset=latest&amp;fields[include][]=url</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "limit": 3,
+  "preset": "latest",
+  "fields": {
+      "include": ["url"]
+  }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>The latest 3 reports with no fields.</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&amp;preset=latest&amp;fields[exclude][]=title</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "limit": 3,
+  "preset": "latest",
+  "fields": {
+      "exclude": ["title"]
+  }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <p>The latest 3 reports with list profile excluding <code>source</code> fields.</p>
+
+    <p>GET:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&amp;preset=latest&amp;profile=list&amp;fields[exclude][]=source</code></pre></div>
+    </div>
+
+    <p>POST:</p>
+
+    <div class="apiCall">
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="post-parameters" contentEditable="true">
+<pre>
+{
+  "limit": 3,
+  "preset": "latest",
+  "profile": "list",
+  "fields": {
+      "exclude": ["source"]
+  }
+}
+</pre>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<p><strong>Note:</strong> when using <code>source</code> in <a href="#query">queries</a> it defaults to <code>source.name</code>, when used with <code>fields</code> it expands to source.name, source.id, source.href, source.longname, source.shortname, source.homepage and source.type.</p>

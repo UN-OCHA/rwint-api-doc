@@ -1,0 +1,54 @@
+.tab-content input[type=radio] {
+  position: absolute;
+  opacity: 0;
+}
+.tab-content label {
+  border: 4px solid transparent;
+  border-bottom: 4px solid #ddd;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  display: inline-block;
+  padding: 20px;
+  transition: background 1s, color 1s;
+}
+.tab-content label:hover {
+  background: #e6ecef;
+}
+.tab-pane {
+  padding: 20px 0 40px;
+  display: none;
+}
+.tab-pane td {
+  padding: 4px;
+}
+.tab-content [id$="tab"]:checked + label {
+  background: #fff;
+  border-color: #ddd;
+  border-bottom-color: transparent;
+  color: #333;
+}
+#summarytab:checked ~ #summary,
+#blogtab:checked ~ #blog,
+#booktab:checked ~ #book,
+#countriestab:checked ~ #countries,
+#disasterstab:checked ~ #disasters,
+#faqtab:checked ~ #faq,
+#jobstab:checked ~ #jobs,
+#reportstab:checked ~ #reports,
+#sourcestab:checked ~ #sources,
+#trainingtab:checked ~ #training {
+  display: block;
+}
+.tab-pane tr:nth-child(even) {
+  background-color: #eee;
+}
+@media screen and (max-width : 1235px) {
+  html,
+  body {
+    overflow-x: initial;
+  }
+  table {
+    width: 100%;
+    overflow-x: auto;
+  }
+}

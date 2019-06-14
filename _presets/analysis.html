@@ -1,0 +1,216 @@
+---
+name: Analysis
+---
+                <li>
+                  <h4>Blog - analysis</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body"
+    ],
+    "operator": "OR"
+  },
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Book - analysis</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body"
+    ],
+    "operator": "OR"
+  },
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Countries - analysis</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "name",
+      "shortname",
+      "iso3",
+      "status"
+    ],
+    "operator": "OR"
+  },
+  "filter": {}
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Disasters - analysis</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "name",
+      "glide",
+      "description",
+      "type",
+      "country",
+      "status"
+    ],
+    "operator": "OR"
+  },
+  "filter": {
+    "field": "status",
+    "value": ["alert", "alert-archive", "archive", "current", "past"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Faq - analysis</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body"
+    ],
+    "operator": "OR"
+  },
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Jobs - analysis</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title",
+      "body",
+      "career_categories",
+      "country",
+      "how_to_apply",
+      "source",
+      "status",
+      "theme"
+    ],
+    "operator": "OR"
+  },
+  "filter": {
+    "field": "status",
+    "value": ["published", "expired"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Reports - analysis</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "body",
+      "country",
+      "disaster",
+      "disaster_type",
+      "format.name",
+      "headline.title",
+      "headline.summary",
+      "language",
+      "primary_country",
+      "source",
+      "status",
+      "theme.name",
+      "title",
+      "vulnerable_groups"
+    ],
+    "operator": "OR"
+  },
+  "filter": {
+    "field": "status",
+    "value": ["published", "to-review"],
+    "operator": "OR"
+  }
+}
+</pre>
+              </div>
+            </li>
+            <li>
+              <h4>Sources - analysis</h4>
+              <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "title"
+    ]
+  },
+  "filter": {
+    "field": "status",
+    "value": ["published"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>
+                <li>
+                  <h4>Training - analysis</h4>
+                  <div>
+<pre>
+{
+  "query": {
+    "fields": [
+      "body",
+      "country",
+      "format",
+      "source",
+      "status",
+      "theme",
+      "title",
+      "type"
+    ],
+    "operator": "OR"
+  },
+  "filter": {
+    "field": "status",
+    "value": ["published", "expired"],
+    "operator": "OR"
+  }
+}
+</pre>
+                  </div>
+                </li>

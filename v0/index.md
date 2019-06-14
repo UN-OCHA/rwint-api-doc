@@ -1,5 +1,5 @@
 ---
-layout: "index"
+layout: "main"
 title: Reliefweb API - Documentation
 ---
 
@@ -11,8 +11,9 @@ This is the documentation for the ReliefWeb API v0.
 <div class="deprecation-notice">
 Important:<br>
 This documentation is for Version 0 of the api.<br>
-For documentation on the latest version, please visit:
-<a href="../index.html">../index.html</a>.
+Version 0 has been deprecated.<br>
+This is kept for historical reasons only - please do not use this version of the API.<br>
+Please use the <a href="../index.html">latest version</a> of the API.
 </div>
 
 The API allows to fetch content from [ReliefWeb](http://reliefweb.int) like the latest headlines, job offers or disasters.
