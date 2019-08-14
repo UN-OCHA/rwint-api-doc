@@ -40,8 +40,7 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
 
   <!-- Start fields tables -->
   <!-- Copied from spreadsheet at https://docs.google.com/spreadsheets/d/194BA3jUqbVi3cnQF0NiFhZ7xn3kyDAduLKk0NC_CgeQ -->
-
-  <div id="summary" role="tabpanel" class="tab-pane">
+  <div id="summary" class="tab-pane active">
     <table>
       <tr><th>Name</th><th>Type</th><th>Abbreviation</th><th>Content Types</th></tr>
       <tr><td>body</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
@@ -92,7 +91,6 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
       <tr><td>feature.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
       <tr><td>featured</td><td>boolean</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
       <tr><td>file</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
-      <tr><td>file.copyright</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
       <tr><td>file.description</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
       <tr><td>file.filename</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
       <tr><td>file.id</td><td>integer</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
@@ -136,10 +134,10 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
       <tr><td>image.url-small</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
       <tr><td>image.url-thumb</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
       <tr><td>iso3</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a></td></tr>
-      <tr><td>language</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
-      <tr><td>language.code</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
-      <tr><td>language.id</td><td>integer</td><td>L</td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
-      <tr><td>language.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>language</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>language.code</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>language.id</td><td>integer</td><td>L</td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>language.name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
       <tr><td>longname</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
       <tr><td>name</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
       <tr><td>ocha_product</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
@@ -158,31 +156,31 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
       <tr><td>profile.overview</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
       <tr><td>profile.overview-html</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
       <tr><td>profile.key_content</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.key_content.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.key_content.active</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.key_content.active.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.key_content.active.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.key_content.active.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.key_content.archive</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.key_content.archive.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.key_content.archive.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.key_content.archive.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.appeals_response_plans</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.appeals_response_plans.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.appeals_response_plans.active</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.appeals_response_plans.active.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.appeals_response_plans.active.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.appeals_response_plans.active.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.appeals_response_plans.archive</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.appeals_response_plans.archive.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.appeals_response_plans.archive.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.appeals_response_plans.archive.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content<br>.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content<br>.active</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content<br>.active.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content<br>.active.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content<br>.active.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content<br>.archive</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content<br>.archive.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content<br>.archive.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.key_content<br>.archive.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile<br>.appeals_response_plans</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.active</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.active.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.active.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.active.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.archive</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.archive.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.archive.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.archive.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
       <tr><td>profile.useful_links</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.useful_links.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.useful_links.active</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.useful_links.active.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.useful_links.active.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>profile.useful_links.active.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.useful_links<br>.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.useful_links<br>.active</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.useful_links<br>.active.url</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.useful_links<br>.active.title</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>profile.useful_links<br>.active.image</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
       <tr><td>related_glide</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
       <tr><td>shortname</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
       <tr><td>source</td><td>array</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
@@ -250,7 +248,6 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
       <tr><td>feature.id</td><td>Id for feature used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td></td></tr>
       <tr><td>feature.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/features">values</a>.</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
       <tr><td>file</td><td>File attachment shortcut - defaults to file.id</td><td>array</td><td>multi</td><td></td></tr>
-      <tr><td>file.copyright</td><td>Copyright of file attachment</td><td>string</td><td>searchable</td><td></td></tr>
       <tr><td>file.description</td><td>Description of file attachment</td><td>string</td><td>searchable</td><td></td></tr>
       <tr><td>file.filename</td><td>File name of file attachment</td><td>string</td><td></td><td></td></tr>
       <tr><td>file.id</td><td>Id of file attachment used by ReliefWeb</td><td>integer</td><td>searchable</td><td></td></tr>
@@ -352,31 +349,31 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
       <tr><td>profile.overview</td><td>Profile of the country in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
       <tr><td>profile.overview-html</td><td>Profile of the country in HTML format</td><td>string</td><td></td><td></td></tr>
       <tr><td>profile.key_content</td><td>Latest situation reports and analysis</td><td>array</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.title</td><td>"Key Content"</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.active</td><td>Array of links for current key content for the country</td><td>array</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.active.url</td><td>Current key content link url</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.active.title</td><td>Current key content link title</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.active.image</td><td>Current key content link image</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.archive</td><td>Array of links for archive key content for the country</td><td>array</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.archive.url</td><td>Archive key content link url</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.archive.title</td><td>Archive key content link title</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.archive.image</td><td>Archive key content link image</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans</td><td>Appeals and Response Plans for this country</td><td>array</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.title</td><td>"Appeals & Response Plans"</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.active</td><td>Array of links for current appeals and plans</td><td>array</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.active.url</td><td>Current appeal or plan url</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.active.title</td><td>Current appeal or plan title</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.active.image</td><td>Current appeal or plan image</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.archive</td><td>Array of links for archive appeals and plans</td><td>array</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.archive.url</td><td>Archive appeal or plan url</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.archive.title</td><td>Archive appeal or plan title</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.archive.image</td><td>Archive appeal or plan image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.title</td><td>"Key Content"</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.active</td><td>Array of links for current key content for the country</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.active.url</td><td>Current key content link url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.active.title</td><td>Current key content link title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.active.image</td><td>Current key content link image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.archive</td><td>Array of links for archive key content for the country</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.archive.url</td><td>Archive key content link url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.archive.title</td><td>Archive key content link title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.archive.image</td><td>Archive key content link image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans</td><td>Appeals and Response Plans for this country</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.title</td><td>"Appeals & Response Plans"</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.active</td><td>Array of links for current appeals and plans</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.active.url</td><td>Current appeal or plan url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.active.title</td><td>Current appeal or plan title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.active.image</td><td>Current appeal or plan image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.archive</td><td>Array of links for archive appeals and plans</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.archive.url</td><td>Archive appeal or plan url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.archive.title</td><td>Archive appeal or plan title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.archive.image</td><td>Archive appeal or plan image</td><td>string</td><td></td><td></td></tr>
       <tr><td>profile.useful_links</td><td>Useful links to external sites</td><td>array</td><td></td><td></td></tr>
-      <tr><td>profile.useful_links.title</td><td>"Useful links"</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.useful_links.active</td><td>Array of useful links</td><td>array</td><td></td><td></td></tr>
-      <tr><td>profile.useful_links.active.url</td><td>Useful link url</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.useful_links.active.title</td><td>Useful link title</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.useful_links.active.image</td><td>Useful link image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links<br>.title</td><td>"Useful links"</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links<br>.active</td><td>Array of useful links</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links<br>.active.url</td><td>Useful link url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links<br>.active.title</td><td>Useful link title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links<br>.active.image</td><td>Useful link image</td><td>string</td><td></td><td></td></tr>
       <tr><td>related_glide</td><td>Related Global IDEntifier number (<a href="http://www.glidenumber.net/">GLIDE</a>)</td><td>array</td><td>searchable exact</td><td></td></tr>
       <tr><td>status</td><td>current', 'alert', 'past'</td><td>string</td><td>searchable facetable</td><td></td></tr>
       <tr><td>type</td><td>Shortcut for disaster type - defaults to type.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
@@ -388,7 +385,7 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
       <tr><td>url_alias</td><td>Friendly' url of the disaster</td><td>string</td><td>searchable</td><td></td></tr>
     </table>
   </div>
-  <div id="countries" role="tabpanel" class="tab-pane">
+  <div id="countries" class="tab-pane">
     <table>
       <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
       <tr><td>current</td><td>Deprecated</td><td>boolean</td><td>sortable facetable</td><td></td></tr>
@@ -402,31 +399,31 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
       <tr><td>profile.overview</td><td>Profile of the country in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
       <tr><td>profile.overview-html</td><td>Profile of the country in HTML format</td><td>string</td><td></td><td></td></tr>
       <tr><td>profile.key_content</td><td>Latest situation reports and analysis</td><td>array</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.title</td><td>"Key Content"</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.active</td><td>Array of links for current key content for the country</td><td>array</td><td>multi</td><td></td></tr>
-      <tr><td>profile.key_content.active.url</td><td>Current key content link url</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.active.title</td><td>Current key content link title</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.active.image</td><td>Current key content link image</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.archive</td><td>Array of links for archive key content for the country</td><td>array</td><td>multi</td><td></td></tr>
-      <tr><td>profile.key_content.archive.url</td><td>Archive key content link url</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.archive.title</td><td>Archive key content link title</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.key_content.archive.image</td><td>Archive key content link image</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans</td><td>Appeals and Response Plans for this country</td><td>array</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.title</td><td>"Appeals & Response Plans"</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.active</td><td>Array of links for current appeals and plans</td><td>array</td><td>multi</td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.active.url</td><td>Current appeal or plan url</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.active.title</td><td>Current appeal or plan title</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.active.image</td><td>Current appeal or plan image</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.archive</td><td>Array of links for archive appeals and plans</td><td>array</td><td>multi</td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.archive.url</td><td>Archive appeal or plan url</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.archive.title</td><td>Archive appeal or plan title</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.appeals_response_plans.archive.image</td><td>Archive appeal or plan image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.title</td><td>"Key Content"</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.active</td><td>Array of links for current key content for the country</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>profile.key_content<br>.active.url</td><td>Current key content link url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.active.title</td><td>Current key content link title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.active.image</td><td>Current key content link image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.archive</td><td>Array of links for archive key content for the country</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>profile.key_content<br>.archive.url</td><td>Archive key content link url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.archive.title</td><td>Archive key content link title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.key_content<br>.archive.image</td><td>Archive key content link image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans</td><td>Appeals and Response Plans for this country</td><td>array</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.title</td><td>"Appeals & Response Plans"</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.active</td><td>Array of links for current appeals and plans</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.active.url</td><td>Current appeal or plan url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.active.title</td><td>Current appeal or plan title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.active.image</td><td>Current appeal or plan image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.archive</td><td>Array of links for archive appeals and plans</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.archive.url</td><td>Archive appeal or plan url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.archive.title</td><td>Archive appeal or plan title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile<br>.appeals_response_plans.archive.image</td><td>Archive appeal or plan image</td><td>string</td><td></td><td></td></tr>
       <tr><td>profile.useful_links</td><td>Useful links to external sites</td><td>array</td><td></td><td></td></tr>
-      <tr><td>profile.useful_links.title</td><td>"Useful links"</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.useful_links.active</td><td>Array of useful links</td><td>array</td><td>multi</td><td></td></tr>
-      <tr><td>profile.useful_links.active.url</td><td>Useful link url</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.useful_links.active.title</td><td>Useful link title</td><td>string</td><td></td><td></td></tr>
-      <tr><td>profile.useful_links.active.image</td><td>Useful link image</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links<br>.title</td><td>"Useful links"</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links<br>.active</td><td>Array of useful links</td><td>array</td><td>multi</td><td></td></tr>
+      <tr><td>profile.useful_links<br>.active.url</td><td>Useful link url</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links<br>.active.title</td><td>Useful link title</td><td>string</td><td></td><td></td></tr>
+      <tr><td>profile.useful_links<br>.active.image</td><td>Useful link image</td><td>string</td><td></td><td></td></tr>
       <tr><td>shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>sortable searchable exact</td><td></td></tr>
       <tr><td>status</td><td>Whether country has an active situation</td><td>string</td><td>searchable facetable</td><td></td></tr>
       <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td></tr>
@@ -465,10 +462,6 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
       <tr><td>how_to_apply</td><td>Application instructions for the job in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
       <tr><td>how_to_apply-html</td><td>Application instructions for the job in HTML format</td><td>string</td><td></td><td></td></tr>
       <tr><td>id</td><td>Unique id of job used by ReliefWeb</td><td>integer</td><td>sortable searchable</td><td></td></tr>
-      <tr><td>language</td><td>Language of job posting</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
-      <tr><td>language.id</td><td>Id for language used by ReliefWeb</td><td>integer</td><td>sortable facetable</td><td></td></tr>
-      <tr><td>language.name</td><td>Name of language</td><td>string</td><td>sortable facetable exact</td><td></td></tr>
-      <tr><td>language.code</td><td>Code for language</td><td>string</td><td>sortable facetable exact</td><td></td></tr>
       <tr><td>source</td><td>Shortcut for source - defaults to source.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
       <tr><td>source.homepage</td><td>URL of the source's primary website</td><td>string</td><td>searchable</td><td></td></tr>
       <tr><td>source.id</td><td>Id for source used by ReliefWeb</td><td>integer</td><td>searchable facetable exact</td><td>S</td></tr>
