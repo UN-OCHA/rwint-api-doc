@@ -27,8 +27,6 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
   <label for="countriestab">Countries</label>
   <input type="radio" name="tabs" id="disasterstab">
   <label for="disasterstab">Disasters</label>
-  <input type="radio" name="tabs" id="faqtab">
-  <label for="faqtab">FAQ</label>
   <input type="radio" name="tabs" id="jobstab">
   <label for="jobstab">Jobs</label>
   <input type="radio" name="tabs" id="reportstab">
@@ -40,6 +38,7 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
 
   <!-- Start fields tables -->
   <!-- Copied from spreadsheet at https://docs.google.com/spreadsheets/d/194BA3jUqbVi3cnQF0NiFhZ7xn3kyDAduLKk0NC_CgeQ -->
+
   <div id="summary" class="tab-pane active">
     <table>
       <tr><th>Name</th><th>Type</th><th>Abbreviation</th><th>Content Types</th></tr>
@@ -583,24 +582,6 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
       <tr><td>type.name</td><td>Link for <a href="https://api.reliefweb.int/v1/references/organization-types">values</a></td><td>string</td><td>searchable facetable exact</td><td></td></tr>
       <tr><td>url</td><td>Canonical url</td><td>string</td><td></td><td></td></tr>
       <tr><td>url_alias</td><td>Friendly' url of the source</td><td>string</td><td>searchable</td><td></td></tr>
-    </table>
-  </div>
-  <div id="faq" class="tab-pane">
-    <table>
-      <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
-      <tr><td>body</td><td>Answer to FAQ in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
-      <tr><td>body-html</td><td>Answer to FAQ in HTML format</td><td>string</td><td></td><td></td></tr>
-      <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td></tr>
-      <tr><td>date.changed</td><td>Date entry modified on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td></tr>
-      <tr><td>date.created</td><td>Date entry created on ReliefWeb (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
-      <tr><td>faq_category</td><td>Shortcut for type of FAQ question - defaults to faq_category.name</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
-      <tr><td>faq_category.id</td><td>Id of type of faq question</td><td>number</td><td>facetable</td><td></td></tr>
-      <tr><td>faq_category.name</td><td>Name of type of faq question</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
-      <tr><td>id</td><td>Unique id of faq question used by ReliefWeb</td><td>number</td><td>sortable searchable</td><td></td></tr>
-      <tr><td>status</td><td>Published or not</td><td>string</td><td>facetable</td><td></td></tr>
-      <tr><td>title</td><td>Question</td><td>string</td><td>sortable exact</td><td></td></tr>
-      <tr><td>url</td><td>Canonical url of the faq question</td><td>string</td><td></td><td></td></tr>
-      <tr><td>url_alias</td><td>Friendly' url of faq question</td><td>string</td><td></td><td></td></tr>
     </table>
   </div>
   <div id="book" class="tab-pane">
