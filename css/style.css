@@ -94,6 +94,13 @@ a[href="#main"].accessibility:focus {
 }
 
 /*
+ * Limit images to 100%.
+ */
+img {
+  max-width: 100%;
+}
+
+/*
  * Deprecation notice.
  */
 .deprecation-notice {
