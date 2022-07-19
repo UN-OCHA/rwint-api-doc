@@ -39,6 +39,7 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
   <!-- Start fields tables -->
   <!-- Copied from spreadsheet at https://docs.google.com/spreadsheets/d/194BA3jUqbVi3cnQF0NiFhZ7xn3kyDAduLKk0NC_CgeQ -->
 
+
   <div id="summary" class="tab-pane active">
     <table>
       <tr><th>Name</th><th>Type</th><th>Abbreviation</th><th>Content Types</th></tr>
@@ -59,10 +60,11 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
       <tr><td>cost</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
       <tr><td>current</td><td>boolean</td><td></td><td><a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
       <tr><td>date</td><td>object</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
-      <tr><td>date.changed</td><td>date</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>date.changed</td><td>date</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
       <tr><td>date.closing</td><td>date</td><td>DC</td><td><a class="target" data-toggle="tab" href="#jobs">jobs</a></td></tr>
-      <tr><td>date.created</td><td>date</td><td>DA</td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
+      <tr><td>date.created</td><td>date</td><td>DA</td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a>, <a class="target" data-toggle="tab" href="#countries">countries</a>, <a class="target" data-toggle="tab" href="#disasters">disasters</a>, <a class="target" data-toggle="tab" href="#sources">sources</a></td></tr>
       <tr><td>date.end</td><td>date</td><td>DE</td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
+      <tr><td>date.event</td><td>date</td><td></td><td><a class="target" data-toggle="tab" href="#disasters">disasters</a></td></tr>
       <tr><td>date.original</td><td>date</td><td>DO</td><td><a class="target" data-toggle="tab" href="#reports">reports</a></td></tr>
       <tr><td>date.registration</td><td>date</td><td>DR</td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
       <tr><td>date.start</td><td>date</td><td>DS</td><td><a class="target" data-toggle="tab" href="#training">training</a></td></tr>
@@ -323,7 +325,9 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
       <tr><td>country.shortname</td><td>Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
       <tr><td>current</td><td>Deprecated</td><td>boolean</td><td>sortable facetable</td><td></td></tr>
       <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td>searchable facetable</td><td></td></tr>
-      <tr><td>date.created</td><td>Date when the disaster occurred (ISO 8601)</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+      <tr><td>date.changed</td><td>Latest update to disaster profile or status</td><td>date</td><td>sortable facetable</td><td></td></tr>
+      <tr><td>date.created</td><td>Date when the disaster added to RW</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+      <tr><td>date.event</td><td>Date when the disaster occurred (ISO 8601)</td><td>date</td><td>sortable facetable</td><td></td></tr>
       <tr><td>description</td><td>Description of the disaster in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
       <tr><td>description-html</td><td>Description of the disaster in HTML format</td><td>string</td><td></td><td></td></tr>
       <tr><td>featured</td><td>Flag to indicate if the disaster is featured on ReliefWeb home page</td><td>boolean</td><td>sortable facetable</td><td></td></tr>
@@ -382,6 +386,9 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
     <table>
       <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
       <tr><td>current</td><td>Deprecated</td><td>boolean</td><td>sortable facetable</td><td></td></tr>
+      <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td></tr>
+      <tr><td>date.created</td><td>Date country added to RW</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+      <tr><td>date.changed</td><td>Date of last change to profile or status</td><td>date</td><td>sortable facetable</td><td></td></tr>
       <tr><td>description</td><td>Description of the country in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
       <tr><td>description-html</td><td>Description of the country in HTML format</td><td>string</td><td></td><td></td></tr>
       <tr><td>featured</td><td>Flag to indicate if the country is featured on ReliefWeb home page</td><td>boolean</td><td>sortable facetable</td><td></td></tr>
@@ -552,6 +559,9 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
       <tr><td>country.name</td><td>Name of the country in English where the source headquarters is located</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
       <tr><td>country.primary</td><td>Flag to indicate this is the primary country</td><td>boolean</td><td></td><td></td></tr>
       <tr><td>country.shortname</td><td>Short name of the country in English where the source headquarters is located</td><td>string</td><td>searchable facetable exact</td><td></td></tr>
+      <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td></tr>
+      <tr><td>date.created</td><td>Date source added to RW</td><td>date</td><td>sortable facetable</td><td>DA</td></tr>
+      <tr><td>date.changed</td><td>Date of last change to name or status</td><td>date</td><td>sortable facetable</td><td></td></tr>
       <tr><td>description</td><td>Description of the source in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
       <tr><td>description-html</td><td>Description of the source in HTML format</td><td>string</td><td></td><td></td></tr>
       <tr><td>disclaimer</td><td>Disclaimer information</td><td>string</td><td>searchable</td><td></td></tr>
