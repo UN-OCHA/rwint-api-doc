@@ -3,16 +3,16 @@ layout: main
 title: Reliefweb API Preset settings
 ---
 
-<h2 id="preset-settings">ReliefWeb API Preset settings </h2>
+<h1 id="preset-settings">ReliefWeb API Preset settings </h1>
 
 <p>Jump to settings:</p>
-<ul class="jump-links flex">
+<ol id="cd-toc" class="cd-toc__list flex">
   {% for preset in site.presets %}
   <li><a href="#preset-{{ preset.name | downcase }}">{{ preset.name }}</a></li>
   {% endfor %}
-</ul>
+</ol>
 
-<h3>Introduction</h3>
+<h2>Introduction</h2>
 
 <p>This page lists the settings associated with the <a href="/parameters#preset">'preset' parameter</a>.</p>
 
@@ -40,7 +40,7 @@ title: Reliefweb API Preset settings
 </pre>
 <p>and no job can have both statuses at the same time.</p>
 
-<h3>The settings</h3>
+<h2>The settings</h2>
 
 <ul class="presets">
   {% for preset in site.presets %}
@@ -50,5 +50,14 @@ title: Reliefweb API Preset settings
       {{ preset.content }}
     </ul>
   </li>
+
+  <div class="cd-toc__back-to-toc">
+    <a href="#cd-toc" class="cd-button cd-button--bold cd-button--uppercase cd-button--small cd-button--icon">
+      <span class="cd-button__text">Back to TOC</span>
+      <svg class="cd-icon cd-icon--arrow-up">
+        <use xlink:href="#cd-icon--arrow-up"></use>
+      </svg>
+    </a>
+  </div>
   {% endfor %}
 </ul>

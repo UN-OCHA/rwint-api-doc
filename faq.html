@@ -3,19 +3,30 @@ layout: main
 title: Reliefweb API - Documentation
 ---
 
-<h2 id="examples">ReliefWeb API Frequently* Asked Questions</h2>
+<h1 id="examples">ReliefWeb API Frequently* Asked Questions</h1>
 
-<p>Jump to questions:</p>
-<ul class="jump-links">
-  {% assign sortedquestions = site.questions | sort: 'order' | reverse %}
-  {% for question in sortedquestions %}
-  <li><a href="#{{ question.name }}">{{ question.title }}</a></li>
-  {% endfor %}
-</ul>
+<nav class="cd-toc" aria-label="Index">
+  <h2 id="table-of-contents-title" class="cd-toc__title">Jump to questions:</h2>
+  <ol id="cd-toc" class="cd-toc__list">
+    {% assign sortedquestions = site.questions | sort: 'order' | reverse %}
+    {% for question in sortedquestions %}
+    <li><a href="#{{ question.name }}">{{ question.title }}</a></li>
+    {% endfor %}
+  </ol>
+</nav>
 
 <p>* In reality, some of these questions haven't been asked frequently, but are used as a way to make suggestions and pass on tips. Please <a href="http://reliefweb.int/contact">let us know</a> if you have any other questions or suggestions what would be helpful in this section.</p>
 
 {% for question in sortedquestions %}
-<h3 id="{{ question.name }}">{{ question.title }}</h3>
+<h2 id="{{ question.name }}">{{ question.title }}</h2>
 {{ question.content }}
+
+<div class="cd-toc__back-to-toc">
+  <a href="#cd-toc" class="cd-button cd-button--bold cd-button--uppercase cd-button--small cd-button--icon">
+    <span class="cd-button__text">Back to TOC</span>
+    <svg class="cd-icon cd-icon--arrow-up">
+      <use xlink:href="#cd-icon--arrow-up"></use>
+    </svg>
+  </a>
+</div>
 {% endfor %}

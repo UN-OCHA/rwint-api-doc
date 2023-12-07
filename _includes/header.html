@@ -1,0 +1,73 @@
+<div class="cd-layout-container">
+  <header class="cd-header">
+    <div class="cd-global-header">
+      <div class="cd-container cd-global-header__inner">
+        <section id="cd-ocha-services" class="cd-ocha">
+          <h2 id="cd-ocha-services-title">OCHA Services</h2>
+          <div class="cd-global-header__dropdown cd-ocha-dropdown cd-dropdown" id="cd-ocha-dropdown" aria-labelledby="cd-ocha-services-title" data-cd-toggable="OCHA Services" data-cd-icon="arrow-down" data-cd-logo="ocha-logo" data-cd-component="cd-ocha" data-cd-replace="cd-ocha-services-title">
+            <div class="cd-ocha-dropdown__inner">
+              <div class="cd-ocha-dropdown__section">
+                <p class="cd-ocha-dropdown__heading">Related Platforms</p>
+                <ul class="cd-ocha-dropdown__list">
+                  <li class="cd-ocha-dropdown__link"><a href="https://reliefweb.int/">ReliefWeb</a></li>
+                  <li class="cd-ocha-dropdown__link"><a href="https://response.reliefweb.org/">ReliefWeb Response</a></li>
+                  <li class="cd-ocha-dropdown__link"><a href="https://www.agendaforhumanity.org">Agenda for Humanity</a></li>
+                  <li class="cd-ocha-dropdown__link"><a href="https://cerf.un.org">Central Emergency Response Fund</a></li>
+                </ul>
+              </div>
+              <div class="cd-ocha-dropdown__section">
+                <p class="cd-ocha-dropdown__heading">Other OCHA Services</p>
+                <ul class="cd-ocha-dropdown__list">
+                  <li class="cd-ocha-dropdown__link"><a href="https://fts.unocha.org/">Financial Tracking Service</a></li>
+                  <li class="cd-ocha-dropdown__link"><a href="https://data.humdata.org/">Humanitarian Data Exchange</a></li>
+                  <li class="cd-ocha-dropdown__link"><a href="https://humanitarian.id/">Humanitarian ID</a></li>
+                  <li class="cd-ocha-dropdown__link"><a href="https://response.reliefweb.org/">ReliefWeb Response</a></li>
+                </ul>
+              </div>
+              <div class="cd-ocha-dropdown__section">
+                <p class="cd-ocha-dropdown__heading" aria-hidden="true">&nbsp;</p>
+                <ul class="cd-ocha-dropdown__list">
+                  <li class="cd-ocha-dropdown__link"><a href="https://interagencystandingcommittee.org">Inter-Agency Standing Committee</a></li>
+                  <li class="cd-ocha-dropdown__link"><a href="https://unocha.org/">OCHA website</a></li>
+                  <li class="cd-ocha-dropdown__link"><a href="https://reliefweb.int/">ReliefWeb</a></li>
+                  <li class="cd-ocha-dropdown__link"><a href="https://vosocc.unocha.org/">Virtual OSOCC</a></li>
+                </ul>
+              </div>
+              <div class="cd-ocha-dropdown__section">
+                <a class="cd-ocha-dropdown__see-all" href="https://www.unocha.org/ocha-digital-services" target="_blank" rel="noopener">See all</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="cd-site-header">
+      <div class="cd-container cd-site-header__inner">
+
+        <div class="cd-site-header__logo">
+
+          <h1>
+            <a href="{{ "/" | relative_url }}" title="Home" rel="home" class="cd-site-logo">
+              <span class="visually-hidden">ReliefWeb API Documentation</span>
+              <img src="/css/images/rw-api-logo.svg" alt="Home">
+            </a>
+          </h1>
+        </div>
+
+        <div class="cd-site-header__actions">
+          <!-- Search can go here -->
+
+          <div class="cd-site-header__nav-holder">
+            <h2 id="block-mainnavigation-menu" class="visually-hidden">Main navigation</h2>
+
+            <nav id="cd-site-header__nav" class="contextual-region block block-menu navigation menu--main cd-nav cd-site-header__nav" aria-label="Main" data-cd-toggable="Menu" data-cd-component="cd-nav-level-0" data-cd-icon="arrow-down" >
+              {% include navigation.html navigation=site.data.navigation %}
+            </nav>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </header>
