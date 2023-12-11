@@ -129,9 +129,9 @@
    *
    * @see common_design_subtheme/css/brand.css
    */
-  --brand-primary: var(--cd-ocha-blue);
-  --brand-primary--light: var(--cd-blue--bright);
-  --brand-primary--dark: var(--cd-blue--dark);
+  --brand-primary: #055372;
+  --brand-primary--light: #087fae;
+  --brand-primary--dark: #033244;
   --brand-highlight: var(--cd-highlight-red);
   --brand-grey: var(--cd-blue-grey);
 
@@ -141,7 +141,7 @@
    * Specify the logo paths/dimensions here. The URL is relative to
    * common_design/components/cd/cd-header/cd-logo.css
    */
-  --brand-logo-mobile-url: url("../../../img/logos/ocha-logo-blue.svg");
+  --brand-logo-mobile-url: url("/img/logos/ocha-logo-blue.svg");
   --brand-logo-mobile-width: 52px;
   --brand-logo-desktop-width: 186px;
 
