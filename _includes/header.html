@@ -34,7 +34,7 @@
                 </ul>
               </div>
               <div class="cd-ocha-dropdown__section">
-                <a class="cd-ocha-dropdown__see-all" href="https://www.unocha.org/ocha-digital-services" target="_blank" rel="noopener">See all</a>
+                <a class="cd-button cd-button--light cd-button--bold cd-button--uppercase cd-ocha-dropdown__see-all" href="https://www.unocha.org/ocha-digital-services" target="_blank" rel="noopener">See all</a>
               </div>
             </div>
           </div>
@@ -61,6 +61,9 @@
           <div class="cd-site-header__nav-holder">
             <h2 id="block-mainnavigation-menu" class="visually-hidden">Main navigation</h2>
 
+            <button class="cd-nav-level-0__btn" type="button" data-cd-togger="">
+              <span class="cd-nav-level-0__btn-label">Menu</span>
+            </button>
             <nav id="cd-site-header__nav" class="contextual-region block block-menu navigation menu--main cd-nav cd-site-header__nav" aria-label="Main" data-cd-toggable="Menu" data-cd-component="cd-nav-level-0" data-cd-icon="arrow-down" >
               {% include navigation.html navigation=site.data.navigation %}
             </nav>
