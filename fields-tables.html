@@ -4,19 +4,19 @@ title: Reliefweb API Fields Tables
 css: '<link href="/css/tabs.css" rel="stylesheet"/>'
 ---
 
-<h2 id="fields-tables">ReliefWeb API Fields tables</h2>
+<h1 id="fields-tables">ReliefWeb API Fields tables</h1>
 
-<h3>Introduction</h3>
+<h2>Introduction</h2>
 
 <p>Use tabs to see lists of fields by content type.The summary tab shows all fields with links to the content types they are used in. The other tabs show the names of fields with a short description, its type, and the abbreviations used in advanced searches on ReliefWeb.</p>
 
-<p>For advanced use, the attributes column shows whether a field can be used for search - in a <a href="/parameters#query">query</a> or a <a href="/parameters#filter">filter</a> - <a href="/parameters#sort">sorts</a> and <a href="/parameters#facet">facets</a> or with the <a href="/questions#exact-results">"exact"</a> qualifier. <code>Multi</code> means a returned field can have mulitple values (objects) like country or theme. <code>common</code> fields make it easier to search. For example, <code>source.common</code> contains both the full name and the short name of the source, so both "OCHA" and "Office for the Coordination of Humanitarian Affairs" will return the same result. ".common" fields often have an ".exact" version too.</p>
+<p>For advanced use, the attributes column shows whether a field can be used for search - in a <a href="/parameters#query">query</a> or a <a href="/parameters#filter">filter</a> - <a href="/parameters#sort">sorts</a> and <a href="/parameters#facet">facets</a> or with the <a href="/faq#exact-results">"exact"</a> qualifier. <code>Multi</code> means a returned field can have mulitple values (objects) like country or theme. <code>common</code> fields make it easier to search. For example, <code>source.common</code> contains both the full name and the short name of the source, so both "OCHA" and "Office for the Coordination of Humanitarian Affairs" will return the same result. ".common" fields often have an ".exact" version too.</p>
 
 <p><strong>Note:</strong> In the field descriptions in this table, fields that have subfields are often described as defaulting to one of those subfields. This refers to a search, and not the result. So, for example, a <code>query[fields][]=country</code> is equivalent to <code>query[fields][]=country.name</code>. The result will return JSON objects for each country, not only the names.</p>
 
-<h3>The tables</h3>
+<h2>The tables</h2>
 
-<div id="tabs" class="tab-content">
+<div id="tabs" class="tabs tab-content">
   <input type="radio" name="tabs" id="summarytab" checked>
   <label for="summarytab">Summary</label>
   <input type="radio" name="tabs" id="blogtab">
@@ -39,8 +39,9 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
   <!-- Start fields tables -->
   <!-- Copied from spreadsheet at https://docs.google.com/spreadsheets/d/194BA3jUqbVi3cnQF0NiFhZ7xn3kyDAduLKk0NC_CgeQ -->
 
+
   <div id="summary" class="tab-pane active">
-    <table>
+    <table class="cd-table cd-table--striped">
       <tr><th>Name</th><th>Type</th><th>Abbreviation</th><th>Content Types</th></tr>
       <tr><td>body</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
       <tr><td>body-html</td><td>string</td><td></td><td><a class="target" data-toggle="tab" href="#reports">reports</a>, <a class="target" data-toggle="tab" href="#jobs">jobs</a>, <a class="target" data-toggle="tab" href="#training">training</a></td></tr>
@@ -214,7 +215,7 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
     </table>
   </div>
   <div id="reports" class="tab-pane">
-    <table>
+    <table class="cd-table cd-table--striped">
       <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
       <tr><td>body</td><td>Main text in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
       <tr><td>body-html</td><td>Main text in HTML format</td><td>string</td><td></td><td></td></tr>
@@ -314,7 +315,7 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
     </table>
   </div>
   <div id="disasters" class="tab-pane">
-    <table>
+    <table class="cd-table cd-table--striped">
       <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
       <tr><td>country</td><td>Shortcut for country - defaults to country.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
       <tr><td>country.id</td><td>Id for country used by ReliefWeb</td><td>integer</td><td>searchable facetable</td><td>C</td></tr>
@@ -382,7 +383,7 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
     </table>
   </div>
   <div id="countries" class="tab-pane">
-    <table>
+    <table class="cd-table cd-table--striped">
       <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
       <tr><td>current</td><td>Deprecated</td><td>boolean</td><td>sortable facetable</td><td></td></tr>
       <tr><td>date</td><td>Shortcut for date - defaults to date.created</td><td>object</td><td></td><td></td></tr>
@@ -430,7 +431,7 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
     </table>
   </div>
   <div id="jobs" class="tab-pane">
-    <table>
+    <table class="cd-table cd-table--striped">
       <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
       <tr><td>body</td><td>Description of job in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
       <tr><td>body-html</td><td>Description of job in HTML format</td><td>string</td><td></td><td></td></tr>
@@ -484,7 +485,7 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
     </table>
   </div>
   <div id="training" class="tab-pane">
-    <table>
+    <table class="cd-table cd-table--striped">
       <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
       <tr><td>body</td><td>Training description in Markdown format</td><td>string</td><td>searchable</td><td></td></tr>
       <tr><td>body-html</td><td>Training description in HTML format</td><td>string</td><td></td><td></td></tr>
@@ -549,7 +550,7 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
     </table>
   </div>
   <div id="sources" class="tab-pane">
-    <table>
+    <table class="cd-table cd-table--striped">
       <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
       <tr><td>content_type</td><td>Content types published from this source</td><td>array</td><td>sortable searchable</td><td></td></tr>
       <tr><td>country</td><td>Shortcut for country - defaults to country.name</td><td>string</td><td>searchable facetable exact multi common</td><td></td></tr>
@@ -588,7 +589,7 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
     </table>
   </div>
   <div id="book" class="tab-pane">
-    <table>
+    <table class="cd-table cd-table--striped">
       <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
       <tr><td>body</td><td>Text in Markdown format</td><td>string searchable</td><td></td><td></td></tr>
       <tr><td>body-html</td><td>Text in HTML format</td><td>string</td><td></td><td></td></tr>
@@ -603,7 +604,7 @@ css: '<link href="/css/tabs.css" rel="stylesheet"/>'
     </table>
   </div>
   <div id="blog" class="tab-pane">
-    <table>
+    <table class="cd-table cd-table--striped">
       <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th><th>Abbreviation</th></tr>
       <tr><td>attached_image</td><td>Attached image shortcut - defaults to attached_image.id</td><td>integer</td><td></td><td></td></tr>
       <tr><td>attached_image.caption</td><td>Caption attached to the image</td><td>string</td><td>searchable</td><td></td></tr>

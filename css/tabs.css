@@ -1,31 +1,46 @@
+
+:root {
+  --cd-tabs-border-width: 2px;
+}
+
+div.tabs {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 1rem 0 2rem;
+  padding: 0;
+  list-style: none;
+  border-bottom: var(--cd-tabs-border-width) solid var(--brand-grey);
+}
+
 .tab-content input[type=radio] {
   position: absolute;
   opacity: 0;
 }
+
 .tab-content label {
+  display: block;
+  flex: 0 0 100%;
+  align-self: flex-end;
+  margin: 0;
+  margin-bottom: calc(var(--cd-tabs-border-width) * -1);
   border: 4px solid transparent;
-  border-bottom: 4px solid #ddd;
-  border-radius: 10px 10px 0 0;
-  cursor: pointer;
-  display: inline-block;
-  padding: 20px;
-  transition: background 1s, color 1s;
+}
+.tab-content label:focus {
+  color: var(--cd-white);
+  outline: 3px solid var(--brand-highlight);
+  background: var(--brand-primary--dark);
 }
 .tab-content label:hover {
-  background: #e6ecef;
+  color: var(--brand-primary);
+  background-color: var(--brand-grey);
 }
 .tab-pane {
   padding: 20px 0 40px;
   display: none;
 }
-.tab-pane td {
-  padding: 4px;
-}
 .tab-content [id$="tab"]:checked + label {
-  background: #fff;
-  border-color: #ddd;
-  border-bottom-color: transparent;
-  color: #333;
+  color: var(--brand-primary);
+  background-color: var(--brand-grey);
 }
 #summarytab:checked ~ #summary,
 #blogtab:checked ~ #blog,
@@ -50,5 +65,17 @@
   table {
     width: 100%;
     overflow-x: auto;
+  }
+}
+
+@media (min-width: 576px) {
+  div.tabs {
+    gap: 0.5rem;
+  }
+  div.tabs > label {
+    flex-basis: auto;
+    margin-bottom: 0;
+    padding: 0.25rem 1rem;
+    border-bottom: 0;
   }
 }
