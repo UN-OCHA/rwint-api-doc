@@ -3,19 +3,28 @@ layout: main
 title: Reliefweb API - Documentation
 ---
 
-<h2>All about the ReliefWeb API</h2>
+<h1>All about the ReliefWeb API</h1>
 
 <p><strong>TL/DR</strong>: Most of the information is on the <a href="/parameters">parameters</a> page. Find an example request that resembles the one you'd like to make, edit it in place and check the results from the API (requires javascript).</p>
 
 <p>Jump to sections:</p>
-<ul class="jump-links flex">
+<ol id="cd-toc" class="cd-toc__list flex">
   {% assign sortedmeta = site.meta | sort: 'order' | reverse %}
   {% for meta in sortedmeta %}
   <li><a href="#{{ meta.name }}">{{ meta.title }}</a></li>
   {% endfor %}
-</ul>
+</ol>
 
 {% for meta in sortedmeta %}
-<h3 id="{{ meta.name }}">{{ meta.title }}</h3>
+<h2 id="{{ meta.name }}">{{ meta.title }}</h2>
 {{ meta.content }}
+
+<div class="cd-toc__back-to-toc">
+  <a href="#cd-toc" class="cd-button cd-button--bold cd-button--uppercase cd-button--small cd-button--icon">
+    <span class="cd-button__text">Back to TOC</span>
+    <svg class="cd-icon cd-icon--arrow-up">
+      <use xlink:href="#cd-icon--arrow-up"></use>
+    </svg>
+  </a>
+</div>
 {% endfor %}

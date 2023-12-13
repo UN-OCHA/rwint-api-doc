@@ -1,0 +1,3382 @@
+/* ./css/normalize.css */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  box-sizing: content-box; /* 2 */
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+/* ./css/brand.css */
+:root {
+  /* Color palette */
+  /* OCHA blue is one colour ramp darker than brand blue */
+  --cd-ocha-blue: #1f69b3;
+  /* Dark blue is two colour ramps darker than brand blue */
+  --cd-blue--dark: #144372;
+  /* Bright blue is one colour ramp lighter than brand blue */
+  --cd-blue--bright: #82b5e9;
+  /* Brighter blue is two colour ramps higher than brand blue */
+  --cd-blue--brighter: #d4e5f7;
+  --cd-highlight-red: #e56a54;
+  /* This has been selected based on WCAG AAA requirements for contrast. */
+  --cd-contrast-red: #e00000;
+  --cd-white: #fff;
+  --cd-grey--light: #f2f2f2;
+  --cd-grey--mid: #595959;
+  --cd-grey--dark: #4a4a4a;
+  --cd-default-text-color: var(--cd-grey--dark);
+  --cd-black: #000;
+  --cd-blue-grey: #e6ecf1;
+  --cd-blue-grey--dark: #d3dde5;
+  --cd-blue-grey--light: #ebf0f4;
+
+  /**
+   * Colours used with rgba().
+   * https://stackoverflow.com/questions/40010597/how-do-i-apply-opacity-to-a-css-color-variable
+   */
+  --cd-rgb-ocha-blue: 2, 108, 182;
+  --cd-rgb-grey--mid: 89, 89, 89;
+  --cd-rgb-grey--dark: 74, 74, 74;
+  --cd-rgb-highlight-red: 229, 106, 84;
+  --cd-rgb-blue-grey--dark: 211, 221, 229;
+
+  /* Measurements */
+  --cd-max-content-width: 820px;
+  --cd-max-body-width: 1400px;
+  --cd-max-width: 1220px;
+  --cd-global-header-height: 35px;
+  --cd-site-header-height: 60px;
+  --cd-container-padding: 0.75rem; /* 12px */
+  --cd-container-padding-tablet: 1.5rem; /* 24px */
+  --cd-container-padding-xlarge: 2.5rem; /* 40px */
+
+  /**
+   * Breakpoints
+   *
+   * Mostly to document the old Sass vars, these values are used directly in CSS
+   * when needed for a media query, because custom props don't work in MQs.
+   */
+  --cd-bp--sm: 576px;
+  --cd-bp--md: 768px;
+  --cd-bp--lg: 1024px;
+  --cd-bp--xl: 1200px;
+  --cd-bp--xxl: 1400px;
+
+  /* Vertical Rhythm */
+  --cd-flow-space: 1rem;
+  --cd-bumper-space: 1rem;
+
+  /**
+   * Adjust this depending on number of rows in .cd-layout-container.
+   * This ensures the footer is always the last element.
+   */
+  --cd-footer-row-number: 5;
+
+  /* From https://brand.unocha.org/d/xEPytAUjC3sH/visual-identity#/basics/colours */
+  --cd-red: #cd3a1f;
+  --cd-red--light: #f8d8d3;
+  --cd-orange: #db7b18;
+  --cd-orange--light: #fae6d1;
+  --cd-yellow: #d5de26;
+  --cd-yellow--light: #f7f8d3;
+  --cd-green: #7fb92f;
+  --cd-green--light: #e8f5d6;
+
+  /* Fonts sizes in REMs */
+  --cd-font-size--tiny: 0.75rem;      /* 12px */
+  --cd-font-size--small: 0.875rem;    /* 14px */
+  --cd-font-size--ref: 1rem;          /* 16px */
+  --cd-font-size--base: 1.125rem;     /* 18px */
+  --cd-font-size--medium: 1.375rem;   /* 22px */
+  --cd-font-size--large: 1.625rem;    /* 26px */
+  --cd-font-size--2xbase: 1.875rem;   /* 30px */
+  --cd-font-size--2xmedium: 2.375rem; /* 38px */
+  --cd-font-size--2xlarge: 2.875rem;  /* 46px */
+
+  /* Fonts */
+  --cd-font: helvetica, arial, sans-serif;
+
+  /**
+   * Roboto
+   * https://brand.unocha.org/d/xEPytAUjC3sH/visual-identity#/basics/fonts/advanced-users
+   */
+  --cd-font--roboto: "Roboto", helvetica, arial, sans-serif;
+  --cd-font--roboto-condensed: "Roboto Condensed", helvetica, arial, sans-serif;
+  --cd-font--roboto-slab: "Roboto Slab", helvetica, arial, sans-serif;
+
+  /**
+   * Multilingual
+   * https://brand.unocha.org/d/xEPytAUjC3sH/visual-identity#/basics/fonts/multi-language-typefaces-1
+   */
+  --cd-font--noto-sans: "Noto Sans", sans-serif;
+  --cd-font--noto-kufi-arabic: "Noto Kufi Arabic", sans-serif;
+  --cd-font--noto-sans-sc: "Noto Sans SC", sans-serif;
+
+  /**
+   * z-index reference values
+   */
+  --cd-z-default: 1;
+  --cd-z-hidden: -1;
+  --cd-z-sidebar: 110;
+  --cd-z-sidebar-underlay: 100;
+  --cd-z-main-menu: 199;
+  --cd-z-search: 200;
+  --cd-z-dropdown: 201;
+  --cd-z-skip-link: 1000;
+
+  /**
+   * Accessibility-related properties
+   */
+  --cd-outline-size: 3px;
+
+  /**
+   * Site-specific brand defaults
+   *
+   * You can override these defaults in the SUB-THEME. We provide default values
+   * here so that the base theme can be used out of the box, for times when you
+   * don't even set up a sub-theme.
+   *
+   * @see common_design_subtheme/css/brand.css
+   */
+  --brand-primary: #055372;
+  --brand-primary--light: #087fae;
+  --brand-primary--dark: #033244;
+  --brand-highlight: var(--cd-highlight-red);
+  --brand-grey: var(--cd-blue-grey);
+
+  /**
+   * Site logos
+   *
+   * Specify the logo paths/dimensions here. The URL is relative to
+   * common_design/components/cd/cd-header/cd-logo.css
+   */
+  --brand-logo-mobile-url: url("/img/logos/ocha-logo-blue.svg");
+  --brand-logo-mobile-width: 52px;
+  --brand-logo-desktop-width: 186px;
+
+  /* DEPRECATED: this variable will be removed in the future */
+  --brand-logo-width: var(--brand-logo-desktop-width);
+}
+/* ./css/hidden.module.css */
+/**
+ * @file
+ * Utility classes to hide elements in different ways.
+ */
+
+/**
+ * Hide elements from all users.
+ *
+ * Used for elements which should not be immediately displayed to any user. An
+ * example would be collapsible details that will be expanded with a click
+ * from a user. The effect of this class can be toggled with the jQuery show()
+ * and hide() functions.
+ */
+.hidden {
+  display: none;
+}
+
+/**
+ * Hide elements visually, but keep them available for screen readers.
+ *
+ * Used for information required for screen reader users to understand and use
+ * the site where visual display is undesirable. Information provided in this
+ * manner should be kept concise, to avoid unnecessary burden on the user.
+ * "!important" is used to prevent unintentional overrides.
+ */
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+}
+
+/**
+ * The .focusable class extends the .visually-hidden class to allow
+ * the element to be focusable when navigated to via the keyboard.
+ */
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  position: static !important;
+  overflow: visible;
+  clip: auto;
+  width: auto;
+  height: auto;
+}
+
+/**
+ * Hide visually and from screen readers, but maintain layout.
+ */
+.invisible {
+  visibility: hidden;
+}
+/* ./css/cd-resets/cd-resets.css */
+/**
+ * Common Design: Resets
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+input {
+  font-size: 16px;
+}
+
+body {
+  color: var(--cd-grey--dark);
+  font-family: var(--cd-font--roboto);
+  font-size: 1rem;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: var(--cd-font-size--base);
+  }
+}
+
+body.no-scroll {
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/**
+ * Custom-styled lists
+ *
+ * When the attribute ARIA role "list" is applied to a <ul> tag, we can assume
+ * the intention is to have complete styling control over this list and remove
+ * all of the default typographic treatment: spacing / bullets
+ */
+[role=list] {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/**
+ * Respect user prefs for animations/transitions
+ *
+ * Some people prefer not to see animations/transitions for medical or personal
+ * reasons. Additionally it can happen that the browser is unable to draw the
+ * animations at a sufficient speed.
+ *
+ * This block of rules will wholesale disable the animations when unwanted,
+ * leaving the codebase to implement its animations/transitions in a simple
+ * format without individual rules needing to be qualified.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  *,
+  *::before,
+  *::after {
+    /* turn animations on if user doesn't mind */
+    animation-play-state: running;
+  }
+}
+
+@media not (update: fast) {
+  *,
+  *::before,
+  *::after {
+    /* turn them off again if the browser can't draw them effectively */
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    /* explicitly disable animations and transitions when requested */
+    transition-duration: 0s !important;
+    animation-play-state: paused;
+  }
+}
+/* ./css/cd-resets/cd-typography.css */
+/**
+ * Typography
+ *
+ * Our defaults balance readability with the desire to show lots of information
+ * on screen, e.g. dashboards, column layouts, and structured content.
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  color: var(--cd-default-text-color);
+  font-family: var(--cd-font--roboto);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0;
+}
+
+h1 {
+  color: var(--cd-default-text-color);
+  font-size: var(--cd-font-size--2xbase);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--cd-font-size--2xbase);
+}
+
+h3 {
+  font-size: var(--cd-font-size--large);
+}
+
+h4 {
+  font-size: var(--cd-font-size--medium);
+}
+
+h5 {
+  font-size: var(--cd-font-size--base);
+}
+
+h6 {
+  font-size: var(--cd-font-size--ref);
+}
+
+a {
+  color: var(--brand-primary--dark);
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: var(--brand-primary);
+}
+
+ol,
+dl {
+  margin-bottom: 1rem;
+}
+
+em {
+  font-style: italic;
+}
+
+u {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Spacious typography
+ *
+ * For use on sites that are narrative-oriented, featuring long-form articles
+ * where reading is the main activity, and the UX leans more toward a magazine.
+ */
+.cd-content--spacious h1,
+.cd-content--spacious h2,
+.cd-content--spacious h3,
+.cd-content--spacious h4,
+.cd-content--spacious h5,
+.cd-content--spacious h6 {
+  margin: 2em 0 0.5em 0;
+}
+
+.cd-content--spacious h1:first-child,
+.cd-content--spacious h2:first-child,
+.cd-content--spacious h3:first-child,
+.cd-content--spacious h4:first-child,
+.cd-content--spacious h5:first-child,
+.cd-content--spacious h6:first-child {
+  margin-top: 0;
+}
+
+.cd-content--spacious h1 {
+  margin: 1.5em 0 0.75em 0;
+  font-size: var(--cd-font-size--2xmedium);
+}
+
+.cd-content--spacious h2 {
+  font-size: var(--cd-font-size--2xbase);
+}
+
+.cd-content--spacious h3 {
+  font-size: var(--cd-font-size--large);
+}
+
+.cd-content--spacious h4 {
+  font-size: var(--cd-font-size--medium);
+}
+
+.cd-content--spacious h5 {
+  font-size: var(--cd-font-size--base);
+}
+
+.cd-content--spacious h6 {
+  font-size: var(--cd-font-size--ref);
+}
+
+.cd-content--spacious ol,
+.cd-content--spacious ul {
+  margin: 1.5em 0;
+}
+
+.cd-content--spacious dl dt,
+.cd-content--spacious dl dd,
+.cd-content--spacious ol:not([role=list]) li + li,
+.cd-content--spacious ul:not([role=list], .tabs) li + li {
+  margin-top: calc(var(--cd-font-size--ref) / 2);
+}
+
+.cd-content--spacious p {
+  line-height: 1.75;
+}
+
+.cd-content--spacious strong {
+  font-weight: 900;
+}
+
+/**
+ * Tablet
+ */
+@media (min-width: 768px) {
+  ol,
+  dl {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/**
+ * Desktop
+ */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: var(--cd-font-size--2xmedium);
+  }
+
+  .cd-content--spacious h1 {
+    font-size: var(--cd-font-size--2xlarge);
+  }
+
+  .cd-content--spacious h2 {
+    font-size: var(--cd-font-size--2xmedium);
+  }
+
+  .cd-content--spacious h3 {
+    font-size: var(--cd-font-size--2xbase);
+  }
+
+  .cd-content--spacious h4 {
+    font-size: var(--cd-font-size--large);
+  }
+
+  .cd-content--spacious h5 {
+    font-size: var(--cd-font-size--medium);
+  }
+
+  .cd-content--spacious h6 {
+    font-size: var(--cd-font-size--base);
+  }
+}
+
+/**
+ * Lists in sidebars
+ */
+.cd-layout__sidebar ol,
+.cd-layout__sidebar ul {
+  margin: 1em 0 2rem;
+  padding-inline-start: 1rem;
+}
+
+.cd-layout__sidebar ol li + li,
+.cd-layout__sidebar ul li + li {
+  margin-top: 0.75rem;
+}
+
+/**
+ * Compact: Lists in sidebars
+ */
+.cd-layout__sidebar.cd-content--compact ol,
+.cd-layout__sidebar.cd-content--compact ul {
+  margin: 0.5em 0 1.5rem;
+  padding-inline-start: 1rem;
+}
+
+.cd-layout__sidebar.cd-content--compact ol li + li,
+.cd-layout__sidebar.cd-content--compact ul li + li {
+  margin-top: 0.2rem;
+}
+
+/**
+ * Compact: Headings in sidebars
+ */
+.cd-layout__sidebar.cd-content--compact h2,
+.cd-layout__sidebar.cd-content--compact h3,
+.cd-layout__sidebar.cd-content--compact h4,
+.cd-layout__sidebar.cd-content--compact h5,
+.cd-layout__sidebar.cd-content--compact h6 {
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/**
+ * Code blocks in sidebars
+ */
+.cd-layout__sidebar code {
+  padding: .1em .2em;
+  white-space: nowrap;
+  border-radius: 3px;
+  background: rgba(0,0,0,.15);
+}
+/* ./css/cd-other/cd-icon.css */
+/**
+ * Common Design: Icons
+ *
+ * The SVG sprite is still generated by a script from npm. See our docs for more
+ * info on using and generating the icon sprite.
+ */
+svg.icons-sprite {
+  display: none;
+  overflow: hidden;
+}
+
+svg.icon {
+  display: inline-block;
+  pointer-events: none;
+}
+
+.cd-icon {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+/* ./css/cd-other/cd-layout--content.css */
+/**
+ * Common Design: Content Layouts
+ */
+
+/**
+ * Universal layout
+ *
+ * This layout is designed for browsers that support CSS 2.1 and basic media
+ * queries as defined in https://www.w3.org/TR/mediaqueries-3/ which itself is
+ * totally optional to render content legibly.
+ *
+ * Any advanced enhancements will be defined later in this file, but the rules
+ * in this section suffice to create a minimal layout that any browser handles.
+ */
+.cd-container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1220px; /* --cd-max-width */
+  margin: 0 auto;
+  padding: 0 0.75rem; /* --cd-container-padding */
+}
+
+@media (min-width: 768px) {
+  .cd-container {
+    padding: 0 1.5rem; /* --cd-container-padding-tablet */
+  }
+}
+
+@media (min-width: 1200px) {
+  .cd-container {
+    padding: 0 2.5rem; /* --cd-container-padding-xlarge */
+  }
+}
+
+/**
+ * Since the universal layout is linear, add some space in between each section.
+ */
+.cd-layout__sidebar {
+  margin: 2rem 0;
+}
+
+/**
+ * Modern layout
+ *
+ * The remainder of this CSS file uses modern CSS to provide a flexible, RTL
+ * layout using flex-box, logical properties, and CSS Vars. The @supports block
+ * explicitly requires all three for the layout to apply. Any browser which
+ * doesn't meet these requirements will still utilize the basic layout provided
+ * unconditionally in the section above.
+ */
+@supports (display: flex) and (padding-inline: 1rem) and (color: var(--supports-test)) {
+  /**
+   * <main> content container
+   */
+  main.cd-container {
+    padding-block-start: 2rem;
+    padding-block-end: 2rem;
+  }
+
+  /**
+   * Content area should grow to fill available space, but also can shrink to
+   * accomodate any columns that are present.
+   */
+  .cd-layout__content {
+    flex: 1 1 auto;
+  }
+
+  /**
+   * Prevent sidebar from displaying when region is empty.
+   */
+  .cd-layout__sidebar:empty {
+    display: none;
+  }
+
+  /**
+   * Adopt column layout once space allows.
+   */
+  @media (min-width: 1024px) {
+    main.cd-container {
+      padding-block-start: 3rem;
+      padding-block-end: 4rem;
+    }
+
+    /**
+     * Use flex-box once window can accomodate columns.
+     */
+    .cd-layout {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 2rem;
+    }
+
+    /**
+     * Content area should grow to fill available space, but also can shrink to
+     * accomodate any columns that are present.
+     */
+    .cd-layout__content {
+      flex: 1 1 auto;
+    }
+
+    /**
+     * Sidebar(s) should be fixed width. See modifier class if the wider sidebar
+     * is desired on a particular website.
+     */
+    .cd-layout__sidebar {
+      flex: 0 0 285px;
+      margin: 0;
+      padding: var(--cd-container-padding);
+      background-color: var(--brand-grey);
+    }
+
+    /**
+     * Define the wide sidebar. This class isn't present in the default template
+     * and must be placed by overriding within a sub-theme.
+     */
+    .cd-layout__sidebar--wide {
+      flex-basis: 400px;
+    }
+
+    /**
+     * First sidebar might not be first in source order. Explicitly place it at
+     * the beginning of the flex container.
+     */
+    .cd-layout__sidebar--first {
+      order: -1;
+    }
+
+    /**
+     * Second sidebar might not be last in source order. Explicitly place it at
+     * the end of the flex container.
+     */
+    .cd-layout__sidebar--second {
+      order: 999;
+    }
+  }
+}
+/* ./css/cd-other/cd-layout--page.css */
+/**
+ * Common Design: Page Layout
+ */
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+/* Drupal-generated parent of our CD layout markup */
+.dialog-off-canvas-main-canvas {
+  height: 100vh;
+}
+
+/**
+ * CD Page Layout
+ *
+ * Flex is used to fix the footer to the bottom of the screen, regardless of
+ * viewport height.
+ *
+ * - .cd-page-layout-container height is 100% of viewport; forms Flex container.
+ * - .cd-header height is fixed.
+ * - #main-content grows to fit the available space.
+ * - .cd-soft-footer (optional) has variable height.
+ * - .cd-footer has variable height, sticks to the bottom of the viewport.
+ */
+.cd-page-layout-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%; /* @IE11 */
+  margin: 0 auto;
+  padding: 0;
+}
+.cd-header {
+  flex-shrink: 0;
+}
+#main-content {
+  flex: 1 0 auto;
+}
+.cd-soft-footer {
+  flex-shrink: 0;
+}
+.cd-footer {
+  flex-shrink: 0;
+}
+/* ./css/cd-other/cd-print.css */
+@media print {
+  .cd-header,
+  .cd-footer,
+  .cd-soft-footer,
+  .cd-pager,
+  .cd-search,
+  .cd-filter {
+    display: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: "("attr(href)")";
+  }
+
+  abbr[title]::after {
+    content: "("attr(title)")";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  body,
+  p {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 24pt;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-size: 18pt;
+  }
+
+  h3 {
+    font-size: 14pt;
+  }
+
+  h4 {
+    font-size: 12pt;
+  }
+
+  .cd-table {
+    margin-bottom: 1rem;
+    font-size: 10pt;
+  }
+
+  .cd-table th,
+  .cd-table td {
+    padding: 0.25rem 0.5rem;
+    border-bottom: 1px solid #999;
+  }
+
+  .cd-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    grid-gap: 1rem;
+  }
+
+  .cd-grid--2-col {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+
+  .cd-grid--3-col {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+  }
+
+  .cd-user-list li {
+    clear: both;
+  }
+
+  #toolbar {
+    display: none !important;
+  }
+}
+/* ./css/cd-other/cd-skip-link.css */
+/**
+ * Common Design: Skip to main content
+ *
+ * Style the `.skip-link` element. The a11y aspects are provided by standard
+ * classes from D10: `.visually-hidden` and `.focusable`
+ */
+
+.skip-link {
+  position: absolute;
+  z-index: var(--cd-z-skip-link);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.skip-link,
+.skip-link:link,
+.skip-link:visited {
+  display: inline-block;
+  padding: 1px 10px 2px;
+  text-decoration: none;
+  color: var(--cd-white);
+  border-radius: 0 0 10px 10px;
+  background: var(--cd-black);
+  font-family: sans-serif;
+  font-size: var(--cd-font-size--small);
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+/**
+ * Our styles are only visible when the element has focus, so the default
+ * outline is not necessary. We are forcibly overriding it.
+ */
+.skip-link.visually-hidden.focusable:hover,
+.skip-link.visually-hidden.focusable:active,
+.skip-link.visually-hidden.focusable:focus {
+  position: absolute !important;
+  outline: 0;
+}
+/* ./css/cd-header/cd-global-header.css */
+/**
+ * Common Design: Global Header
+ *
+ * The top-most bar which contains OCHA Services, Languages, User menu.
+ */
+.cd-global-header {
+  position: relative;
+  height: var(--cd-global-header-height);
+  color: var(--cd-white);
+  background: var(--brand-primary);
+}
+
+.cd-global-header__inner {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cd-global-header__inner .cd-ocha {
+  order: -1;
+}
+
+.cd-global-header__inner.cd-container::after {
+  /* Remove the clearfix applied by `cd-container` on this element. */
+  content: unset;
+}
+
+.cd-global-header__actions {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0;
+
+  /* Visually align button contents with main nav */
+  margin-inline-end: -2px;
+}
+
+/*
+ * If there are multiple Global Header actions, separate them with pipe-looking
+ * visuals. To control the width of the pipes, set horizontal gap accordingly.
+ */
+.js .cd-global-header__actions {
+  gap: 0 1.5px;
+  background:
+    linear-gradient(
+      to bottom,
+      var(--brand-primary),
+      var(--brand-primary) 33.33%,
+      var(--cd-white) 33.33%,
+      var(--cd-white) 66.66%,
+      var(--brand-primary) 66.66%
+    );
+}
+.js .cd-global-header__actions > * {
+  background: var(--brand-primary);
+}
+
+/* Reset buttons */
+.cd-global-header button {
+  border: 0;
+}
+
+/**
+ * Drupal selectors
+ *
+ * TODO: this came from _cd-user-menu.scss but they all have global header
+ * prefixes so they're moved here now.
+ */
+.cd-global-header .block h2 {
+  color: var(--cd-white);
+}
+
+/* Last block in Global Header should have its dropdown right-aligned on LTR */
+[dir="ltr"] .cd-global-header .cd-global-header__user-menu:last-child .cd-global-header__dropdown {
+  right: 0;
+  left: initial;
+}
+
+/* Last block in Global Header should have its dropdown left-aligned on RTL */
+[dir="rtl"] .cd-global-header .cd-global-header__user-menu:last-child .cd-global-header__dropdown {
+  right: initial;
+  left: 0;
+}
+
+/**
+ * Global Header-specific CD dropdown styles.
+ */
+.cd-global-header__dropdown {
+  position: absolute;
+  z-index: var(--cd-z-dropdown);
+  left: 0;
+  color: var(--cd-white);
+  background: var(--brand-primary);
+}
+
+.no-js .cd-global-header__dropdown {
+  position: relative;
+}
+
+.js .cd-global-header__dropdown {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+button[aria-expanded] .cd-icon--arrow-down {
+  fill: var(--cd-white);
+  width: 9px;
+  height: 9px;
+  margin-inline-start: 4px;
+}
+
+/* active state should flip the icon vertically */
+button[aria-expanded="true"] .cd-icon--arrow-down {
+  transform: rotate(180deg);
+}
+
+/**
+ * No-JS styles
+ */
+.no-js .cd-global-header {
+  height: auto;
+}
+/* ./css/cd-header/cd-header.css */
+/**
+ * Common Design: Header
+ */
+
+.cd-header {
+  /**
+   * Reset styles
+   */
+  box-sizing: border-box;
+  font-family: var(--cd-font);
+  font-size: var(--cd-font-size--tiny);
+  font-weight: 300;
+}
+
+/* Reset button styles. */
+.cd-header button {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: var(--cd-font-size--tiny);
+  font-weight: 300;
+  -webkit-appearance: none;
+}
+
+.cd-header button[data-cd-toggler] {
+  background-color: transparent;
+}
+
+/**
+ * CD Header focus styles
+ *
+ * The focus styles should be consistent across the entire header. Using the
+ * focus-visible selector means that direct clicks won't cause the outline to
+ * be visible, but non-pointer nav such as keyboard will still show it.
+ */
+.cd-header a:hover,
+.cd-header a:focus-visible {
+  text-decoration: underline;
+  color: var(--cd-white);
+}
+
+.cd-header button:focus-visible,
+.cd-header a:focus-visible {
+  position: relative;
+  z-index: calc(var(--cd-z-dropdown) + 1);
+  outline: var(--cd-outline-size) solid var(--brand-primary--light);
+  outline-offset: calc(0px - var(--cd-outline-size));
+}
+/* ./css/cd-header/cd-logo.css */
+/**
+ * Common Design: Logo
+ *
+ * Replace images with your site logo.
+ */
+
+/* Logo is wrapped in H1 since it serves as top-level of outline. */
+.cd-site-header h1 {
+  margin: 0;
+}
+
+.cd-site-logo {
+  display: block;
+  float: left;
+  width: var(--brand-logo-mobile-width, 52px);
+  height: var(--cd-site-header-height);
+  background:
+    linear-gradient(transparent, transparent),
+    url(/css/images/rw-api-logo.svg) center no-repeat;
+}
+
+/* Mobile: Hides logo set in info.yml in favour of background image. */
+.cd-site-logo img {
+  display: none;
+}
+
+/**
+ * Override default focus z-index. If the default applies, the logo might appear
+ * on top of the opened OCHA Services menu. Alternative fix is ticketed:
+ *
+ * @see https://humanitarian.atlassian.net/browse/CD-173
+ */
+.cd-header a.cd-site-logo:focus-visible {
+  z-index: var(--cd-z-default);
+}
+
+/**
+ * Desktop logo
+ *
+ * Unhide logo set in info.yml once space permits.
+ */
+@media (min-width: 768px) {
+  .cd-site-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: var(--brand-logo-desktop-width); /* adjust within sub-theme's brand.css */
+    padding-top: 0;
+    background: none;
+  }
+
+  /* Displays logo set in info.yml on larger viewports. */
+  .cd-site-logo img {
+    display: block;
+    width: 100%;
+  }
+}
+/* ./css/cd-header/cd-nav.css */
+/**
+ * Common Design: Main Navigation
+ */
+
+/**
+ * Original file: cd-menu--main
+ */
+.menu-item--expanded [aria-expanded=false] + ul {
+  display: none;
+}
+.menu-item--expanded [aria-expanded=true] + ul {
+  display: block;
+}
+
+ul[data-cd-hidden=true] > ul {
+  z-index: var(--cd-z-dropdown);
+  display: block;
+}
+
+.menu--main button[aria-expanded] .cd-icon--arrow-down {
+  fill: var(--brand-highlight);
+  margin-top: 4px;
+  margin-inline-start: 4px;
+}
+
+@media (min-width: 1024px) {
+  .menu--main button[aria-expanded] .cd-icon--arrow-down {
+    margin-top: -2px;
+  }
+}
+
+/**
+ * Original file: cd-nav
+ */
+.cd-nav {
+  /* may need adjusting depending on site-specific styles. */
+  z-index: var(--cd-z-main-menu);
+}
+
+.cd-nav-level-0__btn {
+  height: var(--cd-site-header-height);
+  padding: 0 20px;
+  transition: background 0.3s ease;
+  text-transform: uppercase;
+  color: var(--cd-default-text-color);
+  border: 0 none var(--brand-grey);
+  background: transparent;
+  font-size: var(--cd-font-size--small);
+}
+
+.cd-nav-level-0__btn:hover,
+.cd-nav-level-0__btn:focus {
+  color: var(--cd-black);
+  outline: none; /* default browser outline is replaced by background colour change. */
+  background: var(--brand-grey);
+}
+
+.cd-nav-level-0__btn-label {
+  font-weight: 700;
+}
+
+.cd-nav-level-0__btn[aria-expanded] .cd-icon--arrow-down {
+  margin-left: 4px;
+  fill: var(--brand-highlight);
+}
+
+.cd-nav-level-0__btn[aria-expanded=true] {
+  position: relative;
+  z-index: 101;
+  color: var(--cd-black);
+}
+
+.cd-nav-level-0__btn[aria-expanded=true]::before {
+  position: absolute;
+  right: -1px;
+  bottom: -6px;
+  left: -1px;
+  width: calc(100% + 1px);
+  height: 6px;
+  content: "";
+  transition: background 0.3s ease;
+  background: var(--brand-highlight);
+}
+
+.cd-nav-level-0__btn[aria-expanded=true]:focus {
+  background: var(--cd-white);
+}
+
+/**
+ * @IE11
+ *
+ * No support for CSS custom properties means --dropdown: false; property on nav
+ * container is not recognised so the cd-dropdown.js creates a toggler button on
+ * desktop. This hides the button when that happens.
+ */
+@media (min-width: 1024px) and (-ms-high-contrast: none) {
+  .cd-nav__btn {
+    display: none;
+  }
+}
+
+.cd-nav__menu--level-1 {
+  display: none;
+  background: var(--cd-white);
+}
+
+@media (min-width: 1024px) {
+  .cd-nav__menu--level-1 {
+    display: flex;
+    background: transparent;
+  }
+}
+
+.cd-nav a,
+.cd-nav button {
+  position: relative;
+  display: flex;
+  padding: 15px 30px;
+  text-decoration: none;
+  color: var(--cd-default-text-color);
+}
+
+.cd-nav button {
+  width: 100%;
+  border: 0 none;
+  background: transparent;
+}
+
+.cd-nav a:hover,
+.cd-nav a:focus,
+.cd-nav button:hover,
+.cd-nav button:focus {
+  color: var(--cd-black);
+  outline: none;
+  background: var(--brand-grey);
+}
+
+.cd-nav a:focus-visible,
+.cd-nav button:focus-visible {
+  color: var(--cd-black);
+  outline: var(--cd-outline-size) solid var(--brand-primary--light);
+  outline-offset: calc(0px - var(--cd-outline-size));
+  background: transparent;
+}
+
+/**
+ * First level
+ */
+.cd-nav-level-1__btn,
+.cd-nav-level-1__btn-label {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+@media (max-width: 1023px) {
+  .cd-nav[data-cd-hidden=false] {
+    position: absolute;
+    top: calc(var(--cd-global-header-height) + var(--cd-site-header-height) + 6px);
+    right: 0;
+    left: 0;
+    height: calc(100vh - (var(--cd-global-header-height) + var(--cd-site-header-height) + 6px));
+    padding: 20px 0 36px;
+    background: var(--cd-white);
+  }
+
+  .cd-nav[data-cd-hidden=false] > ul {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cd-nav {
+    --dropdown: false;
+
+    position: relative;
+    top: auto;
+    right: auto;
+    left: 0;
+    width: auto;
+    max-width: none;
+    height: var(--cd-site-header-height);
+    padding: 0;
+  }
+}
+
+/**
+ * @IE11
+ * No support for CSS custom props means --dropdown: false; property on nav
+ * container is not recognised so the cd-dropdown.js does not run the
+ * updateToggler function which toggles the data-cd-hidden attribute. This
+ * displays the nav regardless of that attribute value.
+ */
+@media (min-width: 1024px) and (-ms-high-contrast: none) {
+  .cd-nav[data-cd-hidden=true] {
+    display: block;
+  }
+}
+
+.cd-nav__btn::before {
+  background: var(--brand-highlight);
+}
+
+/**
+ * Second level
+ */
+.cd-nav__menu--level-2 {
+  background: var(--cd-white);
+}
+
+@media (min-width: 1024px) {
+  .cd-nav__menu--level-2 {
+    position: absolute;
+    z-index: var(--cd-z-dropdown);
+    top: calc(var(--cd-site-header-height) + 6px); /* border-bottom height */
+    min-width: 200px;
+    max-width: 300px;
+    margin: 0;
+    padding: 20px 0;
+    box-shadow: 0 1px 8px rgba(var(--cd-rgb-blue-grey--dark), 0.8);
+  }
+}
+
+.cd-nav__menu--level-2 .cd-nav__btn {
+  display: flex;
+  color: var(--cd-black);
+  font-weight: 700;
+}
+
+.cd-nav__menu--level-2 .cd-nav__btn:hover {
+  background: var(--brand-grey);
+}
+
+/**
+ * Active trail for mobile menu.
+ */
+@media (max-width: 1023px) {
+  .cd-nav-level-1__btn {
+    position: relative;
+  }
+
+  .cd-nav-level-1__btn::before {
+    position: absolute;
+    top: 0;
+    width: 6px;
+    height: 48px;
+    margin-inline-start: -15px;
+    content: "";
+    background: transparent;
+  }
+
+  .cd-nav-level-1__btn.is-active::before {
+    background: var(--brand-highlight);
+  }
+
+  .menu-item--collapsed .cd-nav-level-1__btn.is-active::before,
+  .menu-item--expanded .cd-nav-level-1__btn.is-active::before {
+    background: var(--brand-highlight);
+  }
+
+  .cd-nav .menu-item--active-trail > a::before,
+  .cd-nav .menu-item--active-trail > button::before {
+    position: absolute;
+    top: 0;
+    width: 6px;
+    height: 48px;
+    margin-inline-start: -15px;
+    content: "";
+    opacity: 0.6;
+    background: var(--brand-highlight);
+  }
+
+  /**
+   * Any child of the active trail.
+   */
+  .cd-nav .menu-item--active-trail a.is-active::before,
+  .cd-nav .menu-item--active-trail button.is-active::before {
+    background: var(--brand-highlight);
+  }
+
+  /**
+   * Second-level links
+   */
+  .cd-nav > ul ul > li.menu-item--active-trail a::before,
+  .cd-nav > ul ul > li.menu-item--active-trail button::before {
+    opacity: 1;
+  }
+}
+
+/**
+ * Desktop
+ */
+@media (min-width: 1024px) {
+  .cd-nav > .menu {
+    flex: 1 0 auto;
+  }
+
+  [dir=ltr] .cd-nav > .menu > .menu-item:last-child > ul.menu {
+    right: 0;
+  }
+
+  [dir=rtl] .cd-nav > .menu > .menu-item:last-child > ul.menu {
+    left: 0;
+  }
+
+  .cd-nav > .menu > .menu-item.menu-item--active-trail a::before,
+  .cd-nav > .menu > .menu-item.menu-item--active-trail button::before {
+    background: var(--brand-highlight);
+  }
+
+  .cd-nav > .menu > .menu-item > a,
+  .cd-nav > .menu > .menu-item button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--cd-site-header-height);
+    padding: 0 14px;
+    transition: background 0.3s ease;
+    background: transparent;
+  }
+
+  .cd-nav > .menu > .menu-item > a::before,
+  .cd-nav > .menu > .menu-item button::before {
+    position: absolute;
+    right: -1px;
+    bottom: -6px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: 6px;
+    content: "";
+    transition: background 0.3s ease;
+    background: transparent;
+  }
+
+  .cd-nav > .menu > .menu-item > a:hover,
+  .cd-nav > .menu > .menu-item button:hover {
+    background: var(--brand-grey);
+  }
+
+  .cd-nav > .menu > .menu-item > a:focus,
+  .cd-nav > .menu > .menu-item button:focus {
+    background: var(--cd-white);
+  }
+
+  .cd-nav > .menu > .menu-item > a.is-active::before,
+  .cd-nav > .menu > .menu-item > a:focus::before,
+  .cd-nav > .menu > .menu-item button.is-active::before,
+  .cd-nav > .menu > .menu-item button:focus::before {
+    background: var(--brand-highlight);
+  }
+
+  .cd-nav > .menu > .menu-item:not(.menu-item--active-trail) > a:focus-visible::before,
+  .cd-nav > .menu > .menu-item:not(.menu-item--active-trail) button:focus-visible::before {
+    background: transparent;
+  }
+
+  .cd-nav > .menu > .menu-item svg {
+    flex: 1 0 auto;
+  }
+
+  .cd-nav > .menu > li > ul a:hover,
+  .cd-nav > .menu > li > ul button:hover {
+    background: var(--brand-grey);
+  }
+
+  .cd-nav > .menu > li > ul a.menu-item--active-trail,
+  .cd-nav > .menu > li > ul button.menu-item--active-trail {
+    border-inline-start: 6px solid var(--brand-highlight);
+  }
+
+  .cd-nav > .menu > li > ul > li.menu-item--active-trail {
+    border-inline-start: 6px solid var(--brand-highlight);
+  }
+}
+
+/**
+ * No-JS
+ */
+.no-js .menu-item--expanded > [aria-expanded=false] + ul {
+  display: block;
+}
+
+.no-js .cd-nav {
+  position: relative;
+  top: auto;
+  right: 0;
+  left: 0;
+  display: block;
+  padding: 0;
+  background: var(--cd-white);
+}
+
+.no-js .cd-nav__menu--level-1 {
+  display: block;
+}
+
+.no-js .cd-nav > .menu > li > .menu {
+  position: relative;
+  top: 0;
+  min-width: unset;
+  max-width: unset;
+  margin: 0;
+  padding: 0;
+  box-shadow: unset;
+}
+
+.no-js .cd-nav > .menu > li.menu-item--expanded button {
+  display: none;
+}
+
+/* Style all menu items the same, regardless of their level. */
+@media (min-width: 1024px) {
+  .no-js .cd-nav .menu-item--expanded li {
+    height: var(--cd-site-header-height);
+  }
+
+  .no-js .cd-nav .menu-item--expanded li a {
+    align-items: center;
+    height: var(--cd-site-header-height);
+    padding: 0 14px;
+  }
+}
+
+/* Adjusts the active styles when javascript is disabled. */
+@media (min-width: 1024px) {
+  /* Hide the active style from a parent item. */
+  .no-js .cd-nav > .menu > .menu-item--expanded a::before,
+  .no-js .cd-nav > .menu > .menu-item--expanded button::before {
+    background: transparent;
+  }
+
+  /* Hide the default active style for second level items. */
+  .no-js .cd-nav > .menu > li > ul > li.menu-item--active-trail {
+    border-left: 6px solid transparent;
+  }
+
+  /* Use the same style as the first level menu items when active. */
+  .no-js .cd-nav > .menu > li > ul > li.menu-item--active-trail a {
+    position: relative;
+  }
+
+  .no-js .cd-nav > .menu > li > ul > li.menu-item--active-trail a::after {
+    position: absolute;
+    right: -1px;
+    bottom: -6px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: 6px;
+    content: "";
+    transition: background 0.3s ease;
+    background: var(--brand-highlight);
+  }
+}
+/* ./css/cd-header/cd-ocha.css */
+/**
+ * Common Design: Sites Menu ('OCHA Services')
+ */
+.cd-ocha h2 {
+  color: var(--cd-white);
+}
+
+.cd-ocha__btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--cd-global-header-height);
+  padding: 0 var(--cd-outline-size);
+  transition: background 0.3s ease;
+  color: var(--cd-white);
+  background: transparent;
+  font-size: var(--cd-font-size--tiny);
+}
+
+.cd-ocha__btn:focus-visible {
+  outline-offset: calc(0px - var(--cd-outline-size));
+}
+
+.cd-ocha__btn .cd-icon--arrow-down {
+  margin: auto; /* Center vertically in macOS 10 */
+}
+
+.cd-ocha__logo {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 21px;
+  height: 21px;
+  fill: var(--cd-white);
+}
+
+.cd-ocha-dropdown {
+  width: 100%;
+  padding: 22px 0;
+}
+
+.cd-ocha-dropdown__inner {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0 12px;
+  max-width: var(--cd-max-width);
+  padding: 0 var(--cd-container-padding);
+}
+
+.cd-ocha-dropdown__section {
+  position: relative; /* For the see-all link */
+  margin-bottom: 1.5rem;
+}
+
+.cd-ocha-dropdown__heading {
+  margin: 0 0 10px;
+  padding-bottom: 2px;
+  color: var(--brand-grey);
+}
+
+.cd-ocha-dropdown__list {
+  margin: 0;
+  padding: 0;
+}
+
+.cd-ocha-dropdown__link {
+  display: block;
+  margin: 0 0 12px;
+  padding: 0;
+  font-weight: 700;
+}
+
+.cd-ocha-dropdown__link a {
+  text-decoration: none;
+  color: var(--cd-white);
+}
+
+.cd-ocha-dropdown__link a:focus-visible {
+  outline-offset: 8px;
+}
+
+/**
+ * Selector needs to override CD Button because of source order.
+ */
+.cd-button.cd-ocha-dropdown__see-all {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  font-size: var(--cd-font-size--small);
+}
+
+@media (max-width: 767px) {
+  /* On mobile, the two middle columns should look like one list. */
+  .cd-ocha-dropdown__section:nth-child(2) {
+    margin-bottom: 0;
+  }
+
+  /* There's an invisible heading in the third column to keep the links inside
+  column 2/3 in line with each other. It's hidden on mobile. */
+  .cd-ocha-dropdown__section:nth-child(3) .cd-ocha-dropdown__heading {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cd-ocha__btn-label {
+    position: absolute !important;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    word-wrap: normal;
+  }
+}
+
+@media (min-width: 768px) {
+  .cd-ocha__btn {
+    display: flex;
+    width: auto;
+  }
+
+  .cd-ocha__btn:hover .cd-ocha__btn-label,
+  .cd-ocha__btn:focus .cd-ocha__btn-label {
+    text-decoration: underline;
+  }
+
+  .cd-ocha__btn .cd-icon--arrow-down {
+    margin-inline-start: 4px;
+  }
+
+  .cd-ocha__logo {
+    margin-inline-end: 4px;
+  }
+
+  .cd-ocha-dropdown__inner {
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    margin: 0 auto;
+    padding: 0 var(--cd-container-padding-tablet);
+  }
+
+  .cd-ocha-dropdown__section {
+    flex: 0 1 25%;
+    margin-bottom: 0;
+  }
+
+  /* it's a cd-button-styled <a> so it has focus styles already */
+  .cd-header a.cd-ocha-dropdown__see-all:focus-visible {
+    outline: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cd-ocha-dropdown__link {
+    white-space: nowrap;
+  }
+
+  .cd-ocha-dropdown__inner {
+    gap: 0 32px;
+    padding: 0 var(--cd-container-padding-xlarge);
+  }
+}
+
+/**
+ * When JS is disabled, OCHA Services moves to the footer.
+ * Undo the .cd-footer anchor rule affecting the link colour.
+ */
+.no-js .cd-footer .cd-ocha-dropdown__see-all {
+  color: initial;
+}
+
+.no-js .cd-footer .cd-ocha {
+  width: 100%;
+  text-align: left;
+}
+/* ./css/cd-header/cd-site-header.css */
+/**
+ * Common Design: Site Header
+ *
+ * Bottom header bar. Contains Logo, Search and Navigation.
+ */
+.cd-site-header {
+  color: var(--cd-default-text-color);
+  border-bottom: 6px solid var(--brand-grey);
+  background: var(--cd-white);
+}
+
+.cd-site-header__inner {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 1rem;
+  height: var(--cd-site-header-height);
+}
+
+/* Unset the generic cd-container clearfix. Its presence causes an extra gap
+now that we layout with flex. */
+.cd-site-header__inner.cd-container::after {
+  content: none;
+}
+
+.cd-site-header__inner .region-header-logo {
+  flex: 0 0 var(--brand-logo-mobile-width);
+}
+
+@media (min-width: 768px) {
+  .cd-site-header__inner .region-header-logo {
+    flex: 0 0 var(--brand-logo-desktop-width);
+  }
+}
+
+/* stylelint-disable order/properties-order -- group by container then item */
+.cd-site-header__actions {
+  /* Define behavior as CONTAINER containing flex-items */
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+
+  /* Define behavior as FLEX-ITEM inside a container */
+  flex: 1 1 auto;
+}
+/* stylelint-enable order/properties-order */
+
+@media (min-width: 1024px) {
+  .cd-site-header__nav-holder nav > ul {
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+  }
+}
+
+.cd-site-header__nav-holder nav > ul > li,
+.cd-site-header__nav-holder nav > ul > .cd-nav__item {
+  flex: 1 0 100%;
+}
+
+@media (min-width: 1024px) {
+  .cd-site-header__nav-holder nav > ul > li,
+  .cd-site-header__nav-holder nav > ul > .cd-nav__item {
+    flex: 1 1 auto;
+  }
+}
+
+/**
+ * JS-disabled styles
+ *
+ * In the event JS doesn't execute at all, these styles will apply. In cases
+ * JS fails to load, or times out, these styles will NOT apply, because our
+ * inline script will have taken this classname off the <html> element.
+ */
+.no-js .cd-site-header__inner {
+  display: block;
+  height: unset;
+}
+
+/* Second level menu. */
+.no-js .cd-site-header__nav-holder .cd-nav > .menu {
+  display: block;
+}
+
+.no-js .cd-site-header__nav-holder li li {
+  float: left;
+  max-width: unset;
+}
+
+.no-js .cd-site-header__nav-holder nav > ul > li,
+.no-js .cd-site-header__nav-holder nav > ul > .cd-nav__item {
+  float: left;
+  max-width: unset;
+}
+
+/* Hide seperator. */
+.no-js .cd-site-header__nav-holder .cd-nav > .menu > .menu-item li:first-child {
+  border-right: 1px solid transparent;
+}
+/* ./css/cd-footer/cd-footer.css */
+/**
+ * Common Design: Footer
+ */
+
+/* stylelint-disable order/properties-order -- two logical groups of styles */
+.cd-footer {
+  /**
+   * Reset styles
+   */
+  box-sizing: border-box;
+  font-family: var(--cd-font);
+  font-size: var(--cd-font-size--tiny);
+  font-weight: 300;
+
+  /**
+   * Position footer at the bottom of viewport. This might need adjusting based
+   * on page layout.
+   */
+  grid-row: var(--cd-footer-row-number)/var(--cd-footer-row-number);
+  padding: 3rem 0 0;
+  text-align: center;
+  color: var(--cd-white);
+  background: var(--brand-primary);
+  line-height: 1.5;
+}
+/* stylelint-enable order/properties-order */
+
+/* Reset button styles. */
+.cd-footer button {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: var(--cd-font-size--tiny);
+  font-weight: 300;
+  -webkit-appearance: none;
+}
+
+.cd-footer button[data-cd-toggler] {
+  background-color: transparent;
+}
+
+.cd-footer a {
+  text-decoration: none;
+  color: var(--cd-white);
+}
+
+.cd-footer a.cd-button {
+  color: initial;
+}
+
+.cd-footer a:hover,
+.cd-footer a:focus-visible {
+  text-decoration: underline;
+  color: var(--cd-white);
+}
+
+.cd-footer a.cd-button:hover,
+.cd-footer a.cd-button:focus-visible {
+  color: initial;
+}
+
+.cd-footer a:focus-visible {
+  outline: var(--cd-outline-size) solid var(--brand-primary--light);
+  outline-offset: 8px;
+}
+
+.cd-footer__section {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+/**
+ * When we know a section contains no content, we can set an empty variant
+ * to collapse it to zero-height which helps especially on mobile, without
+ * disrupting the layout on larger viewport widths.
+ */
+.cd-footer__section--empty {
+  padding-bottom: 0;
+}
+
+/**
+ * Common Footer: Layout
+ *
+ * The entire layout for the Common Footer is defined here.
+ */
+@media (min-width: 768px) {
+  .cd-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .cd-footer__section--menu {
+    flex: 1 0 100%;
+  }
+
+  .cd-footer__section--social {
+    flex: 1 0 100%;
+  }
+
+  .cd-footer__section--mandate {
+    flex: 1 0 100%;
+  }
+
+  .cd-footer__section--copyright {
+    flex: 1 0 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cd-footer__section--menu {
+    flex: 1 0 70%;
+    text-align: start;
+  }
+
+  .cd-footer__section--social {
+    flex: 0 1 30%;
+    text-align: end;
+  }
+
+  .cd-footer__section--mandate {
+    flex: 1 0 50%;
+    max-width: 780px;
+    margin: 0;
+  }
+
+  .cd-footer__section--copyright {
+    flex: 0 1 350px;
+    margin: 0;
+  }
+}
+/* ./css/cd-footer/cd-footer-copyright.css */
+/**
+ * Common Design: Copyright section
+ */
+.cd-footer-copyright {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .cd-footer-copyright {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;
+    margin-top: 34px; /* Align with provide-by main text. */
+    text-align: end;
+  }
+}
+
+.cd-footer-copyright__link {
+  line-height: 0; /* ensures flex centers it correctly */
+}
+
+.cd-footer-copyright svg {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  margin: 0 auto;
+  fill: var(--cd-white);
+}
+
+/* To override `.cd-footer a` we must use tag in selector */
+a.cd-footer-copyright__link:hover {
+  transition: opacity 0.1666s ease-in-out;
+  opacity: 0.8;
+}
+
+/* To override `.cd-footer a` we must use tag in selector */
+a.cd-footer-copyright__link:focus-visible {
+  outline-offset: 5px;
+}
+
+/* To override `.cd-footer a` we must use tag in selector */
+.cd-footer-copyright__text a:focus {
+  outline-offset: 1px;
+}
+/* ./css/cd-footer/cd-footer-mandate.css */
+/**
+ * Common Design: OCHA mandate
+ */
+.cd-mandate {
+  width: 100%;
+  text-align: center;
+}
+
+.cd-mandate__heading {
+  display: block;
+  margin-bottom: 16px;
+  padding: 0 var(--cd-container-padding);
+}
+
+.cd-mandate__logo {
+  display: block;
+  width: 149px;
+  height: 37px;
+  margin-inline: auto;
+  margin-block-end: 1rem;
+}
+
+.cd-mandate__text {
+  display: block;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 0 var(--cd-container-padding);
+}
+
+@media (min-width: 1024px) {
+  .cd-mandate {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0;
+    column-gap: var(--cd-container-padding);
+  }
+
+  .cd-mandate__heading {
+    flex: 1 0 100%;
+    padding: 0;
+    text-align: initial;
+  }
+
+  .cd-mandate__logo {
+    flex: 0 0 calc(149px + var(--cd-container-padding));
+    height: auto;
+    margin: 0;
+    padding-inline-end: var(--cd-container-padding);
+    border-inline-end: 1px solid var(--brand-grey);
+  }
+
+  .cd-mandate__text {
+    flex: 1 1 0;
+    margin: 0;
+    padding: 0;
+    padding-inline-end: var(--cd-container-padding-xlarge);
+    text-align: initial;
+  }
+}
+/* ./css/cd-footer/cd-footer-menu.css */
+/**
+ * Common Design: Footer menu
+ *
+ * Site-specific navigation. Most often used for About, Contact, Privacy, etc.
+ */
+.cd-footer-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.cd-footer-menu__item {
+  display: block;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .cd-footer-menu__item {
+    display: inline-block;
+    margin: 0 8px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cd-footer-menu__item {
+    margin: 0;
+    margin-inline-end: 32px;
+  }
+}
+/* ./css/cd-footer/cd-footer-soft.css */
+/**
+ * Common Design: Soft Footer
+ *
+ * Optional space for a CTA, newsletter sign-up, etc
+ */
+.cd-soft-footer {
+  position: relative; /* for pseudo-element */
+  padding: 24px 0;
+  text-align: center;
+  color: var(--cd-white);
+}
+
+.cd-soft-footer h2 {
+  color: var(--cd-white);
+}
+
+.cd-soft-footer a {
+  color: var(--cd-white);
+}
+
+.cd-soft-footer a:hover,
+.cd-soft-footer a:focus {
+  color: var(--cd-white);
+}
+
+.cd-soft-footer a:focus {
+  outline: 3px solid var(--brand-primary--dark);
+}
+
+/**
+ * Background for soft footer.
+ *
+ * The soft footer should be a slightly lighter version of --brand-primary,
+ * but not as bright as --brand-primary--light. This one-off variant of the
+ * --brand-primary color is kept consistent by setting lower opacity on the
+ * pseudo-element, blending it with the white background of <body>.
+ */
+.cd-soft-footer::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  opacity: 0.9;
+  background: var(--brand-primary);
+}
+
+@media (min-width: 768px) {
+  /* Remove clearfix so that flexbox justify-content works correctly */
+  .cd-soft-footer .cd-container::after {
+    content: none;
+  }
+
+  .cd-soft-footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cd-soft-footer {
+    padding: 2rem 0;
+  }
+}
+/* ./css/cd-button.css */
+/**
+ * CD Button
+ *
+ * Defines default button styles plus many variants to suit different use-cases.
+ */
+
+/* Default button */
+.cd-button {
+  width: auto;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.6s ease-out,
+    color 0.6s ease-out;
+  text-align: center;
+  color: var(--cd-white);
+  border: 2px solid transparent;
+  border-radius: 3px;
+  background-color: var(--brand-primary);
+  box-shadow: none;
+  font-size: 1rem;
+  line-height: 1.15;
+  -webkit-appearance: none;
+}
+
+.cd-button:hover,
+.cd-button:focus {
+  color: var(--cd-white);
+  background-color: var(--brand-primary--light);
+}
+
+.cd-button:focus {
+  border: 2px solid var(--brand-primary--dark);
+  /* We remove the outline because we are adding a border. */
+  /* so the rounded corners look nicer on hover */
+  outline: 0 solid var(--brand-primary--light);
+}
+
+/* For buttons on dark backgrounds */
+.cd-button--light {
+  color: var(--brand-primary--dark);
+  background-color: var(--brand-primary--light);
+}
+
+.cd-button--light:hover,
+.cd-button--light:focus {
+  color: var(--brand-primary--dark);
+  background-color: var(--brand-primary--light);
+}
+
+/* When it's an anchor styled as a button */
+a.cd-button {
+  display: inline-flex;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cd-button--outline {
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  background-color: var(--cd-white);
+  fill: currentColor;
+}
+
+.cd-button--outline:hover,
+.cd-button--outline:focus {
+  color: var(--cd-white);
+  border-color: var(--brand-primary--dark);
+  background-color: var(--brand-primary);
+}
+
+/* Utility classes */
+.cd-button--small {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.cd-button--bold {
+  font-weight: bold;
+}
+
+.cd-button--uppercase {
+  text-transform: uppercase;
+}
+
+.cd-button--wide {
+  padding-right: 3rem;
+  padding-left: 3rem;
+}
+
+.cd-button--wide.cd-button--small {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+/* Some buttons have SVG icons */
+.cd-button--icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+
+[dir="rtl"] .cd-button--icon {
+  text-align: right;
+}
+
+[dir="rtl"] .cd-icon--arrow-right {
+  transform: scale(-1, 1);
+}
+
+/* For IE11 */
+@media all and (-ms-high-contrast: none) {
+  .cd-button--icon {
+    display: inline-block;
+  }
+}
+
+/* button--icon text needs to be inside span */
+.cd-button--icon .cd-button__text {
+  display: inline-block;
+  flex: 1 1 0%;
+}
+
+.cd-button--icon svg {
+  fill: currentColor;
+  width: 1rem;
+  height: 1rem;
+  transition: fill 0.3s ease-in;
+}
+
+[dir="ltr"] .cd-button--icon svg {
+  /* Icon before */
+  margin-right: 0.25rem;
+}
+
+[dir="rtl"] .cd-button--icon svg {
+  /* Icon before */
+  margin-left: 0.25rem;
+}
+
+.cd-button--icon span + svg {
+  /* Icon after */
+  margin-right: 0;
+  margin-left: 2rem;
+}
+
+[dir="rtl"] .cd-button--icon span + svg {
+  margin-right: 2rem;
+  /* Icon after */
+  margin-left: 0;
+}
+
+.cd-button--icon.cd-button--small svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.cd-button--icon.cd-button--small span + svg {
+  /* Icon after */
+  margin-left: 1rem;
+}
+
+[dir="rtl"] .cd-button--icon.cd-button--small span + svg {
+  margin-right: 1rem;
+  /* Icon after */
+  margin-left: 0;
+}
+
+.cd-button--icon:hover svg,
+.cd-button--icon:focus svg {
+  fill: var(--cd-white);
+}
+
+.cd-button--light:hover svg,
+.cd-button--light:focus svg {
+  fill: currentColor;
+}
+
+.cd-button[disabled] {
+  opacity: 0.6;
+}
+
+.cd-button[disabled],
+.cd-button[disabled]:hover,
+.cd-button[disabled]:focus,
+.cd-button[disabled]:hover *,
+.cd-button[disabled]:focus * {
+  cursor: not-allowed;
+  /* Prevents hover and focus  */
+  pointer-events: none;
+}
+
+/* For IE11 */
+@media all and (-ms-high-contrast: none) {
+  .cd-button[disabled] {
+    position: relative;
+  }
+}
+
+.cd-button--export {
+  color: var(--cd-white);
+  background: var(--cd-grey--mid);
+  fill: var(--cd-white);
+}
+
+.cd-button--export svg,
+.cd-button--export:hover svg,
+.cd-button--export:focus svg {
+  fill: var(--cd-white);
+}
+
+.cd-button--export:hover,
+.cd-button--export:focus {
+  color: var(--cd-white);
+  background: var(--cd-grey--dark);
+  fill: var(--cd-white);
+}
+
+.cd-button--danger {
+  background-color: var(--cd-highlight-red);
+}
+
+.cd-button + .cd-button {
+  margin-inline-start: 0.5rem;
+}
+
+/* Drupal entity delete confirmation Delete button followed by anchor */
+.cd-button + #edit-cancel {
+  margin-inline-start: 0.5rem;
+}
+/* ./css/cd-dropdown.css */
+/**
+ * Common Design: Dropdowns
+ */
+[data-cd-toggable] {
+  --dropdown: true;
+}
+
+/**
+ * Initial hidden state used to prevent flash of content. Once processed by
+ * the cd-dropdown.js script, the visibility will be controlled by the
+ * data-cd-hidden attribute.
+ */
+/* .js [data-cd-toggable]:not([data-cd-processed]) { */
+  /* display: none; */
+/* } */
+
+[data-cd-hidden="false"] {
+  display: block;
+}
+
+[data-cd-hidden="true"] {
+  display: none;
+}
+
+.cd-dropdown {
+  display: none;
+}
+
+.cd-dropdown[data-cd-hidden="false"] {
+  display: block;
+}
+
+.no-js .cd-dropdown {
+  position: relative;
+  display: block;
+}
+/* ./css/cd-table.css */
+/**
+ * CD Table
+ */
+
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+th {
+  text-align: left;
+}
+
+[dir="rtl"] th {
+  text-align: right;
+}
+
+table caption {
+  margin-top: 0.5rem;
+  caption-side: bottom;
+  text-align: left;
+}
+
+[dir="rtl"] table caption {
+  text-align: right;
+}
+
+.cd-table {
+  width: 100%;
+  margin: 0 auto 3rem;
+  border-collapse: collapse;
+}
+
+.cd-table caption {
+  padding: 0.25rem 0.5rem;
+  background: var(--brand-grey);
+}
+
+.cd-table th,
+.cd-table td {
+  padding: 0.5rem;
+  text-align: left;
+}
+
+[dir="rtl"] .cd-table th,
+[dir="rtl"] .cd-table td {
+  text-align: right;
+}
+
+.cd-table th {
+  color: var(--brand-primary--dark);
+  border-bottom: 1px solid white;
+  background: var(--brand-grey);
+}
+
+.cd-table a {
+  word-break: break-word;
+}
+
+@media (min-width: 576px) {
+  .cd-table th[data-sort-type="numeric"],
+  .cd-table .cd-table--amount,
+  .cd-table .cd-table--amount-total {
+    text-align: right;
+  }
+
+  [dir="rtl"] .cd-table th[data-sort-type="numeric"],
+  [dir="rtl"] .cd-table .cd-table--amount,
+  [dir="rtl"] .cd-table .cd-table--amount-total {
+    text-align: left;
+  }
+}
+
+.cd-table tfoot {
+  font-weight: bold;
+}
+
+/* Row numbers */
+.cd-table--row-numbers {
+  counter-reset: rowNumber;
+}
+
+.cd-table--row-numbers tbody tr {
+  counter-increment: rowNumber;
+}
+
+.cd-table--row-numbers tbody tr td.cd-table--row-num:first-child::before {
+  min-width: 1em;
+  content: counter(rowNumber);
+  font-weight: normal;
+}
+
+[dir="ltr"] .cd-table--row-numbers tbody tr td.cd-table--row-num:first-child::before {
+  margin-right: 0.5em;
+}
+
+[dir="rtl"] .cd-table--row-numbers tbody tr td.cd-table--row-num:first-child::before {
+  margin-left: 0.5em;
+}
+
+/* Striping */
+.cd-table--striped tr:nth-child(odd) {
+  background: white;
+}
+
+.cd-table--striped tr:nth-child(even) {
+  background: var(--cd-grey--light);
+}
+
+@media (max-width: 575px) {
+  /* Force table to not be like tables anymore */
+  .cd-table--responsive,
+  .cd-table--responsive thead,
+  .cd-table--responsive tbody,
+  .cd-table--responsive tfoot,
+  .cd-table--responsive th,
+  .cd-table--responsive td,
+  .cd-table--responsive tr {
+    display: block;
+  }
+
+  .cd-table--responsive caption {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .cd-table--responsive thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .cd-table--responsive tr {
+    padding: 0 !important;
+    border-bottom: 1px solid var(--cd-grey--light);
+  }
+
+  .cd-table--responsive td {
+    position: relative;
+    min-height: 2rem; /* label should wrap */
+    padding: 0.5rem;
+    padding-left: 40% !important;
+    text-align: left;
+    white-space: normal !important;
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid var(--brand-grey);
+  }
+
+  [dir="rtl"] .cd-table--responsive td {
+    padding-right: 40% !important;
+    padding-left: auto !important;
+    text-align: right;
+  }
+
+  .cd-table--responsive td:before {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 35%;
+    padding-right: 1rem;
+    /* Label the data */
+    content: attr(data-content);
+    text-align: left;
+    color: var(--brand-primary);
+    font-size: 0.875rem;
+    font-weight: bold;
+  }
+
+  [dir="rtl"] .cd-table--responsive td:before {
+    right: 0.5rem;
+    left: auto;
+    padding-right: 0;
+    padding-left: 1rem;
+    text-align: right;
+  }
+
+  .cd-table--responsive tfoot td {
+    border-bottom: 0 none;
+  }
+
+  .cd-table--row-numbers tbody tr td.cd-table--row-num {
+    height: 3rem;
+  }
+
+  .cd-table--row-numbers tbody tr td.cd-table--row-num::before {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+/* ./css/cd-toc.css */
+/**
+ * CD Table of Contents (ToC)
+ */
+
+:root {
+  --cd-toc-cols: 1;
+}
+
+.cd-toc {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--brand-grey);
+}
+
+.cd-toc__title {
+  margin: 0;
+}
+
+.cd-toc__list,
+.cd-toc ol {
+  margin-bottom: 0;
+  padding: 0;
+  columns: var(--cd-toc-cols, 1);
+  counter-reset: item;
+}
+
+.cd-toc:not(.cd-toc--with-cols) ol {
+  padding-inline-start: 1rem;
+}
+
+.cd-toc__list li {
+  display: block;
+}
+
+/* Override new defaults for sidebar lists. */
+.cd-toc ol ol {
+  margin-block-start: 0;
+}
+
+/* Override new defaults for sidebar list items. */
+.cd-toc ol li + li {
+  margin-block-start: 0;
+}
+
+.cd-toc__list li:before {
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+}
+
+.cd-toc__list--roman li:before {
+  content: counters(item, ".", upper-roman) ". ";
+}
+
+.cd-toc li a {
+  text-decoration: none;
+}
+
+.cd-toc__back-to-toc {
+  padding: 1rem 0;
+  text-align: right;
+}
+
+@media (min-width: 576px) {
+  .cd-toc--with-cols ol {
+    --cd-toc-cols: 2;
+  }
+}
+
+@media (min-width: 820px) {
+  .cd-toc--with-cols ol {
+    --cd-toc-cols: 3;
+  }
+}
+
+@media (min-width: 1280px) {
+  .cd-toc--with-cols ol {
+    --cd-toc-cols: 4;
+  }
+}
+/* ./css/cd-typography.css */
+/**
+ * CD Typography
+ */
+
+.cd-max-width {
+  max-width: var(--cd-max-content-width);
+}
+
+.cd-max-width--center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+hr {
+  max-width: var(--cd-max-content-width);
+  margin: 3.5rem auto;
+  border: none;
+  border-top: 2px solid var(--cd-grey--light);
+}
+
+blockquote {
+  margin: 2rem;
+  color: var(--cd-grey--mid);
+  font-size: var(--cd-font-size--medium);
+  line-height: 1.5;
+}
+
+/* Description list */
+
+dt {
+  font-weight: 500;
+}
+
+dd {
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 576px) {
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  dt {
+    flex: 0 0 25%;
+    width: 25%;
+    padding-bottom: 0.5rem;
+  }
+
+  [dir="ltr"] dt {
+    padding-right: 0.5rem;
+  }
+
+  [dir="rtl"] dt {
+    padding-left: 0.5rem;
+  }
+
+  dd {
+    flex: 0 0 75%;
+    width: 75%;
+  }
+
+  [dir="ltr"] dd {
+    margin-left: auto;
+  }
+
+  [dir="rtl"] dd {
+    margin-right: auto;
+  }
+}
+/* ./css/cd-utilities.css */
+/**
+ * CD Utlilty classes
+ */
+
+/* Alignment */
+.cd-align--center,
+*[class*="--align-center"] {
+  text-align: center;
+}
+
+.cd-align--right,
+*[class*="--align-right"] {
+  text-align: right;
+}
+
+[dir="rtl"] .cd-align--right,
+[dir="rtl"] *[class*="--align-right"] {
+  text-align: left;
+}
+
+/* Floating */
+.cd-float--left,
+*[class*="--float-left"] {
+  float: left;
+}
+
+[dir="rtl"] .cd-float--left,
+[dir="rtl"] *[class*="--float-left"] {
+  float: right;
+}
+
+.cd-float--right,
+*[class*="--float-right"] {
+  float: right;
+}
+
+[dir="rtl"] .cd-float--right,
+[dir="rtl"] *[class*="--float-right"] {
+  float: left;
+}
+
+/* Rounded image */
+/* Requires square image */
+*[class*="__image--rounded"] {
+  display: block;
+  overflow: hidden;
+  /* For IE11 */
+  width: 100%;
+  border-radius: 50%;
+}
+
+/* To reset component title and heading styles */
+div[class*="__title"],
+div[class*="__title"] > * {
+  margin: 0;
+}
+/* and if the heading is nested */
+div[class*="__title"] > *:not(a) {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Remove bottom border from last child of list */
+*[class*="__remove-border"]:last-child {
+  border-bottom: 0 none;
+}
+/* ./css/style.css */
+/* Screen Reader only */
+.accessibility {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0,0,0,0);
+  overflow: hidden;
+}
+
+.cd-site-logo {
+  width: 80px;
+}
+
+@media (min-width: 1024px) {
+  .cd-nav-level-0__btn {
+    display: none;
+  }
+  .cd-site-header__nav {
+    display: block;
+  }
+}
+
+/*
+ * Deprecation notice.
+ */
+.deprecation-notice {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+/*
+ * Format code.
+ */
+code,
+pre {
+  background-color: #bbf5f5;
+  font-weight: bold;
+}
+pre {
+  border: 4px solid #eee;
+  line-height: 1.6em;
+  padding: 2px 4px;
+  white-space: pre-wrap;
+}
+
+.apiCall .result code,
+.apiCall .result pre {
+  background-color: #f5f5bb;
+}
+
+.apiCall .result .error code,
+.apiCall .result pre.error {
+  background-color: #f5bbbb;
+}
+
+.apiCall button {
+  line-height: 2;
+  margin: 0 10px 10px 0;
+}

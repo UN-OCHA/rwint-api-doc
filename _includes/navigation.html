@@ -1,0 +1,26 @@
+{% assign navurl = page.url | remove: '.html' | remove: 'index' %}
+<ul class="menu cd-nav__menu--level-1" role="list">
+{% for item in include.navigation %}
+  {% if item.subitems %}
+    <li class="menu-item cd-nav__menu-item--level-1 menu-item--expanded">
+      <button data-cd-toggler="true" aria-expanded="false" aria-haspopup="true">
+        <span class="cd-main-menu__btn-label">{{ item.text }}</span>
+        <svg class="cd-icon cd-icon--arrow-down">
+          <use xlink:href="#cd-icon--arrow-down"></use>
+        </svg>
+      </button>
+      <ul class="menu">
+      {% for subitem in item.subitems %}
+        <li class="menu-item">
+          <a href="{{ subitem.url }}"{% if subitem.url == navurl %} class="is-active" data-current="current page"{% endif %}>{{ subitem.text }}</a>
+        </li>
+      {% endfor %}
+      </ul>
+    </li>
+  {% else %}
+    <li class="menu-item cd-nav__menu-item--level-1">
+      <a class="cd-nav__btn cd-nav-level-1__btn {% if item.url == navurl %}is-active{% endif %}" href="{{ item.url }}"{% if item.url == navurl %} data-current="current page"{% endif %}>{{ item.text }}</a>
+    </li>
+  {% endif %}
+{% endfor %}
+</ul>

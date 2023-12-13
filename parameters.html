@@ -1,25 +1,37 @@
 ---
 layout: main
 title: Reliefweb API Request Parameters
-css: '<link href="/css/index.css" rel="stylesheet">'
 ---
 
-<div class="two-column">
-  <section id="index">
-    <h3 id="index-title" class="index-title">Index</h3>
-    <ul class="links" aria-labelledby="index-title">
-      {% assign sortedparameters = site.parameters | sort: "order" | reverse %}
-      {% for parameter in sortedparameters %}
-      <li><a href="#{{ parameter.name }}">{{ parameter.name | capitalize }}</a></li>
-      {% endfor %}
-    </ul>
-  </section>
+<div class="cd-layout">
+  <aside id="index" class="cd-layout__sidebar cd-layout__sidebar--first">
+    <nav class="cd-toc" aria-label="Index">
+      <h3 id="table-of-contents-title" class="cd-toc__title">Index</h3>
+      <ol id="cd-toc" class="cd-toc__list">
+        {% assign sortedparameters = site.parameters | sort: "order" | reverse %}
+        {% for parameter in sortedparameters %}
+        <li><a href="#{{ parameter.name }}">{{ parameter.name | capitalize }}</a></li>
+        {% endfor %}
+      </ol>
+    </nav>
+  </aside>
 
-  <section id="parameters">
-    <h2>Request parameters </h2>
+  <div id="parameters" class="cd-layout-content">
+    <h1>Request parameters </h1>
     {% for parameter in sortedparameters %}
-    <h3 id="{{ parameter.name }}">{{ parameter.name | capitalize }}</h3>
-    {{ parameter.content }}
-    {% endfor %}
-  </section>
+    <article class="cd-article">
+      <h2 id="{{ parameter.name }}">{{ parameter.name | capitalize }}</h2>
+      {{ parameter.content }}
+
+      <div class="cd-toc__back-to-toc">
+        <a href="#cd-toc" class="cd-button cd-button--bold cd-button--uppercase cd-button--small cd-button--icon">
+          <span class="cd-button__text">Back to TOC</span>
+          <svg class="cd-icon cd-icon--arrow-up">
+            <use xlink:href="#cd-icon--arrow-up"></use>
+          </svg>
+        </a>
+      </div>
+      {% endfor %}
+    </article>
+  </div>
 </div>
