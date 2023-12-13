@@ -3,35 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.section == "home" %}{{ site.title }}{% else %}{{ page.title | default: site.title }}{% endif %}</title>
   <link rel="icon" type="image/png" href="/img/favicon.png">
-  <!-- <link rel="stylesheet" href="/css/styles.css"> -->
-  <link rel="stylesheet" href="/css/brand.css">
-  <link rel="stylesheet" href="/css/hidden.module.css">
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/cd-resets/cd-resets.css">
-  <link rel="stylesheet" href="/css/cd-resets/cd-typography.css">
-  <link rel="stylesheet" href="/css/cd-other/cd-icon.css">
-  <link rel="stylesheet" href="/css/cd-other/cd-layout--content.css">
-  <link rel="stylesheet" href="/css/cd-other/cd-layout--page.css">
-  <link rel="stylesheet" href="/css/cd-other/cd-print.css">
-  <link rel="stylesheet" href="/css/cd-other/cd-skip-link.css">
-  <link rel="stylesheet" href="/css/cd-header/cd-global-header.css">
-  <link rel="stylesheet" href="/css/cd-header/cd-header.css">
-  <link rel="stylesheet" href="/css/cd-header/cd-logo.css">
-  <link rel="stylesheet" href="/css/cd-header/cd-nav.css">
-  <link rel="stylesheet" href="/css/cd-header/cd-ocha.css">
-  <link rel="stylesheet" href="/css/cd-header/cd-site-header.css">
-  <link rel="stylesheet" href="/css/cd-footer/cd-footer.css">
-  <link rel="stylesheet" href="/css/cd-footer/cd-footer-copyright.css">
-  <link rel="stylesheet" href="/css/cd-footer/cd-footer-mandate.css">
-  <link rel="stylesheet" href="/css/cd-footer/cd-footer-menu.css">
-  <link rel="stylesheet" href="/css/cd-footer/cd-footer-soft.css">
-  <link rel="stylesheet" href="/css/cd-button.css">
-  <link rel="stylesheet" href="/css/cd-dropdown.css">
-  <link rel="stylesheet" href="/css/cd-table.css">
-  <link rel="stylesheet" href="/css/cd-toc.css">
-  <link rel="stylesheet" href="/css/cd-typography.css">
-  <link rel="stylesheet" href="/css/cd-utilities.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/cd-combined.css">
   {{ page.css }}
   <script>document.documentElement.className = document.documentElement.className.replace('no-js', typeof document.addEventListener !== 'undefined' ? 'js' : 'no-js');</script>
   {% if jekyll.environment == 'production' and site.analytics %}
