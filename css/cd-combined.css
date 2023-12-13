@@ -3334,6 +3334,15 @@ div[class*="__title"] > *:not(a) {
   width: 80px;
 }
 
+@media (min-width: 1024px) {
+  .cd-nav-level-0__btn {
+    display: none;
+  }
+  .cd-site-header__nav {
+    display: block;
+  }
+}
+
 /*
  * Deprecation notice.
  */
