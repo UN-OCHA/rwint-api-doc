@@ -54,7 +54,7 @@ http://APIURL/VERSION/[ENTITY/[METHOD|ITEMID[?PARAMETERS]]]
 
 | reference          | description | values |
 | ------------------ | ----------- | ------ |
-| **APIURL**         | Main url. [More information.](#api-url)  | `api.rwlabs.org` |
+| **APIURL**         | Main url. [More information.](#api-url)  | `api.reliefweb.int` |
 | **VERSION**        | API Version number. [More information.](#version) | `v0`|
 | **ENTITY**         | Type of entity that is being queried. [More information.](#entities) | `report`, `job`, `training`, `disaster` or `country`. |
 | **METHOD** or **ITEMID**| Type of request, or specific id of item being queried. [More information.](#methods) | `info`, `list` or numeric id. |
@@ -77,7 +77,7 @@ An unsuccessful call returns:
 Example of a successful call:
 
 ```
-http://api.rwlabs.org/v0/report/list?limit=1
+http://api.reliefweb.int/v0/report/list?limit=1
 ```
 
 Returns
@@ -111,7 +111,7 @@ Returns
 While this remains a Reliefweb Labs project, the url for API calls is:
 
 ```
-http://api.rwlabs.org
+http://api.reliefweb.int
 ```
 
 The URL is likely to change when the API leaves beta.
@@ -126,7 +126,7 @@ The current available version is a beta version labeled **`v0`**.
 Calling the API with just the version number returns the available API endpoints:
 
 ```
-curl -XGET 'http://api.rwlabs.org/v0'
+curl -XGET 'http://api.reliefweb.int/v0'
 ```
 
 Returns:
@@ -139,29 +139,29 @@ Returns:
 		"title": "ReliefWeb API",
 		"endpoints": {
 			"report": {
-				"info": "http:\/\/api.rwlabs.org\/v0\/report\/info",
-				"list": "http:\/\/api.rwlabs.org\/v0\/report\/list",
-				"item": "http:\/\/api.rwlabs.org\/v0\/report\/[ID]"
+				"info": "http:\/\/api.reliefweb.int\/v0\/report\/info",
+				"list": "http:\/\/api.reliefweb.int\/v0\/report\/list",
+				"item": "http:\/\/api.reliefweb.int\/v0\/report\/[ID]"
 			},
 			"job": {
-				"info": "http:\/\/api.rwlabs.org\/v0\/job\/info",
-				"list": "http:\/\/api.rwlabs.org\/v0\/job\/list",
-				"item": "http:\/\/api.rwlabs.org\/v0\/job\/[ID]"
+				"info": "http:\/\/api.reliefweb.int\/v0\/job\/info",
+				"list": "http:\/\/api.reliefweb.int\/v0\/job\/list",
+				"item": "http:\/\/api.reliefweb.int\/v0\/job\/[ID]"
 			},
 			"training": {
-				"info": "http:\/\/api.rwlabs.org\/v0\/training\/info",
-				"list": "http:\/\/api.rwlabs.org\/v0\/training\/list",
-				"item": "http:\/\/api.rwlabs.org\/v0\/training\/[ID]"
+				"info": "http:\/\/api.reliefweb.int\/v0\/training\/info",
+				"list": "http:\/\/api.reliefweb.int\/v0\/training\/list",
+				"item": "http:\/\/api.reliefweb.int\/v0\/training\/[ID]"
 			},
 			"country": {
-				"info": "http:\/\/api.rwlabs.org\/v0\/country\/info",
-				"list": "http:\/\/api.rwlabs.org\/v0\/country\/list",
-				"item": "http:\/\/api.rwlabs.org\/v0\/country\/[ID]"
+				"info": "http:\/\/api.reliefweb.int\/v0\/country\/info",
+				"list": "http:\/\/api.reliefweb.int\/v0\/country\/list",
+				"item": "http:\/\/api.reliefweb.int\/v0\/country\/[ID]"
 			},
 			"disaster": {
-				"info": "http:\/\/api.rwlabs.org\/v0\/disaster\/info",
-				"list": "http:\/\/api.rwlabs.org\/v0\/disaster\/list",
-				"item": "http:\/\/api.rwlabs.org\/v0\/disaster\/[ID]"
+				"info": "http:\/\/api.reliefweb.int\/v0\/disaster\/info",
+				"list": "http:\/\/api.reliefweb.int\/v0\/disaster\/list",
+				"item": "http:\/\/api.reliefweb.int\/v0\/disaster\/[ID]"
 			}
 		}
 	}
@@ -178,7 +178,7 @@ There are two ways to pass parameters to a method:
 - as a json object in the request body:
 
 ```json
-curl -XGET 'http://api.rwlabs.org/v0/report/list' -d '{
+curl -XGET 'http://api.reliefweb.int/v0/report/list' -d '{
 	"query": {
 		"fields": ["title", "body"],
 		"value": "humanitarian"
@@ -189,7 +189,7 @@ curl -XGET 'http://api.rwlabs.org/v0/report/list' -d '{
 - as standard GET parameters:
 
 ```
-http://api.rwlabs.org/v0/report/list?query[value]=humanitarian&query[fields][0]=title&query[fields][1]=body
+http://api.reliefweb.int/v0/report/list?query[value]=humanitarian&query[fields][0]=title&query[fields][1]=body
 ```
 
 > **Only the HTTP method GET is allowed.**
@@ -245,7 +245,7 @@ Currently data can be fetched for 5 entities:
 Calling the API with the version number and entity type gives endpoints for just that entity type:
 
 ```
-curl -XGET 'http://api.rwlabs.org/v0/report'
+curl -XGET 'http://api.reliefweb.int/v0/report'
 ```
 
 Returns:
@@ -258,9 +258,9 @@ Returns:
     "title":"ReliefWeb API",
     "entity":"report",
     "endpoints":{
-      "info":"http:\/\/api.rwlabs.org\/v0\/report\/info",
-      "list":"http:\/\/api.rwlabs.org\/v0\/report\/list",
-      "item":"http:\/\/api.rwlabs.org\/v0\/report\/[ID]"
+      "info":"http:\/\/api.reliefweb.int\/v0\/report\/info",
+      "list":"http:\/\/api.reliefweb.int\/v0\/report\/list",
+      "item":"http:\/\/api.reliefweb.int\/v0\/report\/[ID]"
     }
   }
 }
@@ -299,7 +299,7 @@ This method returns information about the entity, mainly the definition of the f
 Example:
 
 ```
-curl -XGET 'http://api.rwlabs.org/v0/country/info'
+curl -XGET 'http://api.reliefweb.int/v0/country/info'
 ```
 
 Returns:
@@ -461,7 +461,7 @@ It accepts the following parameters, (`fields`, `query`, `filter` and `sort` are
 Example:
 
 ```json
-curl -XGET 'http://api.rwlabs.org/v0/report/list' -d '{
+curl -XGET 'http://api.reliefweb.int/v0/report/list' -d '{
 	"offset": 0,
 	"limit": 3,
 	"fields": {
@@ -881,7 +881,7 @@ It accepts the following parameters (see the `list` method for more details):
 For example:
 
 ```json
-curl -XGET 'http://api.rwlabs.org/v0/report/count' -d '{
+curl -XGET 'http://api.reliefweb.int/v0/report/count' -d '{
   "query": {
     "value" : "country:Japan"
   }
@@ -915,7 +915,7 @@ By default, without any parameter, it returns all the available (existing) field
 Example:
 
 ```
-curl -XGET 'http://api.rwlabs.org/v0/report/573658'
+curl -XGET 'http://api.reliefweb.int/v0/report/573658'
 ```
 
 Returns:
@@ -989,7 +989,7 @@ This "method" accepts only one parameter:
 For example:
 
 ```json
-curl -XGET 'http://api.rwlabs.org/v0/report/573658' -d '{
+curl -XGET 'http://api.reliefweb.int/v0/report/573658' -d '{
   "fields": {
     "include" : ["country.iso3"]
   }
@@ -1026,7 +1026,7 @@ Returns:
 URL, primary country name and title of latest 5 headlines, sorted by date.
 
 ```json
-curl -XGET 'http://api.rwlabs.org/v0/report/list' -d '{
+curl -XGET 'http://api.reliefweb.int/v0/report/list' -d '{
 	"limit": 5,
 	"fields": {
 		"include": ["url", "primary_country.name", "title"]
@@ -1041,7 +1041,7 @@ curl -XGET 'http://api.rwlabs.org/v0/report/list' -d '{
 or
 
 ```
-http://api.rwlabs.org/v0/report/list?limit=5&fields[include][0]=url&fields[include][1]=primary_country.name&fields[include][2]=title&filter[field]=headline&sort[0]=date.created:desc
+http://api.reliefweb.int/v0/report/list?limit=5&fields[include][0]=url&fields[include][1]=primary_country.name&fields[include][2]=title&filter[field]=headline&sort[0]=date.created:desc
 ```
 
 Returns:
@@ -1117,7 +1117,7 @@ Returns:
 **2. Latest Map for Syria**
 
 ```json
-curl -XGET 'http://api.rwlabs.org/v0/report/list' -d '{
+curl -XGET 'http://api.reliefweb.int/v0/report/list' -d '{
 	"limit": 1,
 	"fields": {
 		"include": ["url", "title", "file.preview"]
@@ -1135,7 +1135,7 @@ curl -XGET 'http://api.rwlabs.org/v0/report/list' -d '{
 or
 
 ```
-http://api.rwlabs.org/v0/report/list?limit=1&fields[include][0]=url&fields[include][1]=title&fields[include][2]=file.preview&query[value]=primary_country:Syria format:map&filter[field]=file.preview&sort[0]=date.created:desc
+http://api.reliefweb.int/v0/report/list?limit=1&fields[include][0]=url&fields[include][1]=title&fields[include][2]=file.preview&query[value]=primary_country:Syria format:map&filter[field]=file.preview&sort[0]=date.created:desc
 ```
 
 Returns:
@@ -1186,7 +1186,7 @@ Filtering for maps can be done in 2 ways:
 **3. Example of an error due to a bad syntax:**
 
 ```
-http://api.rwlabs.org/v0/report/list?limit=1&fields=country
+http://api.reliefweb.int/v0/report/list?limit=1&fields=country
 ```
 
 Returns:
