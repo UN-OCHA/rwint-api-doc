@@ -23,10 +23,11 @@ order: 60
 <p>The same query written as a POST request:</p>
 
 <div class="apiCall">
-  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports</code></pre></div>
   <div class="post-parameters" contentEditable="true">
 <pre>
 {
+  "appname": "apidoc",
   "filter": {
     "field": "disaster.name",
     "value": "\"Myanmar: Earthquake\""

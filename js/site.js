@@ -113,6 +113,7 @@
           reTry = "Try again (after editing the request)",
           copyType = (options.method === 'POST') ? "POST JSON" : "GET URL",
           copyText = (options.method === 'POST') ? options.body : url,
+          copyText = copyText.replace("apidoc", 'REPLACE-THIS-WITH-YOUR-EMAIL-ADDRESS'),
           html = '<button id="hideButton-' + counter + '">Hide results</button>';
       if (json.error) {
         resultStatus = "error";
