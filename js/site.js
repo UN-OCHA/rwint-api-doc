@@ -109,17 +109,20 @@
       return response.json();
     })
     .then(function(json) {
+      console.log('options', options);
       var resultStatus = "success",
           reTry = "Try again (after editing the request)",
           copyType = (options.method === 'POST') ? "POST JSON" : "GET URL",
-          copyText = (options.method === 'POST') ? options.body : url,
-          copyText = copyText.replace("apidoc", 'REPLACE-THIS-WITH-YOUR-EMAIL-ADDRESS'),
+          copyUrl = url.replace("apidoc", 'REPLACE-WITH-A-DOMAIN-OR-APP-NAME'),
           html = '<button id="hideButton-' + counter + '">Hide results</button>';
       if (json.error) {
         resultStatus = "error";
         reTry = 'Error: "' + json.error.message + '" Adjust request and click to try again';
       }
-      html += '<button id="copyButton-' + counter + '">Copy ' + copyType + '</button>';
+      html += '<button id="copyUrlButton-' + counter + '">Copy URL</button>';
+      if (copyType == "POST JSON") {
+        html += '<button id="copyPostOptionsButton-' + counter + '">Copy POST request</button>';
+      }
       html += '<pre class="' + resultStatus + '">';
       html += '<code>' + JSON.stringify(json, null, '\t') + '</code>';
       html += '</pre>';
@@ -132,7 +135,10 @@
         this.parentElement.remove();
         tryButton.innerText = tryText;
       });
-      document.getElementById("copyButton-" + counter).addEventListener('click', function() {copyToClipboard(copyText)});
+      document.getElementById("copyUrlButton-" + counter).addEventListener('click', function() {copyToClipboard(copyUrl)});
+      if (copyType == "POST JSON") {
+        document.getElementById("copyPostOptionsButton-" + counter).addEventListener('click', function() {copyToClipboard(options.body)});
+      }
 
       // Change the try text.
       tryButton.innerText = reTry;
