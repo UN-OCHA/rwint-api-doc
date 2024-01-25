@@ -97,23 +97,22 @@
       apiCall.appendChild(result);
     }
     // Check that this is going to api.reliefweb.int
-    var url = apiCall.children[0].innerText;
-    if (url.indexOf('https://api.reliefweb.int/v1') !== 0) {
+    var displayUrl = apiCall.children[0].innerText
+    var actualUrl = displayUrl.replace('REPLACE-WITH-A-DOMAIN-OR-APP-NAME', 'apidoc');
+    if (actualUrl.indexOf('https://api.reliefweb.int/v1') !== 0) {
       result.innerHTML = "<strong>Error:</strong> The call must be made to <code>https://api.reliefweb.int/v1</code>";
       return;
     }
 
     // Query the API.
-    fetch(url, options)
+    fetch(actualUrl, options)
     .then(function(response) {
       return response.json();
     })
     .then(function(json) {
-      console.log('options', options);
       var resultStatus = "success",
           reTry = "Try again (after editing the request)",
           copyType = (options.method === 'POST') ? "POST JSON" : "GET URL",
-          copyUrl = url.replace("apidoc", 'REPLACE-WITH-A-DOMAIN-OR-APP-NAME'),
           html = '<button id="hideButton-' + counter + '">Hide results</button>';
       if (json.error) {
         resultStatus = "error";
@@ -124,7 +123,7 @@
         html += '<button id="copyPostOptionsButton-' + counter + '">Copy POST request</button>';
       }
       html += '<pre class="' + resultStatus + '">';
-      html += '<code>' + JSON.stringify(json, null, '\t') + '</code>';
+      html += '<code>' + JSON.stringify(json, null, '\t').replace('apidoc', 'REPLACE-WITH-A-DOMAIN-OR-APP-NAME') + '</code>';
       html += '</pre>';
 
       // Add result.
@@ -135,7 +134,7 @@
         this.parentElement.remove();
         tryButton.innerText = tryText;
       });
-      document.getElementById("copyUrlButton-" + counter).addEventListener('click', function() {copyToClipboard(copyUrl)});
+      document.getElementById("copyUrlButton-" + counter).addEventListener('click', function() {copyToClipboard(displayUrl)});
       if (copyType == "POST JSON") {
         document.getElementById("copyPostOptionsButton-" + counter).addEventListener('click', function() {copyToClipboard(options.body)});
       }
