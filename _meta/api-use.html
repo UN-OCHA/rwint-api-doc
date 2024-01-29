@@ -15,13 +15,13 @@ order: 70
     <p>Parameters can be passed in the query of a GET request:</p>
 
     <div class="apiCall">
-      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&limit=2</code></pre></div>
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=REPLACE-WITH-A-DOMAIN-OR-APP-NAME&limit=2</code></pre></div>
     </div>
 
     <p>or as a body to a POST request:</p>
 
     <div class="apiCall">
-      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+      <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=REPLACE-WITH-A-DOMAIN-OR-APP-NAME</code></pre></div>
       <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -33,12 +33,13 @@ order: 70
   </dd>
 </dl>
 
+<p>Please use the <a href="/parameters#appname">appname</a> parameter. At some stage we may make this obligatory, so do start using now. Please use a domain name or an app name.</p>
 <p>There are very simple client libraries for <a href="https://github.com/reliefweb/api-php-client">PHP</a> and <a href="https://github.com/reliefweb/api-go-client">Golang</a>. Please use them!</p>
 
 <p>GET requests can be made directly in a browser. In Firefox the resulting JSON should be presented clearly, there is a <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc">browser extension</a> for Brave, Chromium, etc.</p>
 
 <p>Post requests can be made via the editable textboxes in this documentation, or, from a command line, with a tool like <a href="https://curl.haxx.se/"><code>curl</code></a>:</p>
 
-<pre><code>curl -POST 'https://api.reliefweb.int/v1/reports?appname=apidoc' -d '{"limit": 2}'</code></pre>
+<pre><code>curl -POST 'https://api.reliefweb.int/v1/reports?appname=REPLACE-WITH-A-DOMAIN-OR-APP-NAME' -d '{"limit": 2}'</code></pre>
 
 <p>When dealing with JSON format for the post requests, a misplaced comma can be difficult to spot. To troubleshoot the error <code class="error">Invalid request body. It must be a valid json object.</code>, validators like <a href="http://jsonlint.com">JSONlint</a> can save a lot of time.</p>

@@ -97,14 +97,15 @@
       apiCall.appendChild(result);
     }
     // Check that this is going to api.reliefweb.int
-    var url = apiCall.children[0].innerText;
-    if (url.indexOf('https://api.reliefweb.int/v1') !== 0) {
+    var displayUrl = apiCall.children[0].innerText
+    var actualUrl = displayUrl.replace('REPLACE-WITH-A-DOMAIN-OR-APP-NAME', 'apidoc');
+    if (actualUrl.indexOf('https://api.reliefweb.int/v1') !== 0) {
       result.innerHTML = "<strong>Error:</strong> The call must be made to <code>https://api.reliefweb.int/v1</code>";
       return;
     }
 
     // Query the API.
-    fetch(url, options)
+    fetch(actualUrl, options)
     .then(function(response) {
       return response.json();
     })
@@ -112,15 +113,17 @@
       var resultStatus = "success",
           reTry = "Try again (after editing the request)",
           copyType = (options.method === 'POST') ? "POST JSON" : "GET URL",
-          copyText = (options.method === 'POST') ? options.body : url,
           html = '<button id="hideButton-' + counter + '">Hide results</button>';
       if (json.error) {
         resultStatus = "error";
         reTry = 'Error: "' + json.error.message + '" Adjust request and click to try again';
       }
-      html += '<button id="copyButton-' + counter + '">Copy ' + copyType + '</button>';
+      html += '<button id="copyUrlButton-' + counter + '">Copy URL</button>';
+      if (copyType == "POST JSON") {
+        html += '<button id="copyPostOptionsButton-' + counter + '">Copy POST request</button>';
+      }
       html += '<pre class="' + resultStatus + '">';
-      html += '<code>' + JSON.stringify(json, null, '\t') + '</code>';
+      html += '<code>' + JSON.stringify(json, null, '\t').replace('apidoc', 'REPLACE-WITH-A-DOMAIN-OR-APP-NAME') + '</code>';
       html += '</pre>';
 
       // Add result.
@@ -131,7 +134,10 @@
         this.parentElement.remove();
         tryButton.innerText = tryText;
       });
-      document.getElementById("copyButton-" + counter).addEventListener('click', function() {copyToClipboard(copyText)});
+      document.getElementById("copyUrlButton-" + counter).addEventListener('click', function() {copyToClipboard(displayUrl)});
+      if (copyType == "POST JSON") {
+        document.getElementById("copyPostOptionsButton-" + counter).addEventListener('click', function() {copyToClipboard(options.body)});
+      }
 
       // Change the try text.
       tryButton.innerText = reTry;

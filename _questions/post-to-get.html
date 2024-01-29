@@ -36,7 +36,7 @@ order: 30
 
 <p>Nested values can also be tricky, for example, for the <code>filter</code> parameter. Take this example from earlier:</p>
 <div class="apiCall">
-  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc</code></pre></div>
+  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=REPLACE-WITH-A-DOMAIN-OR-APP-NAME</code></pre></div>
   <div class="post-parameters" contentEditable="true">
 <pre>
 {
@@ -70,11 +70,11 @@ order: 30
 <p>So the GET query is:</p>
 
 <div class="apiCall">
-  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&filter[operator]=AND&filter[conditions][0][field]=headline&filter[conditions][1][field]=country&filter[conditions][1][value][]=France</code></pre></div>
+  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=REPLACE-WITH-A-DOMAIN-OR-APP-NAME&filter[operator]=AND&filter[conditions][0][field]=headline&filter[conditions][1][field]=country&filter[conditions][1][value][]=France</code></pre></div>
 </div>
 
 <p>Use the <a href="/parameters#verbose"><code>verbose</code></a> parameter to check the conversion.</p>
 
 <div class="apiCall">
-  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=apidoc&verbose=1&filter[operator]=AND&filter[conditions][0][field]=headline&filter[conditions][1][field]=country&filter[conditions][1][value][]=France</code></pre></div>
+  <div class="url" contentEditable="true"><pre><code>https://api.reliefweb.int/v1/reports?appname=REPLACE-WITH-A-DOMAIN-OR-APP-NAME&verbose=1&filter[operator]=AND&filter[conditions][0][field]=headline&filter[conditions][1][field]=country&filter[conditions][1][value][]=France</code></pre></div>
 </div>
