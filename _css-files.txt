@@ -19,6 +19,7 @@
 ./css/cd-footer/cd-footer-mandate.css
 ./css/cd-footer/cd-footer-menu.css
 ./css/cd-footer/cd-footer-soft.css
+./css/cd-alert.css
 ./css/cd-button.css
 ./css/cd-dropdown.css
 ./css/cd-table.css
