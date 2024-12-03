@@ -57,11 +57,11 @@ echo "https://api.reliefweb.int/v1/jobs?appname=${appname}&facets[0][field]=expe
 # job_experience_id: 261 10+ years
 job_experience="[261]"
 
-# Career category.
+# Career categories.
 echo "For reference, these are the most common career_categories ${source_name} jobs are tagged with:"
 echo "https://api.reliefweb.int/v1/jobs?appname=${appname}&facets[0][field]=career_categories&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
-# career_category_id: 6867 Program/Project Management
-career_category="[6867]"
+# career_categories_id: 6867 Program/Project Management
+career_categories="[6867]"
 
 # Not mandatory fields - include as much of this information as exists.
 echo "For reference, these are the most common countries ${source_name} jobs are tagged with:"
@@ -79,7 +79,7 @@ themes="[4595]"
 
 echo "\n"
 
-data="\"url\": ${job_url}, \"uuid\": ${uuid}, \"title\": ${title}, \"source\": ${source}, \"closing_date\": \"${closing_date}\", \"body\": \"${body}\", \"how_to_apply\": \"${how_to_apply}\", \"job_type\": ${job_type}, \"job_experience\": ${job_experience}, \"career_category\": ${career_category}"
+data="\"url\": ${job_url}, \"uuid\": ${uuid}, \"title\": ${title}, \"source\": ${source}, \"closing_date\": \"${closing_date}\", \"body\": \"${body}\", \"how_to_apply\": \"${how_to_apply}\", \"job_type\": ${job_type}, \"job_experience\": ${job_experience}, \"career_categories\": ${career_categories}"
 
 if [ -n "$countries" ]; then
   data="${data}, \"country\": ${countries}"
