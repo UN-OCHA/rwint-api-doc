@@ -1,0 +1,184 @@
+---
+layout: main
+title: Reliefweb API - Documentation
+---
+
+<h1 id="examples">ReliefWeb Publishing API</h1>
+
+<div class="cd-alert">
+  <div role="status" aria-label="Info message">
+    <svg class="cd-icon cd-icon--about" aria-hidden="true" focusable="false" width="16" height="16">
+      <use xlink:href="#cd-icon--about"></use>
+    </svg>
+    <div class="cd-alert__container cd-max-width">
+      <div class="cd-alert__title">
+        <h2 class="visually-hidden">Info message</h2>
+      </div>
+      <div class="cd-alert__message [ cd-flow ]">
+        <p>The ReliefWeb Publishing API is now in testing. If your organization is listed on <a href="https://reliefweb.int/organizations">https://reliefweb.int/organizations</a>, please <a href="https://reliefweb.int/contact">contact</a> us to obtain an API key.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>ReliefWeb has long had an API to help distribute its content, open to anyone. Now there is also a way for organizations to provide content through the API too.</p>
+
+<p>Content will only be accepted from organizations who already have reports, jobs or trainings published on ReliefWeb. They will be identified via secret API keys and information will only be fetched from pre-defined urls.</p>
+
+<p>You will need to contact ReliefWeb to get set up correctly. After setting up and testing, your organization can submit information automatically to be processed by ReliefWeb editors.</p>
+
+<p>When we provide your API provider ID and key we will include a complete and detailed guide to submitting content through the API, with examples.</p>
+
+<p>This is a short guide to the one-time setup, and what happens next.</p>
+
+<nav class="cd-toc" aria-label="Index">
+  <h2 id="table-of-contents-title" class="cd-toc__title">Jump to sections:</h2>
+  <ol id="cd-toc" class="cd-toc__list">
+    <li><a href="#set-up">Getting set up</a></li>
+    <li><a href="#publishing-content">Publishing content</a></li>
+    <li><a href="#updating-content">Updating content</a></li>
+    <li><a href="#unpublishing-content">Unpublishing content</a></li>
+  </ol>
+</nav>
+
+<h2 id="set-up">Getting set up</h2>
+
+<h3>Eligible organizations</h3>
+<p>All organizations listed on the <a href="https://reliefweb.int/organizations">organizations page</a> are invited to use the Publishing API.</p>
+
+<h3 id="trusted-sources">Trusted sources</h3>
+<p>To make sure all the content can be trusted, the API fetches all text, images and files from urls controlled by the organization. For example: https://your.domain/reports, https://your.domain/files, https://your.domain/images.</p>
+
+<h3>API key and provider ID</h3>
+<p>The first step is to contact us with the name of your organization and your trusted urls. When approved and verified, we will issue an API key and provider ID. This provides another level of security and trust.</p>
+
+<h3>Universally Unique Identifiers (UUIDs)</h3>
+<p>The Publishing API uses version 5 universally unique identifiers (see <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">https://en.wikipedia.org/wiki/Universally_unique_identifier</a> for background).</p>
+
+<p>Each submission has a unique identifier which is UUID v5 generated from the url of the content to submit, on your site, and the namespace "<strong>8e27a998-c362-5d1f-b152-d474e1d36af2</strong>".</p>
+
+<p>For more details and ways to create a UUID, see the Appendix.</p>
+
+<h3>Taxonomies</h3>
+<p>ReliefWeb uses tags to help visitors find the content they need. Some of these tags are mandatory. Before publishing content, organizations should consider matching their own ways of tagging information with that used by ReliefWeb. See <a href="#content-specifications">Content Specifications</a>. Values are listed in the ReliefWeb <a href="https://reliefweb.int/taxonomy-descriptions">Humanitarian Terms page</a> or through the <a href="https://api.reliefweb.int/v1/">API</a>, including the <a href="https://api.reliefweb.int/v1/references">references list</a>.</p>
+
+<p>Do ask for help with this if anything is not clear.</p>
+
+<p>Most tags don’t change over time, but the list of disasters is constantly being updated. Those can be looked up on the ReliefWeb site or through the API by Glide number or by name.</p>
+For example, reports require information about the country, the language it's published in, and the format. Jobs require the job type, career category and a range of years of experience. Values are listed in the ReliefWeb <a href="https://reliefweb.int/taxonomy-descriptions">Humanitarian Terms page</a> or through the <a href="https://api.reliefweb.int/v1/references">API references list</a>.</p>
+<p>Disaster names, where new ones are added over time, can be looked up through the API by Glide number of by name.</a>
+
+<h2 id="publishing-content">Publishing content</h2>
+
+<h3>Workflow</h3>
+<p>These instructions assume an organization is verified, has an API key and Provider ID, is familiar with the UUIDs and has matched their tags with those on ReliefWeb (see <a href="#set-up">previous section</a>).</p>
+
+<p>Requests use the <strong>http PUT</strong> method.</p>
+
+<p>For now, the endpoint is <strong>https://test.api-reliefweb-int.ahconu.org</strong>. This will change when the API goes live.</p>
+
+<p>Content is submitted as specified - see following sections for <a href="#reports">Reports</a>, <a href="#jobs">Jobs</a> and <a href="#training">Training</a>.</p>
+
+<p>Successful content submission will return an HTTP 202 (Accepted) code with a message such as "Document queued for processing."</p>
+
+<p>Content is then queued for review by the editorial team.</p>
+
+<p>Feedback on the review will be communicated to an email address or webhook if your organization has supplied those. Email addresses for notification can also be included in each submission.</p>
+
+<p>After review, valid and relevant documents are available through the site and the API.</p>
+
+<p>Use the UUID (<code><strong>{uuid}</strong></code> in this example) to find the content: <code>https://test.api-reliefweb-int.ahconu.org/v2/reports/{uuid}?appname=your-domain</code></p>
+
+<h4 id="content-specifications">Content specifications</h4>
+
+<ul>
+  <li>
+    <h5 id="reports">Reports</h5>
+
+    <p>Details, including field descriptions and which ones are required, are here: <a href="https://test.reliefweb-int.ahconu.org/post-api-schemas/v2/report.json">https://test.reliefweb-int.ahconu.org/post-api-schemas/v2/report.json</a>.</p>
+
+    <ul>Mandatory fields:
+      <li>url</li>
+      <li>uuid</li>
+      <li>title</li>
+      <li>source</li>
+      <li>country</li>
+      <li>format</li>
+      <li>language</li>
+      <li>published</li>
+      <li>body</li>
+    </ul>
+  </li>
+
+  <li>
+    <h5 id="jobs">Jobs</h5>
+
+    <p>Details, including field descriptions and which ones are required, are here: <a href="https://test.reliefweb-int.ahconu.org/post-api-schemas/v2/job.json">https://test.reliefweb-int.ahconu.org/post-api-schemas/v2/job.json</a>.</p>
+
+    <p>For general guidelines, see <a href="https://reliefweb.int/blogpost/how-your-job-postings-can-better-attract-right-candidates">this blogpost</a>.</p>
+
+    <ul>Mandatory fields:
+      <li>url</li>
+      <li>uuid</li>
+      <li>title</li>
+      <li>source</li>
+      <li>closing_date</li>
+      <li>body</li>
+      <li>how_to_apply</li>
+      <li>job_type</li>
+      <li>job_experience</li>
+      <li>career_category</li>
+    </ul>
+  </li>
+
+  <li>
+    <h5 id="training">Training</h5>
+
+    <p>Details, including field descriptions and which ones are required, are here: <a href="https://test.reliefweb-int.ahconu.org/post-api-schemas/v2/training.json">https://test.reliefweb-int.ahconu.org/post-api-schemas/v2/training.json</a>.</p>
+
+    <ul>Mandatory fields:
+      <li>url</li>
+      <li>uuid</li>
+      <li>title</li>
+      <li>source</li>
+      <li>format</li>
+      <li>event_url</li>
+      <li>cost</li>
+      <li>category</li>
+      <li>training_language</li>
+      <li>language</li>
+      <li>body</li>
+      <li>how_to_register</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="updating-content">Updating content</h2>
+<p>To update previously submitted content, use the same UUID to send the updated data via a PUT request.</p>
+
+<p>Changed information will replace what has been submitted previously.</p>
+
+<p>To replace an image or an attachment, use the same URL with an updated checksum.</p>
+
+<h2 id="unpublishing-content">Unpublishing content</h2>
+<p>Currently you will need to contact the ReliefWeb editorial team to request a document to be unpublished.</p>
+
+<h2 id="quotas-rates">Quotas and rate limit</h2>
+
+<p>A provider can submit up to 50 documents a day as fast as 1 document per minute. Requests exceeding this rate will receive an HTTP error response code.</p>
+
+<p>Please note that processing documents can take some time.</p>
+
+<h2 id="appendix">Appendix</h2>
+
+<h3>Creating a UUID</h3>
+
+<p>To create a UUID, use the RW Publishing API namespace - <strong>8e27a998-c362-5d1f-b152-d474e1d36af2</strong> - and the url of the content.</p>
+
+<p>Many different tools exist, including a cli tool <a href="https://www.man7.org/linux/man-pages/man1/uuidgen.1.html">uuidgen</a>, an online tool <a href="https://www.uuidtools.com/v5">uuidtools</a>, a PHP library <a href="">Symfony UID</a>, and a npm library <a href="https://www.npmjs.com/package/uuid">uuid</a>. The url of the content must use one of the trusted urls (see <a href="#trusted-sources">Trusted sources</a>) and must be unique for that content. </p>
+
+<p>For example, to create a uuid for a unocha report with uuidgen:  </p>
+
+<p><code>uuidgen --sha1 --namespace 8e27a998-c362-5d1f-b152-d474e1d36af2 --name “https://www.unocha.org/news/todays-top-news-occupied-palestinian-territory-lebanon-cuba”</code></p>
+
+<p>Which gives: <strong>d5eed32f-f495-5e48-abdb-57dedaf2eedd</strong></p>
