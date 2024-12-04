@@ -39,7 +39,7 @@ title="Team Lead - Health Activity"
 source="[${source_id}]"
 
 # Closing date: 2 Jan 2025
-closing_date="2025-01-02:00:00+00:00"
+closing_date="2025-01-02T00:00:00+00:00"
 
 # Body.
 body="Example short test body. Can include any characters and punctuation. The only control characters allowed are new lines (\\\n) and spaces."
@@ -82,7 +82,7 @@ themes="[4595]"
 
 echo "\n"
 
-data="\"url\": ${job_url}, \"uuid\": ${uuid}, \"title\": ${title}, \"source\": ${source}, \"closing_date\": \"${closing_date}\", \"body\": \"${body}\", \"how_to_apply\": \"${how_to_apply}\", \"job_type\": ${job_type}, \"job_experience\": ${job_experience}, \"career_categories\": ${career_categories}"
+data="\"url\": ${job_url}, \"uuid\": ${uuid}, \"title\": ${title}, \"source\": ${source}, \"closing_date\": \"${closing_date}\", \"body\": \"${body}\", \"how_to_apply\": \"${how_to_apply}\", \"job_type\": ${job_type}, \"job_experience\": ${job_experience}, \"career_category\": ${career_categories}"
 
 if [ -n "$countries" ]; then
   data="${data}, \"country\": ${countries}"

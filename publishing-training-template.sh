@@ -91,9 +91,9 @@ city=""
 # Start: 21 March 2024
 # End: 31 December 2024
 # Registration_deadline: 31 December 2024
-start_date="2024-03-21:00:00+00:00"
-end_date="2024-12-31:00:00+00:00"
-registration_deadline="2024-12-31:00:00+00:00"
+start_date="2024-03-21T00:00:00+00:00"
+end_date="2024-12-31T00:00:00+00:00"
+registration_deadline="2024-12-31T00:00:00+00:00"
 
 # Fee information.
 fee_information="The course fee is \$1,000, and covers full participation in the online course."

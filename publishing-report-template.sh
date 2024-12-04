@@ -59,14 +59,14 @@ echo "https://api.reliefweb.int/v2/reports?appname=${appname}&facets[0][field]=l
 languages="[267]"
 
 # Published: 3 December 2024
-published="2024-12-03:00:00+00:00"
+published="2024-12-03T00:00:00+00:00"
 
 # Body.
 body="**Executive summary**\nWith no end in sight to the Sudan conflict, the humanitarian response in Renk continues to focus on providing lifesaving assistance at points of entry, transit centers, and onward movement. With the ongoing flow of new arrivals and emerging trends to consider, such as the increasing number of refugees and returnees unwilling to proceed to onward destinations, several options have been identified to facilitate the immediate, medium-term, and long-term response.\nA profiling exercise was initially carried out in June 2024 (round 1). A total of 5,440 interviews were conducted, respondents included (18% refugee, 82% returnees), which formed the basis of the proposed approaches encapsulated in the draft Renk Interagency Transition Roadmap. The document has been reviewed and endorsed by all the humanitarian actors on the ground. Given the transitory nature of the population, a second profiling exercise (round 2) was conducted in September 2024 to ensure that the proposed course of action remains relevant and responsive to the needs of the population. Respondents included 8,115 families (14.5 % refugees, 85.4 % returnees). This document presents the findings of the two exercises."
 
 # Not mandatory fields - include as much of this information as exists.
 
-# Embargo date, if there is one, in the ISO 8601 format e.g."2024-11-21:00:00+00:00"
+# Embargo date, if there is one, in the ISO 8601 format e.g."2024-11-21T00:00:00+00:00"
 embargoed=""
 
 # Origin.
