@@ -1,30 +1,33 @@
 #!/bin/sh
 
-# Configuration for all api calls.
-rw_api_url="https://test.api-reliefweb-int.ahconu.org/v2"
-appname="TEST-APP-NAME"
-rw_api_namespace="8e27a998-c362-5d1f-b152-d474e1d36af2"
-example_post_api_key="yourApiKey"
-example_post_api_provider="yourProviderUUID"
-# source_id: 1817 "UN System Staff College"
-source_id="1817"
-source_name="UN System Staff College"
+# This example based on the currently published UNSSC training:
+# https://reliefweb.int/training/4048520/e-learning-path-data-analytics
 
 # To be used in conjunction with the schema at https://test.reliefweb-int.ahconu.org/post-api-schemas/v2/training.json
 # Look there for field descriptions, maximum numbers of options, character counts, etc.
 
+# Configuration for all api calls.
+rw_api_url="https://test.api-reliefweb-int.ahconu.org/v2"
+appname="TEST-APP-NAME"
+rw_api_namespace="8e27a998-c362-5d1f-b152-d474e1d36af2"
+example_post_api_key="REPLACE_WITH_YOUR_API_KEY"
+example_post_api_provider="REPLACE_WITH_PROVIDER_UUID"
+# source_id: 1817 "UN System Staff College"
+source_id="1817"
+source_name="UN System Staff College"
+
 # Taxonomy lookup hints:
-# Find a country id: https://api.reliefweb.int/v1/countries?appname=${appname}&query[value]=*
-# E.g: https://api.reliefweb.int/v1/countries?appname=${appname}&query[value]=cameroon
-# Find a language id: https://api.reliefweb.int/v1/references/languages?appname=${appname}&query[value]=*
-# E.g: https://api.reliefweb.int/v1/references/languages?appname=${appname}&query[value]=french
+# Find a country id: https://api.reliefweb.int/v2/countries?appname=${appname}&query[value]=*
+# E.g: https://api.reliefweb.int/v2/countries?appname=${appname}&query[value]=cameroon
+# Find a language id: https://api.reliefweb.int/v2/references/languages?appname=${appname}&query[value]=*
+# E.g: https://api.reliefweb.int/v2/references/languages?appname=${appname}&query[value]=french
 
 
 # Configuration for a single training.
 # Required fields.
 
 # URL.
-training_url="https://reliefweb.int/training/4048520/e-learning-path-data-analytics"
+training_url="https://www.unssc.org/courses/e-learning-path-data-analytics-0"
 
 # UUID.
 uuid="$(uuidgen --sha1 --namespace ${rw_api_namespace} --name ${training_url})"
@@ -37,7 +40,7 @@ source="[${source_id}]"
 
 # Format.
 echo "For reference, these are the most common formats ${source_name} trainings are tagged with:"
-echo "https://api.reliefweb.int/v1/reports?appname=${appname}&facets[0][field]=format&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+echo "https://api.reliefweb.int/v2/reports?appname=${appname}&facets[0][field]=format&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
 # format_id: 4607 online
 formats="[4607]"
 
@@ -49,19 +52,19 @@ cost="fee-based"
 
 # Category.
 echo "For reference, these are the most common categories ${source_name} trainings are tagged with:"
-echo "https://api.reliefweb.int/v1/jobs?appname=${appname}&facets[0][field]=type&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+echo "https://api.reliefweb.int/v2/jobs?appname=${appname}&facets[0][field]=type&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
 # category_id: 4609 Training/Workshop
 category="[4609]"
 
 # Training language.
 echo "For reference, these are the most common training_languages ${source_name} trainings are tagged with:"
-echo "https://api.reliefweb.int/v1/training?appname=${appname}&facets[0][field]=training_language&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+echo "https://api.reliefweb.int/v2/training?appname=${appname}&facets[0][field]=training_language&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
 # training_language_id: 267 English
 training_languages="[267]"
 
 # Languages.
 echo "For reference, these are the most common languages ${source_name} trainings are tagged with:"
-echo "https://api.reliefweb.int/v1/reports?appname=${appname}&facets[0][field]=language&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+echo "https://api.reliefweb.int/v2/reports?appname=${appname}&facets[0][field]=language&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
 # language_id: 267 English
 languages="[267]"
 
@@ -76,7 +79,7 @@ how_to_register="Interested participants can register here: [https://www.unssc.o
 # Not mandatory fields - include as much of this information as exists.
 # Country.
 echo "For reference, these are the most common countries ${source_name} trainings are tagged with:"
-echo "https://api.reliefweb.int/v1/jobs?appname=${appname}&facets[0][field]=country&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+echo "https://api.reliefweb.int/v2/jobs?appname=${appname}&facets[0][field]=country&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
 # country_id: n/a
 # countries="[]"
 
@@ -97,13 +100,13 @@ fee_information="The course fee is \$1,000, and covers full participation in the
 
 # Professional function.
 echo "For reference, these are the most common functions ${source_name} trainings are tagged with:"
-echo "https://api.reliefweb.int/v1/jobs?appname=${appname}&facets[0][field]=career_categories&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+echo "https://api.reliefweb.int/v2/jobs?appname=${appname}&facets[0][field]=career_categories&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
 # professional_function: 20971 Information management
 professional_function="[20971]"
 
 # Themes.
 echo "For reference, these are the most common themes ${source_name} reports are tagged with:"
-echo "https://api.reliefweb.int/v1/reports?appname=${appname}&facets[0][field]=theme&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+echo "https://api.reliefweb.int/v2/reports?appname=${appname}&facets[0][field]=theme&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
 # theme_id: n/a
 # themes="[]"
 

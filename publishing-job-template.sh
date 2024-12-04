@@ -1,30 +1,33 @@
 #!/bin/sh
 
-# Configuration for all api calls.
-rw_api_url="https://test.api-reliefweb-int.ahconu.org/v2"
-appname="TEST-APP-NAME"
-rw_api_namespace="8e27a998-c362-5d1f-b152-d474e1d36af2"
-example_post_api_key="yourApiKey"
-example_post_api_provider="yourProviderUUID"
-# source_id: 2012 "International Rescue Committee"
-source_id="2012"
-source_name="International Rescue Committee"
+# This example based on the currently published IRC job:
+# https://careers.rescue.org/us/en/job/req55952/Team-Lead-Health-Activity
 
 # To be used in conjunction with the schema at https://test.reliefweb-int.ahconu.org/post-api-schemas/v2/job.json
 # Look there for field descriptions, maximum numbers of options, character counts, etc.
 
+# Configuration for all api calls.
+rw_api_url="https://test.api-reliefweb-int.ahconu.org/v2"
+appname="TEST-APP-NAME"
+rw_api_namespace="8e27a998-c362-5d1f-b152-d474e1d36af2"
+example_post_api_key="REPLACE_WITH_YOUR_API_KEY"
+example_post_api_provider="REPLACE_WITH_PROVIDER_UUID"
+# source_id: 2012 "International Rescue Committee"
+source_id="2012"
+source_name="International Rescue Committee"
+
 # Taxonomy lookup hints:
-# Find a country id: https://api.reliefweb.int/v1/countries?appname=${appname}&query[value]=*
-# E.g: https://api.reliefweb.int/v1/countries?appname=${appname}&query[value]=cameroon
-# Find a language id: https://api.reliefweb.int/v1/references/languages?appname=${appname}&query[value]=*
-# E.g: https://api.reliefweb.int/v1/references/languages?appname=${appname}&query[value]=french
+# Find a country id: https://api.reliefweb.int/v2/countries?appname=${appname}&query[value]=*
+# E.g: https://api.reliefweb.int/v2/countries?appname=${appname}&query[value]=cameroon
+# Find a language id: https://api.reliefweb.int/v2/references/languages?appname=${appname}&query[value]=*
+# E.g: https://api.reliefweb.int/v2/references/languages?appname=${appname}&query[value]=french
 
 
 # Configuration for a single job.
 # Required fields.
 
 # URL.
-job_url="https://reliefweb.int/job/4114777/team-lead-health-activity"
+job_url="https://careers.rescue.org/us/en/job/req55952/Team-Lead-Health-Activity"
 
 # UUID.
 uuid="$(uuidgen --sha1 --namespace ${rw_api_namespace} --name ${job_url})"
@@ -47,25 +50,25 @@ how_to_apply="https://careers.rescue.org/us/en/job/req55952/Team-Lead-Health-Act
 
 # Job Type
 echo "For reference, these are the most common job_types ${source_name} jobs are tagged with:"
-echo "https://api.reliefweb.int/v1/jobs?appname=${appname}&facets[0][field]=type&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+echo "https://api.reliefweb.int/v2/jobs?appname=${appname}&facets[0][field]=type&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
 # job_type_id: 263 Job
 job_type="[263]"
 
 # Job Experience.
 echo "For reference, these are the most common job_experiences ${source_name} jobs are tagged with:"
-echo "https://api.reliefweb.int/v1/jobs?appname=${appname}&facets[0][field]=experience&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+echo "https://api.reliefweb.int/v2/jobs?appname=${appname}&facets[0][field]=experience&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
 # job_experience_id: 261 10+ years
 job_experience="[261]"
 
 # Career categories.
 echo "For reference, these are the most common career_categories ${source_name} jobs are tagged with:"
-echo "https://api.reliefweb.int/v1/jobs?appname=${appname}&facets[0][field]=career_categories&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+echo "https://api.reliefweb.int/v2/jobs?appname=${appname}&facets[0][field]=career_categories&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
 # career_categories_id: 6867 Program/Project Management
 career_categories="[6867]"
 
 # Not mandatory fields - include as much of this information as exists.
 echo "For reference, these are the most common countries ${source_name} jobs are tagged with:"
-echo "https://api.reliefweb.int/v1/jobs?appname=${appname}&facets[0][field]=country&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+echo "https://api.reliefweb.int/v2/jobs?appname=${appname}&facets[0][field]=country&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
 # country_id: 13 Afghanistan
 countries="[13]"
 
@@ -73,7 +76,7 @@ countries="[13]"
 city="Kabul"
 
 echo "For reference, these are the most common themes ${source_name} jobs are tagged with:"
-echo "https://api.reliefweb.int/v1/jobs?appname=${appname}&facets[0][field]=theme&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+echo "https://api.reliefweb.int/v2/jobs?appname=${appname}&facets[0][field]=theme&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
 # theme_id: 4595 Health
 themes="[4595]"
 

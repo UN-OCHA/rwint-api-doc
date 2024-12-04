@@ -1,65 +1,68 @@
 #!/bin/sh
 
-# Configuration for all api calls.
-rw_api_url="https://test.api-reliefweb-int.ahconu.org/v2"
-appname="TEST-APP-NAME"
-rw_api_namespace="8e27a998-c362-5d1f-b152-d474e1d36af2"
-example_post_api_key="yourApiKey"
-example_post_api_provider="yourProviderUUID"
-# Directory where files can be found.
-file_path="/home/$USER/Documents"
-# source_id: 529 "Famine Early Warning System Network"
-source_id="529"
-source_name="Famine Early Warning System Network"
+# This example based on the currently published UNHCR report:
+# https://reliefweb.int/report/south-sudan/profiling-refugees-and-returnees-renk-sudan-emergency-response-november-2024
 
 # To be used in conjunction with the schema at https://test.reliefweb-int.ahconu.org/post-api-schemas/v2/report.json
 # Look there for field descriptions, maximum numbers of options, character counts, etc.
 
+# Configuration for all api calls.
+rw_api_url="https://test.api-reliefweb-int.ahconu.org/v2"
+appname="TEST-APP-NAME"
+rw_api_namespace="8e27a998-c362-5d1f-b152-d474e1d36af2"
+example_post_api_key="REPLACE_WITH_YOUR_API_KEY"
+example_post_api_provider="REPLACE_WITH_PROVIDER_UUID"
+# Directory where files can be found.
+file_path="/home/$USER/Documents"
+# source_id: 2868 "UN High Commissioner for Refugees"
+source_id="2868"
+source_name="UN High Commissioner for Refugees"
+
 # Taxonomy lookup hints:
-# Find a country id: https://api.reliefweb.int/v1/countries?appname=${appname}&query[value]=*
-# E.g: https://api.reliefweb.int/v1/countries?appname=${appname}&query[value]=cameroon
-# Find a language id: https://api.reliefweb.int/v1/references/languages?appname=${appname}&query[value]=*
-# E.g: https://api.reliefweb.int/v1/references/languages?appname=${appname}&query[value]=french
+# Find a country id: https://api.reliefweb.int/v2/countries?appname=${appname}&query[value]=*
+# E.g: https://api.reliefweb.int/v2/countries?appname=${appname}&query[value]=cameroon
+# Find a language id: https://api.reliefweb.int/v2/references/languages?appname=${appname}&query[value]=*
+# E.g: https://api.reliefweb.int/v2/references/languages?appname=${appname}&query[value]=french
 
 # Configuration for a single report.
 # Required fields.
 
 # URL.
-report_url="https://www.unocha.org/news/todays-top-news-occupied-palestinian-territory-lebanon-cuba"
+report_url="https://data.unhcr.org/en/documents/details/112858"
 
 # UUID.
 uuid="$(uuidgen --sha1 --namespace ${rw_api_namespace} --name ${report_url})"
 
 # Title.
-title="Ethiopia Food Security Outlook Update: Dry conditions in south/southeast threaten pastoral livelihoods once again, October 2024 - June 2025"
+title="Profiling of Refugees and Returnees in Renk - Sudan Emergency Response (November 2024)"
 
 # Sources.
 sources="[${source_id}]"
 
 # Countries.
 echo "For reference, these are the most common countries ${source_name} reports are tagged with:"
-echo "https://api.reliefweb.int/v1/reports?appname=${appname}&facets[0][field]=country&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
-# country_id: 87 Ethiopia
-countries="[87]"
+echo "https://api.reliefweb.int/v2/reports?appname=${appname}&facets[0][field]=country&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+# country_id: 8657 South Sudan
+# country_id: 220 Sudan
+countries="[8657, 220]"
 
 # Formats.
 echo "For reference, these are the most common formats ${source_name} reports are tagged with:"
-echo "https://api.reliefweb.int/v1/reports?appname=${appname}&facets[0][field]=format&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
-# format_id: 3 Analysis
-formats="[3]"
+echo "https://api.reliefweb.int/v2/reports?appname=${appname}&facets[0][field]=format&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+# format_id: 5 Assessment
+formats="[5]"
 
 # Languages.
 echo "For reference, these are the most common languages ${source_name} reports are tagged with:"
-echo "https://api.reliefweb.int/v1/reports?appname=${appname}&facets[0][field]=language&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+echo "https://api.reliefweb.int/v2/reports?appname=${appname}&facets[0][field]=language&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
 # language_id: 267 English
 languages="[267]"
 
-# Published: 21 Nov 2024
-published="2024-11-21:00:00+00:00"
+# Published: 3 December 2024
+published="2024-12-03:00:00+00:00"
 
 # Body.
-body="Example short test body. Can include any characters and punctuation. The only control characters allowed are new lines (\\\n) and spaces."
-# body="Key Messages\nEmergency (IPC Phase 4) outcomes will likely persist through at least May in pastoral areas of Zone 2 and Zone 4 of Afar that were severely impacted by the 2020-2022 conflict in northern Ethiopia. In these areas, the conflict severely eroded livestock holdings (the primary household asset). Currently, poor households have minimal to no livestock, resulting in constrained food and income and atypically high reliance on social support and coping strategies, such as selling firewood and charcoal, labor migration, migrating to live with relatives, and consumption of wild foods.\nIn the pastoral south and southeast, Crisis (IPC Phase 3) outcomes are expected, but there is potential for rapid deterioration if the current and subsequent rainy seasons fail. The October to December deyr/hageya rains performed poorly in October, and it is increasingly likely that recovery of livestock holdings from the historic 2020-2023 drought will stagnate due todiminishing pasture and water resources.Declines in livestock productivity will in turn suppress household capacity to purchase sufficient food. Furthermore, the gu/genna rains in early 2025 are also expected to be below average. If both rainy seasons were to fail, food assistance needs would rise sharply and Emergency (IPC Phase 4) outcomes would likely emerge by mid-2025.\nAcross the rest of Ethiopia, the near-average national meher harvest and favorable consecutive livestock production seasons are resulting in moderate improvements in acute food insecurity outcomes.While staple food prices are not expected to decline with the meher harvest, cash income from a rebound in agricultural labor opportunities should partially improve household purchasing power. However, Crisis (IPC Phase 3) outcomes persist in areas where recovery from drought and conflict is prolonged.\nCrisis (IPC Phase 3) outcomes are expected to become more widespread in early to mid-2025 as households gradually exhaust their harvested food stocks and become increasingly market reliant amid high food prices. In hard-to-reach areas of Tigray where market and income-earning activity is highly limited, Emergency (IPC Phase 4) outcomes are expected in early 2025.\nThe analysis in this report is based on information available as of October 30, 2024."
+body="**Executive summary**\nWith no end in sight to the Sudan conflict, the humanitarian response in Renk continues to focus on providing lifesaving assistance at points of entry, transit centers, and onward movement. With the ongoing flow of new arrivals and emerging trends to consider, such as the increasing number of refugees and returnees unwilling to proceed to onward destinations, several options have been identified to facilitate the immediate, medium-term, and long-term response.\nA profiling exercise was initially carried out in June 2024 (round 1). A total of 5,440 interviews were conducted, respondents included (18% refugee, 82% returnees), which formed the basis of the proposed approaches encapsulated in the draft Renk Interagency Transition Roadmap. The document has been reviewed and endorsed by all the humanitarian actors on the ground. Given the transitory nature of the population, a second profiling exercise (round 2) was conducted in September 2024 to ensure that the proposed course of action remains relevant and responsive to the needs of the population. Respondents included 8,115 families (14.5 % refugees, 85.4 % returnees). This document presents the findings of the two exercises."
 
 # Not mandatory fields - include as much of this information as exists.
 
@@ -67,13 +70,13 @@ body="Example short test body. Can include any characters and punctuation. The o
 embargoed=""
 
 # Origin.
-origin="https://fews.net/east-africa/ethiopia/food-security-outlook/october-2024"
+origin="https://data.unhcr.org/en/documents/details/112858"
 
 # File.
-# (This pdf is generated on demand at https://fews.net/node/35258/print/download, I've invented a url and filename)
-file_url="https://fews.net/files/35258.pdf"
+# (This pdf is generated on demand at https://data.unhcr.org/en/documents/download/112858, I've invented a url and filename)
+file_url="https://data.unhcr.org/en/documents/download/112858.pdf"
 file_uuid=$(uuidgen --sha1 --namespace $uuid --name "${file_url}")
-file_filename="Ethiopia_Food_Security_Outlook_Update-October_2024-June_2025.pdf"
+file_filename="Profiling of Refugees and Returnees in Renk - November 2024.pdf"
 file_checksum=$(sha256sum "${file_path}/${file_filename}" | cut -f 1 -d " ")
 file_language="en"
 
@@ -89,24 +92,22 @@ image_copyright=""
 
 # Disasters.
 echo "For reference, these are the most common disasters ${source_name} reports are tagged with:"
-echo "https://api.reliefweb.int/v1/reports?appname=${appname}&facets[0][field]=disaster&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
-# disaster_id: 23121 Ethiopia: Drought - 2015-2024
-# disaster_id: 52004 Ethiopia: Floods - May 2024
-disasters="[23121, 52004]"
+echo "https://api.reliefweb.int/v2/reports?appname=${appname}&facets[0][field]=disaster&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+# No disasters for this report.
+# disasters="[]"
 
 # Disaster types.
 echo "For reference, these are the most common disaster types ${source_name} reports are tagged with:"
-echo "https://api.reliefweb.int/v1/reports?appname=${appname}&facets[0][field]=disaster_type&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
-# disaster_type_id: 4672 Drought
-# disaster_type_id: 4611 Flood
-disaster_types="[4672, 4611]"
+echo "https://api.reliefweb.int/v2/reports?appname=${appname}&facets[0][field]=disaster_type&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+# No disaster types for this report.
+# disaster_types="[]"
 
 # Themes.
 echo "For reference, these are the most common themes ${source_name} reports are tagged with:"
-echo "https://api.reliefweb.int/v1/reports?appname=${appname}&facets[0][field]=theme&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
-# theme_id: 4587 Agriculture
-# theme_id: 4593 Food and Nutrition
-themes="[4587, 4593]"
+echo "https://api.reliefweb.int/v2/reports?appname=${appname}&facets[0][field]=theme&facets[0][filter][field]=source.id&facets[0][filter][value]=${source_id}&facets[0][sort]=count:desc&limit=0"
+# theme_id: 4600 Protection and Human Rights
+# theme_id: 4601 Recovery and Reconstruction
+themes="[4600, 4601]"
 
 # Notify: using a made-up example.
 notify="test@example.com"
