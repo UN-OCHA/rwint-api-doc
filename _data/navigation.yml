@@ -12,5 +12,7 @@
   url: /result-structure
 - text: Presets
   url: /presets
+- text: Publishing API
+  url: /publishing
 - text: FAQ
   url: /faq
