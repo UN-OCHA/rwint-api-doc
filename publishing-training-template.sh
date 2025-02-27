@@ -8,6 +8,7 @@
 
 # Configuration for all api calls.
 rw_api_url="https://test.api-reliefweb-int.ahconu.org/v2"
+#rw_api_url="https://api.reliefweb.int/v2"
 appname="TEST-APP-NAME"
 rw_api_namespace="8e27a998-c362-5d1f-b152-d474e1d36af2"
 example_post_api_key="REPLACE_WITH_YOUR_API_KEY"
