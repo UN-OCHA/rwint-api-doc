@@ -99,8 +99,8 @@
     // Check that this is going to api.reliefweb.int
     var displayUrl = apiCall.children[0].innerText
     var actualUrl = displayUrl.replace('REPLACE-WITH-A-DOMAIN-OR-APP-NAME', 'apidoc');
-    if (actualUrl.indexOf('https://api.reliefweb.int/v1') !== 0) {
-      result.innerHTML = "<strong>Error:</strong> The call must be made to <code>https://api.reliefweb.int/v1</code>";
+    if (actualUrl.indexOf('https://api.reliefweb.int/v2') !== 0) {
+      result.innerHTML = "<strong>Error:</strong> The call must be made to <code>https://api.reliefweb.int/v2</code>";
       return;
     }
 

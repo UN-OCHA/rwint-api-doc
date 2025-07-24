@@ -11,7 +11,7 @@ info:
     name: Creative Commons Zero - Public Domain
     url: http://creativecommons.org/about/cc0
 host: api.reliefweb.int
-basePath: /v1
+basePath: /v2
 schemes:
   - http
   - https
