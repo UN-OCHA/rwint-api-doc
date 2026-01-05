@@ -12,13 +12,13 @@
 ./css/cd-header/cd-header.css
 ./css/cd-header/cd-logo.css
 ./css/cd-header/cd-nav.css
-./css/cd-header/cd-ocha.css
 ./css/cd-header/cd-site-header.css
 ./css/cd-footer/cd-footer.css
 ./css/cd-footer/cd-footer-copyright.css
 ./css/cd-footer/cd-footer-mandate.css
 ./css/cd-footer/cd-footer-menu.css
 ./css/cd-footer/cd-footer-soft.css
+./css/cd-footer/cd-ocha.css
 ./css/cd-alert.css
 ./css/cd-button.css
 ./css/cd-dropdown.css
