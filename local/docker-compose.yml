@@ -1,0 +1,27 @@
+name: ${PROJECT_NAME}
+
+networks:
+  proxy:
+    name: ${PROXY:-proxy}
+    external: TRUE
+
+services:
+  site:
+    image: bretfisher/jekyll-serve
+    hostname: ${PROJECT_NAME}
+    container_name: ${PROJECT_NAME}
+    environment:
+      ENVIRONMENT:
+      VIRTUAL_HOST: ${SITE_DOMAIN}
+      VIRTUAL_PORT: 4000
+      VIRTUAL_NETWORK: ${PROXY:-proxy}
+      HTTPS_METHOD: noredirect
+    volumes:
+      - "../:/site"
+    labels:
+      caddy: ${SITE_DOMAIN}
+      caddy.reverse_proxy: "{{upstreams}}"
+    expose:
+      - "4000"
+    networks:
+      proxy:
