@@ -98,7 +98,7 @@
     }
     // Check that this is going to api.reliefweb.int
     var displayUrl = apiCall.children[0].innerText
-    var actualUrl = displayUrl.replace('REPLACE-WITH-A-DOMAIN-OR-APP-NAME', 'apidoc');
+    var actualUrl = displayUrl.replace('REPLACE-WITH-APP-NAME', 'apidoc');
     if (actualUrl.indexOf('https://api.reliefweb.int/v2') !== 0) {
       result.innerHTML = "<strong>Error:</strong> The call must be made to <code>https://api.reliefweb.int/v2</code>";
       return;
@@ -123,7 +123,7 @@
         html += '<button id="copyPostOptionsButton-' + counter + '">Copy POST request</button>';
       }
       html += '<pre class="' + resultStatus + '">';
-      html += '<code>' + JSON.stringify(json, null, '\t').replace('apidoc', 'REPLACE-WITH-A-DOMAIN-OR-APP-NAME') + '</code>';
+      html += '<code>' + JSON.stringify(json, null, '\t').replace('appname=apidoc', 'appname=REPLACE-WITH-APP-NAME') + '</code>';
       html += '</pre>';
 
       // Add result.
@@ -147,13 +147,15 @@
   }
 
   // Add 'try it out' buttons and handlers to all API calls.
-  var calls = document.getElementsByClassName('apiCall');
-  for (var i=0; i<calls.length; i++) {
-    var tryIt = document.createElement('button');
-    tryIt.setAttribute('class', 'try');
-    tryIt.innerText = tryText;
-    tryIt.addEventListener('click', showResults);
-    calls[i].appendChild(tryIt);
-  }
+  // 2026-05-01: Disabled since the API requires a pre-approved appname now and
+  // so it doesn't work anymore.
+  // var calls = document.getElementsByClassName('apiCall');
+  // for (var i=0; i<calls.length; i++) {
+  //   var tryIt = document.createElement('button');
+  //   tryIt.setAttribute('class', 'try');
+  //   tryIt.innerText = tryText;
+  //   tryIt.addEventListener('click', showResults);
+  //   calls[i].appendChild(tryIt);
+  // }
 
 })();
