@@ -17,7 +17,8 @@ services:
       VIRTUAL_NETWORK: ${PROXY:-proxy}
       HTTPS_METHOD: noredirect
     volumes:
-      - "../:/site"
+    # GitHub Pages publishes from /docs; local serve mounts that as the site root.
+    - "../docs:/site"
     labels:
       caddy: ${SITE_DOMAIN}
       caddy.reverse_proxy: "{{upstreams}}"

@@ -5,9 +5,6 @@ url: https://apidoc.reliefweb.int
 repository: UN-OCHA/rwint-api-doc
 encoding: utf-8
 
-# Site pages, data, includes, sass, and assets live under content/
-source: content
-
 # Extensionless CNAME must be explicitly included for some Jekyll builds
 include:
   - CNAME
