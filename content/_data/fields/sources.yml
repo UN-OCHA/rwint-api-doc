@@ -1,0 +1,200 @@
+- name: content_type
+  description: Content types published from this source
+  type: array
+  attributes: searchable sortable
+  abbreviation: ''
+- name: country
+  description: Shortcut for country - defaults to country.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: country.id
+  description: Id for country used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: C
+- name: country.iso3
+  description: ISO 3166-1 alpha-3 code
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: country.name
+  description: Name of the country in English where the source headquarters is located
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: country.primary
+  description: Flag to indicate this is the primary country
+  type: boolean
+  attributes: ''
+  abbreviation: ''
+- name: country.shortname
+  description: Short name of the country in English where the source headquarters is located
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: date
+  description: Shortcut for date - defaults to date.created
+  type: object
+  attributes: facetable
+  abbreviation: ''
+- name: date.changed
+  description: Date entry modified on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: ''
+- name: date.created
+  description: Date entry created on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: DA
+- name: description
+  description: Description of the source in Markdown format
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: description-html
+  description: Description of the source in HTML format
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: disclaimer
+  description: Disclaimer information
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: fts_id
+  description: Id number for organization used by FTS
+  type: number
+  attributes: searchable sortable
+  abbreviation: ''
+- name: homepage
+  description: URL of organization
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: id
+  description: Unique id for source used by ReliefWeb
+  type: integer
+  attributes: searchable sortable
+  abbreviation: ''
+- name: logo
+  description: Shortcut for logo - defaults to logo.url
+  type: object
+  attributes: ''
+  abbreviation: ''
+- name: logo.filename
+  description: File name of the logo
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: logo.filesize
+  description: File size of the logo
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: logo.height
+  description: Height of the logo
+  type: integer
+  attributes: ''
+  abbreviation: ''
+- name: logo.id
+  description: Id for logo used by ReliefWeb
+  type: integer
+  attributes: ''
+  abbreviation: ''
+- name: logo.mimetype
+  description: MIME type of the logo
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: logo.url
+  description: URL of the logo
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: logo.width
+  description: Width of the logo
+  type: integer
+  attributes: ''
+  abbreviation: ''
+- name: longname
+  description: Official name of source, where applicable
+  type: string
+  attributes: searchable sortable exact
+  abbreviation: ''
+- name: longname.collation_en
+  description: Long name field for English collation-aware sorting
+  type: string
+  attributes: sortable
+  abbreviation: ''
+- name: name
+  description: Name of source organization
+  type: string
+  attributes: searchable sortable exact
+  abbreviation: ''
+- name: name.collation_en
+  description: Name field for English collation-aware sorting
+  type: string
+  attributes: sortable
+  abbreviation: ''
+- name: redirects
+  description: Previous URL aliases that redirect to this item
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: shortname
+  description: Name of the source in abbreviated format, where applicable
+  type: string
+  attributes: searchable sortable exact
+  abbreviation: ''
+- name: shortname.collation_en
+  description: Short name field for English collation-aware sorting
+  type: string
+  attributes: sortable
+  abbreviation: ''
+- name: spanish_name
+  description: Name of the source in Spanish
+  type: string
+  attributes: searchable sortable exact
+  abbreviation: ''
+- name: spanish_name.collation_es
+  description: Spanish name field for Spanish collation-aware sorting
+  type: string
+  attributes: sortable
+  abbreviation: ''
+- name: status
+  description: Whether source is active or not
+  type: string
+  attributes: searchable facetable
+  abbreviation: ''
+- name: type
+  description: Shortcut for type of organization - defaults to type.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: type.id
+  description: Id of organization type used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: TY
+- name: type.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: url
+  description: Canonical url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: url_alias
+  description: Friendly' url of the source
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: uuid
+  description: UUID of the document or term
+  type: string
+  attributes: searchable
+  abbreviation: ''

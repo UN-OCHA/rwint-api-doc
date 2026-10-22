@@ -1,0 +1,21 @@
+{% comment %}
+  Render a single API example.
+  Params:
+    url  - full request URL (appname usually REPLACE-WITH-APP-NAME)
+    body - optional JSON body; when present, example is shown as POST
+    label - optional heading (default: POST or GET)
+{% endcomment %}
+{% assign method = 'GET' %}
+{% if include.body and include.body != '' %}
+  {% assign method = 'POST' %}
+{% endif %}
+{% assign label = include.label | default: method %}
+<div class="api-call">
+  <p class="api-call__label"><strong>{{ label }}</strong></p>
+  <div class="api-call__url"><pre><code>{{ include.url }}</code></pre></div>
+  {% if method == 'POST' %}
+  <div class="api-call__body">
+{% highlight json %}{{ include.body }}{% endhighlight %}
+  </div>
+  {% endif %}
+</div>

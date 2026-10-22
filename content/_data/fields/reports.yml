@@ -1,0 +1,525 @@
+- name: body
+  description: Main text in Markdown format
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: body-html
+  description: Main text in HTML format
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: country
+  description: Shortcut for country - defaults to country.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: country.id
+  description: Id for country used by ReliefWeb
+  type: integer
+  attributes: searchable facetable exact
+  abbreviation: C
+- name: country.iso3
+  description: ISO 3166-1 alpha-3 code
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: country.name
+  description: Name of country in English
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: country.primary
+  description: Flag to indicate this is the primary country
+  type: boolean
+  attributes: ''
+  abbreviation: ''
+- name: country.shortname
+  description: Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: date
+  description: Shortcut for date fields - defaults to date.created
+  type: object
+  attributes: facetable
+  abbreviation: ''
+- name: date.changed
+  description: Date entry modified on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: ''
+- name: date.created
+  description: Date entry created on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: DA
+- name: date.original
+  description: Date entry first published by original source (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: DO
+- name: disaster
+  description: Shortcut for related disaster - defaults to disaster.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: disaster.glide
+  description: Global IDEntifier number (GLIDE) of the disaster
+  type: string
+  attributes: searchable facetable
+  abbreviation: ''
+- name: disaster.id
+  description: Id for related disaster used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: D
+- name: disaster.name
+  description: Name assigned to the disaster based on the ReliefWeb disaster naming convention
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: disaster.status
+  description: Status of the related disaster (e.g. current, past, alert)
+  type: string
+  attributes: searchable facetable
+  abbreviation: ''
+- name: disaster.type
+  description: Disaster type of the associated disaster. Note this may be different to the `disaster_type`
+    of a report. Defaults to disaster.type.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: disaster.type.code
+  description: Code for the disaster type of the associated disaster.
+  type: string
+  attributes: searchable facetable
+  abbreviation: ''
+- name: disaster.type.id
+  description: Id for the disaster type of the associated disaster.
+  type: integer
+  attributes: searchable facetable
+  abbreviation: ''
+- name: disaster.type.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: disaster.type.primary
+  description: Whether this is the primary disaster type for the associated disaster.
+  type: boolean
+  attributes: ''
+  abbreviation: ''
+- name: disaster_type
+  description: Shortcut for disaster type - defaults to disaster_type.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: disaster_type.code
+  description: GLIDE hazard code for disaster type.
+  type: string
+  attributes: searchable facetable
+  abbreviation: ''
+- name: disaster_type.id
+  description: Id for disaster type used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: DT
+- name: disaster_type.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: feature
+  description: defaults to feature.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: feature.id
+  description: Id for feature used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: ''
+- name: feature.name
+  description: Link for values.
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: file
+  description: File attachment shortcut - defaults to file.id
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: file.description
+  description: Description of file attachment
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: file.filehash
+  description: Checksum/hash of the file attachment
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: file.filename
+  description: File name of file attachment
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: file.filesize
+  description: Size of the file attachment in bytes
+  type: integer
+  attributes: searchable sortable facetable
+  abbreviation: ''
+- name: file.id
+  description: Id of file attachment used by ReliefWeb
+  type: integer
+  attributes: searchable
+  abbreviation: ''
+- name: file.mimetype
+  description: MIME type of file attachment
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: file.pagecount
+  description: Number of pages in the file attachment (when applicable)
+  type: integer
+  attributes: searchable sortable facetable
+  abbreviation: ''
+- name: file.preview
+  description: Shortcut for preview image of file attachment - defaults to file.preview.url
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: file.preview.url
+  description: Link to preview image of file attachment
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: file.preview.url-large
+  description: Link to a large preview image with a width of 680px
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: file.preview.url-small
+  description: Link to a small preview image with a width of 200px
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: file.preview.url-thumb
+  description: Link to a thumbnail preview image with a maximum width of 220px and a maximum height
+    of 100px
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: file.url
+  description: Link to file attachment
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: file.uuid
+  description: UUID of the file attachment
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: format
+  description: Shortcut for content format - defaults to format.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: format.id
+  description: Id of content format used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: F
+- name: format.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: headline
+  description: Shortcut for headline - defaults to headline.title
+  type: array
+  attributes: ''
+  abbreviation: ''
+- name: headline.image
+  description: Shortcut for headline image - defaults to headline.image.id
+  type: array
+  attributes: ''
+  abbreviation: ''
+- name: headline.image.caption
+  description: Caption attached to the headline image
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: headline.image.copyright
+  description: Copyright attached to the headline image
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: headline.image.filename
+  description: File name of the headline image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: headline.image.id
+  description: Unique id of headline image used by ReliefWeb
+  type: integer
+  attributes: searchable
+  abbreviation: ''
+- name: headline.image.mimetype
+  description: MIME type of the headline image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: headline.image.url
+  description: URL of the headline image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: headline.summary
+  description: Summary of body, if report is selected as headline. Typically 180-190 characters
+    long
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: headline.title
+  description: Headline text, if report is selected as headline. Typically 100-120 characters
+    long
+  type: string
+  attributes: searchable sortable
+  abbreviation: ''
+- name: id
+  description: Unique id of report used by ReliefWeb
+  type: integer
+  attributes: searchable sortable
+  abbreviation: ''
+- name: image
+  description: Image shortcut - defaults to image.id
+  type: integer
+  attributes: ''
+  abbreviation: ''
+- name: image.caption
+  description: Caption attached to the image
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: image.copyright
+  description: Copyright attached to the image
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: image.filename
+  description: File name of the image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: image.id
+  description: Unique id of image used by ReliefWeb
+  type: integer
+  attributes: searchable
+  abbreviation: ''
+- name: image.mimetype
+  description: MIME type of the image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: image.url
+  description: Link to the original image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: image.url-large
+  description: Link to a large image with a width of 680px
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: image.url-small
+  description: Link to a small image with a width of 200px
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: image.url-thumb
+  description: Link to a thumbnail image with a maximum width of 220px and a maximum height of
+    100px
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: language
+  description: Shortcut for language - defaults to language.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: language.code
+  description: ISO 639-1 code of the language the entry is written in
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: language.id
+  description: Id for language of report used by ReliefWeb
+  type: integer
+  attributes: facetable
+  abbreviation: L
+- name: language.name
+  description: Language the report is written in - Link for values.
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: ocha_product
+  description: Shortcut for OCHA product - defaults to ocha_product.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: ocha_product.id
+  description: Id of OCHA product used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: ''
+- name: ocha_product.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: origin
+  description: Url of original report when it was added to ReliefWeb
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: primary_country
+  description: Shortcut for primary country - defaults to primary_country.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: primary_country.id
+  description: Id of primary country used by ReliefWeb
+  type: integer
+  attributes: searchable sortable facetable
+  abbreviation: PC
+- name: primary_country.iso3
+  description: ISO 3166-1 alpha-3 code
+  type: string
+  attributes: searchable sortable facetable exact
+  abbreviation: ''
+- name: primary_country.name
+  description: Link for more information
+  type: string
+  attributes: searchable sortable facetable exact
+  abbreviation: ''
+- name: primary_country.shortname
+  description: Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'
+  type: string
+  attributes: searchable sortable facetable exact
+  abbreviation: ''
+- name: redirects
+  description: Previous URL aliases that redirect to this item
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: source
+  description: Shortcut for sources - defaults to source.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: source.disclaimer
+  description: Disclaimer information for the source
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: source.homepage
+  description: URL of the source's primary website
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: source.id
+  description: Id for source used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: S
+- name: source.longname
+  description: Official name of the source if different from source.name
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: source.name
+  description: Common name of source
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: source.shortname
+  description: Short name of the source, typically an acronym e.g. UNICEF
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: source.spanish_name
+  description: Spanish name of the source
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: source.type
+  description: Shortcut for source type - defaults to source.type.name
+  type: array
+  attributes: facetable exact common
+  abbreviation: ''
+- name: source.type.id
+  description: Id for source type used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: ST
+- name: source.type.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: status
+  description: Status
+  type: string
+  attributes: searchable facetable
+  abbreviation: ''
+- name: theme
+  description: Shortcut for theme - defaults to theme.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: theme.id
+  description: Id of theme used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: T
+- name: theme.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: title
+  description: Title of report
+  type: string
+  attributes: searchable sortable exact
+  abbreviation: ''
+- name: url
+  description: Canonical url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: url_alias
+  description: Friendly' url of the report
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: uuid
+  description: UUID of the document or term
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: vulnerable_groups
+  description: Deprecated. Shortcut for vulnerable groups - defaults to vulnerable_groups.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: vulnerable_groups.id
+  description: Deprecated. Id of vulnerable group used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: ''
+- name: vulnerable_groups.name
+  description: Deprecated. Name of vulnerable group
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''

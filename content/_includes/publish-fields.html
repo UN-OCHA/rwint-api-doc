@@ -1,0 +1,21 @@
+{% assign data = site.data.publish[include.resource] %}
+{% if data %}
+<p>Canonical schema: <a href="{{ data.schema_url }}">{{ data.schema_url | split: '/' | last }}</a>. Field-by-field rules and examples: <a href="{{ data.fields_path }}">field reference</a>.</p>
+<table>
+  <thead>
+    <tr><th>Name</th><th>Required</th><th>Type</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+  {% for row in data.fields %}
+    <tr>
+      <td><a href="{{ data.fields_path }}#field-{{ row.name }}"><code>{{ row.name | escape }}</code></a></td>
+      <td>{% if row.required == true %}yes{% elsif row.required == false %}no{% else %}{{ row.required | escape }}{% endif %}</td>
+      <td>{{ row.type | escape }}</td>
+      <td>{{ row.description | escape }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No publish field data found for <code>{{ include.resource | escape }}</code>.</p>
+{% endif %}

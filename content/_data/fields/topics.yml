@@ -1,0 +1,185 @@
+- name: date
+  description: Shortcut for date - defaults to date.created
+  type: object
+  attributes: facetable
+  abbreviation: ''
+- name: date.changed
+  description: Date entry modified on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: ''
+- name: date.created
+  description: Date entry created on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: DA
+- name: disaster_type
+  description: Shortcut for disaster type - defaults to disaster_type.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: disaster_type.code
+  description: GLIDE hazard code for disaster type.
+  type: string
+  attributes: searchable facetable
+  abbreviation: ''
+- name: disaster_type.id
+  description: Id for disaster type used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: DT
+- name: disaster_type.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: featured
+  description: Flag indicating the item is featured
+  type: boolean
+  attributes: searchable sortable facetable
+  abbreviation: ''
+- name: icon
+  description: Shortcut for icon - defaults to icon.url
+  type: object
+  attributes: ''
+  abbreviation: ''
+- name: icon.filename
+  description: Filename of icon
+  type: integer
+  attributes: searchable
+  abbreviation: ''
+- name: icon.filesize
+  description: Size of icon file in bytes
+  type: integer
+  attributes: searchable
+  abbreviation: ''
+- name: icon.height
+  description: Height of icon in pixels
+  type: integer
+  attributes: searchable
+  abbreviation: ''
+- name: icon.id
+  description: Id of icon
+  type: integer
+  attributes: searchable
+  abbreviation: ''
+- name: icon.mimetype
+  description: MIME type of icon
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: icon.url
+  description: URL of icon image
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: icon.width
+  description: Width of icon in pixels
+  type: integer
+  attributes: searchable
+  abbreviation: ''
+- name: id
+  description: Unique id of page used by ReliefWeb
+  type: number
+  attributes: searchable sortable
+  abbreviation: ''
+- name: introduction
+  description: Introduction text in Markdown format
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: introduction-html
+  description: Introduction text in HTML format
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: overview
+  description: Overview text in Markdown format
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: overview-html
+  description: Overview text in HTML format
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: redirects
+  description: Previous URL aliases that redirect to this item
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: resources
+  description: Resources section in Markdown format
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: resources-html
+  description: Resources section in HTML format
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: rivers
+  description: Associated content rivers
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: rivers.id
+  description: Id of river
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: rivers.override
+  description: Override flag for river
+  type: integer
+  attributes: searchable
+  abbreviation: ''
+- name: rivers.title
+  description: Title of river
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: rivers.url
+  description: URL of river
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: status
+  description: Published or not
+  type: string
+  attributes: facetable
+  abbreviation: ''
+- name: theme
+  description: Shortcut for theme - defaults to theme.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: theme.id
+  description: Id of theme used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: T
+- name: theme.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: title
+  description: Title of page
+  type: string
+  attributes: sortable exact
+  abbreviation: ''
+- name: url
+  description: Canonical url of the page
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: url_alias
+  description: Friendly' url of page
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: uuid
+  description: UUID of the document or term
+  type: string
+  attributes: searchable
+  abbreviation: ''

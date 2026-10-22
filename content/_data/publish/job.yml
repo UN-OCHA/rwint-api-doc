@@ -1,0 +1,148 @@
+schema_url: "https://reliefweb.int/post-api-schemas/v2/job.json"
+fields_path: "/publish/jobs/fields/"
+required:
+  - url
+  - uuid
+  - title
+  - source
+  - closing_date
+  - body
+  - how_to_apply
+  - job_type
+  - job_experience
+  - career_category
+fields:
+  - name: url
+    required: true
+    type: "string (IRI / URL)"
+    description: "Immutable unique identifier in URL form under your trusted document prefix. Used to generate the job UUID. Does not need to resolve to a live page. Never change after first submission."
+    example: "https://myorganization.org/job/12345"
+    validation:
+      - "Must start with a trusted document prefix"
+      - "Max length 2048"
+      - "Never change after the first successful submission"
+    identifier: url
+    see_also:
+      - label: Trusted URLs and UUIDs
+        path: /publish/urls-and-uuids/
+  - name: uuid
+    required: true
+    type: "string (UUID v5)"
+    description: "Job UUID v5 computed as `uuid5(ReliefWeb namespace, url)`. Must match what the server computes from the exact url string."
+    example: "efa7a5ff-a00c-500e-bc5d-d181874dc072"
+    validation:
+      - "Must be UUID format"
+      - "Must equal `uuid5('8e27a998-c362-5d1f-b152-d474e1d36af2', url)`"
+      - "Rejected if it does not match the server computation"
+    identifier: uuid
+    see_also:
+      - label: Trusted URLs and UUIDs
+        path: /publish/urls-and-uuids/
+  - name: title
+    required: true
+    type: "string"
+    description: "Brief, specific job title. Prefer not to put location, salary, or other details in the title."
+    example: "Example Humanitarian Affairs Officer"
+    validation:
+      - "Length 10–255 characters"
+      - "Must contain letters"
+      - "No leading, trailing, or consecutive spaces"
+      - "No control characters (spaces allowed)"
+    identifier: none
+  - name: source
+    required: true
+    type: "array of integer"
+    description: "Single source organization ID from /v2/sources (ReliefWeb integer taxonomy ID, not a UUID)."
+    example: [1503]
+    validation:
+      - "Exactly one integer ID (`minItems` 1, `maxItems` 1)"
+      - "Must be a valid `/v2/sources` id"
+    identifier: taxonomy
+    lookup: "/v2/sources"
+    lookup_docs: /read/resources/sources/
+  - name: closing_date
+    required: true
+    type: "string (date-time)"
+    description: "Application closing date-time (ISO 8601). Match your ad or careers portal."
+    example: "2029-06-06T01:00:00+00:00"
+    validation:
+      - "ISO 8601 date-time"
+    identifier: none
+  - name: body
+    required: true
+    type: "string (markdown or HTML)"
+    description: "Full job description. Long enough to attract qualified candidates. Markdown or a small set of HTML tags."
+    example: "Role overview and key responsibilities in markdown or HTML."
+    validation:
+      - "Length 10–100000 characters"
+      - "Must contain letters"
+      - "Allowed HTML tags: `h1`–`h6`, `br`, `p`, `strong`, `em`, `a`, `ul`, `ol`, `li`, `blockquote`"
+      - "No leading/trailing/consecutive spaces (UNIX newlines allowed in body text)"
+    identifier: none
+  - name: how_to_apply
+    required: true
+    type: "string (markdown or HTML)"
+    description: "Short application instructions only. Do not repeat the job description."
+    example: "Apply via the careers portal linked from the job URL."
+    validation:
+      - "Length 10–100000 characters"
+      - "Must contain letters"
+      - "Same HTML allowlist as `body`"
+      - "Instructions only — not a second copy of the description"
+    identifier: none
+  - name: country
+    required: false
+    type: "array of integer"
+    description: "Country ID(s) from /v2/countries. Omit for remote, roster/roving, or location TBD."
+    example: [13]
+    validation:
+      - "Optional; max 10 unique integer IDs"
+      - "Each value must be a valid `/v2/countries` id"
+      - "Omit entirely when location is remote, roster/roving, or TBD"
+    identifier: taxonomy
+    lookup: "/v2/countries"
+    lookup_docs: /read/resources/countries/
+  - name: job_type
+    required: true
+    type: "array of integer"
+    description: "Single job-type ID from /v2/references/job-types."
+    example: [263]
+    validation:
+      - "At most one integer ID (`maxItems` 1)"
+      - "Must be a valid job-types reference id"
+    identifier: taxonomy
+    lookup: "/v2/references/job-types"
+    lookup_docs: /read/resources/references/
+  - name: job_experience
+    required: true
+    type: "array of integer"
+    description: "Single job-experience ID from /v2/references/job-experience."
+    example: [260]
+    validation:
+      - "At most one integer ID (`maxItems` 1)"
+      - "Must be a valid job-experience reference id"
+    identifier: taxonomy
+    lookup: "/v2/references/job-experience"
+    lookup_docs: /read/resources/references/
+  - name: career_category
+    required: true
+    type: "array of integer"
+    description: "Single career-category ID from /v2/references/career-categories."
+    example: [36601]
+    validation:
+      - "At most one integer ID (`maxItems` 1)"
+      - "Must be a valid career-categories reference id"
+    identifier: taxonomy
+    lookup: "/v2/references/career-categories"
+    lookup_docs: /read/resources/references/
+  - name: theme
+    required: false
+    type: "array of integer"
+    description: "Single theme ID from /v2/references/themes. Choose only the most relevant."
+    example: [4587]
+    validation:
+      - "Optional; at most one integer ID (`maxItems` 1)"
+      - "Must be a valid themes reference id"
+    identifier: taxonomy
+    lookup: "/v2/references/themes"
+    lookup_docs: /read/resources/references/

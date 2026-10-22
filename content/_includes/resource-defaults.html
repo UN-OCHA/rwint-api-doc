@@ -1,0 +1,49 @@
+{% assign defaults = site.data.resource-defaults[include.resource] %}
+{% if defaults %}
+## Defaults
+
+Requests to `/v2/{{ include.resource }}` default to `profile=minimal` and `preset=minimal`. Single-record requests (`/v2/{{ include.resource }}/{id}`) default to `profile=default` and `preset=minimal`. See [Choose fields](/read/fields-and-presets/) and [presets](/read/filtering/#presets).
+
+### Profiles
+
+<table>
+  <thead>
+    <tr><th>Profile</th><th>Fields</th></tr>
+  </thead>
+  <tbody>
+  {% for profile in defaults.profiles %}
+    <tr>
+      <td><code>{{ profile.name }}</code></td>
+      <td>
+        {% if profile.all %}
+          All fields{% if profile.omit_fields %} (omits {% for field in profile.omit_fields %}<code>{{ field }}</code>{% unless forloop.last %}, {% endunless %}{% endfor %}){% endif %}
+        {% else %}
+          {% for field in profile.fields %}<code>{{ field }}</code>{% unless forloop.last %}, {% endunless %}{% endfor %}{% if profile.slim %} (sets <a href="/read/response/#slim-and-verbose"><code>slim</code></a>){% endif %}
+        {% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+Add more with [`fields.include`](/read/fields-and-presets/#fields-fields){% if include.resource == "countries" %} (for example `iso3` is not in `list`){% endif %}.
+
+### Presets
+
+<table>
+  <thead>
+    <tr><th>Preset</th><th>Status filter</th><th>Sort</th><th>Default query fields</th></tr>
+  </thead>
+  <tbody>
+  {% for preset in defaults.presets %}
+    <tr>
+      <td><code>{{ preset.name }}</code></td>
+      <td>{% if preset.status.size > 0 %}{% for value in preset.status %}<code>{{ value }}</code>{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}n/a{% endif %}</td>
+      <td>{% if preset.sort.size > 0 %}{% for value in preset.sort %}<code>{{ value }}</code>{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}n/a{% endif %}</td>
+      <td>{% for field in preset.query_fields %}<code>{{ field }}</code>{% unless forloop.last %}, {% endunless %}{% endfor %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endif %}

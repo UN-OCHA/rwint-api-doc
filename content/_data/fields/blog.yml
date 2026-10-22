@@ -1,0 +1,172 @@
+- name: attached_image
+  description: Attached image shortcut - defaults to attached_image.id
+  type: integer
+  attributes: ''
+  abbreviation: ''
+- name: attached_image.filename
+  description: File name of the image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: attached_image.id
+  description: Unique id of image used by ReliefWeb
+  type: integer
+  attributes: searchable
+  abbreviation: ''
+- name: attached_image.mimetype
+  description: MIME type of the image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: attached_image.url
+  description: Link to the original image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: attached_image.url-large
+  description: Link to a large image with a width of 680px
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: attached_image.url-small
+  description: Link to a small image with a width of 200px
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: attached_image.url-thumb
+  description: Link to a thumbnail image with a maximum width of 220px and a maximum height of
+    100px
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: author
+  description: Name of blog post author
+  type: string
+  attributes: searchable sortable exact
+  abbreviation: ''
+- name: body
+  description: Text of blog post in Markdown format
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: body-html
+  description: Text of blog post in HTML format
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: date
+  description: Shortcut for date - defaults to date.created
+  type: object
+  attributes: facetable
+  abbreviation: ''
+- name: date.changed
+  description: Date entry modified on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: ''
+- name: date.created
+  description: Date entry created on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: DA
+- name: id
+  description: Id for blog post used by ReliefWeb
+  type: number
+  attributes: searchable sortable
+  abbreviation: ''
+- name: image
+  description: Image shortcut - defaults to image.id
+  type: integer
+  attributes: ''
+  abbreviation: ''
+- name: image.caption
+  description: Caption attached to the image
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: image.copyright
+  description: Copyright attached to the image
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: image.filename
+  description: File name of the image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: image.id
+  description: Unique id of image used by ReliefWeb
+  type: integer
+  attributes: searchable
+  abbreviation: ''
+- name: image.mimetype
+  description: MIME type of the image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: image.url
+  description: Link to the original image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: image.url-large
+  description: Link to a large image with a width of 680px
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: image.url-small
+  description: Link to a small image with a width of 200px
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: image.url-thumb
+  description: Link to a thumbnail image with a maximum width of 220px and a maximum height of
+    100px
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: redirects
+  description: Previous URL aliases that redirect to this item
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: status
+  description: Published or not
+  type: string
+  attributes: facetable
+  abbreviation: ''
+- name: tags
+  description: Shortcut for categories applied to blog post - defaults to tags.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: tags.id
+  description: Unique id for blog post categories used by ReliefWeb
+  type: number
+  attributes: facetable
+  abbreviation: ''
+- name: tags.name
+  description: Name of blog post categories
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: title
+  description: Title of blog post
+  type: string
+  attributes: sortable exact
+  abbreviation: ''
+- name: url
+  description: Canonical url of blog post
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: url_alias
+  description: Friendly' url of blog post
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: uuid
+  description: UUID of the document or term
+  type: string
+  attributes: searchable
+  abbreviation: ''

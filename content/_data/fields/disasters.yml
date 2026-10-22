@@ -1,0 +1,335 @@
+- name: country
+  description: Shortcut for country - defaults to country.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: country.id
+  description: Id for country used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: C
+- name: country.iso3
+  description: ISO 3166-1 alpha-3 code
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: country.name
+  description: Name of country in English
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: country.primary
+  description: Flag to indicate this is the primary country
+  type: boolean
+  attributes: ''
+  abbreviation: ''
+- name: country.shortname
+  description: Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: current
+  description: Deprecated
+  type: boolean
+  attributes: sortable facetable
+  abbreviation: ''
+- name: date
+  description: Shortcut for date - defaults to date.created
+  type: object
+  attributes: searchable facetable
+  abbreviation: ''
+- name: date.changed
+  description: Date entry modified on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: ''
+- name: date.created
+  description: Date entry created on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: DA
+- name: date.event
+  description: Date when the disaster occurred (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: ''
+- name: description
+  description: Description of the disaster in Markdown format
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: description-html
+  description: Description of the disaster in HTML format
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: featured
+  description: Flag to indicate if the disaster is featured on ReliefWeb home page
+  type: boolean
+  attributes: sortable facetable
+  abbreviation: ''
+- name: glide
+  description: Global IDEntifier number (GLIDE) of the disaster
+  type: string
+  attributes: searchable sortable exact
+  abbreviation: ''
+- name: id
+  description: Unique id of disaster used by ReliefWeb
+  type: integer
+  attributes: searchable sortable
+  abbreviation: ''
+- name: name
+  description: Name of the disaster
+  type: string
+  attributes: searchable sortable exact
+  abbreviation: ''
+- name: name.collation_en
+  description: Name field for English collation-aware sorting
+  type: string
+  attributes: sortable
+  abbreviation: ''
+- name: primary_country
+  description: Shortcut for primary country - defaults to primary_country.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: primary_country.id
+  description: Id of primary country used by ReliefWeb
+  type: integer
+  attributes: searchable sortable facetable
+  abbreviation: ''
+- name: primary_country.iso3
+  description: ISO 3166-1 alpha-3 code
+  type: string
+  attributes: searchable sortable facetable exact
+  abbreviation: ''
+- name: primary_country.name
+  description: Link for more information
+  type: string
+  attributes: searchable sortable facetable exact
+  abbreviation: ''
+- name: primary_country.shortname
+  description: Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'
+  type: string
+  attributes: searchable sortable facetable exact
+  abbreviation: ''
+- name: primary_type
+  description: Shortcut for primary disaster type - defaults to primary_type.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: primary_type.code
+  description: Code of the primary disaster type
+  type: string
+  attributes: searchable sortable facetable
+  abbreviation: ''
+- name: primary_type.id
+  description: Id for primary disaster type used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: ''
+- name: primary_type.name
+  description: Name of primary disaster type
+  type: string
+  attributes: searchable sortable facetable exact
+  abbreviation: ''
+- name: profile
+  description: defaults to profile.overview
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: profile.appeals_response_plans
+  description: Appeals and Response Plans for this country
+  type: array
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.active
+  description: Array of links for current appeals and plans
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: profile.appeals_response_plans.active.image
+  description: Current appeal or plan image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.active.title
+  description: Current appeal or plan title
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.active.url
+  description: Current appeal or plan url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.archive
+  description: Array of links for archive appeals and plans
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: profile.appeals_response_plans.archive.image
+  description: Archive appeal or plan image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.archive.title
+  description: Archive appeal or plan title
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.archive.url
+  description: Archive appeal or plan url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.title
+  description: '"Appeals & Response Plans"'
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content
+  description: Latest situation reports and analysis
+  type: array
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.active
+  description: Array of links for current key content for the country
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: profile.key_content.active.image
+  description: Current key content link image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.active.title
+  description: Current key content link title
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.active.url
+  description: Current key content link url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.archive
+  description: Array of links for archive key content for the country
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: profile.key_content.archive.image
+  description: Archive key content link image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.archive.title
+  description: Archive key content link title
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.archive.url
+  description: Archive key content link url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.title
+  description: '"Key Content"'
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.overview
+  description: Profile of the country in Markdown format
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: profile.overview-html
+  description: Profile of the country in HTML format
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.useful_links
+  description: Useful links to external sites
+  type: array
+  attributes: ''
+  abbreviation: ''
+- name: profile.useful_links.active
+  description: Array of useful links
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: profile.useful_links.active.image
+  description: Useful link image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.useful_links.active.title
+  description: Useful link title
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.useful_links.active.url
+  description: Useful link url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.useful_links.title
+  description: '"Useful links"'
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: redirects
+  description: Previous URL aliases that redirect to this item
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: related_glide
+  description: Related Global IDEntifier number (GLIDE)
+  type: array
+  attributes: searchable exact
+  abbreviation: ''
+- name: status
+  description: current', 'alert', 'past'
+  type: string
+  attributes: searchable facetable
+  abbreviation: ''
+- name: type
+  description: Shortcut for disaster type - defaults to type.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: type.code
+  description: Code of disaster type
+  type: string
+  attributes: searchable sortable facetable
+  abbreviation: ''
+- name: type.id
+  description: Id of disaster type used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: DT
+- name: type.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: type.primary
+  description: Whether disaster type is primary or not
+  type: boolean
+  attributes: ''
+  abbreviation: ''
+- name: url
+  description: Canonical url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: url_alias
+  description: Friendly' url of the disaster
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: uuid
+  description: UUID of the document or term
+  type: string
+  attributes: searchable
+  abbreviation: ''

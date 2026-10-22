@@ -1,0 +1,235 @@
+- name: current
+  description: Deprecated
+  type: boolean
+  attributes: sortable facetable
+  abbreviation: ''
+- name: date
+  description: Shortcut for date - defaults to date.created
+  type: object
+  attributes: facetable
+  abbreviation: ''
+- name: date.changed
+  description: Date entry modified on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: ''
+- name: date.created
+  description: Date entry created on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: DA
+- name: description
+  description: Description of the country in Markdown format
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: description-html
+  description: Description of the country in HTML format
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: featured
+  description: Flag to indicate if the country is featured on ReliefWeb home page
+  type: boolean
+  attributes: sortable facetable
+  abbreviation: ''
+- name: id
+  description: Unique id of country used by ReliefWeb
+  type: integer
+  attributes: searchable sortable
+  abbreviation: ''
+- name: iso3
+  description: ISO 3166-1 alpha-3 code
+  type: string
+  attributes: searchable sortable exact
+  abbreviation: ''
+- name: name
+  description: Name of country in English
+  type: string
+  attributes: searchable sortable exact
+  abbreviation: ''
+- name: name.collation_en
+  description: Name field for English collation-aware sorting
+  type: string
+  attributes: sortable
+  abbreviation: ''
+- name: profile
+  description: defaults to profile.overview
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: profile.appeals_response_plans
+  description: Appeals and Response Plans for this country
+  type: array
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.active
+  description: Array of links for current appeals and plans
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: profile.appeals_response_plans.active.image
+  description: Current appeal or plan image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.active.title
+  description: Current appeal or plan title
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.active.url
+  description: Current appeal or plan url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.archive
+  description: Array of links for archive appeals and plans
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: profile.appeals_response_plans.archive.image
+  description: Archive appeal or plan image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.archive.title
+  description: Archive appeal or plan title
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.archive.url
+  description: Archive appeal or plan url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.appeals_response_plans.title
+  description: '"Appeals & Response Plans"'
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content
+  description: Latest situation reports and analysis
+  type: array
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.active
+  description: Array of links for current key content for the country
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: profile.key_content.active.image
+  description: Current key content link image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.active.title
+  description: Current key content link title
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.active.url
+  description: Current key content link url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.archive
+  description: Array of links for archive key content for the country
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: profile.key_content.archive.image
+  description: Archive key content link image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.archive.title
+  description: Archive key content link title
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.archive.url
+  description: Archive key content link url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.key_content.title
+  description: '"Key Content"'
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.overview
+  description: Profile of the country in Markdown format
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: profile.overview-html
+  description: Profile of the country in HTML format
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.useful_links
+  description: Useful links to external sites
+  type: array
+  attributes: ''
+  abbreviation: ''
+- name: profile.useful_links.active
+  description: Array of useful links
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: profile.useful_links.active.image
+  description: Useful link image
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.useful_links.active.title
+  description: Useful link title
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.useful_links.active.url
+  description: Useful link url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: profile.useful_links.title
+  description: '"Useful links"'
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: redirects
+  description: Previous URL aliases that redirect to this item
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: shortname
+  description: Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'
+  type: string
+  attributes: searchable sortable exact
+  abbreviation: ''
+- name: shortname.collation_en
+  description: Short name field for English collation-aware sorting
+  type: string
+  attributes: sortable
+  abbreviation: ''
+- name: status
+  description: Whether country has an active situation
+  type: string
+  attributes: searchable facetable
+  abbreviation: ''
+- name: url
+  description: Canonical url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: url_alias
+  description: Friendly' url of the country
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: uuid
+  description: UUID of the document or term
+  type: string
+  attributes: searchable
+  abbreviation: ''

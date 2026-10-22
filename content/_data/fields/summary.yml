@@ -1,0 +1,1345 @@
+- name: attached_image
+  type: integer
+  abbreviation: ''
+  content_types:
+  - blog
+- name: attached_image.filename
+  type: string
+  abbreviation: ''
+  content_types:
+  - blog
+- name: attached_image.id
+  type: integer
+  abbreviation: ''
+  content_types:
+  - blog
+- name: attached_image.mimetype
+  type: string
+  abbreviation: ''
+  content_types:
+  - blog
+- name: attached_image.url
+  type: string
+  abbreviation: ''
+  content_types:
+  - blog
+- name: attached_image.url-large
+  type: string
+  abbreviation: ''
+  content_types:
+  - blog
+- name: attached_image.url-small
+  type: string
+  abbreviation: ''
+  content_types:
+  - blog
+- name: attached_image.url-thumb
+  type: string
+  abbreviation: ''
+  content_types:
+  - blog
+- name: author
+  type: string
+  abbreviation: ''
+  content_types:
+  - blog
+- name: body
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - blog
+- name: body-html
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - blog
+- name: career_categories
+  type: string
+  abbreviation: ''
+  content_types:
+  - jobs
+  - training
+- name: career_categories.id
+  type: integer
+  abbreviation: CC
+  content_types:
+  - jobs
+  - training
+- name: career_categories.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - jobs
+  - training
+- name: city
+  type: string
+  abbreviation: ''
+  content_types:
+  - jobs
+  - training
+- name: city.id
+  type: integer
+  abbreviation: ''
+  content_types:
+  - jobs
+  - training
+- name: city.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - jobs
+  - training
+- name: content_type
+  type: array
+  abbreviation: ''
+  content_types:
+  - sources
+- name: cost
+  type: string
+  abbreviation: ''
+  content_types:
+  - training
+- name: country
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - disasters
+  - sources
+- name: country.id
+  type: integer
+  abbreviation: C
+  content_types:
+  - reports
+  - jobs
+  - training
+  - disasters
+  - sources
+- name: country.iso3
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - disasters
+  - sources
+- name: country.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - disasters
+  - sources
+- name: country.primary
+  type: boolean
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - disasters
+  - sources
+- name: country.shortname
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - disasters
+  - sources
+- name: current
+  type: boolean
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: date
+  type: object
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - topics
+  - countries
+  - disasters
+  - sources
+  - blog
+- name: date.changed
+  type: date
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - topics
+  - countries
+  - disasters
+  - sources
+  - blog
+- name: date.closing
+  type: date
+  abbreviation: DC
+  content_types:
+  - jobs
+- name: date.created
+  type: date
+  abbreviation: DA
+  content_types:
+  - reports
+  - jobs
+  - training
+  - topics
+  - countries
+  - disasters
+  - sources
+  - blog
+- name: date.end
+  type: date
+  abbreviation: DE
+  content_types:
+  - training
+- name: date.event
+  type: date
+  abbreviation: ''
+  content_types:
+  - disasters
+- name: date.original
+  type: date
+  abbreviation: DO
+  content_types:
+  - reports
+- name: date.registration
+  type: date
+  abbreviation: DR
+  content_types:
+  - training
+- name: date.start
+  type: date
+  abbreviation: DS
+  content_types:
+  - training
+- name: description
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+  - sources
+- name: description-html
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+  - sources
+- name: disaster
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: disaster.glide
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: disaster.id
+  type: integer
+  abbreviation: D
+  content_types:
+  - reports
+- name: disaster.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: disaster.status
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: disaster.type
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: disaster.type.code
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: disaster.type.id
+  type: integer
+  abbreviation: ''
+  content_types:
+  - reports
+- name: disaster.type.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: disaster.type.primary
+  type: boolean
+  abbreviation: ''
+  content_types:
+  - reports
+- name: disaster_type
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - topics
+- name: disaster_type.code
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - topics
+- name: disaster_type.id
+  type: integer
+  abbreviation: DT
+  content_types:
+  - reports
+  - topics
+- name: disaster_type.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - topics
+- name: disclaimer
+  type: string
+  abbreviation: ''
+  content_types:
+  - sources
+- name: experience
+  type: string
+  abbreviation: ''
+  content_types:
+  - jobs
+- name: experience.id
+  type: integer
+  abbreviation: E
+  content_types:
+  - jobs
+- name: experience.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - jobs
+- name: feature
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: feature.id
+  type: integer
+  abbreviation: ''
+  content_types:
+  - reports
+- name: feature.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: featured
+  type: boolean
+  abbreviation: ''
+  content_types:
+  - topics
+  - countries
+  - disasters
+- name: fee_information
+  type: string
+  abbreviation: ''
+  content_types:
+  - training
+- name: file
+  type: array
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: file.description
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: file.filehash
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: file.filename
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: file.filesize
+  type: integer
+  abbreviation: ''
+  content_types:
+  - reports
+- name: file.id
+  type: integer
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: file.mimetype
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: file.pagecount
+  type: integer
+  abbreviation: ''
+  content_types:
+  - reports
+- name: file.preview
+  type: array
+  abbreviation: ''
+  content_types:
+  - reports
+- name: file.preview.url
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: file.preview.url-large
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: file.preview.url-small
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: file.preview.url-thumb
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: file.url
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: file.uuid
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: format
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - training
+- name: format.id
+  type: integer
+  abbreviation: F
+  content_types:
+  - reports
+  - training
+- name: format.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - training
+- name: fts_id
+  type: number
+  abbreviation: ''
+  content_types:
+  - sources
+- name: glide
+  type: string
+  abbreviation: ''
+  content_types:
+  - disasters
+- name: headline
+  type: array
+  abbreviation: ''
+  content_types:
+  - reports
+- name: headline.image
+  type: array
+  abbreviation: ''
+  content_types:
+  - reports
+- name: headline.image.caption
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: headline.image.copyright
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: headline.image.filename
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: headline.image.id
+  type: integer
+  abbreviation: ''
+  content_types:
+  - reports
+- name: headline.image.mimetype
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: headline.image.url
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: headline.summary
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: headline.title
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: homepage
+  type: string
+  abbreviation: ''
+  content_types:
+  - sources
+- name: how_to_apply
+  type: string
+  abbreviation: ''
+  content_types:
+  - jobs
+- name: how_to_apply-html
+  type: string
+  abbreviation: ''
+  content_types:
+  - jobs
+- name: how_to_register
+  type: string
+  abbreviation: ''
+  content_types:
+  - training
+- name: how_to_register-html
+  type: string
+  abbreviation: ''
+  content_types:
+  - training
+- name: icon
+  type: object
+  abbreviation: ''
+  content_types:
+  - topics
+- name: icon.filename
+  type: integer
+  abbreviation: ''
+  content_types:
+  - topics
+- name: icon.filesize
+  type: integer
+  abbreviation: ''
+  content_types:
+  - topics
+- name: icon.height
+  type: integer
+  abbreviation: ''
+  content_types:
+  - topics
+- name: icon.id
+  type: integer
+  abbreviation: ''
+  content_types:
+  - topics
+- name: icon.mimetype
+  type: string
+  abbreviation: ''
+  content_types:
+  - topics
+- name: icon.url
+  type: string
+  abbreviation: ''
+  content_types:
+  - topics
+- name: icon.width
+  type: integer
+  abbreviation: ''
+  content_types:
+  - topics
+- name: id
+  type: integer
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - topics
+  - countries
+  - disasters
+  - sources
+  - blog
+- name: image
+  type: integer
+  abbreviation: ''
+  content_types:
+  - reports
+  - blog
+- name: image.caption
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - blog
+- name: image.copyright
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - blog
+- name: image.filename
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - blog
+- name: image.id
+  type: integer
+  abbreviation: ''
+  content_types:
+  - reports
+  - blog
+- name: image.mimetype
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - blog
+- name: image.url
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - blog
+- name: image.url-large
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - blog
+- name: image.url-small
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - blog
+- name: image.url-thumb
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - blog
+- name: introduction
+  type: string
+  abbreviation: ''
+  content_types:
+  - topics
+- name: introduction-html
+  type: string
+  abbreviation: ''
+  content_types:
+  - topics
+- name: iso3
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+- name: language
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: language.code
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: language.id
+  type: integer
+  abbreviation: L
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: language.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: logo
+  type: object
+  abbreviation: ''
+  content_types:
+  - sources
+- name: logo.filename
+  type: string
+  abbreviation: ''
+  content_types:
+  - sources
+- name: logo.filesize
+  type: string
+  abbreviation: ''
+  content_types:
+  - sources
+- name: logo.height
+  type: integer
+  abbreviation: ''
+  content_types:
+  - sources
+- name: logo.id
+  type: integer
+  abbreviation: ''
+  content_types:
+  - sources
+- name: logo.mimetype
+  type: string
+  abbreviation: ''
+  content_types:
+  - sources
+- name: logo.url
+  type: string
+  abbreviation: ''
+  content_types:
+  - sources
+- name: logo.width
+  type: integer
+  abbreviation: ''
+  content_types:
+  - sources
+- name: longname
+  type: string
+  abbreviation: ''
+  content_types:
+  - sources
+- name: longname.collation_en
+  type: string
+  abbreviation: ''
+  content_types:
+  - sources
+- name: name
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+  - sources
+- name: name.collation_en
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+  - sources
+- name: ocha_product
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: ocha_product.id
+  type: integer
+  abbreviation: ''
+  content_types:
+  - reports
+- name: ocha_product.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: origin
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: overview
+  type: string
+  abbreviation: ''
+  content_types:
+  - topics
+- name: overview-html
+  type: string
+  abbreviation: ''
+  content_types:
+  - topics
+- name: primary_country
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - disasters
+- name: primary_country.id
+  type: integer
+  abbreviation: PC
+  content_types:
+  - reports
+  - disasters
+- name: primary_country.iso3
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - disasters
+- name: primary_country.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - disasters
+- name: primary_country.shortname
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - disasters
+- name: primary_type
+  type: string
+  abbreviation: ''
+  content_types:
+  - disasters
+- name: primary_type.code
+  type: string
+  abbreviation: ''
+  content_types:
+  - disasters
+- name: primary_type.id
+  type: integer
+  abbreviation: ''
+  content_types:
+  - disasters
+- name: primary_type.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - disasters
+- name: profile
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.appeals_response_plans
+  type: array
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.appeals_response_plans.active
+  type: array
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.appeals_response_plans.active.image
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.appeals_response_plans.active.title
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.appeals_response_plans.active.url
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.appeals_response_plans.archive
+  type: array
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.appeals_response_plans.archive.image
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.appeals_response_plans.archive.title
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.appeals_response_plans.archive.url
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.appeals_response_plans.title
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.key_content
+  type: array
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.key_content.active
+  type: array
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.key_content.active.image
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.key_content.active.title
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.key_content.active.url
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.key_content.archive
+  type: array
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.key_content.archive.image
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.key_content.archive.title
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.key_content.archive.url
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.key_content.title
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.overview
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.overview-html
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.useful_links
+  type: array
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.useful_links.active
+  type: array
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.useful_links.active.image
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.useful_links.active.title
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.useful_links.active.url
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: profile.useful_links.title
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - disasters
+- name: redirects
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - topics
+  - countries
+  - disasters
+  - sources
+  - blog
+- name: related_glide
+  type: array
+  abbreviation: ''
+  content_types:
+  - disasters
+- name: resources
+  type: string
+  abbreviation: ''
+  content_types:
+  - topics
+- name: resources-html
+  type: string
+  abbreviation: ''
+  content_types:
+  - topics
+- name: rivers
+  type: array
+  abbreviation: ''
+  content_types:
+  - topics
+- name: rivers.id
+  type: string
+  abbreviation: ''
+  content_types:
+  - topics
+- name: rivers.override
+  type: integer
+  abbreviation: ''
+  content_types:
+  - topics
+- name: rivers.title
+  type: string
+  abbreviation: ''
+  content_types:
+  - topics
+- name: rivers.url
+  type: string
+  abbreviation: ''
+  content_types:
+  - topics
+- name: shortname
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - sources
+- name: shortname.collation_en
+  type: string
+  abbreviation: ''
+  content_types:
+  - countries
+  - sources
+- name: source
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: source.disclaimer
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: source.homepage
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: source.id
+  type: integer
+  abbreviation: S
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: source.longname
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: source.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: source.shortname
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: source.spanish_name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: source.type
+  type: array
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: source.type.id
+  type: integer
+  abbreviation: ST
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: source.type.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+- name: spanish_name
+  type: string
+  abbreviation: ''
+  content_types:
+  - sources
+- name: spanish_name.collation_es
+  type: string
+  abbreviation: ''
+  content_types:
+  - sources
+- name: status
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - topics
+  - countries
+  - disasters
+  - sources
+  - blog
+- name: tags
+  type: string
+  abbreviation: ''
+  content_types:
+  - blog
+- name: tags.id
+  type: number
+  abbreviation: ''
+  content_types:
+  - blog
+- name: tags.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - blog
+- name: theme
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - topics
+- name: theme.id
+  type: integer
+  abbreviation: T
+  content_types:
+  - reports
+  - jobs
+  - training
+  - topics
+- name: theme.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - topics
+- name: title
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - topics
+  - blog
+- name: training_language
+  type: string
+  abbreviation: ''
+  content_types:
+  - training
+- name: training_language.code
+  type: string
+  abbreviation: ''
+  content_types:
+  - training
+- name: training_language.id
+  type: integer
+  abbreviation: TL
+  content_types:
+  - training
+- name: training_language.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - training
+- name: type
+  type: string
+  abbreviation: ''
+  content_types:
+  - jobs
+  - training
+  - disasters
+  - sources
+- name: type.code
+  type: string
+  abbreviation: ''
+  content_types:
+  - disasters
+- name: type.id
+  type: integer
+  abbreviation: TY
+  content_types:
+  - jobs
+  - training
+  - disasters
+  - sources
+- name: type.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - jobs
+  - training
+  - disasters
+  - sources
+- name: type.primary
+  type: boolean
+  abbreviation: ''
+  content_types:
+  - disasters
+- name: url
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - topics
+  - countries
+  - disasters
+  - sources
+  - blog
+- name: url_alias
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - topics
+  - countries
+  - disasters
+  - sources
+  - blog
+- name: uuid
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+  - jobs
+  - training
+  - topics
+  - countries
+  - disasters
+  - sources
+  - blog
+- name: vulnerable_groups
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
+- name: vulnerable_groups.id
+  type: integer
+  abbreviation: ''
+  content_types:
+  - reports
+- name: vulnerable_groups.name
+  type: string
+  abbreviation: ''
+  content_types:
+  - reports
