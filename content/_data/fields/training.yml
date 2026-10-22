@@ -1,0 +1,321 @@
+- name: body
+  description: Training description in Markdown format
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: body-html
+  description: Training description in HTML format
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: career_categories
+  description: Shortcut for career categories - defaults to career_categories.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: career_categories.id
+  description: Id for career categories used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: CC
+- name: career_categories.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: city
+  description: Shortcut for city - defaults to city.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: city.id
+  description: Id of city used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: ''
+- name: city.name
+  description: Name of city in English
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: cost
+  description: free or fee-based
+  type: string
+  attributes: searchable facetable
+  abbreviation: ''
+- name: country
+  description: Shortcut for country - defaults to country.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: country.id
+  description: Id for country used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: C
+- name: country.iso3
+  description: ISO 3166-1 alpha-3 code
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: country.name
+  description: Name of country in English
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: country.primary
+  description: Flag to indicate this is the primary country
+  type: boolean
+  attributes: ''
+  abbreviation: ''
+- name: country.shortname
+  description: Short name of country where applicable, for example 'Syria' for 'Syrian Arab Republic'
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: date
+  description: Shortcut for date - defaults to date.created
+  type: object
+  attributes: facetable
+  abbreviation: ''
+- name: date.changed
+  description: Date entry modified on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: ''
+- name: date.created
+  description: Date entry created on ReliefWeb (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: DA
+- name: date.end
+  description: Date training ends (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: DE
+- name: date.registration
+  description: Date registration closes (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: DR
+- name: date.start
+  description: Date training starts (ISO 8601)
+  type: date
+  attributes: sortable facetable
+  abbreviation: DS
+- name: fee_information
+  description: Fee information for the training
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: file
+  description: Shortcut for file attachment - defaults to file.id
+  type: array
+  attributes: multi
+  abbreviation: ''
+- name: file.description
+  description: Description of the file attachment
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: file.filename
+  description: File name of the attachment
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: file.id
+  description: Id for file attachment used by ReliefWeb
+  type: integer
+  attributes: searchable
+  abbreviation: ''
+- name: file.mimetype
+  description: MIME type of the file attachment
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: file.url
+  description: URL of the file attachment
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: format
+  description: Shortcut for training format - defaults to format.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: format.id
+  description: Id for training format used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: F
+- name: format.name
+  description: Link to values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: how_to_register
+  description: Registration information in Markdown format
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: how_to_register-html
+  description: Registration information in HTML format
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: id
+  description: Unique id for training opportunity used by ReliefWeb
+  type: integer
+  attributes: searchable sortable
+  abbreviation: ''
+- name: language
+  description: Shortcut for language - defaults to language.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: language.code
+  description: ISO 639-1 code of the language the entry is written in
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: language.id
+  description: Id for language used by ReliefWeb
+  type: integer
+  attributes: facetable
+  abbreviation: L
+- name: language.name
+  description: Language in which post is written (not necessarily language in which the training
+    will be held). Link for values.
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: redirects
+  description: Previous URL aliases that redirect to this item
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: source
+  description: Shortcut for source - defaults to source.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: source.homepage
+  description: URL of the source's primary website
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: source.id
+  description: Id for source used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: S
+- name: source.longname
+  description: Official name of the source if different from source.name
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: source.name
+  description: Common name of source
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: source.shortname
+  description: Short name of the source, typically an acronym e.g. UNICEF
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: source.spanish_name
+  description: Spanish name of the source
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: source.type
+  description: Shortcut for source type - defaults to source.type.name
+  type: array
+  attributes: facetable exact common
+  abbreviation: ''
+- name: source.type.id
+  description: Id for source type used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: ST
+- name: source.type.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: status
+  description: Whether training is still current
+  type: string
+  attributes: searchable facetable
+  abbreviation: ''
+- name: theme
+  description: Shortcut for theme - defaults to theme.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: theme.id
+  description: Id for theme used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: T
+- name: theme.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: title
+  description: Title of course
+  type: string
+  attributes: searchable sortable exact
+  abbreviation: ''
+- name: training_language
+  description: Language training is held in, defaults to training_language.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: training_language.code
+  description: Code of language training is held in
+  type: string
+  attributes: facetable exact
+  abbreviation: ''
+- name: training_language.id
+  description: Id of language training is held in
+  type: integer
+  attributes: facetable
+  abbreviation: TL
+- name: training_language.name
+  description: Name of language training is held in. Link for values.
+  type: string
+  attributes: facetable exact
+  abbreviation: ''
+- name: type
+  description: Shortcut for type - defaults to type.name
+  type: string
+  attributes: searchable facetable exact multi common
+  abbreviation: ''
+- name: type.id
+  description: Id for training type used by ReliefWeb
+  type: integer
+  attributes: searchable facetable
+  abbreviation: TY
+- name: type.name
+  description: Link for values
+  type: string
+  attributes: searchable facetable exact
+  abbreviation: ''
+- name: url
+  description: Canonical url
+  type: string
+  attributes: ''
+  abbreviation: ''
+- name: url_alias
+  description: Friendly' url of the training
+  type: string
+  attributes: searchable
+  abbreviation: ''
+- name: uuid
+  description: UUID of the document or term
+  type: string
+  attributes: searchable
+  abbreviation: ''

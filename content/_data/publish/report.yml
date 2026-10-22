@@ -1,0 +1,233 @@
+schema_url: "https://reliefweb.int/post-api-schemas/v2/report.json"
+fields_path: "/publish/reports/fields/"
+required:
+  - url
+  - uuid
+  - title
+  - source
+  - country
+  - format
+  - language
+  - published
+  - body
+fields:
+  - name: url
+    required: true
+    type: "string (IRI / URL)"
+    description: "Immutable unique identifier in URL form under your trusted document prefix. Used to generate the document UUID. Does not need to resolve to a live page. Never change it after first submission."
+    example: "https://myorganization.org/report/12345"
+    validation:
+      - "Must start with a trusted document prefix"
+      - "Max length 2048"
+      - "Never change after the first successful submission"
+    identifier: url
+    see_also:
+      - label: Trusted URLs and UUIDs
+        path: /publish/urls-and-uuids/
+  - name: uuid
+    required: true
+    type: "string (UUID v5)"
+    description: "Document UUID v5 computed as `uuid5(ReliefWeb namespace, url)`. Must match what the server computes from the exact url string."
+    example: "c27c51bd-e6b6-5c09-91fd-ef122afdde8e"
+    validation:
+      - "Must be UUID format"
+      - "Must equal `uuid5('8e27a998-c362-5d1f-b152-d474e1d36af2', url)`"
+      - "Rejected if it does not match the server computation"
+    identifier: uuid
+    see_also:
+      - label: Trusted URLs and UUIDs
+        path: /publish/urls-and-uuids/
+  - name: title
+    required: true
+    type: "string"
+    description: "Original title of the article or file. For series, add date or other distinguishing details as needed."
+    example: "Example situation report for Country X"
+    validation:
+      - "Length 10–255 characters"
+      - "Must contain letters"
+      - "No leading, trailing, or consecutive spaces"
+    identifier: none
+  - name: source
+    required: true
+    type: "array of integer"
+    description: "Source organization ID(s) from /v2/sources (ReliefWeb integer taxonomy IDs, not UUIDs)."
+    example: [1503]
+    validation:
+      - "1–30 unique integer IDs"
+      - "Each value must be a valid `/v2/sources` id"
+    identifier: taxonomy
+    lookup: "/v2/sources"
+    lookup_docs: /read/resources/sources/
+  - name: country
+    required: true
+    type: "array of integer"
+    description: "Country ID(s) from /v2/countries. The first entry is the primary country. Tag only the most relevant."
+    example: [13]
+    validation:
+      - "1–300 unique integer IDs"
+      - "First id is treated as the primary country"
+      - "Each value must be a valid `/v2/countries` id"
+    identifier: taxonomy
+    lookup: "/v2/countries"
+    lookup_docs: /read/resources/countries/
+  - name: format
+    required: true
+    type: "array of integer"
+    description: "Single content-format ID from /v2/references/content-formats."
+    example: [10]
+    validation:
+      - "Exactly one integer ID (`minItems` 1, `maxItems` 1)"
+      - "Must be a valid content-formats reference id"
+    identifier: taxonomy
+    lookup: "/v2/references/content-formats"
+    lookup_docs: /read/resources/references/
+  - name: language
+    required: true
+    type: "array of integer"
+    description: "Language ID(s) from /v2/references/languages. If an attachment is not in an official UN language, mention that in the attachment description."
+    example: [267]
+    validation:
+      - "1–10 unique integer IDs"
+      - "Must be valid languages reference ids"
+    identifier: taxonomy
+    lookup: "/v2/references/languages"
+    lookup_docs: /read/resources/references/
+  - name: published
+    required: true
+    type: "string (date-time)"
+    description: "Original publication date-time (ISO 8601) of the document."
+    example: "2024-06-06T01:00:00+00:00"
+    validation:
+      - "ISO 8601 date-time"
+    identifier: none
+  - name: body
+    required: true
+    type: "string (markdown or HTML)"
+    description: "Full article text, or an executive summary when the main content is a PDF attachment. Markdown or a small set of HTML tags."
+    example: "Short overview or full article text in markdown or HTML."
+    validation:
+      - "Length 10–100000 characters"
+      - "Must contain letters"
+      - "Allowed HTML tags: `h1`–`h6`, `br`, `p`, `strong`, `em`, `a`, `ul`, `ol`, `li`, `blockquote`"
+    identifier: none
+  - name: embargoed
+    required: false
+    type: "string (date-time)"
+    description: "UTC/GMT date-time until which the document stays embargoed; it publishes automatically at that time."
+    example: "2024-06-06T07:00:00+00:00"
+    validation:
+      - "ISO 8601 date-time in UTC/GMT"
+    identifier: none
+  - name: origin
+    required: false
+    type: "string (IRI / URL)"
+    description: "Optional real public page where readers can view the document. Unlike url, this should resolve to a live page."
+    example: "https://myorganization.org/report/12345/view"
+    validation:
+      - "Valid IRI / URL"
+      - "Max length 2048"
+      - "Should be a real, accessible link when provided"
+    identifier: url
+  - name: file
+    required: false
+    type: "object (UUID-keyed map)"
+    description: "PDF attachments keyed by permanent file UUID (max 10, 20MB each). Each value needs `uuid`, `download_url`, `filename`, `checksum`; `url` required on create. Use your organization domain for `url`; `download_url` may use a CDN. On `PUT`, the map replaces the whole attachment set; on `PATCH`, keys merge (`null` deletes that attachment)."
+    example_json: |
+      {
+        "78d63e84-e2b4-5467-813d-1c2456f40d63": {
+          "uuid": "78d63e84-e2b4-5467-813d-1c2456f40d63",
+          "url": "https://myorganization.org/report/12345/attachment.pdf",
+          "download_url": "https://myorganization.org/report/12345/attachment.pdf",
+          "filename": "attachment.pdf",
+          "checksum": "42fffa6c0e84ebab15f0f1ead8319efc448d0d883a0b492528997b4f17989755",
+          "description": "First attachment",
+          "language": "en"
+        }
+      }
+    validation:
+      - "Map keyed by permanent file UUID (not a JSON array)"
+      - "Max 10 attachments; max 20MB each"
+      - "`filename` must end in lowercase `.pdf`"
+      - "`checksum` is lowercase SHA-256 of the bytes at `download_url`"
+
+    identifier: uuid
+    see_also:
+      - label: Files and images
+        path: /publish/files-and-images/
+      - label: Trusted URLs and UUIDs
+        path: /publish/urls-and-uuids/
+  - name: file_order
+    required: false
+    type: "array of UUID"
+    description: "Optional display order of attachment UUIDs. Unlisted attachments keep relative order at the end; unknown ids are ignored."
+    example:
+      - "78d63e84-e2b4-5467-813d-1c2456f40d63"
+    validation:
+      - "1–10 unique UUIDs when present"
+      - "Omit to preserve existing order (new attachments append)"
+    identifier: uuid
+    see_also:
+      - label: Files and images
+        path: /publish/files-and-images/
+  - name: image
+    required: false
+    type: "object"
+    description: "Cover or illustration image. Required properties: `download_url`, `checksum`, `description`, `copyright`. No client-supplied `uuid`. Sending an `image` object replaces the whole cover; on `PATCH`, send `\"image\": null` to remove it."
+    example_json: |
+      {
+        "download_url": "https://myorganization.org/images/report-12345.png",
+        "checksum": "c24863f6aa2065dd5071a831ee78439260ea72983799dd3e88fbfb4aa08fdc18",
+        "description": "Test image",
+        "copyright": "Test NGO"
+      }
+    validation:
+      - "`download_url` must end in `.jpg`, `.png`, or `.webp` (no query string)"
+      - "`checksum` is lowercase SHA-256"
+      - "Min width 700px; max file size 5MB"
+    identifier: url
+    see_also:
+      - label: Files and images
+        path: /publish/files-and-images/
+  - name: disaster
+    required: false
+    type: "array of integer"
+    description: "Disaster ID(s) from /v2/disasters. Tag only the most relevant."
+    example: [51754]
+    validation:
+      - "Optional; max 30 unique integer IDs"
+      - "Must be valid `/v2/disasters` ids"
+    identifier: taxonomy
+    lookup: "/v2/disasters"
+    lookup_docs: /read/resources/disasters/
+  - name: disaster_type
+    required: false
+    type: "array of integer"
+    description: "Disaster-type ID(s) from /v2/references/disaster-types. Tag only the most relevant."
+    example: [4628]
+    validation:
+      - "Optional; max 30 unique integer IDs"
+      - "Must be valid disaster-types reference ids"
+    identifier: taxonomy
+    lookup: "/v2/references/disaster-types"
+    lookup_docs: /read/resources/references/
+  - name: theme
+    required: false
+    type: "array of integer"
+    description: "Theme ID(s) from /v2/references/themes. Tag only the most relevant."
+    example: [4587, 4595]
+    validation:
+      - "Optional; max 20 unique integer IDs"
+      - "Must be valid themes reference ids"
+    identifier: taxonomy
+    lookup: "/v2/references/themes"
+    lookup_docs: /read/resources/references/
+  - name: notify
+    required: false
+    type: "array of string (email)"
+    description: "Email addresses to notify when the document is published."
+    example:
+      - "editor@myorganization.org"
+    validation:
+      - "Optional; max 10 email addresses"
+      - "Each value must be a valid email"
+    identifier: none

@@ -1,0 +1,210 @@
+schema_url: "https://reliefweb.int/post-api-schemas/v2/training.json"
+fields_path: "/publish/training/fields/"
+required:
+  - url
+  - uuid
+  - title
+  - source
+  - format
+  - event_url
+  - cost
+  - category
+  - training_language
+  - language
+  - body
+  - how_to_register
+fields:
+  - name: url
+    required: true
+    type: "string (IRI / URL)"
+    description: "Immutable unique identifier in URL form under your trusted document prefix. Used to generate the training UUID. Does not need to resolve to a live page. Never change after first submission."
+    example: "https://myorganization.org/training/12345"
+    validation:
+      - "Must start with a trusted document prefix"
+      - "Max length 2048"
+      - "Never change after the first successful submission"
+    identifier: url
+    see_also:
+      - label: Trusted URLs and UUIDs
+        path: /publish/urls-and-uuids/
+  - name: uuid
+    required: true
+    type: "string (UUID v5)"
+    description: "Training UUID v5 computed as `uuid5(ReliefWeb namespace, url)`. Must match what the server computes from the exact url string."
+    example: "c2484d60-fa5d-591e-bcdd-401ffa63b92c"
+    validation:
+      - "Must be UUID format"
+      - "Must equal `uuid5('8e27a998-c362-5d1f-b152-d474e1d36af2', url)`"
+      - "Rejected if it does not match the server computation"
+    identifier: uuid
+    see_also:
+      - label: Trusted URLs and UUIDs
+        path: /publish/urls-and-uuids/
+  - name: title
+    required: true
+    type: "string"
+    description: "Training title only. Do not put location, date, or organization name in this field."
+    example: "Example Introduction to Humanitarian Response"
+    validation:
+      - "Length 10–255 characters"
+      - "Must contain letters"
+      - "No leading, trailing, or consecutive spaces"
+    identifier: none
+  - name: source
+    required: true
+    type: "array of integer"
+    description: "Source organization ID(s) from /v2/sources (ReliefWeb integer taxonomy IDs, not UUIDs)."
+    example: [1503]
+    validation:
+      - "1–30 unique integer IDs"
+      - "Each value must be a valid `/v2/sources` id"
+    identifier: taxonomy
+    lookup: "/v2/sources"
+    lookup_docs: /read/resources/sources/
+  - name: format
+    required: true
+    type: "array of integer"
+    description: "Training-format ID(s) from /v2/references/training-formats (on-site and/or online). On-site id is 4606; online is 4607."
+    example: [4607]
+    validation:
+      - "1–2 unique integer IDs"
+      - "Must be valid training-formats reference ids"
+    identifier: taxonomy
+    lookup: "/v2/references/training-formats"
+    lookup_docs: /read/resources/references/
+  - name: country
+    required: conditional
+    conditional: "Required when format includes on-site (id 4606); omit (do not send) otherwise"
+    type: "array of integer"
+    description: "Country ID(s) from /v2/countries. Mandatory when format includes on-site; otherwise the property is not allowed."
+    example: [13]
+    validation:
+      - "When required: 1–300 unique integer IDs"
+      - "Each value must be a valid `/v2/countries` id"
+      - "Omit entirely for online-only offerings"
+    identifier: taxonomy
+    lookup: "/v2/countries"
+    lookup_docs: /read/resources/countries/
+  - name: dates
+    required: false
+    type: "object"
+    description: "Training dates. Omit the whole object if the offering is ongoing or always available. When present, all three properties are required."
+    example_json: |
+      {
+        "start": "2026-09-01T09:00:00+00:00",
+        "end": "2026-09-05T17:00:00+00:00",
+        "registration_deadline": "2026-08-15T00:00:00+00:00"
+      }
+    validation:
+      - "Optional object; omit for ongoing / always-available courses"
+      - "If present, must include `start`, `end`, and `registration_deadline`"
+      - "Each value is ISO 8601 date-time"
+      - "Ads expire after `registration_deadline`"
+    identifier: none
+  - name: event_url
+    required: true
+    type: "string (IRI / URL)"
+    description: "Public page with more information about the opportunity. Do not use a social media URL here (you may mention social links in body)."
+    example: "https://myorganization.org/training/12345/register"
+    validation:
+      - "Valid IRI / URL"
+      - "Max length 2048"
+      - "No social media profile URLs"
+    identifier: url
+  - name: cost
+    required: true
+    type: "string (enum)"
+    description: "Whether the training is free or fee-based."
+    example: "fee-based"
+    validation:
+      - "Exactly one of: `free`, `fee-based`"
+    identifier: none
+  - name: fee_information
+    required: conditional
+    conditional: "Required when cost is fee-based; omit (do not send) when cost is free"
+    type: "string"
+    description: "Exact course fee and what it does and does not cover (plain text). Cannot be replaced by a link alone."
+    example: "USD 250 covers tuition and materials."
+    validation:
+      - "Length 10–100000 characters when present"
+      - "Must contain letters"
+      - "Plain text with the actual fee details — not only a URL"
+    identifier: none
+  - name: category
+    required: true
+    type: "array of integer"
+    description: "Single training-type ID from /v2/references/training-types."
+    example: [4609]
+    validation:
+      - "Exactly one integer ID (`minItems` 1, `maxItems` 1)"
+      - "Must be a valid training-types reference id"
+    identifier: taxonomy
+    lookup: "/v2/references/training-types"
+    lookup_docs: /read/resources/references/
+  - name: training_language
+    required: true
+    type: "array of integer"
+    description: "Language(s) in which the course or event is held, from /v2/references/languages."
+    example: [267]
+    validation:
+      - "1–10 unique integer IDs"
+      - "Must be valid languages reference ids"
+    identifier: taxonomy
+    lookup: "/v2/references/languages"
+    lookup_docs: /read/resources/references/
+  - name: professional_function
+    required: false
+    type: "array of integer"
+    description: "Career-category ID(s) from /v2/references/career-categories. Tag only the most relevant (over-tagging reduces discoverability)."
+    example: [36601]
+    validation:
+      - "Optional; max 3 unique integer IDs"
+      - "Must be valid career-categories reference ids"
+    identifier: taxonomy
+    lookup: "/v2/references/career-categories"
+    lookup_docs: /read/resources/references/
+  - name: theme
+    required: false
+    type: "array of integer"
+    description: "Single theme ID from /v2/references/themes. Choose only the most relevant."
+    example: [4587]
+    validation:
+      - "Optional; at most one integer ID (`maxItems` 1)"
+      - "Must be a valid themes reference id"
+    identifier: taxonomy
+    lookup: "/v2/references/themes"
+    lookup_docs: /read/resources/references/
+  - name: language
+    required: true
+    type: "array of integer"
+    description: "Language(s) of this advertisement (English, Spanish, or French), from /v2/references/languages. This is the language of the ad text, not the course language."
+    example: [267]
+    validation:
+      - "1–10 unique integer IDs"
+      - "Advertisement must be in English, Spanish, or French"
+      - "Must be valid languages reference ids"
+    identifier: taxonomy
+    lookup: "/v2/references/languages"
+    lookup_docs: /read/resources/references/
+  - name: body
+    required: true
+    type: "string (markdown or HTML)"
+    description: "Complete training description (introduction, methodology, objectives, audience). Do not replace with a link for further details."
+    example: "Course overview and learning objectives in markdown or HTML."
+    validation:
+      - "Length 10–100000 characters"
+      - "Must contain letters"
+      - "Allowed HTML tags: `h1`–`h6`, `br`, `p`, `strong`, `em`, `a`, `ul`, `ol`, `li`, `blockquote`"
+      - "Must contain the real description — not only a link"
+    identifier: none
+  - name: how_to_register
+    required: true
+    type: "string (markdown or HTML)"
+    description: "Registration steps, conditions, and contact details. Do not replace with a bare link. If none required, say so explicitly (for example “No registration required.”)."
+    example: "Register on the event URL before the listed deadline."
+    validation:
+      - "Length 10–100000 characters"
+      - "Must contain letters"
+      - "Same HTML allowlist as `body`"
+      - "Must include procedure/contact — not only a link"
+    identifier: none

@@ -1,0 +1,33 @@
+{% if include.resource == "summary" %}
+<table>
+  <thead>
+    <tr><th>Name</th><th>Type</th><th>Content types</th></tr>
+  </thead>
+  <tbody>
+  {% for row in site.data.fields.summary %}
+    <tr>
+      <td><code>{{ row.name }}</code></td>
+      <td>{{ row.type }}</td>
+      <td>{{ row.content_types | join: ", " }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+{% assign rows = site.data.fields[include.resource] %}
+<table>
+  <thead>
+    <tr><th>Name</th><th>Description</th><th>Type</th><th>Attributes</th></tr>
+  </thead>
+  <tbody>
+  {% for row in rows %}
+    <tr>
+      <td><code>{{ row.name }}</code></td>
+      <td>{{ row.description }}</td>
+      <td>{{ row.type }}</td>
+      <td>{{ row.attributes }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}

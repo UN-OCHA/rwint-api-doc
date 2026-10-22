@@ -1,0 +1,322 @@
+# Per-resource profile field sets and public preset effects.
+# Keep in sync with rwint-api ProfileRegistry.php and PresetRegistry.php.
+# Verify at runtime with verbose=1.
+
+reports:
+  profiles:
+    - name: minimal
+      fields: [title]
+    - name: list
+      fields:
+        - title
+        - url
+        - date.created
+        - status
+        - primary_country.name
+        - country.name
+        - source.name
+        - source.homepage
+    - name: full
+      all: true
+    - name: default
+      all: true
+  presets:
+    - name: minimal
+      status: [published, to-review]
+      sort: []
+      query_fields: [title]
+    - name: latest
+      status: [published, to-review]
+      sort: [date.created:desc]
+      query_fields:
+        - body
+        - country
+        - disaster
+        - disaster_type
+        - format.name
+        - headline.title
+        - headline.summary
+        - language
+        - primary_country
+        - source
+        - theme.name
+        - title
+        - vulnerable_groups
+    - name: analysis
+      status: [published, to-review]
+      sort: []
+      query_fields:
+        - body
+        - country
+        - disaster
+        - disaster_type
+        - format.name
+        - headline.title
+        - headline.summary
+        - language
+        - primary_country
+        - source
+        - status
+        - theme.name
+        - title
+        - vulnerable_groups
+
+disasters:
+  profiles:
+    - name: minimal
+      fields: [name]
+    - name: list
+      fields:
+        - name
+        - url
+        - date.created
+        - status
+        - glide
+        - type.name
+        - country.name
+    - name: suggest
+      fields: [name]
+      slim: true
+    - name: full
+      all: true
+    - name: default
+      all: true
+  presets:
+    - name: minimal
+      status: [alert, current, past]
+      sort: []
+      query_fields: [name]
+    - name: latest
+      status: [alert, current, past]
+      sort: [date.created:desc]
+      query_fields:
+        - name
+        - status
+        - glide
+        - description
+        - type
+        - country
+    - name: analysis
+      status: [alert, alert-archive, archive, current, past]
+      sort: []
+      query_fields:
+        - name
+        - glide
+        - description
+        - type
+        - country
+        - status
+
+countries:
+  profiles:
+    - name: minimal
+      fields: [name]
+    - name: list
+      fields: [name, status, url]
+    - name: suggest
+      fields: [name, shortname]
+      slim: true
+    - name: full
+      all: true
+    - name: default
+      all: true
+      omit_fields:
+        - profile.key_content.archive
+        - profile.appeals_response_plans.archive
+  presets:
+    - name: minimal
+      status: []
+      sort: []
+      query_fields: [name]
+    - name: latest
+      status: []
+      sort: [id:desc]
+      query_fields: [name, shortname, iso3]
+    - name: analysis
+      status: []
+      sort: []
+      query_fields: [name, shortname, iso3, status]
+
+jobs:
+  profiles:
+    - name: minimal
+      fields: [title]
+    - name: list
+      fields:
+        - title
+        - url
+        - date.created
+        - date.closing
+        - status
+        - country.name
+        - source.name
+    - name: full
+      all: true
+    - name: default
+      all: true
+  presets:
+    - name: minimal
+      status: [published]
+      sort: []
+      query_fields: [title]
+    - name: latest
+      status: [published]
+      sort: [date.created:desc]
+      query_fields:
+        - title
+        - body
+        - career_categories
+        - country
+        - how_to_apply
+        - source
+        - theme
+    - name: analysis
+      status: [published, expired]
+      sort: []
+      query_fields:
+        - title
+        - body
+        - career_categories
+        - country
+        - how_to_apply
+        - source
+        - status
+        - theme
+
+training:
+  profiles:
+    - name: minimal
+      fields: [title]
+    - name: list
+      fields:
+        - title
+        - url
+        - date.created
+        - date.start
+        - date.end
+        - date.registration
+        - status
+        - country.name
+        - source.name
+    - name: full
+      all: true
+    - name: default
+      all: true
+  presets:
+    - name: minimal
+      status: [published]
+      sort: []
+      query_fields: [title]
+    - name: latest
+      status: [published]
+      sort: [date.created:desc]
+      query_fields:
+        - body
+        - country
+        - format
+        - source
+        - theme
+        - title
+        - type
+        - how_to_register
+        - career_categories
+        - training_language
+    - name: analysis
+      status: [published, expired]
+      sort: []
+      query_fields:
+        - body
+        - country
+        - format
+        - source
+        - status
+        - theme
+        - title
+        - type
+
+sources:
+  profiles:
+    - name: minimal
+      fields: [name]
+    - name: list
+      fields: [name, shortname, homepage, status, url]
+    - name: suggest
+      fields: [name, shortname]
+      slim: true
+    - name: full
+      all: true
+    - name: default
+      all: true
+  presets:
+    - name: minimal
+      status: [active, inactive]
+      sort: []
+      query_fields: [name]
+    - name: latest
+      status: [active, inactive]
+      sort: [id:desc]
+      query_fields: [name, shortname, longname, spanish_name]
+    - name: analysis
+      status: [active, inactive, archive]
+      sort: []
+      query_fields: [name, shortname, longname, spanish_name, status]
+
+blog:
+  profiles:
+    - name: minimal
+      fields: [title]
+    - name: list
+      fields: [title, url, date.created, tags.name]
+    - name: full
+      all: true
+    - name: default
+      all: true
+  presets:
+    - name: minimal
+      status: [published]
+      sort: []
+      query_fields: [title]
+    - name: latest
+      status: [published]
+      sort: [date.created:desc]
+      query_fields: [title, body]
+    - name: analysis
+      status: [published]
+      sort: []
+      query_fields: [title, body]
+
+topics:
+  profiles:
+    - name: minimal
+      fields: [title]
+    - name: list
+      fields: [title, url, date.created, icon.url]
+    - name: full
+      all: true
+    - name: default
+      all: true
+  presets:
+    - name: minimal
+      status: [published]
+      sort: []
+      query_fields: [title]
+    - name: latest
+      status: [published]
+      sort: []
+      query_fields:
+        - title
+        - introduction
+        - overview
+        - resources
+        - theme
+        - disater_type
+    - name: analysis
+      status: [published]
+      sort: []
+      query_fields:
+        - title
+        - introduction
+        - overview
+        - resources
+        - theme
+        - disater_type

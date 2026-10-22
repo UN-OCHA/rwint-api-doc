@@ -1,5 +1,44 @@
-collections:
-  - meta
-  - parameters
-  - presets
-  - questions
+title: ReliefWeb API Documentation
+description: Documentation for the ReliefWeb API
+logo_text: "ReliefWeb API Docs"
+url: https://apidoc.reliefweb.int
+repository: UN-OCHA/rwint-api-doc
+encoding: utf-8
+
+# Site pages, data, includes, sass, and assets live under content/
+source: content
+
+# Extensionless CNAME must be explicitly included for some Jekyll builds
+include:
+  - CNAME
+
+remote_theme: just-the-docs/just-the-docs@v0.10.1
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+search_enabled: true
+heading_anchors: true
+color_scheme: rw
+
+logo: "/img/rw-api-logo.svg"
+favicon_ico: "/img/favicon.png"
+
+aux_links:
+  "OpenAPI":
+    - "https://api.reliefweb.int/v2/swagger/api"
+aux_links_new_tab: true
+
+callouts_level: quiet
+callouts:
+  warning:
+    color: red
+  note:
+    color: blue
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

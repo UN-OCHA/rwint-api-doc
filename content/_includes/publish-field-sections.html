@@ -1,0 +1,68 @@
+{% assign data = site.data.publish[include.resource] %}
+{% if data %}
+<p>Canonical schema: <a href="{{ data.schema_url }}">{{ data.schema_url | split: '/' | last }}</a>.</p>
+
+{% for row in data.fields %}
+<h2 id="field-{{ row.name }}"><code>{{ row.name }}</code></h2>
+
+<table>
+  <tbody>
+    <tr>
+      <th scope="row">Required</th>
+      <td>{% if row.required == true %}yes{% elsif row.required == false %}no{% else %}{{ row.required | escape }}{% endif %}{% if row.conditional %} — {{ row.conditional | escape }}{% endif %}</td>
+    </tr>
+    <tr>
+      <th scope="row">Type</th>
+      <td>{{ row.type | escape }}</td>
+    </tr>
+    {% if row.identifier and row.identifier != "none" %}
+    <tr>
+      <th scope="row">Identifier</th>
+      <td>
+        {% if row.identifier == "taxonomy" %}ReliefWeb <strong>integer</strong> taxonomy ID (not a UUID)
+        {% elsif row.identifier == "uuid" %}UUID v5
+        {% elsif row.identifier == "url" %}Trusted URL / IRI
+        {% else %}{{ row.identifier | escape }}{% endif %}
+      </td>
+    </tr>
+    {% endif %}
+    {% if row.lookup %}
+    <tr>
+      <th scope="row">Lookup</th>
+      <td><code>{{ row.lookup | escape }}</code>{% if row.lookup_docs %} — see <a href="{{ row.lookup_docs }}">docs</a>{% endif %}</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+
+<p>{{ row.description | markdownify }}</p>
+
+{% if row.example_json or row.example %}
+<p><strong>Example</strong></p>
+```json
+{% if row.example_json %}{{ row.example_json | strip }}{% else %}{{ row.example | jsonify }}{% endif %}
+```
+{% endif %}
+
+{% if row.validation %}
+<p><strong>Validation</strong></p>
+<ul>
+{% for rule in row.validation %}
+  <li>{{ rule | markdownify }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if row.see_also %}
+<p><strong>See also</strong></p>
+<ul>
+{% for link in row.see_also %}
+  <li><a href="{{ link.path }}">{{ link.label | escape }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% endfor %}
+{% else %}
+<p>No publish field data found for <code>{{ include.resource | escape }}</code>.</p>
+{% endif %}
