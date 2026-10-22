@@ -2,6 +2,7 @@ title: ReliefWeb API Documentation
 description: Documentation for the ReliefWeb API
 logo_text: "ReliefWeb API Docs"
 url: https://apidoc.reliefweb.int
+baseurl: ""
 repository: UN-OCHA/rwint-api-doc
 encoding: utf-8
 
