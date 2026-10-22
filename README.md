@@ -2,7 +2,7 @@
 
 Static documentation for the ReliefWeb API, built with **Jekyll** and the **[Just the Docs](https://just-the-docs.github.io/just-the-docs/)** remote theme. Hosted on GitHub Pages (`apidoc.reliefweb.int`).
 
-Site content and the Jekyll `Gemfile` live under `docs/` (GitHub Pages publishing folder). Repo root holds tooling (`local/`).
+Jekyll site files live at the repo root. Tooling is under `local/` (excluded from the Jekyll build).
 
 ## Local development
 
@@ -14,11 +14,11 @@ docker compose up
 
 First boot needs network access so Jekyll can fetch `remote_theme: just-the-docs/just-the-docs@v0.10.1`.
 
-Or locally: `cd docs && bundle exec jekyll serve` (requires `repository` in `_config.yml` for github-pages metadata).
+Or locally from the repo root: `bundle exec jekyll serve` (requires `repository` in `_config.yml` for github-pages metadata).
 
 ## GitHub Pages
 
-Publish from the branch with folder **`/docs`** (Settings → Pages → Build and deployment). `_config.yml` lives in `docs/` so the Pages Jekyll builder uses it as the site root.
+Publish from the branch with folder **`/`** (repo root). `_config.yml` excludes `local/`, `README.md`, and the Gemfile from the site build.
 
 ## Content layout (editors)
 
@@ -30,17 +30,17 @@ Home covers the shared `appname` credential (`/#appname`). Under each API, topic
 
 | Path | Purpose |
 |------|---------|
-| `docs/index.md` | Home (incl. appname) |
-| `docs/read/` | Read / search hub + unified topic pages |
-| `docs/read/resources/` | Resources and fields |
-| `docs/read/response.md` | Response, limits, errors, slim/verbose |
-| `docs/publish/` | Publish hub + setup, methods, and content types |
-| `docs/faq.md` | Site-wide FAQ |
-| `docs/_data/fields/` | Read field tables (YAML) |
-| `docs/_data/publish/` | Publish schema field summaries |
-| `docs/_includes/api-call.html` | Example request component |
-| `docs/_sass/color_schemes/rw.scss` | ReliefWeb color scheme |
-| `docs/_sass/custom/custom.scss` | Fonts, nav, logo title, code blocks, polish |
+| `index.md` | Home (incl. appname) |
+| `read/` | Read / search hub + unified topic pages |
+| `read/resources/` | Resources and fields |
+| `read/response.md` | Response, limits, errors, slim/verbose |
+| `publish/` | Publish hub + setup, methods, and content types |
+| `faq.md` | Site-wide FAQ |
+| `_data/fields/` | Read field tables (YAML) |
+| `_data/publish/` | Publish schema field summaries |
+| `_includes/api-call.html` | Example request component |
+| `_sass/color_schemes/rw.scss` | ReliefWeb color scheme |
+| `_sass/custom/custom.scss` | Fonts, nav, logo title, code blocks, polish |
 
 **Just the Docs note:** `parent` matches page **title** uniquely site-wide. Avoid two different hubs with the same title. Flattening under Read / Publish avoids that clash.
 
@@ -48,18 +48,18 @@ Home covers the shared `appname` credential (`/#appname`). Under each API, topic
 
 | Path | Topic |
 |------|-------|
-| `docs/read/search.md` | Search |
-| `docs/read/filtering.md` | Filter |
-| `docs/read/fields-and-presets.md` | Choose fields (`profile`, `fields`) |
-| `docs/read/sorting-and-pagination.md` | Sort and paginate |
-| `docs/read/facets.md` | Break down results |
-| `docs/read/get-item.md` | Get one item |
-| `docs/read/get-vs-post.md` | GET vs POST |
-| `docs/read/response.md` | Response, limits, and errors |
+| `read/search.md` | Search |
+| `read/filtering.md` | Filter |
+| `read/fields-and-presets.md` | Choose fields (`profile`, `fields`) |
+| `read/sorting-and-pagination.md` | Sort and paginate |
+| `read/facets.md` | Break down results |
+| `read/get-item.md` | Get one item |
+| `read/get-vs-post.md` | GET vs POST |
+| `read/response.md` | Response, limits, and errors |
 
 ### Add a read topic page
 
-Create `docs/read/my-topic.md`:
+Create `read/my-topic.md`:
 
 ```yaml
 ---
@@ -72,7 +72,7 @@ permalink: /read/my-topic/
 
 ### Add a publish page
 
-Create `docs/publish/my-page.md` with `parent: Publish`.
+Create `publish/my-page.md` with `parent: Publish`.
 
 ### Examples
 
@@ -84,13 +84,13 @@ Prefer POST JSON via the include (see existing guides for patterns):
 
 ### Updating fields
 
-Edit YAML under `docs/_data/fields/`. Each resource page under `docs/read/resources/` renders that file via `docs/_includes/fields-table.html`.
+Edit YAML under `_data/fields/`. Each resource page under `read/resources/` renders that file via `_includes/fields-table.html`.
 
 Reconcile against `rwint-api` OpenAPI / Resource PHP / Silk when the API changes. There is no automated sync.
 
 ### Updating Publish schemas
 
-Field data for Publish lives in `docs/_data/publish/{report,job,training}.yml`. The hub summary table uses `docs/_includes/publish-fields.html`; per-field pages use `docs/_includes/publish-field-sections.html`. Each content type has **Fields** and **Examples** child pages under `docs/publish/{jobs,reports,training}/`.
+Field data for Publish lives in `_data/publish/{report,job,training}.yml`. The hub summary table uses `_includes/publish-fields.html`; per-field pages use `_includes/publish-field-sections.html`. Each content type has **Fields** and **Examples** child pages under `publish/{jobs,reports,training}/`.
 
 For nested examples (objects/maps), set `example_json` to a pretty-printed JSON block string. Simple scalars and short arrays can keep `example` (rendered with Liquid `jsonify`, which is compact-only).
 
@@ -98,6 +98,6 @@ Canonical public JSON remains at `https://reliefweb.int/post-api-schemas/v2/`. W
 
 ### Theme
 
-- `docs/_config.yml` sets `remote_theme: just-the-docs/just-the-docs@v0.10.1` and `color_scheme: rw`
-- Brand colors live in `docs/_sass/color_schemes/rw.scss`; fonts/api-call polish in `docs/_sass/custom/custom.scss`
+- `_config.yml` sets `remote_theme: just-the-docs/just-the-docs@v0.10.1` and `color_scheme: rw`
+- Brand colors live in `_sass/color_schemes/rw.scss`; fonts/api-call polish in `_sass/custom/custom.scss`
 - OpenAPI link is in `aux_links`
